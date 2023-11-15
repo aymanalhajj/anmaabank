@@ -1,0 +1,137 @@
+{% extends 'jop/baseall.html'  %} {% load i18n static %} 
+
+  {% load static%}
+
+{% block custom_css %}
+    <link href="{% static 'assets/css/job-style.css'  %}?version=1" rel="stylesheet" />
+    <link href="{% static 'jop/assets/css/w3.css'  %}?version=1" rel="stylesheet" />
+    <link href="{% static 'assets/css/w3.css'  %}?version=1" rel="stylesheet" />
+  {% endblock %}
+{% comment %} {% extends "jop/base.html" %} {% endcomment %}
+  
+  {% block content-section %}
+
+
+
+<section id="job-detail-section" class="job-detail-section">
+        <div class="container ">
+            <header class="section-header">
+                <h2>
+                    
+                    {% block title %}
+                    {% for job in djobs %}
+                {{job.name}}
+                {% endfor %}
+
+                    {% endblock %}</p>
+                {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+            </h2>
+            </header>
+        </div> 
+<div class="job-detail-section-container job-section-container row gy-2">
+       
+
+           
+        {% for job in djobs %}
+        
+                 {% comment %} <div class="">   {% endcomment %}
+        <div class="features-job-box col-lg-2 col-md-2">
+                <div class="container ">
+
+            <h5 class="job-name"> {{job.name}}</h5>
+            <div class="features-list-description">
+                <h6 class="features-list-title"> تفاصيل الوظيفة : </h6>
+                <p class="job-description">{{job.description|safe}}</p>
+            </div>
+            <div class="features-list">
+
+                <div class="features">
+
+                        <h6 class="features-list-title">مهام الوظيفة : </h6>
+                        <ul>
+                            <li>
+                                <span>
+                                    {{job.task|safe}}
+                                </span>
+                            </li>
+                             {% comment %} <li>
+                                <span>
+                                    {{job.task1|safe}}
+                                </span>
+                            </li> {% endcomment %}
+                             {% comment %} <li>
+                                <span>
+                                    {{job.task2|safe}}
+                                </span>
+                            </li> {% endcomment %}
+                             {% comment %} <li>
+                                <span>
+                                    {{job.task3|safe}}
+                                </span>
+                            </li> {% endcomment %}
+                        </ul>
+
+                        {% comment %} <p class="job-description">{{job.task|safe}}</p> {% endcomment %}
+                        {% comment %} <p class="job-description">{{job.task1|safe}}</p> {% endcomment %}
+                        {% comment %} <p class="job-description">{{job.task4|safe}}</p> {% endcomment %}
+                        {% comment %} <p class="job-description">{{job.task3|safe}}</p> {% endcomment %}
+            
+                    </div>
+                    <div class="features">
+                        <h6 class="features-list-title">شروط الوظيفة : </h6>
+                        {% comment %} <p class="job-description">{{job.conditions|safe}}</p> {% endcomment %}
+                        {% comment %} <p class="job-description">{{job.conditions2|safe}}</p> {% endcomment %}
+                        {% comment %} <p class="job-description">{{job.conditions1|safe}}</p> {% endcomment %}
+                        {% comment %} <p class="job-description">{{job.conditions3|safe}}</p> {% endcomment %}
+                        <ul>
+                            <li>
+                                <span>
+                                    {{job.conditions|safe}}
+                                </span>
+                            {% comment %} </li>
+                             <li>
+                                <span>
+                                    {{job.conditions1|safe}}
+                                </span>
+                            </li>
+                             <li>
+                                <span>
+                                    {{job.conditions2|safe}}
+                                </span>
+                            </li> {% endcomment %}
+                             {% comment %} <li>
+                                <span>
+                                    {{job.conditions3|safe}}
+                                </span>
+                            </li> {% endcomment %}
+                        </ul>
+                    </div>
+                </div>
+</div>
+            <a href="{% url 'OrderJob' job.id %} " class="btn btn-primary">قدم على هذه الوظيفة</a>
+
+            </div>
+            
+        </div>
+
+        {% endfor %}
+       
+        {% comment %} </div> {% endcomment %}
+
+    </div>
+    </div>
+</div>
+</div>
+
+</div>
+</section>
+
+
+{% include "jop/about-jobs.html" %}
+
+{% block about-jobs %}
+
+{% endblock about-jobs %}
+
+
+{% endblock %}

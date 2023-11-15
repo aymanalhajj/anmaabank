@@ -1,0 +1,89 @@
+{% extends "jop/cv/basecv.html" %}
+{% load static%}
+{% block custom_css %}
+<link href="{% static 'assets/css/changelists.css'  %}?version=1" rel="stylesheet" />
+
+<link href="{% static 'assets/css/base-table-jop.css'  %}?version=1" rel="stylesheet" />
+<link href="{% static 'assets/css/rtl-jop.css'  %}?version=1" rel="stylesheet" />
+<link href="{% static 'assets/css/responsive-jop.css'  %}?version=1" rel="stylesheet" />
+<link href="{% static 'assets/css/responsive_rtl-jop.css'  %}?version=1" rel="stylesheet" />
+
+{% comment %} changelists.css {% endcomment %}
+{% endblock custom_css %}
+{% block title %}
+الوظائف المقدم فيها
+{% endblock %}
+{% block content_Breadcrumbs %}
+الوظائف المقدم فيها
+{% endblock %}
+{% block body_style %}
+
+
+
+
+{% endblock%}
+
+
+
+
+{% comment %} {% extends "jop/base.html" %} {% endcomment %}
+{% load static%}
+
+{% comment %} {% block content-section %} {% endcomment %}
+{% block content-page %}
+
+<div id="main"  class="col-lg-9">
+  <div>
+
+    <h2> الوظائف المقدم فيها</h2>
+    <div class="module filtered" id="changelist">
+      <div class="changelist-form-container">
+        <div class="results">
+          <table id="result_list">
+            <thead>
+              <tr>
+                <th scope="col" class="sortable column-id">
+                  <div class="text">
+                    <span>
+                      الاسم</span>
+                  </div>
+                </th>
+                <th scope="col" class="sortable column-id">
+                  <div class="text"> <span>الوظيفة</span></div>
+
+                </th>
+                <th scope="col" class="sortable column-id">
+                  <div class="text">
+                    <span>
+                      تاريخ التقدم </span>
+                  </div>
+                </th>
+                <th scope="col" class="sortable column-id">
+                  <div class="text"> <span>
+                      رسالة التقيدم </span></div>
+                </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% csrf_token %}
+              {% for f in job %}
+              <tr>
+                <td>{{f.user.full_name}}</td>
+                <td>{{f.job.name}}</td>
+                <td>{{f.created_at}}</td>
+
+                <td>{{f.oreder_message}}</td>
+
+
+
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

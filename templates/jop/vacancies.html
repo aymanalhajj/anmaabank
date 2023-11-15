@@ -1,0 +1,106 @@
+{% extends 'jop/baseall.html'  %} {% load i18n static %} 
+
+
+
+{% comment %} {% extends "jop/base.html" %} {% endcomment %}
+  {% load static%}
+  
+{% block title %} 
+  الوظائف الشاغرة
+{% endblock %}
+{% block content_Breadcrumbs %}
+          الوظائف الشاغرة
+{% endblock %}
+  {% block content-section %}
+
+  {% comment %} {% if ServiceItem and setting and not setting.is_hidden_services %} {% endcomment %}
+
+  <section class="services-section-jop-home" style="order: 1;">
+    <div class="container">
+      <div class="section-header section-heading text-center">
+        <h2 class="section-title">
+          
+          
+          {% block title-name %}
+          الوظائف الشاغرة
+          {% endblock %}
+        </h2>
+
+        {% comment %} <p>باقة فريدة من الخدمات البنكية المتطورة</p> {% endcomment %}
+      </div>
+    </div>
+    
+    <div class="services-section-container">
+      <div class="container">
+        
+
+        <div class="row gy-3" >
+
+          {% if jobs %}
+          {% for job in jobs %}
+
+          <div class="col-lg-3 col-md-5">
+            <div class="swiper-slide swiper-slide-active">
+             
+                <a href="{% url 'job-singles' job.id %}" class="service-card active">
+                  <div class="service-card-jop-body">
+                   
+                    <div class="service-details">
+                
+                      <h5 class="service-title">
+                  
+                        {{job.name}}             
+                      </h5>
+                      {% comment %} <span class="service-desc">
+                  
+                        {{job.description|safe}}             
+                      </span> {% endcomment %}
+
+                      <p class="service-desc">{{job.type}}</p>
+                      {% comment %} <p >{{job.description}}</p> {% endcomment %}
+                      <p class="service-desc">{{job.created_at}}</p>
+
+                      <div class="btn btn-primary ">عرض تفاصيل أكثر</div>
+
+                    </div>
+                  </div>
+                </a>
+
+              </div>
+
+
+        </div>
+
+        {% endfor %}
+        
+        {% else %}
+          <article class="entry">
+             <center>
+               <h2 class="entry-title">
+              لايوجد وظائف حالياً
+              </h2>
+             </center>
+              
+          </article>
+
+        {% endif %}
+
+
+
+         
+        </div>
+
+      {% comment %} </div> {% endcomment %}
+    </div>
+  </div>
+
+  </section> 
+  {% include "jop/about-jobs.html" %}
+
+{% block about-jobs %}
+
+{% endblock about-jobs %}
+  {% comment %} {% endblock %} {% endcomment %}
+  {% endblock %}
+
+  <!-- ======= Footer ======= -->

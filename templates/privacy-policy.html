@@ -1,0 +1,50 @@
+{% extends 'base/base-blog.html' %} 
+{% load i18n static %}
+{% load static %}
+{% load i18n static %}
+{% comment %} {% block content %} {% endcomment %}
+
+
+
+  {% block content_body %}
+     
+          {% comment %} {% endfor %} {% endcomment %}
+          {% elif application %}
+          <article class="entry">
+              {% include 'section/apps-detial.html' %}
+              {% block app %}
+              {% endblock %}
+          </article>
+
+          {% elif our_advantage     %}
+
+          <article class="entry">
+            {% include 'section/single-custome-section.html' %}
+            {% block ouradvantage %}
+            {% endblock %}
+          </article>
+          {% comment %} {% endif  %} {% endcomment %}
+         {% else %}
+            <article class="entry">
+            <center>
+               <h2 class="entry-title">
+              </h2>
+              <p>
+
+              </p>
+              <h2 class="entry-title">
+              Page not found (404)
+              </h2>
+             </center>
+              {% comment %} <p>There are no books in the library.</p> {% endcomment %}
+            </article><!-- End blog entry -->
+
+        {% endif %}
+
+
+
+
+{% endblock %}
+
+
+

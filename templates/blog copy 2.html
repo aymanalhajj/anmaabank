@@ -1,0 +1,156 @@
+{% extends 'base/base.html' %} {% load i18n static %} {% block content %}
+
+{% load static %}
+{% load i18n static %}
+
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>اخر الاخبار  </li>
+        </ol>
+        <h2>آخر الأخبار</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= آخر الأخبار Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+          {% if blogs %}
+  <!-- code here to list the books -->
+
+          {% for blog in blogs %}
+           {% comment %} {% load to_and %} {% endcomment %}
+
+            <article class="entry">
+
+                <div class="page-cover">
+                {% if blog.image %}
+
+                            <img 
+                            src="{{blog.image.url}}"
+                          class="img-fluid img-flight-schedule"
+                          alt="{{blog.detial_ar}}"
+                            {% comment %} src="{% static 'assets/img/blog/blog-1.jpg'  %}" alt="" class="img-fluid" {% endcomment %}
+                            
+                            >
+              {% endif %}
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html">
+                {% comment %} Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a> {% endcomment %}
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i>
+                   <a href="blog-single.html">{{blog.airline.name}}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> 
+                  <a href="blog-single.html">
+                  <time datetime="2020-01-01">{{blog.date_flight_schedule}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i>
+                   {% comment %} <a href="blog-single.html">12 Comments</a></li> {% endcomment %}
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <p>
+                 {{blog.detial_ar}}
+                </p>
+                <div class="read-more">
+                  {% if blog.image %}
+                    <a href="{% url 'download-file' blog.id %}">تحميل الصورة</a>
+                  {% endif %}
+
+                </div>
+              </div>
+
+            </article><!-- End blog entry -->
+         {% endfor %}
+         {% else %}
+            <article class="entry">
+              <h2 class="entry-title">
+                Page not found (404)
+                </h2>
+              {% comment %} <p>There are no books in the library.</p> {% endcomment %}
+            </article><!-- End blog entry -->
+
+          {% endif %}
+
+            <div class="blog-pagination">
+              <ul class="justify-content-center">
+
+          {% for page_r in paginator.page_range %}
+          {% comment %} <li><a href="?page={{ page_r }}">previous</a></li> {% endcomment %}
+               
+                <li
+                {% if page_r == page %}
+                 class="active"
+                      {% endif %}
+             
+                ><a href="?page={{ page_r }}">{{ page_r }}</a></li>
+
+                {% comment %} <a href="?page={{ page_obj.previous_page_number }}">previous</a> {% endcomment %}
+            {% endfor %}
+             
+            {% comment %} <li class="active"><a href="#">{{ page }} of {{ paginator.num_pages }}</a></li> {% endcomment %}
+
+            {% comment %} {% if paginator.has_next %} {% endcomment %}
+            {% comment %} <li><a href="?page={{ paginator.next_page_number }}">next</a></li> {% endcomment %}
+
+                {% comment %} <a href="?page={{ page_obj.next_page_number }}">next</a> {% endcomment %}
+            {% comment %} {% endif %} {% endcomment %}
+                {% comment %} <li><a href="#">1</a></li> {% endcomment %}
+                {% comment %} <li class="active"><a href="#">2</a></li> {% endcomment %}
+                {% comment %} <li><a href="#">3</a></li> {% endcomment %}
+              </ul>
+            </div>
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4">
+
+            <div class="sidebar">
+
+        
+              <h3 class="sidebar-title">حسب الوسم</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  {% for airline in Airlines %}
+                    <li><a href="??page=1&airline={{ airline.id }}">{{ airline.name }}<span>({{ airline.blogschedule_count }})</span></a></li>
+                  {% endfor %}
+                  {% comment %} <li><a href="#">الخطوط الجوية اليمنية <span>(25)</span></a></li> {% endcomment %}
+                  {% comment %} <li><a href="#">طيران السعيدة <span>(12)</span></a></li> {% endcomment %}
+                  {% comment %} <li><a href="#">طيران الملكة بلقيس <span>(5)</span></a></li> {% endcomment %}
+                  {% comment %} <li><a href="#">Design <span>(22)</span></a></li> {% endcomment %}
+                  {% comment %} <li><a href="#">Creative <span>(8)</span></a></li> {% endcomment %}
+                  {% comment %} <li><a href="#">Educaion <span>(14)</span></a></li> {% endcomment %}
+                </ul>
+              </div><!-- End sidebar categories-->
+
+         
+             
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+<!-- End #main -->
+{% endblock %}

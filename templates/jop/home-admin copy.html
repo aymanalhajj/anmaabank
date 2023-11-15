@@ -1,0 +1,1317 @@
+{% extends 'base/base.html'  %} 
+{% load  static %} 
+{% block script %}
+      <script type="text/javascript" src="/static/selectable/js/jquery.dj.selectable.js"></script>
+      <script src="{% static 'django_select2/django_select2.js'  %}?version=1"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/i18n/ar.js"></script>      {% endblock script %}
+  {% block custom_css %}
+        <link href="{% static 'assets/css/changelists.css'  %}?version=1" rel="stylesheet" />
+        <link href="{% static 'selectable/css/dj.selectable.css'  %}?version=1" type="text/css" media="all" rel="stylesheet">
+        <link href="{% static 'django_select2/django_select2.css'  %}?version=1" media="screen" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/css/select2.min.css" media="screen" rel="stylesheet">
+      <link href="{% static 'assets/css/base-table-jop.css'  %}?version=1" rel="stylesheet" />
+      <link href="{% static 'assets/css/rtl-jop.css'  %}?version=1" rel="stylesheet" />
+      <link href="{% static 'assets/css/responsive-jop.css'  %}?version=1" rel="stylesheet" />
+      <link href="{% static 'assets/css/responsive_rtl-jop.css'  %}?version=1" rel="stylesheet" />
+
+      {% comment %} changelists.css {% endcomment %}
+  {% endblock custom_css %}
+{% load i18n static %} 
+{% comment %} {% extends "jop/base.html" %} {% endcomment %}
+
+{% comment %} {% block content %} {% endcomment %}
+{% comment %} {% endblock %} {% endcomment %}
+
+{% block content %}
+
+<main>
+  {% block breadcrumbs %}
+
+    <!-- ======= Breadcrumbs ======= -->
+ 
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+  
+          <ol>
+            <li><a href="/">الرئيسية</a></li>
+            
+
+            <li>الوظائف</li>
+
+            
+            {% comment %} <li>السياسات</li> {% endcomment %}
+            {% if  title %}    
+       
+            <li>{{ title }} </li>
+       
+          {% elif  titel %}  
+            <li>{{ titel }} </li>
+
+            {% else %}
+            <li>Page not found (404)</li>
+            {% endif  %}
+          </ol>
+          {% if OurAdvantage   %}
+            <h2>{{OurAdvantage.titel|safe}}</h2>
+          {% endif  %}
+          {% if news   %}
+          <h2>{{news.category}}</h2>
+          {% endif  %}
+          {% if privace   %}
+          <h2>سياسة الخصوصية</h2>
+          {% elif policie %}
+            <h2>السياسات</h2>
+          {% endif  %}
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+      {% endblock %}
+  {% comment %} {% if ServiceItem and setting and not setting.is_hidden_services %} {% endcomment %}
+<section  class="jop-admin-section " style="order: 1;">
+   <div class="service-points-page column" id="main">
+    
+      <div id="content-start" class="" tabindex="-1">
+        <div  class="container" >
+         {% load crispy_forms_tags %}
+          <form   method="POST"
+                action="/jobs/admin/"
+                class="search-form">
+                {% if form %}
+                   <label class="">
+                ابحث هنا
+                 </label>
+               
+                             {% csrf_token %} 
+
+                    {% for field in form %}
+                    {% if field.name == "search" %}
+                        <div class="input-group">
+                        {{field|as_crispy_field}}
+                        </div>
+
+                        {% else %}
+                        {% comment %} {% if field.name == "country" %} {% endcomment %}
+                        <div class="input-group">
+                            {{field|as_crispy_field}}
+                            {% comment %} <label class="font-bold">نوع نقطة الخدمة</label> {% endcomment %}
+                        </div>
+                         {% endif %}
+              
+                        {% endfor %}
+                        
+                        <button class="btn-primary" type="submit"><span>بحث</span></button>
+
+                
+              {% endif %}
+                {% comment %} </form> {% endcomment %}
+          </form>
+
+         <!-- Content -->
+         {% comment %} <div id="content" class="container"> {% endcomment %}
+                      </div>
+                      </div>
+
+           
+                  
+                
+           {% if count  %}
+                    <h1>نسبة اكمال البيانات </h1>
+                  <div class="progress progressbar">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ count }}" aria-valuemin="0" aria-valuemax="100"
+                      style="width: {{ count }}%; background:#166BB4;">
+                      {{ count }}% اكتمل
+                    </div>
+                  </div>
+                {% endif %}
+                <br>
+                <br>
+              <div class="p-body">
+        {% if baseinfo %}
+      
+        <div class="user-points-map-details  open">
+        {% else %}
+        <div class="user-points-map-details full-width open">
+            {% endif %}
+         {% comment %} <div class="service-points-map-details full-width open"> {% endcomment %}
+             {% if baseinfo %}
+             {% comment %} {% else %} {% endcomment %}
+                <div id="btn-list-results" class="btn-list-results">
+                    <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.43555 14.9172L8.03555 8.29844L1.43555 1.67969" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>        
+            {% else %}
+            {% endif %}
+            {% comment %} <div id="content-main"> {% endcomment %}
+               <ul class="object-tools">
+                  <li>
+                     <a href="/admin-web/jopapp/jop/add/" class="addlink">
+                     أضــف وظـــائـــف
+                     </a>
+                  </li>
+
+                   <li>
+                     <a href="" class="addlink">
+                     عرض السيرة الذاتية
+                     </a>
+                  </li>
+               </ul>
+
+               <h3 class="map-details-title">
+                
+                
+                عناوين نقاط خدمة بنك إنما
+                <span>
+                
+                 (0)
+                 
+                </span>
+                
+                
+                
+                
+             </h3>
+
+                                {% for user in users_admin %}
+
+                <a href="{% url 'home-jop-manage-admin-detil' user.id %}" >
+                             <div class="service-point-box">
+                
+                                <span class="label">
+                                    {% comment %} وكيل انما اكسبرس {% endcomment %}
+                                
+                                {{ user.full_name}}
+                                    </span>
+                                    <h5 class="point-name">
+                                        {{ user.full_name}} 
+                                        {% comment %} {{ user.address1.street}} {% endcomment %}
+                                    </h5>
+                                    {% if user.address1  %}
+                                    <span class="point-location">
+                                            {{ user.address1.country.name_ar}} 
+                                            -  {{ user.address1.region.name_ar}}
+                                            -  {{ user.address1.street}} 
+                                    </span>
+                                    <span class="point-location">
+                                            {{ user.address_line}} 
+                                    </span>
+                                    
+                                    {% endif %}
+                                <ul class="list-info">
+
+                                        
+                                    <li>
+                                        <span class="point-info-label">أرقام التواصل</span>
+                                        <div class="point-info-box">
+                                        <div class="icon">
+                                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.4367 17.2192C20.4367 17.5492 20.3634 17.8883 20.2075 18.2183C20.0517 18.5483 19.85 18.86 19.5842 19.1533C19.135 19.6483 18.64 20.0058 18.0809 20.235C17.5309 20.4642 16.935 20.5833 16.2934 20.5833C15.3584 20.5833 14.3592 20.3633 13.305 19.9142C12.2509 19.465 11.1967 18.86 10.1517 18.0992C9.09753 17.3292 8.09836 16.4767 7.14503 15.5325C6.20086 14.5792 5.34836 13.58 4.58753 12.535C3.83586 11.49 3.23086 10.445 2.79086 9.40917C2.35086 8.36417 2.13086 7.365 2.13086 6.41167C2.13086 5.78833 2.24086 5.1925 2.46086 4.6425C2.68086 4.08333 3.02919 3.57 3.51503 3.11167C4.10169 2.53417 4.74336 2.25 5.42169 2.25C5.67836 2.25 5.93503 2.305 6.16419 2.415C6.40253 2.525 6.61336 2.69 6.77836 2.92833L8.90503 5.92583C9.07003 6.155 9.18919 6.36583 9.27169 6.5675C9.35419 6.76 9.40003 6.9525 9.40003 7.12667C9.40003 7.34667 9.33586 7.56667 9.20753 7.7775C9.08836 7.98833 8.91419 8.20833 8.69419 8.42833L7.99753 9.1525C7.89669 9.25333 7.85086 9.3725 7.85086 9.51917C7.85086 9.5925 7.86003 9.65667 7.87836 9.73C7.90586 9.80333 7.93336 9.85833 7.95169 9.91333C8.11669 10.2158 8.40086 10.61 8.80419 11.0867C9.21669 11.5633 9.65669 12.0492 10.1334 12.535C10.6284 13.0208 11.105 13.47 11.5909 13.8825C12.0675 14.2858 12.4617 14.5608 12.7734 14.7258C12.8192 14.7442 12.8742 14.7717 12.9384 14.7992C13.0117 14.8267 13.085 14.8358 13.1675 14.8358C13.3234 14.8358 13.4425 14.7808 13.5434 14.68L14.24 13.9925C14.4692 13.7633 14.6892 13.5892 14.9 13.4792C15.1109 13.3508 15.3217 13.2867 15.5509 13.2867C15.725 13.2867 15.9084 13.3233 16.11 13.4058C16.3117 13.4883 16.5225 13.6075 16.7517 13.7633L19.7859 15.9175C20.0242 16.0825 20.1892 16.275 20.29 16.5042C20.3817 16.7333 20.4367 16.9625 20.4367 17.2192Z" stroke="#1D70B8" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                <path d="M17.2557 8.66536C17.2557 8.11536 16.8249 7.27203 16.1832 6.58453C15.5965 5.95203 14.8174 5.45703 14.0474 5.45703" stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M20.464 8.66667C20.464 5.11917 17.5949 2.25 14.0474 2.25" stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                        </div>
+
+                                        <span dir="ltr"><a href="tel:{{user.mobile_number}}">
+                                            {{ user.mobile_number}}
+                                        </a> </span>
+                                         
+                                            </div>
+                                    </li>
+                                  <li>
+                                        <span class="point-info-label">البريد الالكتروني</span>
+                                        <div class="point-info-box">
+                                        <div class="icon">
+                                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.4367 17.2192C20.4367 17.5492 20.3634 17.8883 20.2075 18.2183C20.0517 18.5483 19.85 18.86 19.5842 19.1533C19.135 19.6483 18.64 20.0058 18.0809 20.235C17.5309 20.4642 16.935 20.5833 16.2934 20.5833C15.3584 20.5833 14.3592 20.3633 13.305 19.9142C12.2509 19.465 11.1967 18.86 10.1517 18.0992C9.09753 17.3292 8.09836 16.4767 7.14503 15.5325C6.20086 14.5792 5.34836 13.58 4.58753 12.535C3.83586 11.49 3.23086 10.445 2.79086 9.40917C2.35086 8.36417 2.13086 7.365 2.13086 6.41167C2.13086 5.78833 2.24086 5.1925 2.46086 4.6425C2.68086 4.08333 3.02919 3.57 3.51503 3.11167C4.10169 2.53417 4.74336 2.25 5.42169 2.25C5.67836 2.25 5.93503 2.305 6.16419 2.415C6.40253 2.525 6.61336 2.69 6.77836 2.92833L8.90503 5.92583C9.07003 6.155 9.18919 6.36583 9.27169 6.5675C9.35419 6.76 9.40003 6.9525 9.40003 7.12667C9.40003 7.34667 9.33586 7.56667 9.20753 7.7775C9.08836 7.98833 8.91419 8.20833 8.69419 8.42833L7.99753 9.1525C7.89669 9.25333 7.85086 9.3725 7.85086 9.51917C7.85086 9.5925 7.86003 9.65667 7.87836 9.73C7.90586 9.80333 7.93336 9.85833 7.95169 9.91333C8.11669 10.2158 8.40086 10.61 8.80419 11.0867C9.21669 11.5633 9.65669 12.0492 10.1334 12.535C10.6284 13.0208 11.105 13.47 11.5909 13.8825C12.0675 14.2858 12.4617 14.5608 12.7734 14.7258C12.8192 14.7442 12.8742 14.7717 12.9384 14.7992C13.0117 14.8267 13.085 14.8358 13.1675 14.8358C13.3234 14.8358 13.4425 14.7808 13.5434 14.68L14.24 13.9925C14.4692 13.7633 14.6892 13.5892 14.9 13.4792C15.1109 13.3508 15.3217 13.2867 15.5509 13.2867C15.725 13.2867 15.9084 13.3233 16.11 13.4058C16.3117 13.4883 16.5225 13.6075 16.7517 13.7633L19.7859 15.9175C20.0242 16.0825 20.1892 16.275 20.29 16.5042C20.3817 16.7333 20.4367 16.9625 20.4367 17.2192Z" stroke="#1D70B8" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                <path d="M17.2557 8.66536C17.2557 8.11536 16.8249 7.27203 16.1832 6.58453C15.5965 5.95203 14.8174 5.45703 14.0474 5.45703" stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M20.464 8.66667C20.464 5.11917 17.5949 2.25 14.0474 2.25" stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                        </div>
+
+                                        
+                                          <span dir="ltr"><a href="tel:{{user.email}}">
+                                            {{ user.email}}
+                                        </a> </span>
+                                            </div>
+                                    </li>
+                                    <li>
+                                        <span class="point-info-label">بيانات الاساسية</span>
+                                        {% comment %} {% for f in user.TrainingCoursesRegister.all %} {% endcomment %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="">
+                                                            {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span><span dir="">
+                                                             <span class='point-info-label'>
+                اسم المستخدم:  </span>
+
+                                                             <span> {{user.username}}</span>
+                                                               <br>
+
+                           <span class='point-info-label'>
+               الاسم الكامل :  </span>
+
+                                                             <span> {{user.full_name}}</span>
+                                                               <br>
+                                                              <span class='point-info-label'> البريد الإلكتروني:  </span>
+
+                                                             <span> {{user.email}}</span>
+                                                               <br>
+                                                            <span class='point-info-label'> المدينة :  </span>
+
+                                                            <span> {{user.governorate}}</span>
+                                                            <br>
+                                                            <span class='point-info-label'> العنوان :  </span>
+
+                                                            <span> {{user.address}}</span>
+                                                            <br>
+
+                                                            
+                                                            
+                                                            <span class='point-info-label'> العزلة :  </span>
+
+                                                            <span> {{user.village}}</span>
+                                                            <br>
+                                                            <span class='point-info-label'> رقم البطاقة :  </span>
+
+                                                            <span> {{user.idnumber}}</span>
+                                                            <br>
+                                                            <span class='point-info-label'> تاريخ الإصدار :  </span>
+
+                                                            <span> {{user.Release_date}}</span>
+                                                            <br>
+                                                            <span class='point-info-label'> تاريخ الميلاد :  </span>
+
+                                                            <span> {{user.date_birth}}</span>
+                                                            <br>
+                                                            <span class='point-info-label'> مكان الإصدار :  </span>
+
+                                                            <span> {{user.place_issue}}</span>
+                                                            <br>
+                                                            <span class='point-info-label'> مكان الميلاد :  </span>
+
+                                                            <span> {{user.place_birth}}</span>
+                                                            <br>
+                                                            <span class='point-info-label'> الحالة الاجتماعية :  </span>
+
+                                                            <span> {{user.marital_status}}</span>
+                                                            <br>
+                                                            <span class='point-info-label'> عدد من يعولهم  :  </span>
+
+                                                            <span> {{user.number_childer}}</span>
+                                                            <br>
+                                                            <span class='point-info-label'> العنوان الحالي :  </span>
+
+                                                            <span> {{user.current_address}}</span>
+                                                            <br>
+                                                            <span class='point-info-label'> عنوان السكن الدائم :  </span>
+
+                                                            <span> {{user.permanent_address}}</span>
+                                                            <br>
+                                                            <span class='point-info-label'>  رقم التلفون :  </span>
+
+                                                            <span> {{user.mobile_number}}</span>
+                                                            <br>
+
+                                                            <span class='point-info-label'>  رقم الواتساب :  </span>
+
+                                                            <span> {{user.number_whatsapp}}</span>
+                                                            <br>
+
+                                                            <span class='point-info-label'>  صفحة الفيسبوك :  </span>
+
+                                                            <span> <a target="_blank"  href"{{user.link_facebook}}">{{user.link_facebook}}</a></span>
+                                                            <br>
+                                                            <span class='point-info-label'>   منصة x :  </span>
+
+                                                            <span> <a target="_blank"  href"{{user.link_twiter}}">{{user.link_twiter}}</a></span>
+                                                            <br>
+
+
+                                                            <span class='point-info-label'>   انستجرام:  </span>
+
+                                                            <span> <a target="_blank"  href"{{user.link_instigrem}}">{{user.link_instigrem}}</a></span>
+                                                            <br>
+                                                            <span class='point-info-label'>   تاريخ انشاء الحساب :  </span>
+
+                                                            <span> {{user.created_at}}</span>
+                                                            <br>
+
+
+
+                              
+
+                                                            
+                                                            <span class='point-info-label'>   السيرة الذاتية :  </span>
+
+                                                            <span> {{user.cv_dispaly|safe}}</span>
+                                                            <br>
+
+
+                                                            <span class='point-info-label'>  رقم التلفون :  </span>
+
+                                                            <span> {{user.mobile_number}}</span>
+                                                            <br>
+                
+
+                                                            
+                                                     
+                                                  
+                                                      
+                                                  
+                                                              {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span></div>
+                                                  </div>
+                                            </div>
+
+
+                                          {% comment %} {% endfor %} {% endcomment %}
+                                      
+                                          
+                                        
+                                    </li>
+                                    <li>
+                                        <span class="point-info-label">بيانات عامة</span>
+                                        {% for f in user.GeneralDataRegister.all %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="">
+                                                            {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span><span dir="">
+                                                             <span class='point-info-label'>هل تعمل في البنك:  </span>
+
+                                                             <span> {{f.work_bank}}</span>
+                                                               <br>
+                                                      <span class='point-info-label'> هل تريد استقبال بريد إلكتروني من البنك : :  </span>
+                                                             <span>{{f.receive_email}}</span>
+                                                             <br>
+                                                    
+                                                    <span class='point-info-label'>هل قدمت ملفك للخدمة المدنية؟:  </span>
+                                                    <span>
+                                                          {{f.file_civil_service}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'>هل قدمت ملفك للخدمة المدنية؟:  </span>
+                                                    <span>
+                                                          {{f.file_civil_service}}
+                                                    </span>
+                                                    <br>
+                                                      
+                                                      <span class='point-info-label'>ما هي المدة التي تفكر في قضائها بالعمل لدينا؟ :   </span>
+                                                    <span>{{f.spend_working}}</span>
+                                                    <br>
+                                                        <span class='point-info-label'>
+                                                           شراء فيزا للعمل في الخارج   
+                                                        </span>
+                                                        <span>{{f.purchasing_visa}}</span>
+                                                        <br>
+
+
+                                                        <span class='point-info-label'>
+                                                             السفر في إطار العمل إذا تطلب الأمر
+                                                        </span>
+                                                        <span>{{f.traveling}}</span>
+                                                        <br>
+
+                                                         <span class='point-info-label'>
+                                                          الدرسة حاليا في معهد أو جامعة
+                                                        </span>
+                                                        <span>{{f.currently_studying}}</span>
+                                                        <br>
+
+                                                        <span class='point-info-label'>
+                                                         استعداده العمل ليلاً ؟
+                                                        </span>
+                                                        <span>{{f.work_night}}</span>
+                                                        <br>
+
+
+                                                        <span class='point-info-label'>
+                                                          بدء بالعمل ؟
+                                                        </span>
+                                                        <span>{{f.start_working}}</span>
+                                                        <br>
+
+
+
+                                                        <span class='point-info-label'>
+                                                              المشاكل صحية :
+                                                        </span>
+                                                        <span>{{f.health_problems}}</span>
+                                                        <br>
+
+
+
+                                                        <span class='point-info-label'>
+                                                          الهوايات :
+                                                        </span>
+                                                        <span>{{f.hobbies}}</span>
+                                                        <br>
+
+
+
+                                                        <span class='point-info-label'>
+                                                        اقرب شخص له
+                                                        </span>
+                                                        <span>{{f.person_closest}}</span>
+                                                        <br>
+
+
+
+                                                        <span class='point-info-label'>
+                                                           رقم تلفون اقرب شخص له
+                                                        </span>
+                                                        <span>{{f.person_closest_Phone}}</span>
+                                                        <br>
+
+
+
+                                                        <span class='point-info-label'>
+                                                            صلة القرابة
+                                                        </span>
+                                                        <span>{{f.relative_relation}}</span>
+                                                        <br>
+
+
+                                                       
+
+
+                                                        <span class='point-info-label'>
+                                                        عنوان اقرب شخص
+                                                        </span>
+                                                        <span>{{f.person_closest_address}}</span>
+                                                        <br>
+
+                                                         <span class='point-info-label'>
+                                                         اسم عدل القرية / عاقل الحارة
+                                                        </span>
+                                                        <span>{{f.name_village_justice}}</span>
+                                                        <br>
+
+                                                        <span class='point-info-label'>
+                                                          رقم تلفون  عدل القرية / عاقل الحارة :
+                                                        </span>
+                                                        <span>{{f.village_justice_Telephon}}</span>
+                                                        <br>
+                                                        <span class='point-info-label'>
+                                                           عنوان  عدل القرية / عاقل الحارة :
+                                                        </span>
+                                                        <span>{{f.village_justice_address}}</span>
+                                                        <br>
+
+
+                                                        <span class='point-info-label'>
+                                                           إدرة عمل خاص
+                                                        </span>
+                                                        <span>{{f.manage_business}}</span>
+                                                        <br>
+
+                                                        <span class='point-info-label'>
+                                                           جاهزية العمل
+                                                        </span>
+                                                        <span>{{f.ready_work}}</span>
+                                                        <br>
+                                                        <span class='point-info-label'>
+                                                           تفضيل الوظائف الحكومية
+                                                        </span>
+                                                        <span>{{f.government_job}}</span>
+                                                        <br>
+                                                        
+                                                        <span class='point-info-label'>
+                                                           مصدر الدخل المالي
+                                                        </span>
+                                                        <span>{{f.source_financial_income}}</span>
+                                                        <br>
+
+                                                        <span class='point-info-label'>
+                                                          اتقن مهارة اللغة الانجليزية
+                                                        </span>
+                                                        <span>{{f.proficient_English}}</span>
+                                                        <br>
+
+                                                        <span class='point-info-label'>
+                                                           الامراض الصحية 
+                                                        </span>
+                                                        <span>{{f.have_illness}}</span>
+                                                        <br>
+                                                         
+                                                        <span class='point-info-label'>
+                                                           أدنى راتب يقبله
+                                                        </span>
+                                                        <span>{{f.lowest_salary}}</span>
+                                                        <br>
+                                                        <span class='point-info-label'>
+                                                           أاستلام الشهادة
+                                                        </span>
+                                                        <span>{{f.graduation_certificate}}</span>
+                                                        <br>
+
+                                                           <span class='point-info-label'>الشهادة :  </span>
+                                                    <span>{{f.graduation_certificate_dispaly|safe}}</span>
+                                                    <br>
+                                                        
+                                  
+                                                              {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span></div>
+                                                  </div>
+                                            </div>
+
+
+                                          {% endfor %}
+                                      
+                                          
+                                        
+                                    </li>
+                                    <li>
+                                        <span class="point-info-label">  مجال العمل </span>
+                                        {% for f in user.EmploymentRegister.all %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="">
+                                                          </span><span dir="">
+                                                             <span class='point-info-label'>الاسم  :  </span>
+
+                                                             <span> {{f.name}}</span>
+                                                               <br>
+                                                      
+                                                      
+                                            
+                                  
+                                                              {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span></div>
+                                                  </div>
+                                            </div>
+
+
+                                          {% endfor %}
+                                      
+                                          
+                                        
+                                    </li>
+
+                                    <li>
+                                        <span class="point-info-label">   الدورات التدربية </span>
+                                        {% for f in user.TrainingCoursesRegister.all %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="">
+                                                            {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span><span dir="">
+                                                             <span class='point-info-label'>الاسم  :  </span>
+
+                                                             <span> {{f.name}}</span>
+                                                               <br>
+                                                      
+                                                      
+                                            
+                                  
+                                                              {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span></div>
+                                                  </div>
+                                            </div>
+
+
+                                          {% endfor %}
+                                      
+                                          
+                                        
+                                    </li>
+                                    <li>
+                                        <span class="point-info-label"> الوظائف المقدم بها</span>
+                                        {% for f in user.oreder_Jobs_user.all %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="rtl">
+                                                      {% comment %} <tr> {% endcomment %}
+                                                        <span class='point-info-label'>الوظيفة:  </span>
+                                                        {% comment %} <span>{{f.user.full_name}}</span> {% endcomment %}
+                                                        <span>{{f.job.name}}</span>
+                                                         <br>
+
+                                                        <span class='point-info-label'>تاريخ التقديم:  </span>
+
+                                                        <span>{{f.created_at}}</span>
+                                                         <br>
+                                                        <span class='point-info-label'>الرسالة التقيدم:  </span>
+                                                        <span>{{f.oreder_message}}</span>
+                                                         <br>
+                                                      {% comment %} </tr> {% endcomment %}
+                                                      </span>
+                                                  </div>
+                                            </div>
+                                            </div>
+
+
+                                          {% endfor %}
+                                      
+                                          
+                                        
+                                    </li>
+                                          <li>
+                                        <span class="point-info-label">مهارات اللغة</span>
+                                        {% for f in user.LanguageSkillRegister.all %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="">
+                                                            {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span><span dir="">
+                                                             <span class='point-info-label'> اللغة :  </span>
+
+                                                             <span>   
+                                                              {% if f.name_language %}
+                                                          {{f.name_language}}
+                                                          {% else %}
+                                                          {{f.otharـname_language}}
+                                                          {% endif %} </span>
+                                                               <br>
+                                                      <span class='point-info-label'>القراءة :  </span>
+                                                             <span>{{f.reading}}</span>
+                                                             <br>
+                                                    <span class='point-info-label'>الكتابة :  </span>
+                                                    <span>{{f.writing}}</span>
+                                                      <br>
+                                                    <span class='point-info-label'>المحادثات :  </span>
+                                                    <span>
+                                                        {{f.conversation}}
+
+                                                    </span>
+                                                    
+                                  
+                                                              {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span></div>
+                                                  </div>
+                                            </div>
+
+
+                                          {% endfor %}
+                                      
+                                          
+                                        
+                                    </li>
+                                    <li>
+                                        <span class="point-info-label">مهارات الحاسب</span>
+                                        {% for f in user.ComputerSkillRegister.all %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="">
+                                                            {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span><span dir="">
+                                                            <span class='point-info-label'> اللغة :  </span>
+
+                                                            <span>
+                                                                {{f.name}}
+                                                            </span>  
+                                                              {% comment %} {% if f.name_language %} {% endcomment %}
+                                                        
+                                                               <br>
+                                                            <span class='point-info-label'>المستوى :  </span>
+                                                            <span>{{f.level}}</span>
+                                                             <br>
+                                                   
+                                                   
+                                                    
+                                  
+                                                              {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span></div>
+                                                  </div>
+                                            </div>
+
+
+                                          {% endfor %}
+                                      
+                                          
+                                        
+                                    </li>
+                                      <li>
+                                        <span class="point-info-label">الدرجات العلمية</span>
+                                        {% for f in user.EducationRegister.all %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="">
+                                                            {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span><span dir="">
+                                                             <span class='point-info-label'>المؤسسة التعليمية :  </span>
+
+                                                             <span> {{f.name_educational_institution}}</span>
+                                                               <br>
+                                                      <span class='point-info-label'>الدولة :  </span>
+                                                             <span>{{f.country}}</span>
+                                                             <br>
+                                                    <span class='point-info-label'>المستوى :  </span>
+                                                    <span>{{f.sducation_level}}</span>
+                                                      <br>
+                                                    <span class='point-info-label'>التخصص :  </span>
+                                                    <span>
+                                                          {% if f.specialization %}
+                                                          {{f.specialization}}
+                                                          {% else %}
+                                                          {{f.othar_specialization}}
+                                                          {% endif %}
+
+                                                    </span>
+                                                    <br>
+                                                       <span class='point-info-label'>الشهادة :  </span>
+                                                    <span>{{f.cv_dispaly|safe}}</span>
+                                                    <br>
+                                                       <span class='point-info-label'>المعدل :  </span>
+                                                    <span>{{f.rate}}</span>
+                                                     <br>
+                                                       <span class='point-info-label'>من تاريخ :  </span>
+                                                    <span>{{f.From_Date}}</span>
+                                                    <br>
+                                                       <span class='point-info-label'>الى تاريخ :  </span>
+                                                    <span>{{f.To_date}}</span>
+                                  
+                                                              {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span></div>
+                                                  </div>
+                                            </div>
+
+
+                                          {% endfor %}
+                                      
+                                          
+                                        
+                                    </li>
+                                    <li>
+                                        <span class="point-info-label">الكورسات التعليمية</span>
+                                        {% for f in user.TrainingCoursesRegister.all %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="">
+                                                            {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span><span dir="">
+                                                             <span class='point-info-label'>المؤسسة التعليمية :  </span>
+
+                                                             <span> {{f.name_institute}}</span>
+                                                               <br>
+                                                      <span class='point-info-label'>الدولة :  </span>
+                                                             <span>{{f.country}}</span>
+                                                             <br>
+                                                    
+                                                    <span class='point-info-label'>اسم الدورة :  </span>
+                                                    <span>
+                                                          {{f.name_courses}}
+                                                    </span>
+                                                    <br>
+                                                      
+                                                      <span class='point-info-label'>من تاريخ :  </span>
+                                                    <span>{{f.From_Date}}</span>
+                                                    <br>
+                                                       <span class='point-info-label'>الى تاريخ :  </span>
+                                                    <span>{{f.To_date}}</span>
+                                  
+                                                              {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span></div>
+                                                  </div>
+                                            </div>
+
+
+                                          {% endfor %}
+                                      
+                                          
+                                        
+                                    </li>
+
+
+                                    <li>
+                                        <span class="point-info-label">الخبرات</span>
+                                        {% for f in user.ExperienceRegister.all %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="">
+                                                            {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span><span dir="">
+                                                             <span class='point-info-label'>اسم الشركة/المؤسسة :  </span>
+
+                                                             <span> {{f.name_word}}</span>
+                                                               <br>
+                                                      
+                                                    
+                                                    <span class='point-info-label'> اسم المتجر/المكان :  </span>
+                                                    <span>
+                                                          {{f.name_shop}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'> اسم صاحب المحل :  </span>
+                                                    <span>
+                                                          {{f.name_owner}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'> اسم صاحب المحل :  </span>
+                                                    <span>
+                                                          {{f.name_owner}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'> العنوان :  </span>
+                                                    <span>
+                                                          {{f.address}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'> رقم جوال العمل :  </span>
+                                                    <span>
+                                                          {{f.mobile}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'> المهام :  </span>
+                                                    <span>
+                                                          {{f.task}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'> المسمى الوظيفي (بداية) :  </span>
+                                                    <span>
+                                                          {{f.name_job_start}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'> المسمى الوظيفي (النهاية)  :  </span>
+                                                    <span>
+                                                          {{f.name_job_end}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'> الراتب (بداية) :  </span>
+                                                    <span>
+                                                          {{f.salary_start}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'> الراتب (النهاية) :  </span>
+                                                    <span>
+                                                          {{f.salary_end}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'>  ساعات العمل :  </span>
+                                                    <span>
+                                                          {{f.working_hours}}
+                                                    </span>
+                                                    <br>
+                                                    <span class='point-info-label'>  سبب مغادرة الوظيفة  :  </span>
+                                                    <span>
+                                                          {{f.resson_leaving}}
+                                                    </span>
+                                                    <br>
+                                                    
+                                                      <span class='point-info-label'>من تاريخ :  </span>
+                                                    <span>{{f.From_Date}}</span>
+                                                    <br>
+                                                       <span class='point-info-label'>الى تاريخ :  </span>
+                                                    <span>{{f.To_date}}</span>
+                                  
+                                                              {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span></div>
+                                                  </div>
+                                            </div>
+
+
+                                          {% endfor %}
+                                      
+                                          
+                                        
+                                    </li>
+
+                                    <li>
+                                        <span class="point-info-label">الدورات التدريبية </span>
+                                        {% for f in user.TrainingCoursesRegister.all %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="">
+                                                            {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span><span dir="">
+                                                             <span class='point-info-label'>المؤسسة التعليمية :  </span>
+
+                                                             <span> {{f.name_institute}}</span>
+                                                               <br>
+                                                      <span class='point-info-label'>الدولة :  </span>
+                                                             <span>{{f.country}}</span>
+                                                             <br>
+                                                    
+                                                    <span class='point-info-label'>اسم الدورة :  </span>
+                                                    <span>
+                                                          {{f.name_courses}}
+                                                    </span>
+                                                    <br>
+                                                      
+                                                      <span class='point-info-label'>من تاريخ :  </span>
+                                                    <span>{{f.From_Date}}</span>
+                                                    <br>
+                                                       <span class='point-info-label'>الى تاريخ :  </span>
+                                                    <span>{{f.To_date}}</span>
+                                  
+                                                              {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span></div>
+                                                  </div>
+                                            </div>
+
+
+                                          {% endfor %}
+                                      
+                                          
+                                        
+                                    </li>
+
+                                    <li>
+                                        <span class="point-info-label">معرفين من البنك</span>
+                                        {% for f in user.BankKonownRegister.all %}
+                                              
+                                          
+
+                                            <div class="point-info-box-time">
+                                                  <div class="working-time">
+                                                    
+                                                    
+                                                      <div class="working-time-data"><span dir="">
+                                                            {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span><span dir="">
+                                                             <span class='point-info-label'> الاسم :  </span>
+
+                                                             <span> {{f.name}}</span>
+                                                               <br>
+                                                      <span class='point-info-label'>صلة القرابة :  </span>
+                                                             <span>{{f.relative}}</span>
+                                                             <br>
+                                                    
+                                                    <span class='point-info-label'>جهة العمل  :  </span>
+                                                    <span>
+                                                          {{f.working}}
+                                                    </span>
+                                                    <br>
+                                                      
+                                                      <span class='point-info-label'> العنوان :  </span>
+                                                    <span>{{f.address}}</span>
+                                                    <br>
+
+                                                  
+
+
+                                                       <span class='point-info-label'>رقم الهاتف  :  </span>
+                                                    <span>{{f.mobile}}</span>
+                                  
+                                                              {% comment %} {{job.job.name}} {% endcomment %}
+                                                          </span></div>
+                                                  </div>
+                                            </div>
+
+
+                                          {% endfor %}
+                                      
+                                          
+                                        
+                                    </li>
+                            
+                                </ul>
+                                {% if count %}
+                                
+                                {% else %}
+                                  <a class="btn full-width-button" href="{% url 'home-jop-manage-admin-detil' user.id %}"><span>عرض التفاصيل</span></a>
+
+                                {% endif %}
+
+                            </div>
+                           </a>
+                      {% endfor %}
+                </div>
+
+             
+
+                
+               <div class="module filtered" id="changelist">
+                 
+                  <div class="changelist-form-container">
+                     <div id="changelist-form">
+                        {% comment %} <input type="hidden" name="csrfmiddlewaretoken" value="N5dvBGPTj8O3WvPqCszuSYZc9BrhR6wM7Os3WMblWIbyhM83gUdeNmtdBp1a6qab"> {% endcomment %}
+                        <div class="results">
+                           <table id="result_list">
+                              <thead>
+                                 <tr>
+                                    <th scope="col" class="sortable column-id">
+                                       <div class="text"><a href="?o=0">نسبة البيانات</a></div>
+                                       <div class="clear"></div>
+                                    </th>
+                                    <th scope="col" class="sortable column-id">
+                                       <div class="text"><a href="?o=0">ID</a></div>
+                                       <div class="clear"></div>
+                                    </th>
+                                    <th scope="col" class="sortable column-youtube_url">
+                                       <div class="text"><a href="?o=2">عدد الوظائف المقدم بها</a></div>
+                                       <div class="clear"></div>
+                                    </th>
+                                    <th scope="col" class="sortable column-footer">
+                                       <div class="text"><a href="?o=1">الوظائف المقدمة من قبل المستخدم  </a></div>
+                                       <div class="clear"></div>
+                                    </th>
+                                    
+                                    <th scope="col" class="sortable column-youtube_url">
+                                       <div class="text"><a href="?o=2">هل تم اضافة مهارات</a></div>
+                                       <div class="clear"></div>
+                                    </th>
+                                    <th scope="col" class="sortable column-facebook">
+                                       <div class="text"><a href="?o=3">هل تم اضافة خبرات</a></div>
+                                    </th>
+                                    <th scope="col" class="sortable column-telegram">
+                                       <div class="text"><a href="?o=4">
+                                        هل تم اضافة تعليم
+                                       </a></div>
+                                    </th>
+                                    
+                                 </tr>
+                              </thead>
+                              <tbody>
+
+                                
+
+                                {% for user in users_admin %}
+                                      <tr>
+                                          <th class="field-id">
+                                            <a href="?user={{user.id}}">{{user.id}}</a>
+                                          </th>
+                                          <th class="field-id">
+                                            <a href="?user={{user.id}}">{{user.id}}</a>
+                                          </th>
+                                          <th class="field-id">
+                                             <a href="?user={{user.id}}">{{user.oreder_Jobs_user.all.count}}</a>
+                                          </th>
+
+                                          <td class="field-more-line">
+                                            {% comment %} جميع الحقوق محفوظة © لـ بنك الإنماء للتمويل الأصغر الإسلامي 2023 {% endcomment %}
+                                           {% for job in user.oreder_Jobs_user.all %}
+                                              
+                                             <a href="?user={{user.id}}">   
+                                              {{job.id}} 
+                                              <span>
+                                               {{job.job.name}}
+                                             </span>
+                                             </a>
+                                          {% endfor %}
+                                          </td>
+                                          <td class="field-more-line">
+                                            {% if user.oreder_Jobs_user.all %}
+                                            نعم
+                                            {% else %}
+                                            لا
+                                            {% endif %}
+                                            
+                                          </td>
+                                          <td class="field-more-line">
+                                            {% if user.oreder_Jobs_user.all %}
+                                            نعم
+                                            {% else %}
+                                            لا
+                                            {% endif %}
+                                          </td>
+                                          <td class="field-telegram">
+                                            {% if user.EducationRegister.all %}
+                                            نعم
+                                            {% else %}
+                                            لا
+                                            {% endif %}
+                                          </td>
+                                        
+                                      </tr>
+                                {% endfor %}
+
+                              </tbody>
+                           </table>
+                        </div>
+                        <div class="results">
+                            <h1>الوظائف المقدم بها</h1>
+                          <table id="result_list">
+                                <thead>
+                                  <tr>
+                                      <th scope="col" class="sortable column-id">
+                                        <div class="text"><a href="?o=0">نسبة البيانات</a></div>
+                                        <div class="clear"></div>
+                                      </th>
+                                        <th scope="col" class="sortable column-id">
+                                        <div class="text"><a href="?o=0">ID</a></div>
+                                        <div class="clear"></div>
+                                      </th>
+                                        <th scope="col" class="sortable column-id">
+                                        <div class="text"><a href="?o=0">ID</a></div>
+                                        <div class="clear"></div>
+                                      </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                      <th class="field-id">
+                                              <a href="">100٪</a>
+                                      </th>
+                                      <th class="field-id">
+                                              <a href="">100٪</a>
+                                            </th>
+                                      <th class="field-id">
+                                        <a href="">100٪</a>
+                                      </th>
+                                    </tr>
+                                </tbody>
+                          </table>
+                        </div>
+
+                        {% if education_admin %}
+   
+                          <div class="results">
+                              <h1> الدرجات العلمية</h1>
+
+                            <table id="result_list">
+                              <thead>
+                                <tr>
+                                  <th>اسم المؤسسة التعليمية</th>
+                                  <th>البلد</th>
+                                  <th>المستوى التعليمي</th>
+                                  <th>التخصص</th>
+                                  <th>المعدل</th>
+                                  <th>من تاريخ:</th>
+                                  <th>إلى تاريخ</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                                {% for f in education_admin %}
+                                <tr>
+                                  <td> {{f.name_educational_institution}}</td>
+                                  <td>{{f.country}}</td>
+                                  <td>{{f.sducation_level}}</td>
+                                  <td>
+                                        {% if f.specialization %}
+                                        {{f.specialization}}
+                                        {% else %}
+                                        {{f.othar_specialization}}
+                                        {% endif %}
+
+                                  </td>
+                                  <td>{{f.rate}}</td>
+                                  <td>{{f.From_Date}}</td>
+                                  <td>{{f.To_date}}</td>
+                                  
+                                </tr>
+                                {% endfor %}
+                              </tbody>
+                            </table>
+                          </div>
+                      {% endif %}
+
+
+                        {% if job_offred %}
+    
+                        <h1> الوظائف المقدم فيها</h1>
+
+                        <div class="results">
+                          <table id="result_list">
+                            <thead>
+                              <tr>
+                                <th scope="col" class="sortable column-id">
+                                        <div class="text">
+                                           <span>
+                                          الاسم</span></div>
+                                </th>
+                                <th scope="col" class="sortable column-id">
+                                        <div class="text"> <span>الوظيفة</span></div>
+
+                                </th>
+                                <th scope="col" class="sortable column-id">
+                                        <div class="text">
+                                          <span>
+                                          تاريخ التقدم  </span></div>
+                                </th>
+                                 <th scope="col" class="sortable column-id">
+                                        <div class="text"> <span>
+                                           رسالة التقيدم </span></div>
+                                </th>
+                                 
+                                 
+                                
+                               
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% csrf_token %}
+                              {% for f in job_offred %}
+                              <tr>
+                                <td>{{f.user.full_name}}</td>
+                                <td>{{f.job.name}}</td>
+                                <td>{{f.created_at}}</td>
+
+                                <td>{{f.oreder_message}}</td>
+                              </tr>
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                        </div>
+                    {% endif %}
+                       
+                      </div>
+                  </div>
+                 
+               </div>
+            </div>
+            <br class="clear">
+         </div>
+       
+      </div>
+   </div>
+</section>
+
+</main> 
+
+  {% comment %} {% endblock %} {% endcomment %}
+  {% endblock %}
+
+  <!-- ======= Footer ======= -->

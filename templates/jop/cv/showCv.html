@@ -1,0 +1,618 @@
+<html dir="rtl">
+{% load static%}
+<title>انشاء حساب</title>
+<meta content="" name="description">
+<meta content="" name="keywords">
+
+<head>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        .personal_info h3 {
+            padding-bottom: 20px;
+            padding: 10px;
+            background: #A3A2A2;
+            width: 235px;
+            text-align: center;
+            color: #000;
+            position: relative;
+            bottom: -33px;
+
+                {
+                % comment %
+            }
+
+            right: 15px;
+
+                {
+                % endcomment %
+            }
+
+            font-size: 18px;
+        }
+
+        #main {
+            background-color: #ffffff;
+            padding-top: 15px;
+            padding-bottom: 15px
+        }
+
+        .personal_info .cv_report {
+            border: 1px solid #ccc;
+            padding: 2%;
+            box-sizing: border-box;
+            padding-top: 35px;
+        }
+
+        .personal_info .cv_report.qulfy li {
+            float: right;
+            width: 50%;
+        }
+
+        .personal_info .cv_report li {
+            list-style: none;
+        }
+
+        .container {
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        #header #logo {
+            display: block;
+            float: right;
+            margin-left: 20px;
+            width: 100%;
+            height: 100px;
+        }
+
+        a {
+            color: #625484;
+            text-decoration: none;
+        }
+
+        a {
+            background-color: transparent;
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        user agent stylesheet a:-webkit-any-link {
+            color: -webkit-link;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            font-family: 'D-regular';
+            direction: rtl;
+            background-color: #e3e3e3;
+            line-height: 2;
+            color: #544264;
+        }
+
+        .btnm {
+            position: absolute;
+            margin-right: -170px;
+            margin-top: 400px;
+
+        }
+
+        body {
+            direction: rtl;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: #fff;
+        }
+
+        html {
+            direction: rtl;
+        }
+
+        html {
+            font-size: 18px;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        html {
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        *:before,
+        *:after {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        *:before,
+        *:after {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        #header #logo img {
+            width: 100%;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        #header {
+            background: url('assets/img/logo2.jpg') #fff repeat-x left top;
+            border-bottom: 1px solid #cdcdcd;
+        }
+
+        .print-icon {
+            font-size: 20px;
+            /* Adjust the size as needed */
+            color: #007bff;
+            /* Adjust the color as needed */
+            margin-right: 5px;
+            /* Adjust the spacing as needed */
+        }
+    </style>
+
+    <!-- Favicons -->
+    <link href="{% static 'jop/assets/img/logo2.jpg' %}" rel="icon">
+    <link href="{% static 'jop/assets/img/logo2.jpg' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    {% comment %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    {% endcomment %}
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'jop/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/theme/standard/style.css" rel="stylesheet' %}" type="text/css" />
+
+</head>
+
+<body style="background:#e1e2e487">
+    {% comment %} <div id="header" class=""> {% endcomment %}
+        <div style="width:100%; heading:200px;" class="">
+            <!-- Your content here -->
+            <img src="{% static 'jop/assets/img/header.jpg' %}" class="" width="100%" heading="150px" />
+
+        </div>
+    </div>
+
+
+    <div class="container" style="margin-top:0px">
+        <div class="row">
+            <div class="print_container">
+
+
+
+
+            </div>
+            <div id="main" class="col-lg-9" style="margin: auto;float: none;">
+                <div id="carousel-example-generic" class="slide">
+                    <div class="slide-inner" role="listbox">
+                        <div class="item active">
+                            <button class="btnm">
+                                <a class="print" href="javascript:window.print()">
+                                    <span class="print-icon" aria-hidden="true">&#x1F5A8;
+                                    </span>
+
+                                    <!-- Printer icon -->
+                                    طباعة التقرير
+                                </a>
+                            </button>
+                            <center>
+                                <h1 class="cv_title">السيرة الذاتية</h1>
+                            </center>
+                            <div class="personal_info print_block">
+                                <h3>المعلومات الشخصية</h3>
+                                {% csrf_token %}
+                                <ul class="cv_report clearfix qulfy">
+                                    <li>
+                                        <p><span>
+                                                الاسم :{{baseinfo.full_name}}
+                                            </span>
+
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p><span>
+                                                البريد الإلكتروني : {{baseinfo.email}}
+                                            </span>
+
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p><span>
+
+                                                الجنس: {{baseinfo.gender}}
+
+                                            </span>
+
+
+                                        </p>
+
+                                    </li>
+                                    <li>
+                                        <p><span>
+                                                المدينة:{{baseinfo.city}}
+                                            </span>
+
+                                        </p>
+
+                                    </li>
+                                    <li>
+                                        <p><span>
+                                                الشارع:{{baseinfo.address}}
+                                            </span>
+
+                                        </p>
+
+                                    </li>
+
+                                    <li>
+                                        <p><span>
+                                                الحي:{{baseinfo.village}}
+                                            </span>
+
+                                        </p>
+
+                                    </li>
+
+                                    <li>
+                                        <p><span>
+                                                العنوان:{{baseinfo.address}}
+                                            </span>
+
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span>
+                                                الحالة الاجتماعية:
+                                                {{baseinfo.marital_status}}
+
+                                            </span>
+
+
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p><span>
+                                                رقم البطاقة الشخصية :{{baseinfo.idnumber}}
+                                            </span>
+
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p><span>
+                                                تاريخ الإصدار:{{baseinfo.Release_date}}
+                                            </span>
+
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p><span>
+                                                مكان الإصدار: {{baseinfo.place_issue}}
+                                            </span>
+
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p><span>
+                                                تاريخ الميلاد:{{baseinfo.date_birth}}
+                                            </span>
+
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p><span>
+                                                مكان الولادة:{{baseinfo.place_birth}}
+                                            </span>
+
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p><span>
+                                                هاتف: {{baseinfo.mobile_number}}
+                                            </span>
+
+                                        </p>
+
+                                    </li>
+                                    <li>
+                                        <p><span>
+                                                موبايل: {{baseinfo.mobile_number}}
+                                            </span>
+
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p><span>
+                                                واتس اب:{{baseinfo.number_whatsapp}}
+                                            </span>
+
+
+                                        </p>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="print_block">
+
+                                <div class="personal_info print_block">
+                                    <h3>مهارات اللغة</h3>
+                                    </br>
+                                    <table class="table  table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>اللغة </th>
+                                                <th>القراءه</th>
+                                                <th> الكتابة</th>
+                                                <th>محادثة</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% csrf_token %}
+                                            {% for f in Languageskill %}
+                                            <tr>
+
+                                                <td>{{f.name_language}}</td>
+                                                <td>{{f.reading}}</td>
+                                                <td>{{f.writing}}</td>
+                                                <td>{{f.conversation}}</td>
+
+
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="print_block">
+                                <div class="personal_info print_block">
+                                    <h3>مهارات الحاسوب</h3>
+                                    </br>
+
+                                    <table class="table  table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>اسم المهارة </th>
+                                                <th>مستوى المهارة</th>
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% csrf_token %}
+                                            {% for f in computerdata %}
+                                            <tr>
+
+                                                <td>{{f.name}}</td>
+                                                <td>{{f.level}}</td>
+
+
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="print_block">
+                                <div class="personal_info print_block">
+                                    <h3> الدورات التدريبية</h3>
+                                    <br>
+                                    <table class="table  table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>اسم المعهد </th>
+                                                <th>الدورة</th>
+                                                <th> البلد</th>
+                                                <th>من تاريخ</th>
+                                                <th>الى تاريخ</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% csrf_token %}
+                                            {% for f in coursesdata %}
+                                            <tr>
+
+                                                <td>{{f.name_name_institute}}</td>
+                                                <td>{{f.name_courses}}</td>
+                                                <td>{{f.country}}</td>
+                                                <td>{{f.From_Date}}</td>
+                                                <td>{{f.To_date}}</td>
+
+
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                            <div class="personal_info print_block answers">
+                                <h3>اجابات اسئلة الطلب الوظيفي</h3>
+                                <div class="cv_report">
+                                    <ul class="cv_report">
+                                        <li>
+                                            <p><span>
+                                                    هل قد عملت في البنك من قبل
+                                                </span>
+
+
+                                                : {{ generaldata.work_bank }}</p>
+                                        </li>
+
+                                        <li>
+                                            <p><span>
+                                                    هل قدمت ملفك للخدمة المدنية؟
+
+
+
+
+                                                </span>
+
+
+
+
+
+                                                {{ generaldata.file_civil_service }}</p>
+                                        </li>
+                                        <li>
+                                            <p><span>
+                                                    ما هي المدة التي تفكر في قضائها بالعمل لدينا؟
+                                                </span>
+
+                                                {{ generaldata.spend_working }}</p>
+                                        </li>
+                                        <li>
+                                            <p> <span>
+                                                    هل تفكر بشراء فيزا للعمل في الخارج؟
+                                                </span>
+
+                                                {{ generaldata.purchasing_visa }}</p>
+                                        </li>
+                                        <li>
+                                            <p> <span>
+                                                    هل تمانع من السفر في إطار العمل إذا تطلب الأمر؟
+                                                </span>
+
+                                                {{ generaldata.traveling }}</p>
+                                        </li>
+
+                                        <li>
+                                            <p> <span>
+                                                    هل تدرس حاليا في معهد أو جامعة؟
+                                                </span>
+
+                                                {{ generaldata.currently_studying }}</p>
+                                        </li>
+                                        <li>
+                                            <p> <span>
+                                                    هل أنت مستعد للعمل ليلاً ؟
+                                                </span>
+
+                                                {{ generaldata.work_night }}</p>
+                                        </li>
+                                        <li>
+                                            <p> <span>
+                                                    متى تستطيع البدء بالعمل ؟
+                                                </span>
+
+                                                {{ generaldata.start_working }}</p>
+                                        </li>
+                                        <li>
+                                            <p><span>
+                                                    هل تعاني من مشاكل صحية او اي اعاقة
+                                                </span>
+
+                                                {{ generaldata.health_problems }}</p>
+                                        </li>
+                                        <li>
+                                            <p><span>
+                                                    هل تعاني من مشاكل صحية او اي اعاقة
+                                                </span>
+
+                                                {{ generaldata.health_problems }}</p>
+                                        </li>
+                                        <li>
+                                            <p><span>
+                                                    ماهي هواياتك ؟
+                                                </span>
+
+                                                {{ generaldata.hobbies }}</p>
+                                        </li>
+                                        <li>
+                                            <p> <span>
+                                                    اسم أقرب شخص لك ( المرجع في الحالات الطارئة )
+                                                </span>
+
+                                                {{ generaldata.person_closest }}</p>
+                                        </li>
+                                        <li>
+                                            <p> <span>
+                                                    رقم تلفونه
+                                                </span>
+
+                                                {{ generaldata.person_closest_Phone }}</p>
+                                        </li>
+                                        <li>
+                                            <p> <span>
+                                                    صلة القرابة
+                                                </span>
+
+                                                {{ generaldata.relative_relation }}</p>
+                                        </li>
+                                        <li>
+                                            <p> <span>
+                                                    عنوانه
+                                                </span>
+
+                                                {{ generaldata.person_closest_address }}</p>
+                                        </li>
+                                        <li>
+                                            <p> <span>
+                                                    اسم عدل القرية / عاقل الحارة
+                                                </span>
+
+                                                {{ generaldata.name_village_justice }}</p>
+                                        </li>
+                                        <li>
+                                            <p><span>
+                                                    رقم تلفون
+                                                </span>
+
+                                                {{ generaldata.village_justice_Telephon }}</p>
+                                        </li>
+                                        <li>
+                                            <p><span>
+                                                    عنوانه
+                                                </span>
+
+                                                {{ generaldata.village_justice_address }}</p>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+</body>
+
+</html>

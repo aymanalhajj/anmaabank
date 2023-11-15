@@ -1,0 +1,914 @@
+{% extends 'base/base.html' %} {% load i18n static %} 
+
+
+
+{% block custom_head %}
+
+
+<meta charset="utf-8">
+
+
+
+<!-- Favicons -->
+{% comment %} <link href="{% static 'jop/assets/img/logo2.jpg' %}" rel="icon"> {% endcomment %}
+{% comment %} <link href="{% static 'jop/assets/img/logo2.jpg' %}" rel="apple-touch-icon"> {% endcomment %}
+
+<!-- Google Fonts -->
+{% comment %} <link rel="preconnect" href="https://fonts.googleapis.com"> {% endcomment %}
+{% comment %} <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> {% endcomment %}
+{% comment %} <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> {% endcomment %}
+{% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> {% endcomment %}
+
+<!-- Vendor CSS Files -->
+{% comment %} <link href="{% static 'jop/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> {% endcomment %}
+{% comment %} <link href="{% static 'jop/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet"> {% endcomment %}
+{% comment %} <link href="{% static 'jop/assets/vendor/aos/aos.css' %}" rel="stylesheet"> {% endcomment %}
+{% comment %} <link href="{% static 'jop/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet"> {% endcomment %}
+{% comment %} <link href="{% static 'jop/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet"> {% endcomment %}
+{% comment %} <link href="{% static 'jop/theme/standard/style.css" rel="stylesheet' %}" type="text/css"/> {% endcomment %}
+
+<!-- Template Main CSS File -->
+{% comment %} <link href="{% static 'jop/assets/css/main.css' %}" rel="stylesheet"> {% endcomment %}
+{% comment %} <link href="{% static 'jop/assets/css/w3.css' %}" rel="stylesheet"> {% endcomment %}
+{% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> {% endcomment %}
+
+<style>
+
+   
+
+  {% block body_style %} {% endblock %}
+
+</style>
+{% comment %} <link href="{% static 'jop/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> {% endcomment %}
+    {% comment %} <link href="{% static 'jop/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet"> {% endcomment %}
+    {% comment %} <link href="{% static 'jop/assets/vendor/aos/aos.css' %}" rel="stylesheet"> {% endcomment %}
+    {% comment %} <link href="{% static 'jop/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet"> {% endcomment %}
+    {% comment %} <link href="{% static 'jop/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet"> {% endcomment %}
+    {% comment %} <link href="{% static 'jop/theme/standard/style.css" rel="stylesheet' %}" type="text/css"/> {% endcomment %}
+
+    <!-- Template Main CSS File -->
+    {% comment %} <link href="{% static 'jop/assets/css/main.css' %}" rel="stylesheet"> {% endcomment %}
+    <link href="{% static 'jop/assets/css/w3.css' %}" rel="stylesheet">
+
+  
+<style>
+
+    {% comment %} .img-fluid {
+      height: 150px;
+    } {% endcomment %}
+  {% comment %} .home-row1 h1,.home-row1 h2{padding:115px 0;text-align:center} {% endcomment %}
+  {% comment %} .home-row1 .heading{padding-top:150px;padding-bottom:40px;text-align:center;color:#des}
+  .home-row1 .container h4{line-height:3}.home-row1 .container h4 span{color:#ed792c}
+  .home-row2{padding:50px 0;    background: #f5f5f5;}
+  .home-row2 p.employment-policy{text-align:center;width:50%;margin:auto} {% endcomment %}
+
+</style> {% endblock %}
+
+{% load selectable_tags %}
+{% include_jquery_libs %}
+{% block custom_css %}
+{{ forms.media.css }}
+{% comment %} {{ forms.css }} {% endcomment %}
+{{ address_location.media.css }}
+{{birth_data.media.css}}
+{{id_card.media.css}}
+
+
+{% endblock %}
+
+{% block script %}
+{{ forms.media.js }}
+{{ address_location.media.js }}
+{{birth_data.media.js}}
+{{id_card.media.js}}
+  <script>
+    var search__field = document.getElementsByClassName('select2-search__field');
+    console.log(search__field)
+    Array.prototype.forEach.call(search__field, function (element) {
+      element.placeholder = 'new text for email';
+      element.classList.add("gy-3");
+    });
+  </script>
+    <script src="https://cdn.rawgit.com/xcash/bootstrap-autocomplete/3de7ad37/dist/latest/bootstrap-autocomplete.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $('.basicAutoComplete').autoComplete(
+            {minLength: 1}
+        );
+        $('.dropdown-menu').css({'top': 'auto', 'left': 'auto'})
+
+        
+    </script>
+
+
+    <script>
+      function Hide() {
+        
+        console.log(document.getElementById('id_have_nationality').options[document.getElementById('id_have_nationality').selectedIndex].value); // 👉️ null
+
+        console.log(document.getElementById('id_nationality_othar').type);
+          if(document.getElementById('id_have_nationality').options[document.getElementById('id_have_nationality').selectedIndex].value == "True") {
+            const box =  document.getElementById('div_id_nationality_othar');
+            document.getElementById('id_nationality_othar').type="text";
+
+            console.log(box); // 👉️ null
+            box.style.display = '';
+
+          } else {
+            const box =  document.getElementById('div_id_nationality_othar');
+            document.getElementById('id_nationality_othar').type="hidden";
+
+              console.log(box); // 👉️ null
+              box.style.display = 'none';
+
+          }
+      }
+      
+
+
+      function HideSecialization() {
+        
+        console.log(document.getElementById('id_educational_level').options[document.getElementById('id_educational_level').selectedIndex].value); // 👉️ null
+
+        console.log(document.getElementById('id_specialization').type);
+          if(document.getElementById('id_educational_level').options[document.getElementById('id_educational_level').selectedIndex].value == "diploma" || 
+          document.getElementById('id_educational_level').options[document.getElementById('id_educational_level').selectedIndex].value == "bachelor" || 
+          document.getElementById('id_educational_level').options[document.getElementById('id_educational_level').selectedIndex].value == "diploma" || 
+          document.getElementById('id_educational_level').options[document.getElementById('id_educational_level').selectedIndex].value == "higher_diploma" || 
+          document.getElementById('id_educational_level').options[document.getElementById('id_educational_level').selectedIndex].value == "master" || 
+          document.getElementById('id_educational_level').options[document.getElementById('id_educational_level').selectedIndex].value == "doctor" 
+          ) {
+            const box =  document.getElementById('div_id_specialization');
+            document.getElementById('id_specialization').type="text";
+
+            console.log(box); // 👉️ null
+            box.style.display = '';
+
+          } else {
+            const box =  document.getElementById('div_id_specialization');
+            document.getElementById('id_specialization').type="hidden";
+
+              console.log(box); // 👉️ null
+              box.style.display = 'none';
+
+          }
+      }
+      
+
+
+      
+      window.onload = function() {
+          document.getElementById('id_have_nationality').onchange = Hide;
+          document.getElementById('id_educational_level').onchange = HideSecialization;
+
+      };
+      </script>
+
+      <script>
+
+
+        (function() {
+          // The width and height of the captured photo. We will set the
+          // width to the value defined here, but the height will be
+          // calculated based on the aspect ratio of the input stream.
+        
+          var width = 320;    // We will scale the photo width to this
+          var height = 0;     // This will be computed based on the input stream
+        
+          // |streaming| indicates whether or not we're currently streaming
+          // video from the camera. Obviously, we start at false.
+        
+          var streaming = false;
+        
+          // The various HTML elements we need to configure or control. These
+          // will be set by the startup() function.
+        
+          var video = null;
+          var canvas = null;
+          var photo = null;
+          var startbutton = null;
+          function  hideitem(){
+            video = document.getElementById('video');
+            canvas = document.getElementById('canvas');
+            photo = document.getElementById('photo');
+            startbutton = document.getElementById('startbutton');
+            video.style.display = 'none';
+            canvas.style.display = 'none';
+            startbutton.style.display = 'none';
+            photo.style.display = 'none';
+            startbutton1 = document.getElementById('startbutton1');
+            startbutton1.style.display = '';
+
+          }
+          function startup() {
+            video = document.getElementById('video');
+            canvas = document.getElementById('canvas');
+            photo = document.getElementById('photo');
+            startbutton = document.getElementById('startbutton');
+        
+            navigator.mediaDevices.getUserMedia({video: true, audio: false})
+            .then(function(stream) {
+              video.srcObject = stream;
+              video.play();
+              
+            })
+            .catch(function(err) {
+              console.log("An error occurred: " + err);
+
+            });
+        
+            video.addEventListener('canplay', function(ev){
+              if (!streaming) {
+                height = video.videoHeight / (video.videoWidth/width);
+              
+                // Firefox currently has a bug where the height can't be read from
+                // the video, so we will make assumptions if this happens.
+              
+                if (isNaN(height)) {
+                  height = width / (4/3);
+                }
+              
+                video.setAttribute('width', width);
+                video.setAttribute('height', height);
+                canvas.setAttribute('width', width);
+                canvas.setAttribute('height', height);
+                streaming = true;
+              }
+            }, false);
+        
+            startbutton.addEventListener('click', function(ev){
+              takepicture();
+              ev.preventDefault();
+            }, false);
+            
+            clearphoto();
+          }
+        
+          // Fill the photo with an indication that none has been
+          // captured.
+        
+          function clearphoto() {
+            var context = canvas.getContext('2d');
+            context.fillStyle = "#AAA";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+        
+            var data = canvas.toDataURL('image/png');
+            photo.setAttribute('src', data);
+          }
+          
+          // Capture a photo by fetching the current contents of the video
+          // and drawing it into a canvas, then converting that to a PNG
+          // format data URL. By drawing it on an offscreen canvas and then
+          // drawing that to the screen, we can change its size and/or apply
+          // other changes before drawing it.
+        
+          function takepicture() {
+            var context = canvas.getContext('2d');
+            if (width && height) {
+              canvas.width = width;
+              canvas.height = height;
+              context.drawImage(video, 0, 0, width, height);
+            
+              var data = canvas.toDataURL('image/png');
+              photo.setAttribute('src', data);
+            } else {
+              clearphoto();
+            }
+          }
+
+          window.addEventListener('load', hideitem, false);
+
+          startbutton1 = document.getElementById('startbutton1');
+
+          startbutton1.addEventListener('click', function(ev){
+            video = document.getElementById('video');
+            canvas = document.getElementById('canvas');
+            photo = document.getElementById('photo');
+            startbutton = document.getElementById('startbutton');
+            video.style.display = '';
+            canvas.style.display = '';
+            startbutton.style.display = '';
+            photo.style.display = '';
+            startbutton1.style.display = 'none';
+            startup();
+            ev.preventDefault();
+          }, false);
+          // Set up our event listener to run the startup process
+          // once loading is complete.
+        })();
+     
+      </script>
+    
+{% endblock %}
+{% comment %} {% include_ui_theme %} {% endcomment %}
+{% comment %} {% include_ui_theme 'ui-lightness' '1.11.4' %} {% endcomment %}
+{% comment %} {% include_ui_theme 'ui-lightness' %} {% endcomment %}
+
+{% block content %}
+
+<!-- ======= Header ======= -->
+ 
+<!-- ======= Hero Section ======= -->
+
+<!-- End Hero -->
+
+<main id="main">
+
+  <section class="breadcrumbs">
+    <div class="container">
+      <ol>
+        <li><a href="/">الرئيسية</a></li>
+        <li>
+          {% block title-name %}
+          تقديم طلب فتح حساب 
+
+          {% endblock title-name %}
+
+        </li>
+        <li>
+          {% block title %}
+          {% if forms %}
+          بيانات شخصية
+
+          {% endif  %}
+          {% if birth_data %}
+          بيانات  الميلاد
+
+          {% endif  %}
+          {% if address_location %}
+          عنوان السكن الاقامة الميلاد
+
+          {% endif  %}
+          {% endblock title %}
+
+        </li>
+      </ol>
+    </div>
+  </section>
+{% comment %}  {% endcomment %}
+<section id="blog" class="blog">
+
+  <section id="add-ordar" class="services-details job">
+    <div class="container" >
+        <header class="section-header">
+          <h2> تقديم طلب فتح حساب</h2>
+          {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+        </header>
+    
+        {% comment %} {% for service in services %} {% load to_and %} {% endcomment %}
+        <div id="add-ordar-content" class="align-content-center align-item-center">
+    
+            <article class="entry">
+
+              <div class="row">
+                <div id="progress_menu" class="col-lg-3">
+            <h3>تعبئة بيانات متطلبات الحساب</h3>
+            <div class="list-group">
+                <a href="?page={{ 1 }}" {% if forms %} class='list-group-item active' {% else %} class='list-group-item' {% endif %} >
+                  بيانات عامة
+                </a>
+                <a href="?page={{ 2 }}" {% if birth_data %} class='list-group-item active' {% else %} class='list-group-item' {% endif %}>
+                  
+                  بيانات الميلاد
+
+                </a>
+
+                <a href="?page={{ 3 }}" {% if address_location %} class='list-group-item active' {% else %} class='list-group-item' {% endif %}                >
+                  
+                  عنوان السكن والاقامة
+                </a>
+                <a href="?page={{ 4 }}" {% if id_card %} class='list-group-item active' {% else %} class='list-group-item' {% endif %}                >
+                  
+                  بيانات الهوية الشخصية
+
+                </a>
+            </div>
+            </div>
+          {% if address_location %}
+          {% load i18n static %} {% load crispy_forms_tags %}
+
+          <div class="col-lg-9">
+
+            {% comment %} <header class="section-header"> {% endcomment %}
+              
+              <h2>عنوان السكن والاقامة</h2>
+
+              {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+            {% comment %} </header> {% endcomment %}
+
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class=" text-center  btn-success  ">
+                {{ message  }}</div>
+              {% else %}
+              <div class=" text-center  btn-danger">
+                {{ message  }}</div>
+              {% endif %}
+
+            {% endfor %}
+            {% endif %}
+
+            {% load i18n static %} {% load crispy_forms_tags %}
+
+            <form
+              method="POST"
+              enctype='multipart/form-data'
+              name="forms"
+              class="php-email-form needs-validation align-item-center align-self-center align-content-center"
+              validate
+            >
+              {% csrf_token %} 
+              {% comment %} {% load widget_tweaks %} {% endcomment %}
+              {% comment %} {% csrf_token %} {% endcomment %}
+              {% comment %} {{ forms.as_p }} {% endcomment %}
+              <div class="row gy-4 align-item-center align-self-center align-content-center">
+                
+                {% comment %} {{ birth_data.as_p }} {% endcomment %}
+
+               
+                
+                
+
+
+
+
+                  {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+
+                {% comment %} {{ birth_data.as_p }} {% endcomment %}
+                {% for hidden in address_location.hidden_fields %}
+                    <div class="col-md-12 ">    
+                      {{hidden|as_crispy_field}}
+                    </div>
+                    {% endfor %}
+                
+                {% for field in address_location.visible_fields %}
+                {% comment %} {% for field in address_location %} {% endcomment %}
+                {% comment %} <div class="col-md-12 ">
+                  
+                  {{field|as_crispy_field}}
+                </div> {% endcomment %}
+                {% if  field.field.widget.input_type == 'radio' or   field.field.widget.input_type == 'file'%}
+                     <div class="col-md-12 ">
+                                          {{field.oreder_message.label_tag}}
+
+                                          {{field|as_crispy_field}}
+
+
+                    </div>
+                    
+                {% else %}
+                 <div class="col-md-12 ">
+                    {{field.oreder_message.label_tag}}
+                      <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+                  <div class="input-group-prepend with-label">
+                      {% comment %} {{form.your_field_here.label_tag}}  {% endcomment %}
+
+                      <span class="input-group-text" id="basic-addon1">
+                               {% if field.field.icon %}
+                          <i class="{{field.field.icon}}"></i>
+
+                      {% else %}
+                    <i class="bi bi-journal-code"></i>
+
+                      {% endif %}
+                      
+                      </span>
+                    </div>
+                    {{field|as_crispy_field}}
+                    </div>
+                  <small class="text-danger">{{field.errors | striptags}}</small>
+
+                {% comment %} </div> {% endcomment %}
+                </div>
+                {% endif %}
+
+            
+                {% endfor %}
+
+                
+                  <div class="text-center">
+
+
+                    {% if messages %} {% for message in messages %} 
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <div class="sent-message">{{ message }}</div>
+                    {% else %}
+                    <div class="error-message d-block">{{ message }}</div>
+                    {% endif %} {% endfor %} {% endif %}
+
+
+                  </div>
+
+                  {% comment %} <a href="{% url 'download-resume' %}"> {% endcomment %}
+                     <div class=" col-md-12">
+                    <button type="submit">حفظ</button>
+                  </div>
+                  {% comment %} </a> {% endcomment %}
+                </div>
+              </div>
+            </form>
+
+
+
+          </div>
+          {% endif %}
+
+
+          {% if forms %}
+          {% load i18n static %} {% load crispy_forms_tags %}
+
+          <div class="col-lg-9">
+
+            {% comment %} <header class="section-header"> {% endcomment %}
+              <h1>
+                بيانات عامة                
+              </h1>
+              {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+            {% comment %} </header> {% endcomment %}
+
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class=" text-center  btn-success  ">
+                {{ message  }}</div>
+              {% else %}
+              <div class=" text-center  btn-danger">
+                {{ message  }}</div>
+              {% endif %}
+
+            {% endfor %}
+            {% endif %}
+
+            {% load i18n static %} {% load crispy_forms_tags %}
+
+            <form
+              method="POST"
+              enctype='multipart/form-data'
+              name="forms"
+              class="php-email-form needs-validation align-item-center align-self-center align-content-center"
+              validate
+            >
+              {% csrf_token %} 
+              {% comment %} {% load widget_tweaks %} {% endcomment %}
+              {% comment %} {% csrf_token %} {% endcomment %}
+              {% comment %} {{ forms.as_p }} {% endcomment %}
+              <div class="row gy-4 align-item-center align-self-center align-content-center">
+                
+                {% comment %} {{ birth_data.as_p }} {% endcomment %}
+
+               
+                 {% for hidden in forms.hidden_fields %}
+                    <div class="col-md-12 ">    
+                      {{hidden|as_crispy_field}}
+                    </div>
+                    {% endfor %}
+                
+                {% for field in forms.visible_fields %}
+                 {% comment %} <div class="error-message d-block">{{ field.field.widget.input_type }}</div> {% endcomment %}
+                   {% if  field.field.widget.input_type == 'radio' or   field.field.widget.input_type == 'file'%}
+                     <div class="col-md-12 ">
+                                          {{field.oreder_message.label_tag}}
+
+                                          {{field|as_crispy_field}}
+
+
+                    </div>
+                    
+                {% else %}
+                 <div class="col-md-12 ">
+                    {{field.oreder_message.label_tag}}
+                      <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+                  <div class="input-group-prepend with-label">
+                      {% comment %} {{form.your_field_here.label_tag}}  {% endcomment %}
+
+                      {% if field.field.icon %}
+                          <span class="input-group-text" id="basic-addon1"><i class="{{field.field.icon}}"></i></span>
+
+                      {% else %}
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-journal-code"></i></span>
+
+                      {% endif %}
+                    </div>
+                    {{field|as_crispy_field}}
+                    </div>
+                  <small class="text-danger">{{field.errors | striptags}}</small>
+
+                {% comment %} </div> {% endcomment %}
+                </div>
+                  {% endif %}
+                {% endfor %}
+                 
+              
+
+                {% comment %} {{ birth_data.as_p }} {% endcomment %}
+
+               
+
+
+
+
+              
+                
+               
+
+                
+
+
+              
+
+                
+                  <div class="text-center">
+
+
+                    {% if messages %} {% for message in messages %} 
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <div class="sent-message">{{ message }}</div>
+                    {% else %}
+                    <div class="error-message d-block">{{ message }}</div>
+                    {% endif %} {% endfor %} {% endif %}
+
+
+                  </div>
+                  <div class=" col-md-12">
+                    <button type="submit">حفظ</button>
+                  </div>
+                  {% comment %} </a> {% endcomment %}
+                </div>
+              </div>
+            </form>
+
+
+
+          </div>
+          {% endif %}
+
+
+          {% if birth_data %}
+          {% load i18n static %} {% load crispy_forms_tags %}
+
+          <div class="col-lg-9">
+
+            {% comment %} <header class="section-header"> {% endcomment %}
+              <h1>
+                بيانات الميلاد
+                
+              </h1>
+              {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+            {% comment %} </header> {% endcomment %}
+
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class=" text-center  btn-success  ">
+                {{ message  }}</div>
+              {% else %}
+              <div class=" text-center  btn-danger">
+                {{ message  }}</div>
+              {% endif %}
+
+            {% endfor %}
+            {% endif %}
+
+            {% load i18n static %} {% load crispy_forms_tags %}
+
+            <form
+              method="POST"
+              enctype='multipart/form-data'
+              name="forms"
+              class="php-email-form needs-validation align-item-center align-self-center align-content-center"
+              validate
+            >
+              {% csrf_token %} 
+              {% comment %} {% load widget_tweaks %} {% endcomment %}
+              {% comment %} {% csrf_token %} {% endcomment %}
+              {% comment %} {{ forms.as_p }} {% endcomment %}
+              <div class="row gy-4 align-item-center align-self-center align-content-center">
+                
+                {% comment %} {{ birth_data.as_p }} {% endcomment %}
+
+                
+                
+                
+                  {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+
+                {% comment %} {{ birth_data.as_p }} {% endcomment %}
+                  {% for hidden in birth_data.hidden_fields %}
+                    <div class="col-md-12 ">    
+                      {{hidden|as_crispy_field}}
+                    </div>
+                    {% endfor %}
+                
+                {% for field in birth_data.visible_fields %}
+                {% comment %} {% for field in birth_data %} {% endcomment %}
+
+                {% if  field.field.widget.input_type == 'radio' or   field.field.widget.input_type == 'file' %}
+                 <div class="col-md-12 ">
+                                          {{field.oreder_message.label_tag}}
+
+                                          {{field|as_crispy_field}}
+
+
+                    </div>
+                {% else %}
+               
+                 <div class="col-md-12 ">
+                    {{field.oreder_message.label_tag}}
+                      <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+                  <div class="input-group-prepend with-label">
+                      {% comment %} {{form.your_field_here.label_tag}}  {% endcomment %}
+
+                      {% if field.field.icon %}
+                          <span class="input-group-text" id="basic-addon1"><i class="{{field.field.icon}}"></i></span>
+
+                      {% else %}
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-journal-code"></i></span>
+
+                      {% endif %}
+                    </div>
+                    {{field|as_crispy_field}}
+                    </div>
+                  <small class="text-danger">{{field.errors | striptags}}</small>
+
+                {% comment %} </div> {% endcomment %}
+                </div>
+                 {% endif %}
+                {% endfor %}
+
+
+
+
+                
+
+          
+
+                
+                  <div class="text-center">
+
+
+                    {% if messages %} {% for message in messages %} 
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <div class="sent-message">{{ message }}</div>
+                    {% else %}
+                    <div class="error-message d-block">{{ message }}</div>
+                    {% endif %} {% endfor %} {% endif %}
+
+
+                  </div>
+
+                  {% comment %} <a href="{% url 'download-resume' %}"> {% endcomment %}
+                     <div class=" col-md-12">
+                    <button type="submit">حفظ</button>
+                  </div>
+                  {% comment %} </a> {% endcomment %}
+                </div>
+              </div>
+            </form>
+
+
+
+          </div>
+          {% endif %}
+
+
+
+          {% if id_card %}
+          {% load i18n static %} {% load crispy_forms_tags %}
+
+          <div class="col-lg-9">
+
+            {% comment %} <header class="section-header"> {% endcomment %}
+              <h1>
+                بيانات الهوية الشخصية
+                
+              </h1>
+              {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+            {% comment %} </header> {% endcomment %}
+
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class=" text-center  btn-success  ">
+                {{ message  }}</div>
+              {% else %}
+              <div class=" text-center  btn-danger">
+                {{ message  }}</div>
+              {% endif %}
+
+            {% endfor %}
+            {% endif %}
+
+            {% load i18n static %} {% load crispy_forms_tags %}
+
+            <form
+              method="POST"
+              enctype='multipart/form-data'
+              name="forms"
+              class="php-email-form needs-validation align-item-center align-self-center align-content-center"
+              validate
+            >
+              {% csrf_token %} 
+              {% comment %} {% load widget_tweaks %} {% endcomment %}
+              {% comment %} {% csrf_token %} {% endcomment %}
+              {% comment %} {{ forms.as_p }} {% endcomment %}
+              <div class="row gy-4 align-item-center align-self-center align-content-center">
+                
+                {% comment %} {{ birth_data.as_p }} {% endcomment %}
+                
+
+                    {% for hidden in id_card.hidden_fields %}
+                    <div class="col-md-12 ">    
+                      {{hidden|as_crispy_field}}
+                    </div>
+                    {% endfor %}
+                
+                {% for field in id_card.visible_fields %}
+               
+               {% if  field.field.widget.input_type == 'radio' or   field.field.widget.input_type == 'file'%}
+                     <div class="col-md-12 ">
+                                          {{field.oreder_message.label_tag}}
+
+                                          {{field|as_crispy_field}}
+
+
+                    </div>
+                    
+                {% else %}
+              <div class="col-md-12 ">
+                    {{field.oreder_message.label_tag}}
+                      <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+                  <div class="input-group-prepend with-label">
+                      {% comment %} {{form.your_field_here.label_tag}}  {% endcomment %}
+
+                      {% if field.field.icon %}
+                          <span class="input-group-text" id="basic-addon1"><i class="{{field.field.icon}}"></i></span>
+
+                      {% else %}
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-journal-code"></i></span>
+
+                      {% endif %}
+                    </div>
+                    {{field|as_crispy_field}}
+                    </div>
+                  <small class="text-danger">{{field.errors | striptags}}</small>
+
+                {% comment %} </div> {% endcomment %}
+                </div>
+                {% endif %}
+                 
+                {% endfor %}
+                
+              
+
+                {% comment %} {{ birth_data.as_p }} {% endcomment %}
+
+               
+
+
+
+
+              
+                
+                  <div class="text-center">
+
+
+                    {% if messages %} {% for message in messages %} 
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <div class="sent-message">{{ message }}</div>
+                    {% else %}
+                    <div class="error-message d-block">{{ message }}</div>
+                    {% endif %} {% endfor %} {% endif %}
+
+
+                  </div>
+
+                  {% comment %} <a href="{% url 'download-resume' %}"> {% endcomment %}
+                     <div class=" col-md-12">
+                    <button type="submit">حفظ</button>
+                  </div>
+                  {% comment %} </a> {% endcomment %}
+                </div>
+              </div>
+            </form>
+
+
+
+          </div>
+          {% endif %}
+        </div>
+
+      </div>
+
+      </article><!-- End blog entry -->
+        {% comment %} {% endfor %} {% endcomment %}
+      </div>
+    </section>
+  </section>
+
+  <!-- End Contact Section -->
+</main>
+
+<!-- End #main -->
+{% endblock %}
+

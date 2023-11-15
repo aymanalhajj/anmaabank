@@ -1,0 +1,219 @@
+{% load static %}
+{% block apps %}
+{% if applications and setting and not setting.is_hidden_bank_applications   %}
+
+
+
+{% comment %} <div class="top-curve">
+    
+</div> {% endcomment %}
+<!-- Slider main container -->
+
+<div id="section-4" class="section-wrapper">
+<section id="apps" class="application-show">
+    {% comment %} <div class="top-curve">
+        <img src="{% static 'assets/img/top-curve.svg' %}">
+    </div> {% endcomment %}
+
+  <!-- Additional required wrapper -->
+
+        
+
+<div class="container">
+    <header class="section-header">
+        <h2>تطبيقات البنك
+        </h2>
+        {% comment %} <p>في جميع الأوقات الرسمية</p> {% endcomment %}
+      </header>
+        <div class="app-bank-section-container">
+
+                    <div class="swiper swiper-apps-bank-slider
+                    
+                    ">
+                    <div class="swiper-wrapper
+                    
+                    ">
+
+                        {% for application in applications %}
+
+                                 
+                                    {% comment %} <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-autoheight swiper-rtl apps-bank-slider swiper-backface-hidden"> {% endcomment %}
+                                            <div class="swiper-slide" >
+                                              <section class="application-details">
+                                                <div class="features-app-box" data-img-id="app-img-3">
+                                                     {% if application.logo_image  %}
+
+                                                        <div class="app-icon">
+
+                                                            <img alt="app-icon" src="{{application.logo_image.url}}">
+                                                        </div>
+                                                    {% endif  %}
+
+                                                   
+                                                    <div class="app-info">
+                                                        <h5 class="app-name">
+                                                            {{application.name|safe}}
+                                                        </h5>
+                                                        <p class="app-description">
+                                                            {{application.detial_ar|safe}}
+                                                        </p>
+
+                                                        {% if application.future_applications.all|length > 0   %}
+
+                                                        <div class="features-list">
+                                                            <h6 class="features-list-title">
+                                                                {% if application.type_choice == 'mobile'  %}
+                                                                    مميزات التطبيق 
+                                                                {% elif application.type_choice == 'website'  %}
+                                                                    مميزات الموقع 
+                                                                {% elif application.type_choice == 'desketop'  %}
+                                                                    مميزات النظام 
+                                                                {% endif  %}
+                                                                  : 
+                                                                
+                                                            </h6>
+                                                            <ul>
+                                                                {% for future in application.future_applications.all %}
+                                                            <li>
+                                                                <span>
+                                                                {{future.name|safe}}
+                                                                </span>
+                                                            </li>
+                                                             {% endfor  %}
+
+                                                        </ul>
+                                                    </div>
+                                                      {% endif  %}
+
+                                                    
+                                                    <div class="app-footer">
+
+                                                        {% if application.barcode_image  %}
+                                                            <div class="qr-code-scan">
+                                                                <span class="qr-code-txt">امسح هنا</span>
+                                                                <img class="qr-code" data-img-id="app-img-3" 
+                                                                src="{{application.barcode_image.url}}">
+
+
+                                                            </div>
+                                                        {% endif  %}
+                                                              <div class="list-app-link-container">
+                                                                        
+                                                                                {% if application.type_choice == 'mobile'  %}
+                                                                                <span class="list-app-link-title">أو قم بتنزيل التطبيق عن طريق :</span>
+
+                                                                                <div class="list-app-link">
+
+                                                                                    <a href="{{application.google_play}}" target="_blank">
+                                                                                        <img alt="download app" class="logo-blue" src="{% static 'assets/img/download-app-google-play.svg' %}">
+                                                                                    </a>
+                                                                        
+                                                                        
+                                                                                    <a href="{{application.app_store}}" target="_blank">
+                                                                                        <img alt="download app" class="logo-blue" src="{% static 'assets/img/download-app-store2.svg' %}">
+                                                                                    </a>
+                                                                                
+
+                                                                                </div>
+
+                                                                                {% elif application.type_choice == 'website'  %}
+                                                                                    <div class="list-system-link-container"><span>أو قم بزيارة الموقع </span><a href="{{application.website}}" target="_blank">من هنا</a></div>
+                                                                                {% elif application.type_choice == 'desketop'  %}
+                                                                                    <div class="list-system-link-container"><span>أو قم بتحميل النظام </span><a href="{{application.desketop}}" target="_blank">من هنا</a></div>
+                                                                                {% endif  %}
+
+                                                                                </div>
+                                                            
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="app-device">
+
+                                                     {% if application.screen_image  %}
+
+                                                    {% if application.type_choice == 'mobile'  %}
+                                                   
+
+                                                    <div class="app-imgs phone-screen">
+                                                        <div class="app-img">
+                                                            <img alt="app-img" 
+                                                            src="{{application.screen_image.url}}" 
+                                                            id="app-img-1" class="active">
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    {% elif application.type_choice == 'website'  %}
+                                                    <div class="app-imgs wide-screen">
+                                                        <div class="app-img">
+                                                            <img alt="app-img" 
+                                                            src="{{application.screen_image.url}}" 
+                                                            id="app-img-1" class="active">
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    {% elif application.type_choice == 'desketop'  %}
+                                                    <div class="app-imgs wide-screen">
+                                                        <div class="app-img">
+                                                            <img alt="app-img" 
+                                                            src="{{application.screen_image.url}}" 
+                                                            id="app-img-1" class="active">
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    {% endif  %}
+                                                    {% endif  %}
+                                                    
+                                                </div>
+                                            </section>
+                                        
+                                             </div>                
+     
+                        {% endfor  %}
+                                    
+                                                    </div>
+
+                        {% comment %} <div class="apps-pagination"></div> {% endcomment %}
+                        <div class="apps-pagination custom-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span></div>
+                        <!-- If we need navigation buttons -->
+                       
+                        <div class="apps-slider-buttons slider-buttons"><div class="slider-button apps-bank-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-5c3877b71beca86e">
+              
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
+                    <style type="text/css">
+                      .st0{fill:#1D70B8;}
+                    </style>
+                    <polygon class="st0" points="72.21,79.29 56.78,63.87 72.21,48.45 72.21,19.73 28.06,63.87 72.21,108.01 "></polygon>
+                </svg>
+            </div><div class="slider-button apps-bank-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-5c3877b71beca86e">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
+              <style type="text/css">
+                .st0{fill:#1D70B8;}
+              </style>
+              <polygon class="st0" points="46.76,48.45 62.19,63.87 46.76,79.29 46.76,108.01 90.91,63.87 46.76,19.73 "></polygon>
+            </svg>            </div></div>
+
+                        <!-- If we need scrollbar -->
+                        {% comment %} <div class="swiper-scrollbar"></div> {% endcomment %}
+                    </div>
+
+           </div>
+
+
+</div>
+{% comment %} </div> {% endcomment %}
+
+         
+
+    
+
+</section>
+</div>
+
+
+
+{% endif  %}
+
+
+
+{% endblock apps %}

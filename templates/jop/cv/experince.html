@@ -1,0 +1,193 @@
+{% extends "jop/cv/basecv.html" %}
+{% load static%}
+{% comment %} {% block title %} الخبرات{% endblock %} {% endcomment %}
+{% block title %}
+الخبرات
+{% endblock %}
+{% block content_Breadcrumbs %}
+الخبرات
+{% endblock %}
+{% block body_style %}
+
+
+
+
+{% endblock%}
+{% block content-page%}
+
+<div id="main" style="background:#ffffff;" class="col-lg-9">
+  <div style="background:#ffffff;padding:10px">
+    <h2> الخبرات</h2>
+    <div class="pro-scroll" style="position:relative;">
+      <div class="card-body p-0">
+        <div class="table-responsive overflow-x:auto;">
+
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>اسم العمل </th>
+                <th>من تاريخ</th>
+                <th> إلى تاريخ</th>
+                <th> اسم المحل/الجهة</th>
+                <th> اسم صاحب العمل </th>
+                <th>عنوان العمل</th>
+                <th> تلفون العمل</th>
+                <th>المهام </th>
+                <th>المسمى الوظيفي في البداية </th>
+                <th> المسمى الوظيفي في النهاية</th>
+                <th>الراتب في البداية </th>
+                <th>الراتب في النهاية </th>
+                <th>عدد ساعات العمل </th>
+                <th>سبب ترك العمل </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% csrf_token %}
+              {% for f in experincedata %}
+              <tr>
+
+                <td>{{f.name_word}}</td>
+                <td>{{f.From_Date}}</td>
+                <td>{{f.To_date}}</td>
+                <td>{{f.name_shop}}</td>
+                <td>{{f.name_owner}}</td>
+                <td>{{f.address}}</td>
+                <td>{{f.mobile}}</td>
+                <td>{{f.task}}</td>
+                <td>{{f.name_job_start}}</td>
+                <td>{{f.name_job_end}}</td>
+                <td>{{f.salary_start}}</td>
+                <td>{{f.salary_end}}</td>
+                <td>{{f.working_hours}}</td>
+                <td>{{f.resson_leaving}}</td>
+                <td>{{f.To_date}}</td>
+
+                <td>
+                  <div class="button-container">
+                    <a href="UpdateExperience/{{f.id}}" class="btn btn-info form-inline {{disabled}}">تحرير</a>
+                    <a href="DeleteExperiene/{{f.id}}" class="btn btn-danger form-inline">حذف</a>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="add_new">
+      <h3>إضافة</h3>
+      <div>
+
+        {% load i18n static %} {% load crispy_forms_tags %}
+
+        {% if messages %}
+        {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class=" text-center  btn-success  ">
+          {{ message  }}</div>
+        {% else %}
+        <div class=" text-center  btn-danger">
+          {{ message  }}</div>
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+        <form method="POST" enctype="multipart/form-data" validate accept-charset="UTF-8"
+          class="form-horizontal needs-validation align-items-center justify-content-center " role="form">
+          {% csrf_token %}
+          {% for hidden in experince.hidden_fields %}
+          <div class="col-md-12 ">
+            {{hidden|as_crispy_field}}
+          </div>
+          {% endfor %}
+
+          {% for field in experince.visible_fields %}
+
+
+          {% if  field.field.widget.input_type == 'radio' or   field.field.widget.input_type == 'file'%}
+          <div class="col-md-12 ">
+            {{field.oreder_message.label_tag}}
+            <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+              <div class="input-group-prepend with-label">
+                {% comment %} {{experince.your_field_here.label_tag}} {% endcomment %}
+
+                <span class="input-group-text" id="basic-addon1">
+                  {% if field.field.icon %}
+                  <i class="{{field.field.icon}}"></i>
+
+                  {% else %}
+                  <i class="bi bi-journal-code"></i>
+
+                  {% endif %}
+
+                </span>
+              </div>
+              {{field|as_crispy_field}}
+            </div>
+            <small class="text-danger">{{field.errors | striptags}}</small>
+
+          </div>
+
+
+          {% else %}
+          <div class="col-md-12 ">
+            {{field.oreder_message.label_tag}}
+            <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+              <div class="input-group-prepend with-label">
+                {% comment %} {{experince.your_field_here.label_tag}} {% endcomment %}
+
+                <span class="input-group-text" id="basic-addon1">
+                  {% if field.field.icon %}
+                  <i class="{{field.field.icon}}"></i>
+
+                  {% else %}
+                  <i class="bi bi-journal-code"></i>
+
+                  {% endif %}
+
+                </span>
+              </div>
+              {{field|as_crispy_field}}
+            </div>
+            <small class="text-danger">{{field.errors | striptags}}</small>
+
+
+          </div>
+          {% endif %}
+          {% endfor %}
+
+          </br>
+          <div class="row gx-5">
+            <div class=" col">
+              <a href="{% url "experince" %}"> <button class="btn btn-info btn-primary" type="submit">حفظ</button>
+              </a>
+            </div>
+            <div class=" col">
+
+              <a type="button" class="btn btn-default prev p-3" href="{% url "triningcourses"%}"
+                role="button">السابق</a>
+            </div>
+            <div class=" col">
+              <a type="button" class="btn btn-default next p-3 navbar-left" href="{% url "employment"%}"
+                role="button">التالي</a>
+            </div>
+
+          </div>
+        </form>
+
+
+        {% if messages %}
+        {% for message in messages %}
+        <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</div>
+{% endblock %}

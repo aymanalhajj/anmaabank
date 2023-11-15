@@ -1,0 +1,43 @@
+
+{% load static %}
+{% block Clients %}
+     <!-- ======= Clients Section ======= -->
+{% if Clients %}
+
+    <section id="clients" class="clients">
+
+      <div class="container" >
+
+        <header class="section-header">
+          <h2>عملائنا</h2>
+          <p>في جميع الأوقات الرسمية</p>
+        </header>
+
+        <div class="clients-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+                  {% for client in Clients %}
+                  {% if client.image %}
+                      <div class="swiper-slide">
+                          <img src="{{client.image.url}}"  class="img-fluid" alt="">
+                      </div>
+                      {% endif  %}
+                  {% endfor  %}
+            {% comment %} <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div> {% endcomment %}
+          </div>
+
+          <div class="clients-swiper-pagination"></div>
+        </div>
+      </div>
+
+    </section><!-- End Clients Section -->
+{% endif %}
+
+<!-- End Brand Carousel -->
+{% endblock Clients %}

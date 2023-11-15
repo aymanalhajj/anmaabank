@@ -1,0 +1,77 @@
+
+{% load static %}
+{% block OurVision %}
+{% if ourvision %}
+
+  {% comment %} <section id="OurVision" class="map">
+ 
+
+</section> {% endcomment %}
+<!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts ourvision">
+     <header class="section-header">
+        {% comment %} <h2>رؤيتنا</h2> {% endcomment %}
+                <p>رؤيتنــــا</p>
+
+        {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+      </header>
+      <div class="container">
+        {% comment %} <p>{{ abouts.detial_ar }}</p> {% endcomment %}
+      {% comment %} <div class="col-lg-6 d-flex flex-column justify-content-center"> {% endcomment %}
+          <div class="content">
+            {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
+            {% if ourvision.image %}
+            <div class="image-wrapper"><div class="image"><img src="{{ourvision.image.url}}" alt="الرؤية"><div class="bg"></div></div></div>
+            {% endif  %}
+            {% comment %} <div class="image-wrapper"><div class="image"><img src="{{ourvision.image.url}}" alt="الرؤية"><div class="bg"></div></div></div> {% endcomment %}
+            <h2>{{ourvision.titel}}</h2>
+            <p>{{ ourvision.detial_ar|safe }}</p>
+            {% comment %} <h2>{{abouts.titel}}</h2> {% endcomment %}
+            {% comment %} <p>نسعى دائماً لنيل رضى عملاءنا من خلال تقديم أفضل الخدمات ، ونعمل على تلبية كافة احتياجاتهم وتحقيق تطلعاتهم ، لنحافظ على مكانتنا المرموقة في عالم السياحة والسفر ، ونكون الشركة الأولى على الصعيد المحلي والإقليمي في مجال السياحة والسفر والخدمات المرتبطة به .
+بالإضافة للاستمرار بتطوير خدماتنا واستحداث خدمات جديدة تواكب تطور القطاع السياحي في اليمن والعالم أجمع .</p>
+             {% endcomment %}
+          {% comment %} </div> {% endcomment %}
+        </div>  
+        {% if ourmission %}
+        <header class="section-header">
+            {% comment %} <h2>رؤيتنا</h2> {% endcomment %}
+                    <p>مهمتنــــا</p>
+
+            {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+          </header>
+          <div class="content">
+            {% if ourmission.image %}
+            <div class="image-wrapper"><div class="image"><img src="{{ourmission.image.url}}" alt="الرؤية"><div class="bg"></div></div></div>
+            {% endif  %}
+              <p>{{ ourmission.detial_ar|safe }}</p>
+            
+          </div>
+        {% endif  %}
+
+        {% if ourmarch %}
+        <header class="section-header">
+            {% comment %} <h2>رؤيتنا</h2> {% endcomment %}
+                    <p>مسيرتنا</p>
+
+            {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+          </header>
+        
+
+          <div class="content">
+            {% if ourmarch.image %}
+            <div class="image-wrapper"><div class="image"><img src="{{ourmarch.image.url}}" alt="الرؤية"><div class="bg"></div></div></div>
+            {% endif  %}
+              <p>{{ ourmarch.detial_ar|safe }}</p>
+            
+          </div>
+        {% endif  %}
+
+      
+
+      </div>
+    </section><!-- End Counts Section -->
+{% endif  %}
+
+
+<!-- End Brand Carousel -->
+{% endblock OurVision %}

@@ -1,0 +1,87 @@
+{% load  static %}
+{% block testimonials %}
+<!-- Slideshow container -->
+{% if testimonials %}
+
+        <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+
+      <div class="container" >
+
+        <header class="section-header">
+          <p>
+          آراء العملاء 
+          </p>
+          {% comment %} <p>أراء العملاء عنا</p> {% endcomment %}
+        </header>
+
+        <div class="testimonials-slider swiper"  >
+          <div class="swiper-wrapper">
+            {% for testimonial in testimonials %} {% load to_and %}
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                
+                  <div class="stars">
+                  {% comment %} if  {% endcomment %}
+                  {% if testimonial.evaluation_number >= 5 or  testimonial.evaluation_number < 1 %}
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                  {% elif testimonial.evaluation_number == 4 %}
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+
+                  {% elif testimonial.evaluation_number == 3 %}
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                      {% elif testimonial.evaluation_number == 2 %}
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                      {% elif testimonial.evaluation_number == 1 %}
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i>
+                      {% endif %}
+                  </div>
+                  <p>
+                        {{testimonial.detial_ar|safe}}
+                    {% comment %} Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper. {% endcomment %}
+                  </p>
+                  <div class="profile mt-auto">
+                    {% comment %} <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt=""> {% endcomment %}
+                    <h3>{{testimonial.full_name}}</h3>
+                    
+                    <h4>{{testimonial.adjective}}</h4>
+                    {% comment %} <h4>المؤسس الرئيس التنفيذي</h4> {% endcomment %}
+                  </div>
+                </div>
+              </div><!-- End testimonial item -->
+            {% endfor %}
+
+
+
+                            
+          
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- End Testimonials Section -->
+{% endif  %}
+{% endblock  %}

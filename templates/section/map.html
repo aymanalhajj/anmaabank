@@ -1,0 +1,75 @@
+
+{% load static %}
+{% block map %}
+{% if branches and setting and not setting.is_hidden_branche   %}
+
+  <section id="map" class="map">
+  <header class="section-header">
+        <h2>نقاط الخدمة</h2>
+        {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+      </header>
+<div  class="container">
+    <div class="row" >
+
+    {% comment %} <div class="container" > {% endcomment %}
+      {% comment %} <header class="section-header"> {% endcomment %}
+        {% comment %} <h2>الموقع على الخريطة</h2> {% endcomment %}
+         {% for branche in branches %}
+                <div class="col-lg-6 d-flex flex-column  align-items-center"  >
+                 
+
+                              {% comment %} <div class="row gy-0" > {% endcomment %}
+                                {% comment %} 
+                                {% endcomment %}
+                                {% if branche.address1  %}
+                                <div class="info-box-location ">
+
+                                          <i class="bi bi-geo-alt-fill"></i>
+                                          <span> {{ branche.address1.region.country.name_ar}} 
+                                            -  {{ branche.address1.region.name_ar}}
+                                            -  {{ branche.address1.street}} 
+                                          </span>
+                                              {% comment %} </div> {% endcomment %}
+                                              </div>
+                                        {% comment %} </header> {% endcomment %}
+                                        
+                                        <div class="info-box-location info-box-location-map" >
+                                          {% if branche.address1.lat and  branche.address1.long  %}
+                                          {% load to_lat %}
+                                        <iframe src="https://maps.google.com/maps?q={{branche.address1.lat|to_lat}},+{{branche.address1.long|to_lat}}&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                                                  width="100%" 
+                                                  loading="lazy"
+                                                  allowfullscreen
+                                                  height="100%" frameborder="0"
+                                                  style="border:0;">
+                                          </iframe>
+
+                                          
+                                          {% endif %}
+
+                                          
+                                    
+                                          {% comment %} <iframe 
+                                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835252972956!2d144.95592398991224!3d-37.817327693787625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sin!4v1575470633967!5m2!1sen!2sin" 
+                                          width="100%" height="514" frameborder="0" style="border:0;" allowfullscreen=""
+                                          ></iframe> {% endcomment %}
+                                          </div>
+                                            {% comment %} </div> {% endcomment %}
+                              </div>
+                              {% endif %}
+
+
+                      
+      
+         
+          
+  
+       {% endfor %}
+        {% comment %} </div> {% endcomment %}
+</div>
+   </div>
+</section>
+{% endif %}
+
+<!-- End Brand Carousel -->
+{% endblock map %}

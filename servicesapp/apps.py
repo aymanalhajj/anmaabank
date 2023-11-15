@@ -1,0 +1,7 @@
+from django.apps import AppConfig
+
+
+class ServicesappConfig(AppConfig):
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "servicesapp"
+    verbose_name = "الخدمات  وتطبيقات البنك"

@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    {% comment %} <title>{% block title %}{% endblock %}   | وظائف بنك الانماء</title> {% endcomment %}
+
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    <link href="{% static 'jop/assets/img/logo2.jpg' %}" rel="icon">
+    <link href="{% static 'jop/assets/img/logo2.jpg' %}" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    {% comment %} <link rel="preconnect" href="https://fonts.googleapis.com"> {% endcomment %}
+    {% comment %} <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> {% endcomment %}
+    {% comment %} <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> {% endcomment %}
+    
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'jop/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/theme/standard/style.css" rel="stylesheet' %}" type="text/css"/>
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'jop/assets/css/w3.css' %}" rel="stylesheet">
+
+    <link href="{% static 'jop/assets/css/main.css' %}" rel="stylesheet">
+    {% comment %} <link href="{% static 'jop/assets/css/style.css' %}" rel="stylesheet"> {% endcomment %}
+
+    <style>
+     
+      body {
+        background: #f4f4f4;
+        {% comment %} font-family: 'Poppins', sans-serif; {% endcomment %}
+    
+    
+      }
+      .login h1{ font-size:21px;padding:30px 50px 30px 1px;width:283px;margin:20px auto;font-weight:700}
+      .login form{background-color:#eee;width:500px;margin:auto;padding:20px 40px}
+      .login form label{width:100%;font-size:13px;padding:7px 15px;float:none;text-align:right}
+      .login form input[type=text],.login form input[type=password]{border:none;border-radius:0;height:45px}
+      .login .col-sm-offset-2{margin-right:0!important;float:none!important}
+      .login .col-lg-10,.login .col-sm-10{width:100%}
+      .new-user{font-weight:700;float:left;display:block;padding-top:75px}
+      .footer p{text-align:left;padding:10px 0;font-size:10px;margin:0;font-size:13px}
+      .footer p#powerd_by{padding:0}.footer div>a{padding:22px 0 5px;display:block}
+      .footer ul{padding:0;margin:0;border-bottom:1px solid #aaa}
+      .footer li{list-style:none;float:right;margin:0 5px}
+      .footer li a{font-size:12px;color:#535353}
+      #mob_menu{display:none;width:24px;height:23px;float:left;margin:16px 0}
+      .home_boxes{display:block;padding:0}
+      .home_boxes li{display:block;float:right;margin-left:2.7%;width:17.8%}
+      .home_boxes li a{display:block;height:135px;-webkit-box-shadow:2px 3px 0 0 rgba(0,0,0,.2);-moz-box-shadow:2px 3px 0 0 rgba(0,0,0,.2);box-shadow:2px 3px 0 0 rgba(0,0,0,.2);background-color:#544264;padding:30px 10px 55px 10px;text-align:center;transition:all 0.3s;-webkit-transition:all 0.7s;-moz-transition:all 0.7s;-ms-transition:all 0.7s;-o-transition:all 0.7s;color:#fff}
+      .home_boxes li:last-child{margin-left:0}
+      .home_boxes li a:hover,.home_boxes li:hover a{background-color:#fff;color:#544264;text-decoration:none}
+      .login form .error label{font-size:16px}@media (max-width:1200px)
+      {% block body_style %} {% endblock %}
+    </style>
+  </head>
+  <body >
+    {% if user is None %}
+    {# Render content when user is None #}
+{% else %}
+    <section id="topbar" class="topbar d-flex align-items-center justify-content-center float-right">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <div class="login_menu clearfix" style="background-color: #166BB4;">
+                    <div class="container">
+                        <span style="color: white;">
+                            مرحباً: {{ user.full_name }}
+                            الرقم الشخصي ({{ user.id }})
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Top Bar -->
+{% endif %}
+
+   
+  
+  <header id="header" class="header d-flex align-items-center">
+
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="{% url "home-jop" %}" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        {% comment %} <img src="assets/img/footer.png" alt=""> {% endcomment %}
+        <h1>بنك الانماء</h1>
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url "home-jop" %}">الرئيسية</a></li>
+          <li><a href="{% url "message_bank" %}">الرسالة</a></li>
+          <li><a href="{% url "ruic_bank" %}">الروية</a></li>
+          <li><a href="{% url "values_principles" %}">القيم والمبادئ</a></li>
+          <li><a href="{% url "purpose_bank" %}">الغايات</a></li>
+                              <li><a href="{% url "strategy_bank" %}">تعليمات التقديم</a></li>
+       
+          <li><a href="{% url "createaccounte" %}">مستخدم جديد</a></li>
+          {% if user is None %}
+          <li><a href="{% url "login-user" %}">تسجيل الدخول</a></li>
+      {% else %}
+          <li><a href="{% url "userLogout" %}">تسجيل الخروج</a></li>
+      {% endif %}
+        </ul>
+      </nav><!-- .navbar -->
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+  <!-- End Header -->
+                                                                                                           
+  
+  
+  
+
+<!-- Navbar on small screens -->
+
+
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+    <footer id="footer" class="footer">
+      
+    
+ <span><a href="#"  target="_self">أسئلة متكررة</a></span>&nbsp&nbsp
+  <span> <a href="#"  target="_self">شروط الإستخدام</a></span>&nbsp&nbsp
+    <span><a href="#"  target="_self">سياسة الخصوصية</a></span>&nbsp&nbsp
+          
+      </div>
+<hr>
+     
+      <div class="social-links d-flex mt-4">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+ 
+        </div>
+      </div>
+  
+      
+        <div class="copyright">
+          &copy; <strong><span></span></strong>جميع الحقوق محفوظة © لـ بنك الانما للتمويل الأصغر الإسلامي 2023
+       
+        <div class="credits">Developed by
+       
+       
+      </div>
+    </div>
+    </footer><!-- End Footer -->
+    <!-- End Footer -->
+  
+    {% comment %} <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> {% endcomment %}
+    <div class="scroll-top d-flex align-items-center justify-content-center" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-4411ffaae919a516">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
+              <style type="text/css">
+                .stw{fill:#ffffff;}
+              </style>
+              <polygon class="stw" points="46.76,48.45 62.19,63.87 46.76,79.29 46.76,108.01 90.91,63.87 46.76,19.73 "></polygon>
+            </svg>            
+      </div>
+    <div id="preloader"></div>
+  
+    <!-- Vendor JS Files -->
+    <script src="{% static 'jop/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'jop/assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'jop/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'jop/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'jop/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'jop/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'jop/assets/vendor/php-email-form/validate.js' %}"></script>
+    {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> {% endcomment %}
+    {% comment %} <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> {% endcomment %}
+    <!-- Template Main JS File -->
+    <script src="{% static 'jop/assets/js/main.js' %}"></script>
+
+  </body>
+</html>

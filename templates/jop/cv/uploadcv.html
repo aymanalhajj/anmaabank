@@ -1,0 +1,48 @@
+
+{% extends "jop/cv/basecv.html" %}
+{% load static%}
+{% comment %} {% block title %} الوظائف المقدم فيها{% endblock %} {% endcomment %}
+
+{% block title %} 
+الوظائف المقدم فيها
+{% endblock %}
+{% block content_Breadcrumbs %}
+الوظائف المقدم فيها
+{% endblock %}
+
+  {% block body_style %}
+ 
+
+    
+
+  {% endblock%}
+  {% block content-page%}
+ 
+    <div id="main" style="background:#ffffff;" class="col-lg-9">
+        <div style="background:#ffffff;padding:10px">
+            <h2> قم باضافة ملف السيرة الذاتية   </h2>            
+    
+            <form method="post" enctype="multipart/form-data" height="100px">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="col-sm-offset-2 col-lg-10">
+                    <div class="form-group">
+                        <button class="btn btn-primary"name="signinBtn" type="submit">رفع الملف</button>
+                       
+                    </div>
+                </div>
+                {% if messages %}
+                {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+                {% endfor %}
+                {% endif %}
+            
+            </form>
+    
+  
+    
+    </div>
+    </div>
+</div>
+</dvi>
+  {% endblock %}

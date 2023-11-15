@@ -1,0 +1,67 @@
+{% load  static %}
+{% block team %}
+<!-- Slideshow container -->
+{% if teams and setting and not setting.is_hidden_teams  %}
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+
+      <div class="container">
+
+        <header class="section-header">
+          <h2>فريق العمل</h2>
+          <p>بعض من صناع النجاح والتفوق</p>
+        </header>
+
+        <div class="row gy-4">
+
+                  {% for client in teams %} {% load to_and %}
+                 
+
+                            <div class="col-lg-3 col-md-6 d-flex justify-content-center">
+                              <div class="member">
+                                <div class="member-img">
+                                  {% if client.image %}
+                                  <img src="{{client.image.url}}" class="img-fluid" alt="">
+                                  {% else %}
+                                  <img src="{% static 'assets/img/logo-only.png'  %}" class="img-fluid" alt="logo  Alinma Bank">
+                                  {% endif %}
+
+                                  <div class="social">
+                                  {% if client.twitter %}
+                                    <a href="{{client.twitter}}"><i class="bi bi-twitter"></i></a>
+                                  {% endif  %}
+                                  {% if client.facebook %}
+                                    <a href="{{client.facebook}}"><i class="bi bi-facebook"></i></a>
+                                  {% endif  %}
+                                  {% if client.instagram %}
+                                    <a href="{{client.instagram}}"><i class="bi bi-instagram"></i></a>
+                                  {% endif  %}
+                                  {% if client.linkedin %}
+                                    <a href="{{client.linkedin}}"><i class="bi bi-linkedin"></i></a>
+                                  {% endif  %}
+                                  </div>
+                                </div>
+                                <div class="member-info">
+                                  <h4>{{client.full_name}}</h4>
+                                  <span>{{client.jop}}</span>
+                                  {% comment %} <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p> {% endcomment %}
+                                </div>
+                              </div>
+                            </div>
+
+                  {% endfor  %}
+        
+
+
+
+
+        </div>
+
+      </div>
+
+    </section><!-- End Team Section -->
+    <!-- ======= Team Section ======= -->
+
+{% endif  %}
+{% endblock  %}

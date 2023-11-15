@@ -1,0 +1,298 @@
+{% extends "jop/cv/basecv.html" %}
+{% load static%}
+{% block title %} انشاء حساب{% endblock %}
+
+{% block content-page%}
+
+<div id="main" style="background:#ffffff;" class="col-lg-9">
+    <div style="background:#ffffff;padding:10px">
+
+        <div class="table-responsive">
+            <h2> الدرجات العلمية</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>اسم المؤسسة التعليمية</th>
+                        <th>البلد</th>
+                        <th>المستوى التعليمي</th>
+
+                        <th><a href="{% url "education" %}"> <button class="btn btn-primary "
+                                    id="btnupdata">اضافة</button></a></th>
+
+                    </tr>
+
+
+                </thead>
+                <tbody>
+
+                    {% for f in formdata %}
+                    <tr>
+                        <td> {{f.name_educational_institution}}</td>
+                        <td>{{f.country}}</td>
+                        <td>{{f.sducation_level}}</td>
+                        <td><a href='{{f.sducation_level}}'></td>
+                        <td>
+
+                            <div class="button-container">
+                                <a href="/education/UpdateEducation/{{f.id}}"> <button
+                                        class="btn btn-info {{disabled}} " id="btnupdata">تحرير</button></a>
+                                <a href="/education/deleteeducation/{{f.id}}"> <button class="btn btn-danger "
+                                        type="submit">حذف</button></a>
+                            </div>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            </BR>
+
+            <h2>مهارات اللغة</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>اللغة </th>
+                        <th>اللغة </th>
+
+                        <th>القراءه</th>
+                        <th> الكتابة</th>
+                        <th>محادثة</th>
+
+
+                        <th><a href="{% url "languagskills" %}"> <button class="btn btn-primary "
+                                    id="btnupdata">اضافة</button></a></th>
+
+                    </tr>
+
+
+                </thead>
+                <tbody>
+
+                    {% for f in Languageskill %}
+                    <tr>
+                        <td>{{f.name_language}}</td>
+                        <td>{{f.othar_name_language}}</td>
+
+                        <td>{{f.reading}}</td>
+                        <td>{{f.writing}}</td>
+                        <td>{{f.conversation}}</td>
+
+
+                        <td>
+                            <div class="button-container">
+                                <a href="/languagskills/UpdateLangskils/{{f.id}}"> <button class="btn btn-info "
+                                        id="btnupdata">تحرير</button></a>
+                                <a href="/languagskills/DeleteLangskils/{{f.id}}"> <button class="btn btn-danger "
+                                        type="submit">حذف</button></a>
+                            </div>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <h2>مهارات الحاسوب</h2>
+            <table>
+                <thead>
+                    <th>اسم المهارة </th>
+                    <th>مستوى المهارة</th>
+                    <th><a href="{% url "computerskills" %}"> <button class="btn btn-primary "
+                                id="btnupdata">اضافة</button></a></th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% csrf_token %}
+                    {% for f in computerdata %}
+                    <tr>
+                        <td>{{f.name}}</td>
+                        <td>{{f.level}}</td>
+
+                        <td>
+                            <div class="button-container">
+                                <a href="UpdateComputerSkil/{{f.id}}" class="btn btn-info form-inline">تحرير</a>
+                                <a href="DeleteComSilks/{{f.id}}" class="btn btn-danger form-inline">حذف</a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </br>
+            <h2> الدورات التدريبية</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>اسم المعهد </th>
+                        <th>الدورة</th>
+                        <th> البلد</th>
+
+                        <th><a href="{% url "triningcourses" %}"> <button class="btn btn-primary "
+                                    id="btnupdata">اضافة</button></a></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% csrf_token %}
+                    {% for f in coursesdata %}
+                    <tr>
+
+                        <td>{{f.name_institute}}</td>
+                        <td>{{f.name_courses}}</td>
+                        <td>{{f.country}}</td>
+
+
+                        <td>
+                            <div class="button-container">
+                                <a href="/triningcourses/UpdateTrainingCourses/{{f.id}}"
+                                    class="btn btn-info form-inline">تحرير</a>
+                                <a href="/triningcourses/DeleteTraincoiurses/{{f.id}}"
+                                    class="btn btn-info form-inline">حذف</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <br>
+            <h2> الخبرات</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th> العمل </th>
+                        {% comment %} <th>من تاريخ</th> {% endcomment %}
+                        {% comment %} <th> إلى تاريخ</th> {% endcomment %}
+                        {% comment %} <th> اسم المحل/الجهة</th> {% endcomment %}
+                        {% comment %} <th> اسم صاحب العمل </th> {% endcomment %}
+                        <th>عنوان العمل</th>
+                        {% comment %} <th> تلفون العمل</th> {% endcomment %}
+                        <th>المهام </th>
+                        {% comment %} <th>المسمى الوظيفي في البداية </th> {% endcomment %}
+                        {% comment %} <th> المسمى الوظيفي في النهاية</th> {% endcomment %}
+                        {% comment %} <th>الراتب في البداية </th> {% endcomment %}
+                        {% comment %} <th>الراتب في النهاية </th> {% endcomment %}
+                        {% comment %} <th>عدد ساعات العمل </th> {% endcomment %}
+
+                        <th><a href="{% url "experince" %}"> <button class="btn btn-primary "
+                                    id="btnupdata">اضافة</button></a></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% csrf_token %}
+                    {% for f in experincedata %}
+                    <tr>
+
+                        <td>{{f.name_word}}</td>
+                        {% comment %} <td>{{f.From_Date}}</td> {% endcomment %}
+                        {% comment %} <td>{{f.To_date}}</td> {% endcomment %}
+                        {% comment %} <td>{{f.name_shop}}</td> {% endcomment %}
+                        {% comment %} <td>{{f.name_owner}}</td> {% endcomment %}
+                        <td>{{f.address}}</td>
+                        {% comment %} <td>{{f.mobile}}</td> {% endcomment %}
+                        <td>{{f.task}}</td>
+                        {% comment %} <td>{{f.name_job_start}}</td> {% endcomment %}
+                        {% comment %} <td>{{f.name_job_end}}</td> {% endcomment %}
+                        {% comment %} <td>{{f.salary_start}}</td> {% endcomment %}
+                        {% comment %} <td>{{f.salary_end}}</td> {% endcomment %}
+                        {% comment %} <td>{{f.working_hours}}</td> {% endcomment %}
+
+                        {% comment %} <td>{{f.To_date}}</td> {% endcomment %}
+
+                        <td>
+                            <div class="button-container">
+                                <a href="/experince/UpdateExperience/{{f.id}}"
+                                    class="btn btn-info form-inline">تحرير</a>
+                                <a href="/experince/DeleteExperiene/{{f.id}}" class="btn btn-danger form-inline">حذف</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+
+            <h2> المعرفين</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th> الاسم </th>
+                        <th>صلة القرابة</th>
+                        <th> العنوان</th>
+                        <th> العمل</th>
+                        <th><a href="{% url "BankKonown" %}"> <button class="btn btn-primary "
+                                    id="btnupdata">اضافة</button></a></th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% csrf_token %}
+                    {% for f in bankKonownData %}
+                    <tr>
+
+                        <td>{{f.name}}</td>
+                        <td>{{f.relative}}</td>
+                        <td>{{f.address}}</td>
+                        <td>{{f.working}}</td>
+
+                        <td>
+                            <div class="button-container">
+                                <a href="/bankKonownData/UpdateBankKonown/{{f.id}}"
+                                    class="btn btn-info form-inline">تحرير</a>
+                                <a href="/bankKonownData/Deletebanknow/{{f.id}}"
+                                    class="btn btn-danger form-inline">حذف</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+            <br>
+
+            <h2> الوظائف المقدم فيها</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th> الاسم </th>
+                        <th>تاريخ التقدم </th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% csrf_token %}
+                    {% for f in orederJob %}
+                    <tr>
+
+                        <td>{{f.job.name}}</td>
+                        <td>{{f.created_at}}</td>
+
+
+                        <td>
+                            <div class="button-container">
+                                <a href="UpdateBankKonown/{{f.id}}" class="btn btn-info form-inline">تحرير</a>
+                                <a href="Deletebanknow/{{f.id}}" class="btn btn-danger form-inline">حذف</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock%}

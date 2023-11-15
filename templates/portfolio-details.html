@@ -1,0 +1,94 @@
+{% extends 'base/base.html' %} {% load i18n static %} {% block content %}
+
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+      <ol>
+        <li><a href="/">الرئيسية</a></li>
+        <li>التفاصيل</li>
+      </ol>
+      <h2>التفاصيل</h2>
+    </div>
+  </section>
+  <!-- End Breadcrumbs -->
+
+  <!-- ======= Portfolio Details Section ======= -->
+
+  {% for imagesportfolio in dataImagesPortfolio %} {% load to_and %}
+  <section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-7">
+          <div class="portfolio-details-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+              <div class="swiper-slide">
+                <img
+                  src="{{imagesportfolio.image.url}}"
+                  alt="{{imagesportfolio.portfolio.detial_ar}}"
+                />
+              </div>
+              {% for dataportfolioimg in DataPortfolioImages %}
+
+              <div class="swiper-slide">
+                <img
+                  src="{{dataportfolioimg.image.url}}"
+                  alt="{{dataportfolioimg.portfolio.detial_ar}}"
+                />
+              </div>
+              {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="portfolio-info">
+            <h3>التفاصيل</h3>
+            <ul>
+              <li class="col-lg-5">
+                <strong>القسم</strong>:
+                {{imagesportfolio.portfolio.category.name}}
+              </li>
+              {% if imagesportfolio.portfolio.Client != None %}
+
+              <li>
+                <strong>العميل</strong>: {{imagesportfolio.portfolio.Client}}
+              </li>
+              {% endif %}
+
+              <li class="col-lg-5">
+                <strong>التاريخ</strong>:
+                {{imagesportfolio.portfolio.Date_Added.date}}
+              </li>
+              {% if imagesportfolio.portfolio.Url_ForProject != None %}
+
+              <li>
+                <strong>الرابط </strong>:
+                <a
+                  width
+                  target="_blank"
+                  href="{{imagesportfolio.portfolio.Url_ForProject.url}}"
+                  >{{imagesportfolio.portfolio.Url_ForProject}}</a
+                >
+              </li>
+
+              {% endif %}
+            </ul>
+          </div>
+          <div class="portfolio-description">
+            <h2>{{imagesportfolio.portfolio.titel}}</h2>
+            <p>{{imagesportfolio.portfolio.detial_ar}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endfor %}
+  <!-- End Portfolio Details Section -->
+</main>
+<!-- End #main -->
+
+<!-- ======= Footer ======= -->
+{% endblock %}

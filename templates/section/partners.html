@@ -1,0 +1,45 @@
+
+{% load static %}
+{% block Partners %}
+     <!-- ======= partners Section ======= -->
+{% comment %} {% if partners %} {% endcomment %}
+{% if partners and setting and not setting.is_hidden_partner   %}
+
+    <section id="partners" class="partners">
+
+      <div class="container" >
+
+        <header class="section-header">
+          <h2>شركائنا</h2>
+          <p>
+            اكتشف شركائنا المميزين
+          </p>
+        </header>
+
+        <div class="partners-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+                  {% for partner in partners %} {% load to_and %}
+                      <div class="swiper-slide">
+                          <img src="{{partner.image.url}}"  class="img-fluid" alt="">
+                      </div>
+
+                  {% endfor  %}
+            {% comment %} <div class="swiper-slide"><img src="assets/img/partners/client-1.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/partners/client-2.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/partners/client-3.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/partners/client-4.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/partners/client-5.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/partners/client-6.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/partners/client-7.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/partners/client-8.png" class="img-fluid" alt=""></div> {% endcomment %}
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+    </section><!-- End partners Section -->
+{% endif %}
+
+<!-- End Brand Carousel -->
+{% endblock Partners %}

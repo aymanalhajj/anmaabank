@@ -1,0 +1,127 @@
+{% load static %}
+
+{% block topheader %}
+  <div class="top-header">
+    <div class="container">
+      <ul class="list-item">
+        <li class="has-sub-header">
+          <a>
+            المركز الإعلامي<svg xmlns="http://www.w3.org/2000/svg" width="36.507" height="21.238" viewBox="0 0 36.507 21.238" class="arrow-icon">
+              <path d="M17.038-17.266a1.726,1.726,0,0,0,2.424.014L36-34.048a1.712,1.712,0,0,0,0-2.424l-1.012-1.012a1.713,1.713,0,0,0-2.424,0L18.25-22.912,3.935-37.5a1.712,1.712,0,0,0-2.424,0L.5-36.486a1.712,1.712,0,0,0,0,2.424Z" transform="translate(0.004 38)"></path>
+            </svg>
+          </a>
+          <div class="sub-header-container">
+            <div class="list-links">
+              <a href="/news" class="">
+                <div class="icon-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-news" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11"></path>
+                    <line x1="8" y1="8" x2="12" y2="8"></line>
+                    <line x1="8" y1="12" x2="12" y2="12"></line>
+                    <line x1="8" y1="16" x2="12" y2="16"></line>
+                  </svg>
+                </div><span>أخبار البنك</span>
+              </a>
+              <a href="/events" class="">
+                <div class="icon-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                    <line x1="16" y1="3" x2="16" y2="7"></line>
+                    <line x1="8" y1="3" x2="8" y2="7"></line>
+                    <line x1="4" y1="11" x2="20" y2="11"></line>
+                    <rect x="8" y="15" width="2" height="2"></rect>
+                  </svg>
+                </div><span>الفعاليات</span>
+              </a>
+              <a href="/blogs" class="">
+                <div class="icon-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-article" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                    <path d="M7 8h10"></path>
+                    <path d="M7 12h10"></path>
+                    <path d="M7 16h10"></path>
+                  </svg>
+                </div><span>المدونة</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <a href="{% url 'home-jop' %}">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="header-icon">
+              <path d="M6.42487 19.0001H13.6249C17.2429 19.0001 17.8909 17.5511 18.0799 15.7871L18.7549 8.5871C18.9979 6.3911 18.3679 4.6001 14.5249 4.6001H5.52487C1.68187 4.6001 1.05187 6.3911 1.29487 8.5871L1.96987 15.7871C2.15887 17.5511 2.80687 19.0001 6.42487 19.0001Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M6.42493 4.6V3.88C6.42493 2.287 6.42493 1 9.30493 1H10.7449C13.6249 1 13.6249 2.287 13.6249 3.88V4.6" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M11.8249 10.9V11.8C11.8249 11.809 11.8249 11.809 11.8249 11.818C11.8249 12.799 11.8159 13.6 10.0249 13.6C8.24285 13.6 8.22485 12.808 8.22485 11.827V10.9C8.22485 10 8.22485 10 9.12485 10H10.9249C11.8249 10 11.8249 10 11.8249 10.9Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M18.71 9.1001C16.631 10.6121 14.255 11.5121 11.825 11.8181" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M1.58289 9.34302C3.60789 10.729 5.89389 11.566 8.22489 11.827" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg><span>الوظائف</span>
+          </a>
+        </li>
+
+       
+      </ul>
+      <div class="hamburger-btn list-item mobile-nav-toggle list-item-mobile">
+        <div class="mobile-menu-open mobile-menu-btn show">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.5 8.2H16.3C18.1 8.2 19 7.3 19 5.5V3.7C19 1.9 18.1 1 16.3 1H14.5C12.7 1 11.8 1.9 11.8 3.7V5.5C11.8 7.3 12.7 8.2 14.5 8.2Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M3.7 19H5.5C7.3 19 8.2 18.1 8.2 16.3V14.5C8.2 12.7 7.3 11.8 5.5 11.8H3.7C1.9 11.8 1 12.7 1 14.5V16.3C1 18.1 1.9 19 3.7 19Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M4.6 8.2C6.58822 8.2 8.2 6.58822 8.2 4.6C8.2 2.61177 6.58822 1 4.6 1C2.61177 1 1 2.61177 1 4.6C1 6.58822 2.61177 8.2 4.6 8.2Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M15.4 19C17.3883 19 19 17.3883 19 15.4C19 13.4118 17.3883 11.8 15.4 11.8C13.4118 11.8 11.8 13.4118 11.8 15.4C11.8 17.3883 13.4118 19 15.4 19Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <div class="mobile-menu-close mobile-menu-btn">
+          <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.43884 19.217L20.2967 7.72954" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M19.1115 20.4022L7.62402 6.54434" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="alinma-logo">
+        <a href="/" class="router-link-active"><img alt="alinma logo" class="logo-white" src="{% static 'assets/img/logo-full-width-white.svg' %}?version=1" /><img alt="alinma logo" class="logo-color" src="{% static 'assets/img/logo-full-width-white.svg' %}?version=1" /></a>
+      </div>
+      <ul class="list-item">
+        <li>
+          <a href="{% url 'services-points' %}" class="">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" class="header-icon">
+              <path d="M12.2972 13.7263C14.0204 13.7263 15.4172 12.3295 15.4172 10.6063C15.4172 8.8832 14.0204 7.48633 12.2972 7.48633C10.5741 7.48633 9.17725 8.8832 9.17725 10.6063C9.17725 12.3295 10.5741 13.7263 12.2972 13.7263Z" stroke="#E26E0B" stroke-width="1.5"></path>
+              <path d="M3.91756 8.78688C5.88756 0.126877 18.7176 0.136878 20.6776 8.79688C21.8276 13.8769 18.6676 18.1769 15.8976 20.8369C13.8876 22.7769 10.7076 22.7769 8.68756 20.8369C5.92756 18.1769 2.76756 13.8669 3.91756 8.78688Z" stroke="white" stroke-width="1.5"></path>
+            </svg>
+            <span>نقاط الخدمة</span>
+          </a>
+          </li>
+           <li>
+          <a href="/#contact" class="">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="header-icon">
+              <path d="M15.3587 8.89825V12.4924C15.3587 12.726 15.3497 12.9507 15.3227 13.1663C15.1161 15.5924 13.6874 16.7964 11.0547 16.7964H10.6953C10.4706 16.7964 10.255 16.9042 10.1202 17.0839L9.04194 18.5216C8.56572 19.1596 7.79296 19.1596 7.31673 18.5216L6.23848 17.0839C6.12167 16.9312 5.8611 16.7964 5.66342 16.7964H5.30401C2.43767 16.7964 1 16.0866 1 12.4924V8.89825C1 6.26553 2.21304 4.83685 4.63011 4.63019C4.84576 4.60323 5.07039 4.59424 5.30401 4.59424H11.0547C13.921 4.59424 15.3587 6.03191 15.3587 8.89825Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M18.9529 5.30401V8.89817C18.9529 11.5399 17.7398 12.9596 15.3227 13.1662C15.3497 12.9506 15.3587 12.726 15.3587 12.4923V8.89817C15.3587 6.03183 13.921 4.59416 11.0547 4.59416H5.30403C5.07041 4.59416 4.84578 4.60315 4.63013 4.63011C4.83679 2.21304 6.26547 1 8.89819 1H14.6488C17.5152 1 18.9529 2.43767 18.9529 5.30401Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M11.3291 11.1087H11.3372" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M8.1843 11.1087H8.19239" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M5.0394 11.1087H5.04749" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span>تواصل معنا</span>
+          </a>
+        </li>
+
+        {% comment %} 
+        <li>
+          <a href="/open-account"><span>طلب تمويل</span></a>
+        </li>
+        <li>
+          <a href="/#testimonials"><span>آراء العملاء</span></a>
+        </li> {% endcomment %}
+
+        {% comment %} <li>
+          <a href="/#portfolio">
+            <i class="header-icon bi bi-file-image-fill"></i>
+
+            <span>معرض الصور</span>
+          </a>
+        </li> {% endcomment %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

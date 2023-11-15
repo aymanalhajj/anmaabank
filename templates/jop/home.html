@@ -1,0 +1,182 @@
+{% extends 'jop/baseall.html'  %} {% load i18n static %} 
+{% comment %} {% extends "jop/base.html" %} {% endcomment %}
+
+{% comment %} {% block content %} {% endcomment %}
+{% comment %} {% endblock %} {% endcomment %}
+
+{% block content-section %}
+
+
+  {% comment %} {% if ServiceItem and setting and not setting.is_hidden_services %} {% endcomment %}
+
+  <section class="services-section-jop-home" style="order: 1;">
+    <div class="container">
+      <div class="section-header section-heading text-center">
+        <h2 class="section-title">
+        {% block title-name %}
+        الوظائف
+        {% endblock %}
+        
+      
+      </h2>
+                
+       
+        {% comment %} <p>باقة فريدة من الخدمات البنكية المتطورة</p> {% endcomment %}
+      </div>
+    </div>
+
+    <div class="services-section-container">
+      <div class="container">
+        
+
+        <div class="row gy-3" >
+          <div class="col-lg-3 col-md-5">
+            <div class="swiper-slide swiper-slide-active">
+
+                <a href="{% url 'introcation_job' %}" class="service-card active">
+                  <div class="service-card-jop-body">
+                    <div class="service-img">
+                
+                      <img src="{% static 'assets/img/logo-only.png'  %}" alt="الإقتصادية والإجتماعية">
+            
+                    </div>
+                    <div class="service-details">
+                      <p class="service-desc">
+                  
+                        تعليمات للتقديم على الوظائف في الموقع                
+                      </p>
+                      <div class="btn btn-primary ">عرض تفاصيل أكثر</div>
+
+                    </div>
+                  </div>
+                </a>
+
+              </div>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="col-lg-3 col-md-5">
+          <div class="swiper-slide swiper-slide-active">
+
+              <a href="{% url 'what_gion_bank' %}" class="service-card active"><div class="service-card-jop-body">
+                <div class="service-img">
+            
+                  <img src="{% static 'assets/img/logo-only.png'  %}" alt="الإقتصادية والإجتماعية">
+        
+                </div>
+                <div class="service-details">
+                  <p class="service-desc">
+              
+                    لماذا تنضم إلى فريق العمل في بنك الانماء                 
+                  </p>
+                  <div class="btn btn-primary ">عرض تفاصيل أكثر</div>
+
+                </div>
+              </div>
+
+              </a>
+
+
+          </div>
+
+        </div>
+
+
+
+        <div class="col-lg-3 col-md-5">
+          <div class="swiper-slide swiper-slide-active">
+
+            <a href="{% url 'puocedures_job' %}" class="service-card active"><div class="service-card-jop-body">
+              <div class="service-img">
+          
+                <img src="{% static 'assets/img/logo-only.png'  %}" alt="الإقتصادية والإجتماعية">
+      
+              </div>
+              <div class="service-details">
+                <p class="service-desc">
+            
+              إجراءات التوظيف              
+                </p>
+                <div class="btn btn-primary ">عرض تفاصيل أكثر</div>
+
+              </div>
+            </div>
+
+            </a>
+
+        </div>
+
+
+      </div>
+
+
+
+
+      <div class="col-lg-3 col-md-5">
+        <div class="swiper-slide swiper-slide-active">
+
+          <a href="{% url 'vacancies' %}" class="service-card active"><div class="service-card-jop-body">
+            <div class="service-img">
+        
+              <img src="{% static 'assets/img/logo-only.png'  %}" alt="الإقتصادية والإجتماعية">
+    
+            </div>
+            <div class="service-details">
+              <p class="service-desc">
+                          الوظائف الشاغرة
+              </p>
+              <div class="btn btn-primary ">عرض تفاصيل أكثر</div>
+
+            </div>
+          </div>
+
+          </a>
+
+      </div>
+
+
+    </div>
+
+
+
+
+   
+
+
+
+
+
+ 
+
+
+
+</div>
+        </div>
+ 
+
+
+  
+
+          
+          
+        
+
+     
+         
+        </div>
+
+      {% comment %} </div> {% endcomment %}
+    </div>
+
+  </section> 
+
+  {% comment %} {% endblock %} {% endcomment %}
+  {% endblock %}
+
+  <!-- ======= Footer ======= -->

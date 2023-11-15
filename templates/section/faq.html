@@ -1,0 +1,105 @@
+{% load  static %}
+{% block faq %}
+<!-- Slideshow container -->
+{% if frequentlys %}
+
+    <!-- ======= F.A.Q Section ======= -->
+    <section id="faq" class="faq">
+
+      <div class="container" >
+
+        <header class="section-header">
+          <h2>الأسئلة الشائعة</h2>
+          <p>تعرف على أكثر الأسئلة شيوعًا وإجاباتها حول خدماتنا ومنتجاتنا </p>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- F.A.Q List 1-->
+            <div class="accordion accordion-flush" id="faqlist1">
+              
+                  {% for faq in frequentlys %}
+                      {% if forloop.counter|divisibleby:2 %}
+
+                      {% else %}
+
+                    <div class="accordion-item">
+                        {% comment %} <h2 class="accordion-header"> {% endcomment %}
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-{{faq.id}}">
+                            <span>
+                              {{faq.question|safe}}
+                            </span>
+
+                            <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
+                                <style type="text/css">
+                                  .st0{fill:#1D70B8;}
+                                </style>
+                                <polygon class="st0" points="73.64,57.21 58.22,72.64 42.8,57.21 14.08,57.21 58.22,101.36 102.36,57.21 "/>
+                              </svg>
+                            </div>
+
+                          </button>
+
+                        {% comment %} </h2> {% endcomment %}
+                        <div id="faq-content-{{faq.id}}" class="accordion-collapse collapse" data-bs-parent="#faqlist{{faq.id}}">
+                          <div class="accordion-body">
+                            {{faq.answer|safe}}                  
+                          </div>
+                        </div>
+                      </div>
+                        {% endif  %}
+                  {% endfor  %}
+
+         
+
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+
+            <!-- F.A.Q List 2-->
+            <div class="accordion accordion-flush" id="faqlist2">
+                  {% for faq in frequentlys %}
+                      {% if forloop.counter|divisibleby:2 %}
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-{{faq.id}}">
+                            <span>
+                              {{faq.question|safe}}
+                            </span>
+
+                            
+                            <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
+                                <style type="text/css">
+                                  .st0{fill:#1D70B8;}
+                                </style>
+                                <polygon class="st0" points="73.64,57.21 58.22,72.64 42.8,57.21 14.08,57.21 58.22,101.36 102.36,57.21 "/>
+                              </svg>
+                            </div>
+                          </button>
+                        </h2>
+                        <div id="faq-content-{{faq.id}}" class="accordion-collapse collapse" data-bs-parent="#faqlist{{faq.id}}">
+                          <div class="accordion-body">
+                            {{faq.answer|safe}}                  
+                          </div>
+                        </div>
+                      </div>
+                        {% endif  %}
+                  {% endfor  %}
+             
+
+            
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- End F.A.Q Section -->
+{% endif  %}
+{% endblock  %}

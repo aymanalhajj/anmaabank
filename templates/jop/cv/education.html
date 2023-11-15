@@ -1,0 +1,179 @@
+{% extends "jop/cv/basecv.html" %}
+{% load static%}
+{% block custom_css %}
+<link href="{% static 'assets/css/changelists.css'  %}?version=1" rel="stylesheet" />
+
+<link href="{% static 'assets/css/base-table-jop.css'  %}?version=1" rel="stylesheet" />
+<link href="{% static 'assets/css/rtl-jop.css'  %}?version=1" rel="stylesheet" />
+<link href="{% static 'assets/css/responsive-jop.css'  %}?version=1" rel="stylesheet" />
+<link href="{% static 'assets/css/responsive_rtl-jop.css'  %}?version=1" rel="stylesheet" />
+
+{% comment %} changelists.css {% endcomment %}
+{% endblock custom_css %}
+<!-- {% block title %} انشاء حساب{% endblock %} -->
+{% block body_style %}
+
+
+
+
+{% endblock%}
+{% block content-page%}
+{% csrf_token %}
+{% load i18n static %}
+{% load crispy_forms_tags %}
+
+<div id="main" style="overflow-x:auto;background:#ffffff;" class="col-lg-9">
+  <div style="background:#ffffff;padding:10px">
+
+    <h2> الدرجات العلمية</h2>
+    <div class="module filtered" id="changelist">
+      <div class="changelist-form-container">
+        <div class="results">
+          <table id="result_list">
+            <thead>
+              <tr>
+                <th>اسم المؤسسة التعليمية</th>
+                <th>البلد</th>
+                <th>المستوى التعليمي</th>
+                <th>التخصص</th>
+                <th>المعدل</th>
+                <th>من تاريخ:</th>
+                <th>إلى تاريخ</th>
+                <th>#</th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+              {% for f in formdata %}
+              <tr>
+                <td> {{f.name_educational_institution}}</td>
+                <td>{{f.country}}</td>
+                <td>{{f.sducation_level}}</td>
+                <td>{{f.specialization}}</td>
+                <td>{{f.rate}}</td>
+                <td>{{f.From_Date}}</td>
+                <td>{{f.To_date}}</td>
+                <td>
+                  <div class="">
+                    <a href="UpdateEducation/{{f.id}}"> <button class="btn btn-info {{disabled}} "
+                        id="btnupdata">تحرير</button></a>
+                    <a href="deleteeducation/{{f.id}}"> <button class="btn btn-danger " type="submit">حذف</button></a>
+                  </div>
+
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="add_new">
+      <h3>إضافة</h3>
+      <div>
+        {% if messages %}
+        {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class=" text-center  btn-success  ">
+          {{ message  }}</div>
+        {% else %}
+        <div class=" text-center  btn-danger">
+          {{ message  }}</div>
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+        <form method="POST" enctype="multipart/form-data" validate accept-charset="UTF-8"
+          class="form-horizontal needs-validation align-items-center justify-content-center " role="form">
+          {% csrf_token %}
+
+          {% for field in form %}
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              {{field|as_crispy_field}}
+
+            </div>
+          </div>
+          {% endfor %}
+          <!-- <div class="form-group">
+            <div class="col-sm-12">
+              <label
+                for="{{ form.name_educational_institution.id_for_label }}">{{ form.name_educational_institution.label }}</label>
+              {{ form.name_educational_institution }} <small
+                class="text-danger">{{form.name_educational_institution.errors | striptags}}</small>
+            </div>
+          </div> -->
+
+          <!-- <div class="form-group">
+            <div class="col-sm-12">
+              <label for="{{ form.country.id_for_label }}">{{ form.country.label }}</label>
+              {{ form.country }} <small class="text-danger">{{form.country.errors | striptags}}</small>
+            </div>
+          </div> -->
+
+          <!-- <div class="form-group">
+            <div class="col-sm-12">
+              <label for="{{ form.sducation_level.id_for_label }}">{{ form.sducation_level.label }}</label>
+              {{ form.sducation_level }} <small class="text-danger">{{form.sducation_level.errors | striptags}}</small>
+            </div>
+          </div> -->
+
+          <!-- <div class="form-group">
+            <div class="col-sm-12">
+              <label for="{{ form.specialization.id_for_label }}">{{ form.specialization.label }}</label>
+              {{ form.specialization }} <small class="text-danger">{{form.specialization.errors | striptags}}</small>
+            </div>
+          </div> -->
+
+          <!-- <div class="form-group">
+            <div class="col-sm-12">
+              <label for="{{ form.rate.id_for_label }}">{{ form.rate.label }}</label>
+              {{ form.rate }} <small class="text-danger">{{form.rate.errors | striptags}}</small>
+            </div>
+          </div> -->
+          <!-- <div class="form-group">
+            <div class="col-sm-12">
+              <label for="{{ form.uploaded_image.id_for_label }}">{{ form.uploaded_image.label }}</label>
+              {{ form.uploaded_image }} <small class="text-danger">{{form.uploaded_image.errors | striptags}}</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <label for="{{ form.From_Date.id_for_label }}">{{ form.From_Date.label }}</label>
+              {{ form.From_Date }} <small class="text-danger">{{form.From_Date.errors | striptags}}</small>
+            </div>
+          </div> -->
+
+          <!-- <div class="form-group">
+            <div class="col-sm-12">
+              <label for="{{ form.To_date.id_for_label }}">{{ form.To_date.label }}</label>
+              {{ form.To_date }} <small class="text-danger">{{form.To_date.errors | striptags}}</small>
+            </div>
+          </div> -->
+          {% comment %} <label style="display:none;">{{ form.id }} </label> {% endcomment %}
+
+      </div>
+    </div>
+    </br>
+    <div class="form-group">
+      <div class=" row gy-3">
+        <button class="btn btn-info btn-primary " type="submit">حفظ</button>
+        <a type="button" class="btn btn-default prev col-lg-1" href="{% url "baseinfo"%}" role="button">السابق</a>
+        <a type="button" class="btn btn-default next col-lg-2 navbar-left" href="{% url "languagskills"%}"
+          role="button">التالي</a>
+      </div>
+    </div>
+
+    </form>
+
+  </div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+{% endblock %}

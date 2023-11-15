@@ -1,0 +1,235 @@
+
+{% load static %}
+{% block ouradvantage %}
+  {% comment %} <section_page id="OurVision" class="map">
+
+
+</section_page> {% endcomment %}
+{% comment %} {% if section_page %} {% endcomment %}
+{% if section_page and setting and not setting.is_hidden_sectio_page_all %}
+
+{% comment %} {% for section_page in OurAdvantagesHome %}
+{% if forloop.counter|divisibleby:2 %}
+
+{% endif %} {% endcomment %}
+<!-- ======= Counts section_page ======= -->
+    {% comment %} <section_page id="features" class="counts"> {% endcomment %}
+<section id="features" class="counts ourvision services">
+
+      <div class="container">
+        {% comment %} <p>{{ abouts.detial_ar }}</p> {% endcomment %}
+            <header class="section-header">
+              {% if section_page.titel %}
+              <h2>{{section_page.titel}}</h2>
+              {% endif %}
+              {% if section_page.short_titel %}
+              <p>{{section_page.short_titel}}</p>
+              {% endif %}
+            </header>
+          <div class="content">
+            {% if section_page.image %}
+              <div class="image-wrapper"><div class="image">
+                <img src="{{section_page.image.url}}" alt="{{section_page.titel}}">
+                <div class="bg"></div>
+                </div>
+                </div>
+            {% endif %}
+            {% if section_page.detial_ar %}
+            <div class="content">
+              <p>
+                {{section_page.detial_ar|safe}}
+              </p>
+            </div>
+            {% endif %}
+          </div>
+          
+          {% if section_page.number_rows == '4' %}
+
+        <div class="row gy-4">
+          {% for property in section_page.our_dvantages_property.all %}
+          
+       
+          <div class="col-lg-3 col-md-6 text-center text-lg-start ">
+            <div class="count-box text-center">
+              {% comment %} <i class="bi bi-flag-fill"></i> {% endcomment %}
+              {% if property.image %}
+               
+                <img src="{{property.image.url}}"        
+                 alt="{{property.titel}}"
+                >
+                {% elif section_page.is_display_image_item %}
+                <img src="{% static 'assets/img/logo-only.png'  %}" alt="{{property.titel}}" >
+              {% endif %}
+              {% comment %} <i class="fa-sharp fa-solid fa-flag"></i> {% endcomment %}
+              <div>
+                {% if property.titel %}
+
+                <h2>{{property.titel}}</h2>
+                {% endif %}
+  
+                {% if property.detial_ar %}
+                <p  class="padding-bottom-top-ten" >{{property.detial_ar|safe}}</p>
+                {% endif %}
+                {% comment %} <h2>الريــــادة</h2> {% endcomment %}
+                {% comment %} <p>من أفضل وكالات السفر والسياحة على مستوى اليمن لعام 2020 - 2021 - 2022 - 2023</p> {% endcomment %}
+                {% comment %} <span data-purecounter-start="0" data-purecounter-end="{{statistic.number}}" data-purecounter-duration="1" class="purecounter"></span> {% endcomment %}
+                {% comment %} <p>{{statistic.titel}}</p> {% endcomment %}
+              </div>
+            </div>
+          </div>
+
+
+        
+          {% endfor %}
+
+         
+       
+          
+          </div>
+        </div>
+        {% elif section_page.number_rows == '3' %}
+        <div class="row gy-4">
+          {% for property in section_page.our_dvantages_property.all %} 
+  
+          <div class="col-lg-4 col-md-6"  >
+            <div class="service-box blue">
+              {% if property.image %}
+              <div class="service-img ">
+               
+                <img src="{{property.image.url}}" class="img-fluid "              
+                 alt="{{property.titel}}"
+                >
+                
+              </div>
+
+              {% elif section_page.is_display_image_item %}
+              <div class="service-img">
+               
+                <img src="{% static 'assets/img/logo-with-text-in-footr.png'  %}" class="img-without-background img-fluid "              
+                 alt="{{property.titel}}"
+                >
+                
+              </div>
+              {% endif %}
+              {% comment %} <img
+                src="{{services.image.url}}"
+                class="img-fluid img-service"
+                alt="{{services.titel}}"
+              /> {% endcomment %}
+              {% if property.titel %}
+
+              <h3>{{property.titel}}</h3>
+              {% endif %}
+
+              {% if property.detial_ar %}
+              <p  class="padding-bottom-top-ten" >{{property.detial_ar|safe}}</p>
+              {% endif %}
+
+            </div>
+ 
+          </div>
+          {% endfor %}
+        </div>
+        {% elif section_page.number_rows == '2' %}
+
+     
+        <div class="row">
+          {% for property in section_page.our_dvantages_property.all %} 
+  
+          <div class="col-lg-6 d-flex flex-column  align-items-center"  >
+            <div class="service-box blue">
+              {% if property.image %}
+              <div class="service-img ">
+               
+                <img src="{{property.image.url}}" class="img-fluid "              
+                 alt="{{property.titel}}"
+                >
+                
+              </div>
+
+              {% elif section_page.is_display_image_item %}
+              <div class="service-img">
+               
+                <img src="{% static 'assets/img/logo-with-text-in-footr.png'  %}" class="img-without-background img-fluid "              
+                 alt="{{property.titel}}"
+                >
+                
+              </div>
+              {% endif %}
+              {% comment %} <img
+                src="{{services.image.url}}"
+                class="img-fluid img-service"
+                alt="{{services.titel}}"
+              /> {% endcomment %}
+              {% if property.titel %}
+
+              <h3>{{property.titel}}</h3>
+              {% endif %}
+
+              {% if property.detial_ar %}
+              <p  class="padding-bottom-top-ten" >{{property.detial_ar|safe}}</p>
+              {% endif %}
+
+            </div>
+ 
+          </div>
+          {% endfor %}
+        </div>
+
+        {% elif section_page.number_rows == '1' %}
+       
+        <div class="column">
+          {% for property in section_page.our_dvantages_property.all %} 
+          <div class="align-items-center"  >
+            
+              {% if property.image  %}
+              <div class="image-wrapper">
+
+              <div class="image-with-out-background">
+               
+                <img src="{{property.image.url}}"         
+                 alt="{{property.titel}}"
+                >
+                
+              </div>
+            </div>
+
+            
+              {% endif %}
+              {% comment %} <img
+                src="{{services.image.url}}"
+                class="img-fluid img-service"
+                alt="{{services.titel}}"
+              /> {% endcomment %}
+             
+
+              <div class="content">
+                
+                {% if property.titel %}
+                <header class="section_page-header">
+                  <h2>{{property.titel}}</h2>
+                </header>
+                {% endif %}
+                {% if property.detial_ar %}
+                <p class="padding-bottom-top-ten">
+                  {{property.detial_ar|safe}}
+                </p>
+                {% endif %}
+
+              </div>
+              
+              {% comment %} <p  class="padding-bottom-top-ten" >{{property.detial_ar|safe}}</p> {% endcomment %}
+
+            </div>
+ 
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </section>
+
+
+    {% endif  %}
+<!-- End Brand Carousel -->
+{% endblock  %}

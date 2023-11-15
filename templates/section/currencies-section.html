@@ -1,0 +1,478 @@
+{% load static %}
+{% block currencies-section %}
+{% if setting and curancy%}
+
+
+<section id="currencies" class="currencies-section" style="order: 3;">
+    <div class="container">
+        <div class="section-heading text-white">
+            <h2 class="section-title">أسعار العملات
+            </h2>
+            <p>
+                سعر صرف العملات الأجنبية مقابل الريال اليمني
+
+
+            </p>
+        </div>
+        <div class="exchange-rates-container">
+            
+            {% comment %}
+            <ul class="lavalamp-menu">
+                <div
+                    class="coins-city-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl">
+                    <div class="swiper-wrapper"
+                        style="transition-duration: 0ms; transform: translate3d(212px, 0px, 0px);">
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active swiper-slide-duplicate"
+                            data-swiper-slide-index="0" style="width: 106px;">عدن</div>
+                        <div class="swiper-slide swiper-slide-duplicate coins-city-slider-next swiper-slide-duplicate-next swiper-slide-duplicate"
+                            data-swiper-slide-index="1" style="width: 106px;">حضرموت</div>
+                        <div class="swiper-slide swiper-slide-duplicate coins-city-slider-prev swiper-slide-prev swiper-slide-duplicate"
+                            data-swiper-slide-index="2" style="width: 106px;">ابين</div>
+                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 106px;">
+                            عدن</div>
+                        <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 106px;">
+                            حضرموت</div>
+                        <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="2"
+                            style="width: 106px;">ابين</div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active swiper-slide-duplicate"
+                            data-swiper-slide-index="0" style="width: 106px;">عدن</div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next swiper-slide-duplicate"
+                            data-swiper-slide-index="1" style="width: 106px;">حضرموت</div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate"
+                            data-swiper-slide-index="2" style="width: 106px;">ابين</div>
+                    </div><!----><!----><!---->
+                </div>
+
+                <div class="bg-active"></div>
+
+               
+                <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
+                    <div class="swiper-wrapper"
+                        style="transition-duration: 0ms; transform: translate3d(-212px, 0px, 0px);">
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                            data-swiper-slide-index="0" style="width: 106px;">عدن</div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+                            data-swiper-slide-index="1" style="width: 106px;">حضرموت</div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="2"
+                            style="width: 106px;">ابين</div>
+                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 106px;">
+                            عدن</div>
+                        <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 106px;">
+                            حضرموت</div>
+                        <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="2"
+                            style="width: 106px;">ابين</div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                            data-swiper-slide-index="0" style="width: 106px;">عدن</div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+                            data-swiper-slide-index="1" style="width: 106px;">حضرموت</div>
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2"
+                            style="width: 106px;">ابين</div>
+                    </div><!----><!----><!---->
+                </div> 
+            </ul>
+            {% endcomment %}
+            <div class="currency-card">
+                <span class="currency-info name">العملة</span>
+                
+                <div class="currency-icon">
+                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                </div>
+                <span class="currency-info currency">شراء</span>
+                <span class="currency-info currency">بيع</span>
+            </div>
+            <div class="list-box">
+                <div
+                    class="swiper swiper-initialized swiper-vertical swiper-pointer-events coins-slider active swiper-backface-hidden">
+                    <div class="swiper-wrapper"
+                        style="transition-duration: 0ms; transform: translate3d(0px, -456px, 0px);">
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+
+
+                                <span class="currency-info name">درهم اماراتي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_emarat}}</span>
+                                <span class="currency-info currency">{{curancy.sale_emarat}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate"
+                            data-swiper-slide-index="1" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+
+
+                                <span class="currency-info name">دولار امريكي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_dolar}}</span>
+                                <span class="currency-info currency">{{curancy.sale_dolar}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev swiper-slide-duplicate"
+                            data-swiper-slide-index="2" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+
+                                <span class="currency-info name">ريال سعودي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_ksa}}</span>
+                                <span class="currency-info currency">{{curancy.sale_ksa}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate-active" data-swiper-slide-index="0"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                                <span class="currency-info name">درهم اماراتي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_emarat}}</span>
+                                <span class="currency-info currency">{{curancy.sale_emarat}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="1"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+
+                                <span class="currency-info name">دولار امريكي</span>
+
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+
+                                <span class="currency-info currency">{{curancy.buy_dolar}}</span>
+                                <span class="currency-info currency">{{curancy.sale_dolar}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+
+
+                                <span class="currency-info name">ريال سعودي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_ksa}}</span>
+                                <span class="currency-info currency">{{curancy.sale_ksa}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate"
+                            data-swiper-slide-index="0" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+
+                                <span class="currency-info name">درهم اماراتي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_emarat}}</span>
+                                <span class="currency-info currency">{{curancy.sale_emarat}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate"
+                            data-swiper-slide-index="1" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                                <span class="currency-info name">دولار امريكي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_dolar}}</span>
+                                <span class="currency-info currency">{{curancy.sale_dolar}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev swiper-slide-duplicate"
+                            data-swiper-slide-index="2" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+
+                                <span class="currency-info name">ريال سعودي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_ksa}}</span>
+                                <span class="currency-info currency">{{curancy.sale_ksa}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="swiper swiper-initialized swiper-vertical swiper-pointer-events coins-slider swiper-backface-hidden">
+                    <div class="swiper-wrapper"
+                        style="transition-duration: 0ms; transform: translate3d(0px, -456px, 0px);">
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+
+                                <span class="currency-info name">درهم اماراتي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_emarat}}</span>
+
+                                <span class="currency-info currency">{{curancy.sale_emarat}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate"
+                            data-swiper-slide-index="1" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+
+
+                                <span class="currency-info name">ريال سعودي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_ksa}}</span>
+                                <span class="currency-info currency">{{curancy.sale_ksa}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev swiper-slide-duplicate"
+                            data-swiper-slide-index="2" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+
+                                <span class="currency-info name">دولار امريكي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_dolar}}</span>
+                                <span class="currency-info currency">{{curancy.sale_dolar}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate-active" data-swiper-slide-index="0"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                                
+                                <span class="currency-info name">درهم اماراتي</span>
+                                
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span
+                                    class="currency-info currency">{{curancy.buy_emarat}}</span>
+                                  
+                                    <span
+                                    class="currency-info currency">{{curancy.sale_emarat}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="1"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                               
+                                <span class="currency-info name">ريال سعودي</span>
+                                
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span
+                                    class="currency-info currency">{{curancy.buy_ksa}}</span> <span
+                                    class="currency-info currency">{{curancy.sale_ksa}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                               
+                                <span class="currency-info name">دولار امريكي</span>
+                                
+                                
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span
+                                    class="currency-info currency">{{curancy.buy_dolar}}</span><span
+                                    class="currency-info currency">{{curancy.sale_dolar}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate"
+                            data-swiper-slide-index="0" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                          
+                                <span class="currency-info name">درهم اماراتي</span>
+                                
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span
+                                    class="currency-info currency">{{curancy.buy_emarat}}</span><span
+                                    class="currency-info currency">{{curancy.sale_emarat}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate"
+                            data-swiper-slide-index="1" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                                <span class="currency-info name">ريال سعودي</span>
+                                
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                
+                                <span
+                                    class="currency-info currency">{{curancy.buy_ksa}}</span>
+                                <span class="currency-info currency">{{curancy.sale_dolar}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev swiper-slide-duplicate"
+                            data-swiper-slide-index="2" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+
+                                <span class="currency-info name">دولار امريكي</span>
+
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_dolar}}</span>
+                                <span class="currency-info currency">{{curancy.sale_dolar}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="swiper swiper-initialized swiper-vertical swiper-pointer-events coins-slider swiper-backface-hidden">
+                    <div class="swiper-wrapper"
+                        style="transition-duration: 0ms; transform: translate3d(0px, -456px, 0px);">
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                               
+                                <span class="currency-info name">درهم اماراتي</span>
+                                
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span
+                                    class="currency-info currency">{{curancy.buy_emarat}}</span><span
+                                    class="currency-info currency">{{curancy.sale_emarat}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate"
+                            data-swiper-slide-index="1" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                                <span class="currency-info name">ريال سعودي</span>
+                                
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span class="currency-info currency">{{curancy.buy_ksa}}</span>
+                                <span class="currency-info currency">{{curancy.sale_ksa}}</span>
+
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev swiper-slide-duplicate"
+                            data-swiper-slide-index="2" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                                
+                                <span class="currency-info name">دولار امريكي</span>
+                                
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span
+                                    class="currency-info currency">{{curancy.buy_dolar}}</span><span
+                                    class="currency-info currency">{{curancy.sale_dolar}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate-active" data-swiper-slide-index="0"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                                <span class="currency-info name">درهم اماراتي</span>
+                                
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+                                <span
+                                    class="currency-info currency">{{curancy.buy_emarat}}</span><span
+                                    class="currency-info currency">{{curancy.sale_emarat}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="1"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                               <span class="currency-info name">ريال سعودي</span>
+                               
+                               <div class="currency-icon">
+                                <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                            </div>
+                               <span
+                                    class="currency-info currency">{{curancy.buy_ksa}}</span> <span
+                                    class="currency-info currency">{{curancy.sale_ksa}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2"
+                            style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                               <span class="currency-info name">دولار امريكي</span>
+                               
+                               <div class="currency-icon">
+                                <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                            </div>
+                               <span
+                                    class="currency-info currency">{{curancy.buy_dolar}}</span><span
+                                    class="currency-info currency">{{curancy.sale_dolar}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate"
+                            data-swiper-slide-index="0" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                               <span class="currency-info name">درهم اماراتي</span>
+                               
+                               <div class="currency-icon">
+                                <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                            </div>
+                               <span
+                                    class="currency-info currency">{{curancy.buy_emarat}}</span><span
+                                    class="currency-info currency">{{curancy.sale_emarat}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate"
+                            data-swiper-slide-index="1" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                             <span class="currency-info name">ريال سعودي</span>
+                             
+                             <div class="currency-icon">
+                                <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                            </div>
+                             
+                             <span
+                                    class="currency-info currency">{{curancy.buy_ksa}}</span> <span
+                                    class="currency-info currency">{{curancy.sale_ksa}}</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev swiper-slide-duplicate"
+                            data-swiper-slide-index="2" style="height: 68px; margin-bottom: 8px;">
+                            <div class="currency-card">
+                                <span class="currency-info name">دولار امريكي</span>
+                                
+                                
+                                <div class="currency-icon">
+                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                </div>
+
+                                <span
+                                    class="currency-info currency">{{curancy.buy_dolar}}</span><span
+                                    class="currency-info currency">{{curancy.sale_dolar}}</span>
+                            </div>
+                        </div>
+                    </div><!----><!----><!---->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- End Brand Carousel -->
+{% endblock currencies-section %}

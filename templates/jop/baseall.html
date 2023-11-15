@@ -1,0 +1,256 @@
+{% extends 'base/base.html' %} {% load i18n static %}
+ {% comment %} {% block detcontentails %} {% endcomment %}
+ {% comment %} {% block content %}  {% endcomment %}
+
+{% load static %}
+{% load i18n static %}
+{% block custom_css %}
+      <link href="{% static 'assets/css/job-style.css'  %}?version=1" rel="stylesheet" />
+      <link href="{% static 'jop/assets/css/w3.css'  %}?version=1" rel="stylesheet" />
+      <link href="{% static 'assets/css/w3.css'  %}?version=1" rel="stylesheet" />
+
+  {% endblock %}
+{% comment %} {% block breadcrumbs %} {% endblock %} {% endcomment %}
+
+{% comment %} {% extends "jop/base.html" %} {% endcomment %}
+{% block custom-menu-footer-navbar %}
+
+{% if user is None %}
+{% else %}
+    <div class="container-fluid container-xl
+    d-flex
+    align-items-center
+    justify-content-center">
+    <nav id="footer-navbar" class="footer-navbar
+      align-items-center
+    justify-content-center
+    ">
+    <div class="container">
+
+      <ul id="navbar-main" class="backcolorwhite">
+      
+
+</div> 
+</ul> 
+
+</nav> 
+
+</div> 
+  {% endif %}  
+
+ 
+  {% endblock %}
+  {% block topheadersection %}
+    <section id="topbar" class="topbar d-flex align-items-center justify-content-center float-right">
+        <div class="container container-fluid container-xl
+        d-flex
+        topbar-row">
+          
+
+
+        {% if user %}
+               
+        <a href="{% url "home-jop" %}" class="align-items-start">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            {% comment %} <img src="assets/img/footer.png" alt=""> {% endcomment %}
+            <span style="color: white;">
+                مرحباً: {{ user.full_name }}
+                الرقم الشخصي ({{ user.id }})
+            </span>
+              </a>
+
+              {% endif %}
+
+                    <ul class="list-item  align-items-center
+                    justify-content-center" >
+                        {% comment %} <li><a href="{% url "home-jop" %}">الرئيسية</a></li> {% endcomment %}
+                        {% comment %} <li><a href="{% url "message_bank" %}">الرسالة</a></li> {% endcomment %}
+                        {% comment %} <li><a href="{% url "ruic_bank" %}">الروية</a></li> {% endcomment %}
+                        {% comment %} <li><a href="{% url "values_principles" %}">القيم والمبادئ</a></li> {% endcomment %}
+                        {% comment %} <li><a href="{% url "purpose_bank" %}">الغايات</a></li> {% endcomment %}
+                              <li><a href="{% url "strategy_bank" %}">تعليمات التقديم</a></li>
+                        <li><a href="{% url "baseinfo" %}">بيانات السيرة الذاتية</a></li>
+
+                        <li><a href="{% url "createaccounte" %}">مستخدم جديد</a></li>
+                        {% if user is None %}
+                        <li><a href="{% url "login-user" %}">تسجيل الدخول</a></li>
+                    {% else %}
+                        <li><a href="{% url "userLogout" %}">تسجيل الخروج</a></li>
+                    {% endif %}
+                      </ul>
+                    </div>
+                </div>
+
+              
+
+            </div>
+        </div>
+    </section><!-- End Top Bar -->
+    {% endblock topheadersection %}
+
+{% block custom-menu-navbar %}
+<li><a href="{% url "home-jop" %}">الرئيسية</a></li>
+{% comment %} <li><a href="{% url "message_bank" %}">الرسالة</a></li> {% endcomment %}
+{% comment %} <li><a href="{% url "ruic_bank" %}">الروية</a></li> {% endcomment %}
+{% comment %} <li><a href="{% url "values_principles" %}">القيم والمبادئ</a></li> {% endcomment %}
+<li><a href="{% url "about" %}">عن البنك</a></li>
+<li><a href="{% url "strategy_bank" %}">تعليمات التقديم</a></li>
+<li><a href="{% url "cvedit" %}">السيرة الذاتية</a></li>
+<li><a href="{% url "passwordchange" %}">تغيير كلمة المرور</a></li>
+<li><a href="{% url "jobsoffered" %}">الوظائف المقدم فيها</a></li>
+<li><a href="{% url "show_cv" %}">عرض السيرة الذاتية</a></li>
+
+<li><a href="{% url "createaccounte" %}">مستخدم جديد</a></li>
+<li >
+
+  <a class="nav-link scrollto" href="{% url "strategy_bank" %}"
+      >تعليمات التقديم</a
+  >
+  </li>
+  <li >
+      
+    <a class="nav-link scrollto" href="{% url "createaccounte" %}"
+        >مستخدم جديد</a
+    >
+    </li>
+    <li >
+    
+      {% if user is None %}
+      <li><a href="{% url "login-user" %}">تسجيل الدخول</a></li>
+  {% else %}
+      <li><a href="{% url "userLogout" %}">تسجيل الخروج</a></li>
+  {% endif %}
+
+
+{% endblock custom-menu-navbar %}
+{% block content %}
+
+{% block custom_head %}
+<link href="{% static 'jop/jop/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/jop/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/jop/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/jop/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/jop/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'jop/jop/theme/standard/style.css" rel="stylesheet' %}" type="text/css"/>
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'jop/jop/assets/css/main.css' %}" rel="stylesheet">
+    {% comment %} <link href="{% static 'jop/jop/assets/css/style.css' %}" rel="stylesheet"> {% endcomment %}
+
+  
+<style>
+  .home-row1.home-slide{;
+  
+     {% comment %} width:100%;
+     height:30%; {% endcomment %}
+    }
+    {% comment %} .img-fluid {
+      height: 150px;
+    } {% endcomment %}
+  {% comment %} .home-row1 h1,.home-row1 h2{padding:115px 0;text-align:center} {% endcomment %}
+  {% comment %} .home-row1 .heading{padding-top:150px;padding-bottom:40px;text-align:center;color:#des}
+  .home-row1 .container h4{line-height:3}.home-row1 .container h4 span{color:#ed792c}
+  .home-row2{padding:50px 0;    background: #f5f5f5;}
+  .home-row2 p.employment-policy{text-align:center;width:50%;margin:auto} {% endcomment %}
+
+</style> {% endblock %}
+{% comment %} {% endblock %} {% endcomment %}
+
+  {% comment %} {% block title-name %} {% endblock %} {% endcomment %}
+
+  <!-- ======= Header ======= -->
+  
+  
+  <!-- ======= Hero Section ======= -->
+  
+    {% comment %} <img src="{% static 'jop/jop/assets/img/MAIN.jpg'%}" class="img-fluid rounded-4 "; {% endcomment %}
+    {% comment %} height: 150px%; alt=""> {% endcomment %}
+   
+    {% comment %} {% block content %} {% endcomment %}
+    
+    {% comment %} {% block breadcrumbs %} {% endcomment %}
+    
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+          <div class="container">
+    
+            <ol>
+              <li><a href="/">الرئيسية</a></li>
+              <li><a>التوظيف</a></li>
+              <li><a>
+                {% block content_Breadcrumbs %}
+                {% endblock %}
+              </a></li>
+         
+
+              {% comment %} <li><a>القسم</a></li> {% endcomment %}
+              
+          </div>
+        </section><!-- End Breadcrumbs -->
+  
+  
+    
+
+      {% block content_body %}
+      
+      {% endblock %}
+   
+      
+      <main id="main">
+       
+        <div class="container">
+
+        <!-- ======= آخر الأخبار Section ======= -->
+        <section id="blog" class="blog">
+      <!-- code here to list the books -->
+
+      {% comment %} {% for dailyFlight in daily_flight_list %} {% endcomment %}
+       {% comment %} {% load to_and %} {% endcomment %}
+       <article class="entry">
+
+             
+                  <div class="w3-center w3-light-grey w3-padding-16 ">
+                    <div class="w3-bar w3-light-grey">
+                      {% comment %} <a href="{% url 'cvedit' %}" class="w3-bar-item w3-button">السيرة الذاتية</a> {% endcomment %}
+                      {% comment %} <a href="{% url 'passwordchange' %}" class="w3-bar-item w3-button">تغيير كلمة المرور</a> {% endcomment %}
+                      <a href="{% url 'jobsoffered' %}" class="w3-bar-item w3-button">الوظائف المقدم فيها</a>
+                      <a class="w3-bar-item w3-button" href="{% url 'show_cv' %}">عرض السيرة الذاتية</a>
+                      <a href="{% url 'cvedit' %}" class="w3-bar-item w3-button">السيرة الذاتية</a>
+                      {% if user.is_active and user.is_staff %}
+                      <a href="{% url "home-jop-manage-admin"%}" class="w3-bar-item w3-button">
+                        ادارة المقدمين على الوظائف
+                      </a>
+                      {% endif %}
+                    </div> 
+                  </div> 
+          {% block content-section %}
+          {% endblock %}
+       </article>
+
+       {% comment %} {% endblock %} {% endcomment %}
+      </section>
+    </div>
+
+  {% comment %} {% if ServiceItem and setting and not setting.is_hidden_services %} {% endcomment %}
+
+
+  {% block custom_footer_script %}
+
+  {% comment %} <script src="{% static 'jop/jop/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script> {% endcomment %}
+  {% comment %} <script src="{% static 'jop/jop/assets/vendor/aos/aos.js' %}"></script> {% endcomment %}
+  {% comment %} <script src="{% static 'jop/jop/assets/vendor/glightbox/js/glightbox.min.js' %}"></script> {% endcomment %}
+  {% comment %} <script src="{% static 'jop/jop/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script> {% endcomment %}
+  {% comment %} <script src="{% static 'jop/jop/assets/vendor/swiper/swiper-bundle.min.js' %}"></script> {% endcomment %}
+  {% comment %} <script src="{% static 'jop/jop/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script> {% endcomment %}
+  {% comment %} <script src="{% static 'jop/jop/assets/vendor/php-email-form/validate.js' %}"></script> {% endcomment %}
+  {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> {% endcomment %}
+  {% comment %} <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> {% endcomment %}
+  <!-- Template Main JS File -->
+  <script src="{% static 'jop/jop/assets/js/main.js' %}"></script>
+  {% comment %} {% endblock %} {% endcomment %}
+
+  {% endblock %}
+
+  {% endblock %}
+  
+  <!-- ======= Footer ======= -->

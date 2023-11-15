@@ -1,0 +1,76 @@
+
+{% load  static %}
+{% load in_column_navbar_chield %}
+{% load in_type_services %}
+{% load in_categories_services %}
+
+
+
+{% block header %}
+{% if navbar %}
+
+
+<div id="Header_wrapper" class="">
+
+    <div id="HeaderWatanya">
+
+
+<div class="header_placeholder"></div>
+
+<div id="Top_bar" class="">
+
+<div class="container">
+<div class="column one">
+
+    <div class="top_bar_left clearfix">
+
+        <div class="menu_wrapper">
+            <a class="responsive-menu-toggle " href="#" aria-label="Mobile menu"><i class="icon-menu-fine" aria-hidden="true"></i></a>				</div>
+
+        <div class="secondary_menu_wrapper">
+                            </div>
+
+        <div class="banner_wrapper">
+                            </div>
+
+    </div>
+
+    <div class="top_bar_right "><div class="top_bar_right_wrapper"><a id="search_button" class="top-bar-right-icon top-bar-right-icon-search" href="#"><svg width="26" viewBox="0 0 26 26" aria-label="Search icon"><defs><style>.path{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><circle class="path" cx="11.35" cy="11.35" r="6"></circle><line class="path" x1="15.59" y1="15.59" x2="20.65" y2="20.65"></line></svg></a><div class="wpml-languages horizontal"><ul><li class="lang-active"><a href="https://wfco.sa/">AR</a></li><li class=""><a href="https://wfco.sa/?lang=en">EN</a></li></ul></div></div></div>
+    <div class="search_wrapper">
+        
+<form method="get" id="searchform" action="https://wfco.sa/">
+
+
+<svg class="icon_search" width="26" viewBox="0 0 26 26"><defs><style>.path{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><circle class="path" cx="11.35" cy="11.35" r="6"></circle><line class="path" x1="15.59" y1="15.59" x2="20.65" y2="20.65"></line></svg>
+<span class="mfn-close-icon icon_close"><span class="icon">✕</span></span>
+
+<input type="text" class="field" name="s" data-swplive="true" data-swpengine="default" data-swpconfig="default" autocomplete="off" placeholder="Enter your search" aria-owns="searchwp_live_search_results_651977c684b3c" aria-autocomplete="both" aria-label="When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures.">
+<input type="submit" class="display-none" value="">
+
+<input type="hidden" name="lang" value="ar"></form>
+
+<div class="mfn-live-search-box" style="display:none">
+
+<ul class="mfn-live-search-list">
+<li class="mfn-live-search-list-categories"><ul></ul></li>
+<li class="mfn-live-search-list-shop"><ul></ul></li>
+<li class="mfn-live-search-list-blog"><ul></ul></li>
+<li class="mfn-live-search-list-pages"><ul></ul></li>
+<li class="mfn-live-search-list-portfolio"><ul></ul></li>
+</ul>
+
+<span class="mfn-live-search-noresults">Not found text</span>
+
+<a class="button button_theme hidden">See all results</a>
+
+</div>
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+    
+</div>
+    {% endif %}
+{% endblock %}

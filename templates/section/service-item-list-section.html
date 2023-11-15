@@ -1,0 +1,105 @@
+{% load static %}
+{% block service-item-list-section %}
+
+ {% if ServiceItem and setting and not setting.is_hidden_services %}
+
+    <section id="services-home" class="services-section-home" style="order: 1;">
+      <div class="container">
+        <div class="section-header section-heading text-center text-white">
+          
+        
+            {% if section_title_services %}
+            <h2 class="section-title">
+            {{section_title_services}}
+            </h2>
+                      <p>باقة فريدة من الخدمات البنكية المتطورة</p>
+
+            {% else %}
+            <h2 class="section-title">
+            خدماتنا دوماً معك 
+            </h2>
+                      <p>باقة فريدة من الخدمات البنكية المتطورة</p>
+            {% endif  %}
+       
+          {% comment %} <p>باقة فريدة من الخدمات البنكية المتطورة</p> {% endcomment %}
+        </div>
+      </div>
+
+      <div class="services-section-container">
+        <div class="container">
+          <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden slider-services slider-services-js">
+            <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(7580px, 0px, 0px);">
+              {% comment %} <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="transition-duration: 0ms; transform: translate3d(0px, 0px, -7000px) rotateX(0deg) rotateY(0deg) scale(1); z-index: -13;"> {% endcomment %}
+                
+                  {% for services in ServiceItem %} 
+                  <div class="swiper-slide" >
+
+                  <a href="{% url 'service-single' services.id %}" class="service-card">
+
+                    <div class="service-card-body">
+                          <div class="service-img">
+                              {% if services.image %}
+                                  <img src="{{services.image.url}}"             
+                                  alt="{{services.titel}}"
+                                  >
+                                  {% else %}
+                                  <img src="{% static 'assets/img/logo-only.png'  %}"   alt="service-img">
+                              {% endif %}
+                          </div>
+                  
+
+                        <div class="service-details">
+                          <h5 class="service-title">
+                            
+                            {{services.titel}}                    
+                          </h5>
+                          <p class="service-desc">
+
+                            {{services.short_detial}}
+                          </p>
+                        </div>
+                   
+                    </div>   
+                        <div class="btn btn-primary">عرض تفاصيل أكثر</div>
+
+                  </a>
+
+                </div>
+
+                  {% endfor %}
+
+              {% comment %} <div class="swiper-slide ">
+                <a href="{% url 'service-single' services.id %}" class="service-card"><div class="service-card-body"><div class="service-img"><img alt="service-img" src="https://kuraimibank.com//media/3839/كريمي-جوال2.jpg"></div><div class="service-details"><h5 class="service-title">انما جوال</h5><p class="service-desc">نبقيك على  اتصال دائم بحسابك</p></div></div><a href="{% url 'service-single' services.id %}" class="btn btn-primary">عرض تفاصيل أكثر</a></a>
+              </div> {% endcomment %}
+            </div>
+            <div class="services-pagination custom-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+            <div class="services-slider-buttons slider-buttons"><div class="slider-button services-prev">
+              {% comment %} <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.16055 14.9172L1.56055 8.29844L8.16055 1.67969" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg> {% endcomment %}
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                  viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
+                    <style type="text/css">
+                      .st0{fill:#1D70B8;}
+                    </style>
+                    <polygon class="st0" points="72.21,79.29 56.78,63.87 72.21,48.45 72.21,19.73 28.06,63.87 72.21,108.01 "/>
+                </svg>
+            </div><div class="slider-button services-next">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
+              <style type="text/css">
+                .st0{fill:#1D70B8;}
+              </style>
+              <polygon class="st0" points="46.76,48.45 62.19,63.87 46.76,79.29 46.76,108.01 90.91,63.87 46.76,19.73 "/>
+            </svg>            
+          </div>
+        </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+  {% comment %} </div> {% endcomment %}
+  {% endif %}
+
+
+
+{% endblock service-item-list-section %}

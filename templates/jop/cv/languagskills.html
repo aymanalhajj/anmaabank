@@ -1,0 +1,181 @@
+{% extends "jop/cv/basecv.html" %}
+{% load static%}
+
+{% block title %}
+الوظائف المقدم فيها
+{% endblock %}
+{% block content_Breadcrumbs %}
+مهارات اللغة
+{% endblock %}
+{% block body_style %}
+
+
+
+
+{% endblock%}
+{% block content-page%}
+
+<div id="main" style="" class="col-lg-9">
+  <div style="">
+    <div class="pro-scroll" style="position:relative;">
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <h2>مهارات اللغة</h2>
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>اللغة </th>
+
+                <th>اللغة</th>
+                <th>القراءه</th>
+                <th> الكتابة</th>
+                <th>محادثة</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% csrf_token %}
+              {% for f in formdata %}
+              <tr>
+
+                <td>{{f.name_language}}</td>
+                <td>{{f.othar_name_language}}</td>
+
+                <td>{{f.reading}}</td>
+                <td>{{f.writing}}</td>
+                <td>{{f.conversation}}</td>
+
+                <td>
+                  <div class="button-container">
+                    <a href="UpdateLangskils/{{f.id}}"> <button class="btn btn-info " id="btnupdata">تحرير</button></a>
+                    <a href="DeleteLangskils/{{f.id}}"> <button class="btn btn-danger " type="submit">حذف</button></a>
+                  </div>
+
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="add_new">
+      <h3>إضافة لغات</h3>
+      {% load  static %} {% load crispy_forms_tags %}
+
+
+      <div>
+        {% load i18n static %} {% load crispy_forms_tags %}
+
+        {% if messages %}
+        {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class=" text-center  btn-success  ">
+          {{ message  }}</div>
+        {% else %}
+        <div class=" text-center  btn-danger">
+          {{ message  }}</div>
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+        <form method="POST" style="padding: 10px" validate accept-charset="UTF-8" role="form">
+          <!-- {% csrf_token %} -->
+          <!-- {% for hidden in bankKonown.hidden_fields %}
+              <div class="col-md-12 ">
+                {{hidden|as_crispy_field}}
+              </div>
+              {% endfor %} -->
+          {% csrf_token %}
+          {% for hidden in form.hidden_fields %}
+          <div class="col-md-12 ">
+            {{hidden|as_crispy_field}}
+          </div>
+          {% endfor %}
+
+          {% for field in form.visible_fields %}
+
+
+          {% if  field.field.widget.input_type == 'radio' or   field.field.widget.input_type == 'file'%}
+          <div class="col-md-12 ">
+            {{field.oreder_message.label_tag}}
+            <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+              <div class="input-group-prepend with-label">
+
+                <span class="input-group-text" id="basic-addon1">
+                  {% if field.field.icon %}
+                  <i class="{{field.field.icon}}"></i>
+
+                  {% else %}
+                  <i class="bi bi-journal-code"></i>
+
+                  {% endif %}
+
+                </span>
+              </div>
+              {{field|as_crispy_field}}
+            </div>
+            <!-- <small class="text-danger">{{field.errors | striptags}}</small> -->
+
+          </div>
+
+
+          {% else %}
+          <div class="col-md-12 ">
+            {{field.oreder_message.label_tag}}
+            <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+              <div class="input-group-prepend with-label">
+
+                <span class="input-group-text" id="basic-addon1">
+                  {% if field.field.icon %}
+                  <i class="{{field.field.icon}}"></i>
+
+                  {% else %}
+                  <i class="bi bi-journal-code"></i>
+
+                  {% endif %}
+
+                </span>
+              </div>
+              {{field|as_crispy_field}}
+            </div>
+            <!-- <small class="text-danger">{{field.errors | striptags}}</small> -->
+
+
+          </div>
+          {% endif %}
+          {% endfor %}
+
+          </br>
+          <div class="row gx-5">
+            <div class=" col">
+              <a href="{% url "languagskills" %}"> <button class="btn btn-info btn-primary" type="submit">حفظ</button>
+              </a>
+            </div>
+            <div class=" col">
+
+              <a type="button" class="btn btn-default prev p-3" href="{% url "education"%}" role="button">السابق</a>
+            </div>
+            <div class=" col">
+              <a type="button" class="btn btn-default next p-3 navbar-left" href="{% url "computerskills"%}"
+                role="button">التالي</a>
+            </div>
+
+          </div>
+        </form>
+
+        {% if messages %}
+        {% for message in messages %}
+        <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+</div>
+{% endblock %}

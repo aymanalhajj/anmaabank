@@ -1,0 +1,155 @@
+{% extends 'jop/baseall.html'  %} {% load i18n static %} 
+{% block title %} 
+تسجيل الدخول
+{% endblock %}
+{% block content_Breadcrumbs %}
+تسجيل الدخول
+{% endblock %}
+ {% block custom_css %}
+    <link href="{% static 'assets/css/login.css'  %}?version=1" rel="stylesheet" />
+ {% endblock %}
+
+{% comment %} {% extends "jop/base.html" %} {% endcomment %}
+  {% load static%}
+  
+
+  {% block content-section %}
+  <div class="login">
+
+
+  <div id="container">
+      <div id="content-start" class="contents">
+     <div id="header-log">
+       <div id="branding">
+
+         <h2 id="site-name"><a href="{% url 'login-user' %}">بنك الإنماء - تسجيل الدخول</a></h2>
+
+
+         <button class="theme-toggle">
+
+
+         </button>
+
+
+
+       </div>
+
+
+     </div>
+
+
+      {% comment %} </div> {% endcomment %}
+
+        <!-- Content -->
+        <div id="contents" class="colM">
+
+
+
+
+
+
+
+
+      
+
+
+
+        {% load i18n static %} {% load crispy_forms_tags %}
+
+
+    <div id="content-main">
+		<form method="POST" 
+    validate  
+    accept-charset="UTF-8" 
+    class="form-horizontal needs-validation align-items-center justify-content-center "
+     role="form">
+                 {% csrf_token %}
+
+			{% comment %} {% csrf_token %} {% endcomment %}
+                 {% block messages %}
+
+		{% if messages %}
+          {% for message in messages %}
+          <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+          {% endfor %}
+          {% endif %}
+    {% endblock messages %}
+
+    {% comment %} {% csrf_token %} {% endcomment %}
+
+     {% for field in form %}
+
+      <div class="col-md-12 ">
+          {{field.oreder_message.label_tag}}
+          <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+            <div class="input-group-prepend with-label">
+
+              <span class="input-group-text" id="basic-addon1">
+                {% if field.field.icon %}
+                <i class="{{field.field.icon}}"></i>
+
+                {% else %}
+                <i class="bi bi-journal-code"></i>
+
+                {% endif %}
+
+              </span>
+            </div>
+            {{field|as_crispy_field}}
+          </div>
+          <!-- <small class="text-danger">{{field.errors | striptags}}</small> -->
+
+        </div>
+                    {% comment %} <div class="form-group"> {% endcomment %}
+                     
+                    {% comment %} </div> {% endcomment %}
+                    {% endfor %}
+
+			    
+                
+        <div class="col-sm-offset-2 col-lg-10">
+            <div class="form-group">
+                <button class="btn btn-primary"name="signinBtn" type="submit">تسجيل الدخول</button></br>
+				{% comment %} <br> {% endcomment %}
+     
+            </div>
+        </div>
+        </form>
+
+           <a href="{% url 'createaccounte'%}">
+             <div  class="btn-link">مستخدم
+               جديد؟</div><a /><br>
+             {% comment %} <a href="{% url "forgetpassword"%}"> <div type="button" class="btn-link">نسيت كلمة
+                 السر؟</div></a> {% endcomment %}
+
+            </div>
+
+            </div>
+</div>
+
+      </div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict'
+    
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+    
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+    
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+    </script>
+    
+  {% endblock%}

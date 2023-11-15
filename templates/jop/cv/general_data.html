@@ -1,0 +1,124 @@
+{% extends "jop/cv/basecv.html" %}
+{% load static%}
+{% comment %} {% block title %} انشاء حساب{% endblock %} {% endcomment %}
+{% block title %}
+البيانات الأساسية
+{% endblock %}
+{% block content_Breadcrumbs %}
+البيانات الأساسية
+{% endblock %}
+{% block body_style %}
+
+
+
+{% endblock %}
+{% block content-page %}
+<div id="main" class="col-lg-9">
+
+    <div style="" class=" p-7">
+        <div style="">
+
+            <h2>البيانات الأساسية</h2>
+            <div class="edit">
+                <h3>تعديل</h3>
+
+                {% load i18n static %} {% load crispy_forms_tags %}
+
+                {% if messages %}
+                {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <div class=" text-center  btn-success  ">
+                    {{ message  }}</div>
+                {% else %}
+                <div class=" text-center  btn-danger">
+                    {{ message  }}</div>
+                {% endif %}
+
+                {% endfor %}
+                {% endif %}
+                <form method="POST" accept-charset="UTF-8" enctype="multipart/form-data" validate>
+
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    <!-- {% csrf_token %} -->
+
+                    {% csrf_token %}
+                    {% for hidden in form.hidden_fields %}
+                    <div class="col-md-12 ">
+                        {{hidden|as_crispy_field}}
+                    </div>
+                    {% endfor %}
+
+                    {% for field in form.visible_fields %}
+
+                    {% if  field.field.widget.input_type == 'radio' or   field.field.widget.input_type == 'file'%}
+                    <div class="col-md-12 ">
+                        {{field.oreder_message.label_tag}}
+
+                        {{field|as_crispy_field}}
+
+
+                    </div>
+
+                    {% else %}
+                    <div class="col-md-12 ">
+                        {{field.oreder_message.label_tag}}
+                        <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+                            <div class="input-group-prepend with-label">
+                                {% comment %} {{form.your_field_here.label_tag}} {% endcomment %}
+
+                                <span class="input-group-text" id="basic-addon1">
+                                    {% if field.field.icon %}
+                                    <i class="{{field.field.icon}}"></i>
+
+                                    {% else %}
+                                    <i class="bi bi-journal-code"></i>
+
+                                    {% endif %}
+
+                                </span>
+                            </div>
+                            {{field|as_crispy_field}}
+                        </div>
+                        <small class="text-danger">{{field.errors | striptags}}</small>
+
+
+                    </div>
+                    {% endif %}
+
+
+                    {% endfor %}
+
+                    <!-- {% for fm in form %}
+    <div class="form-group" style="margin:20px;">
+        <div class="col-sm-12">
+        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors | striptags}}</small>
+    </div>
+    </div>
+    {% endfor %} -->
+                    <div class="">
+                        <div class=" row ">
+                            <button class="btn btn-info btn-primary" name="updateSectorNameBtn"
+                                type="submit">حفظ</button>
+                            <a type="button" class="btn btn-default prev col-lg-6" href="{% url "BankKonown" %}"
+                                role="button">السابق</a>
+                            {% comment %} <a type="button" class="btn btn-default prev col-lg-6"
+                                href="{% url filedupload %}" role="button">التالي</a> {% endcomment %}
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+</div>
+
+{% endblock %}

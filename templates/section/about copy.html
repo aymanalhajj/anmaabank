@@ -1,0 +1,252 @@
+
+
+{% load static %}
+{% block about %}
+
+
+
+  <!-- ======= About Section ======= -->
+  {% if abouts and setting and not setting.is_hidden_about   %}
+
+  
+  <section id="about" class="about">
+    <div class="container" >
+      <div class="row gx-0">
+        <div
+          class="col-lg-6 d-flex flex-column justify-content-center">
+          <div class="content">
+            {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
+
+            <h2>{{abouts.titel}}</h2>
+            <p>{{ abouts.detial_ar|safe }}</p>
+            
+          </div>
+        </div>
+
+        <div
+          class="col-lg-6 align-items-center">
+          {% comment %} <img
+            src="{{abouts.image.url}}"
+            class="img-fluid"
+            alt="{{ abouts.titel }}"
+          /> {% endcomment %}
+
+          <div class="image-wrapper"><div class="image">
+            <img src="{{abouts.image.url}}" alt="{{ abouts.detial_ar }}">
+            <div class="bg"></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if Massegeabout and setting and not setting.is_hidden_about   %}
+
+  <section id="Massegeabout" class="about">
+    <div class="container" >
+      <div class="row gx-0">
+        <div
+          class="col-lg-6 align-items-center">
+            {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
+            <div class="image-wrapper"><div class="image">
+              <img src="{{Massegeabout.image.url}}" alt="{{ Massegeabout.detial_ar }}">
+              <div class="bg"></div>
+            </div>
+            
+        </div>
+      </div>
+
+        <div
+          class="col-lg-6 d-flex flex-column justify-content-center ">
+          {% comment %} <img
+            src="{{abouts.image.url}}"
+            class="img-fluid"
+            alt="{{ abouts.titel }}"
+          /> {% endcomment %}
+          <div class="content">
+
+          <h2>{{Massegeabout.titel}}</h2>
+          <p>{{ Massegeabout.detial_ar|safe }}</p>
+        </div>
+
+        
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+  {% endif %}
+
+  {% if ourvision and setting and not setting.is_hidden_about   %}
+
+  <section id="about" class="about">
+    <div class="container" >
+      <header class="section-header">
+        {% comment %} <h2>رؤيتنا</h2> {% endcomment %}
+                <p>رؤيتنــــا</p>
+
+        {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
+      </header>
+      <div class="row gx-0">
+        <div
+          class="col-lg-6 d-flex flex-column justify-content-center">
+          <div class="content">
+            {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
+            <h2>رؤيتنــــا</h2>
+            <h2>{{ourvision.titel}}</h2>
+            <p>{{ ourvision.detial_ar|safe }}</p>
+            
+          </div>
+        </div>
+
+        <div
+          class="col-lg-6 align-items-center">
+          {% comment %} <img
+            src="{{abouts.image.url}}"
+            class="img-fluid"
+            alt="{{ abouts.titel }}"
+          /> {% endcomment %}
+          {% if ourvision.image %}
+          <div class="image-wrapper"><div class="image">
+            <img src="{{ourvision.image.url}}" alt="{{ ourvision.detial_ar }}">
+            <div class="bg"></div>
+
+          </div>
+          {% endif %}
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if ourmission and setting and not setting.is_hidden_about   %}
+
+  <section id="ourmission" class="about">
+    <div class="container" >
+      <div class="row gx-0">
+        <div
+          class="col-lg-6 align-items-center">
+            {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
+            {% comment %} <div class="image-wrapper"><div class="image">
+              <img src="{{Massegeabout.image.url}}" alt="{{ Massegeabout.detial_ar }}">
+              <div class="bg"></div>
+            </div> {% endcomment %}
+               
+        {% if ourmission.image %}
+        <div class="image-wrapper"><div class="image"><img src="{{ourmission.image.url}}" alt="الرؤية"><div class="bg"></div></div></div>
+        {% endif  %}
+        
+              {% comment %} <p>{{ ourmission.detial_ar|safe }}</p> {% endcomment %}
+        </div>
+      {% comment %} </div> {% endcomment %}
+
+        <div
+          class="col-lg-6 d-flex flex-column justify-content-center ">
+          {% comment %} <img
+            src="{{abouts.image.url}}"
+            class="img-fluid"
+            alt="{{ abouts.titel }}"
+          /> {% endcomment %}
+          <div class="content">
+
+            <h2>مهمتنــــا</h2>
+            <p>{{ ourmission.detial_ar|safe }}</p>
+          </div>
+        
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+  {% endif %}
+
+
+  {% if ourmarch and setting and not setting.is_hidden_about   %}
+
+  <section id="about" class="about">
+    <div class="container" >
+     
+      <div class="row gx-0">
+        <div
+          class="col-lg-6 d-flex flex-column justify-content-center">
+          <div class="content">
+            {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
+            <h2>مسيرتنا</h2>
+            {% comment %} <h2>{{ourmarch.titel}}</h2> {% endcomment %}
+            <p>{{ ourmarch.detial_ar|safe }}</p>
+            
+          </div>
+        </div>
+
+        <div
+          class="col-lg-6 align-items-center">
+          {% comment %} <img
+            src="{{abouts.image.url}}"
+            class="img-fluid"
+            alt="{{ abouts.titel }}"
+          /> {% endcomment %}
+          {% if ourmarch.image %}
+          <div class="image-wrapper"><div class="image">
+            <img src="{{ourmarch.image.url}}" alt="{{ ourmarch.detial_ar }}">
+            <div class="bg"></div>
+
+          </div>
+          {% endif %}
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+    {% comment %} {% include 'section/our_vision.html' %}
+    {% block OurVision %}
+    {% endblock OurVision %} {% endcomment %}
+    {% if objective and setting and not setting.is_hidden_about   %}
+
+    <section id="about" class="about">
+      <div class="container" >
+       
+        <div class="row gx-0">
+          <div
+            class="col-lg-6 d-flex flex-column justify-content-center">
+            {% if objective.image %}
+            <div class="image-wrapper"><div class="image">
+              <img src="{{objective.image.url}}" alt="{{ objective.detial_ar }}">
+              <div class="bg"></div>
+  
+            </div>
+          </div>
+        </div>
+            {% endif %}
+            
+  
+          <div
+            class="col-lg-6 align-items-center">
+            {% comment %} <img
+              src="{{abouts.image.url}}"
+              class="img-fluid"
+              alt="{{ abouts.titel }}"
+            /> {% endcomment %}
+           
+            <div class="content">
+              {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
+              <h2>الغايات</h2>
+              {% comment %} <h2>{{ourmarch.titel}}</h2> {% endcomment %}
+              <p>{{ objective.detial_ar|safe }}</p>
+              
+            </div>
+          {% comment %} </div> {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+{% endblock about %}

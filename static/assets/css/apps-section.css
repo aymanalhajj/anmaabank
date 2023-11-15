@@ -1,0 +1,375 @@
+.application-show .application-details {
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    gap: 32px
+}
+
+@media (max-width: 991px) {
+    .application-show .application-details {
+        flex-wrap: wrap;
+        gap: 60px
+    }
+}
+
+.application-show .application-details .apps-section-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%
+}
+
+@media (max-width: 991px) {
+    .application-show .application-details .apps-section-container {
+        justify-content: center
+    }
+}
+
+.application-show .application-details .features-app-box {
+    border-radius: 12px;
+    padding: 60px 38px 38px;
+    width: 140%;
+    position: relative;
+    min-height: 500px;
+
+    background: url(../img/wave-yellow.png) -130px 430px no-repeat;
+                            background-size: contain;
+
+}
+
+.application-show .application-details .features-app-box .app-info {
+    position: relative;
+    z-index: 2
+}
+
+.application-show .application-details .features-app-box:before {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 100%;
+    z-index: 0;
+    right: 0;
+    top: 0;
+    border-radius: 24px;
+    /*background-color: #edf3f9;
+     border-bottom: 4px solid #1D70B8 */
+}
+
+@media (max-width: 1200px) {
+    .application-show .application-details .features-app-box:before {
+        width: 60%
+    }
+}
+
+@media (max-width: 991px) {
+    .application-show .application-details .features-app-box:before {
+        width: 100%
+    }
+}
+
+.application-show .application-details .features-app-box .app-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 20%;
+    /*position: absolute;
+    top: -60px;*/
+    background-color: #fff;
+    box-shadow: 20px rgba(236, 3, 3, 0.443);
+    margin-right: 15px;
+    overflow: hidden
+}
+
+.application-show .application-details .features-app-box .app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain
+}
+
+.application-show .application-details .features-app-box .app-name {
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #1D70B8
+}
+
+.application-show .application-details .features-app-box .app-description {
+    margin-bottom: 32px
+}
+
+.application-show .application-details .features-app-box .features-list {
+    margin-bottom: 32px;
+    min-height: 180px
+}
+
+.application-show .application-details .features-app-box .features-list .features-list-title {
+    margin-bottom: 12px;
+    color: #DBB24F
+}
+
+.application-show .application-details .features-app-box .features-list ul {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 12px;
+    list-style: none
+}
+
+.application-show .application-details .features-app-box .features-list ul li {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.application-show .application-details .features-app-box .features-list ul li:before {
+    /* content: "\203a"; 
+    content: url(../img/logo-only.svg);
+    color: #DBB24F;*/
+    transform: scale(0.7);
+}
+
+.application-show .application-details .features-app-box .app-footer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 32px
+}
+
+.application-show .application-details .features-app-box .app-footer .qr-code-scan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.application-show .application-details .features-app-box .app-footer .qr-code-scan .qr-code {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    border-bottom: 3px solid #1D70B8;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #fff
+}
+
+.application-show .application-details .features-app-box .app-footer .qr-code-scan .qr-code img {
+    border-radius: 3px;
+    width: 100%
+}
+
+.application-show .application-details .features-app-box .app-footer .qr-code-scan .qr-code-txt {
+    position: absolute;
+    transform: translateY(-50%) rotate(270deg);
+    font-size: 13px;
+    right: -38px;
+    top: 50%;
+    animation: qr-txt-animate 2s ease-in-out infinite
+}
+
+.application-show .application-details .features-app-box .app-footer .list-app-link-container .list-app-link-title {
+    color: #1D70B8;
+    font-weight: 500
+}
+
+.application-show .application-details .features-app-box .app-footer .list-app-link-container .list-app-link {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 8px
+}
+
+.application-show .application-details .features-app-box .app-footer .list-app-link-container .list-app-link a {
+    flex: 1
+}
+
+.application-show .application-details .features-app-box .app-footer .list-app-link-container .list-app-link a .en {
+    display: none
+}
+
+.application-show .application-details .features-app-box .app-footer .list-app-link-container .list-app-link a .ar {
+    display: block
+}
+
+.application-show .application-details .features-app-box .app-footer .list-app-link-container .list-app-link svg {
+    width: 150px;
+    width: 100%;
+    transition: .3s ease-in-out
+}
+
+.application-show .application-details .features-app-box .app-footer .list-app-link-container .list-app-link svg:hover {
+    transform: translateY(-3px)
+}
+
+.application-show .application-details .features-app-box .app-footer .list-system-link-container a {
+    color: #DBB24F
+}
+
+.application-show .application-details .app-device {
+    width: 300%;
+    height: 100%;
+    /*flex: auto;
+    display: flex;*/
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: url(../img/wave-blue.png) -110px -100px no-repeat,
+    url(../img/app-background.png) -150px 50px no-repeat;
+    
+    background-size: contain;
+}
+
+.application-show .application-details .app-device .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background:url(../img/mobile-person.png) -200px 60px no-repeat;
+    background-size: 70%;
+    opacity: 1;
+}
+
+
+@media (max-width: 900px) {
+    .application-show .application-details .app-device {
+        background: url(../img/wave-blue.png) -400px -220px,
+    url(../img/app-background.png) -630px 50px ;
+    background-size: cover;
+    }
+    .application-show .application-details .app-device .overlay {
+        background: none;
+    }
+}
+.application-show .application-details .app-device:before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    max-width: 100%;
+    height: 600px;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    /*background-image: url(../img/logo-pattern-c-line.eef90352.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: .2;
+    animation: rotate-center linear 30s infinite*/
+}
+
+.application-show .application-details .app-device .app-imgs {
+    text-align: center;
+    position: relative;
+    width: 288px;
+    height: 595px;
+    margin: 60px;
+    margin-top: 120px;
+    margin-right: 40px;
+    transition: all ease-out .3s
+}
+
+.application-show .application-details .app-device .app-imgs.phone-screen {
+    width: 360px;
+    height: 595px
+}
+
+.application-show .application-details .app-device .app-imgs.wide-screen {
+    width: 100%;
+    max-width: 600px;
+    height: 400px
+}
+
+@media (max-width: 1399px) {
+    .application-show .application-details .app-device .app-imgs.wide-screen {
+        height: 300px
+    }
+}
+
+.application-show .application-details .app-device .app-imgs .app-img {
+    /*animation: float 6s ease-in-out infinite;*/
+    border-radius: 30px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+    border: #1D70B8 solid 0px;
+}
+
+.application-show .apps-pagination {
+    /* position: absolute; */
+    /* width: auto; */
+    /* display: flex; */
+    /* cursor: pointer; */
+    /* flex-direction: row; */
+    /* gap: 20px; */
+    /* right: 50%; */
+    z-index: 10;
+    /* right: 50%; */
+    /* background: #edf3f9; */
+    /* width: 100%; */
+    /* bottom: 0%; */
+    /* bottom: initial; */
+    /* left: initial; */
+    /* bottom: 12px; */
+    color: #1D70B8;
+    /* transform: translateY(-50%); */
+    /* position: relative; */
+
+
+}
+
+.application-show .apps-slider-buttons,
+.application-show .apps-pagination {
+    width: auto;
+    gap: 20px;
+    /* display: contents; */
+    border-radius: 20px;
+    /* backdrop-filter: blur(8px); */
+    height: 50px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.application-show .application-details .app-device .app-imgs .app-img img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all .4s ease-out
+}
+
+.application-show .apps-slider-buttons {
+    /* position: absolute; */
+    /* width: auto; */
+    display: flex;
+    /* cursor: pointer; */
+    flex-direction: row;
+    /* gap: 20px; */
+    /* right: 50%; */
+    z-index: 1;
+    right: 10%;
+    background: #edf3f9;
+    width: 100%;
+    bottom: 0%;
+    /* bottom: initial; */
+    /* left: initial; */
+    /* bottom: 12px; */
+    color: #1D70B8;
+    transform: translateY(-50%);
+    /* position: relative; */
+
+
+}

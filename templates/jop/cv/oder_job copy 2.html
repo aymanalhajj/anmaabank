@@ -1,0 +1,98 @@
+{% extends "jop/cv/basecv.html" %} {% load static%} {% comment %} {% block title %} الدورات التدريبية{% endblock %}
+{% endcomment %} {% block title %} الدورات التدريبية {% endblock %} {% block content_Breadcrumbs %} الدورات التدريبية
+{% endblock %} {%
+{% block content-page %}
+
+<div id="main" style="overflow-x:auto;background:#ffffff;margin-bottom:20px" class="col-lg-9">
+    <div style="background:#ffffff;padding:10px">
+
+        <form method="POST" novalidate accept-charset="UTF-8" style="margin-right:6%" role="form">
+            {% csrf_token %}
+            <div class="form-group has, 1erw-error">
+                <h3> طلب تقديم</h2>
+                    <div class="col-sm-12">
+                        <p>اكتب رسالة طلب عمل لهذه الوظيفة بشكل تعبير &nbsp;(بدون ترقيم او تنقيط) لتغطي و بشكل واضح
+                            النقاط الأربع التالية :</p>
+
+                        <ul>
+                            <li dir="rtl">هدفك الشخصي والعام من العمل في بنك الانماء.</li>
+                            <li dir="rtl">لماذا تعتبر نفسك مناسب لهذه الوظيفة.</li>
+                            <li dir="rtl">ما الذي ستضيفه للعمل.</li>
+                            <li dir="rtl">وما هي اهم القيم والأولويات لديك.</li>
+                        </ul>
+
+                        <p>يجب أن لا تقل رسالة طلب العمل عن 250 كلمة (<span style="font-size:9px;"> اي ما يعادل 1250 حرف
+                                تقريباً)</span> وألا تزيد عن 300 كلمة. <span style="font-size:9px;">(هناك عداد للحروف
+                                اسفل مربع النص)&nbsp;</span>لن تقبل أي رسالة مكررة
+                            من أشخاص آخرين أو منقولة وسيتم رفض طلب التوظيف نهائياً .لن تقبل أي رسالة طلب عمل غير مستوفية
+                            للتعليمات أعلاه .</p>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div id="textarea-container">
+                                {{form.oreder_message.label_tag}}
+                                <textarea id="text-input" name="oreder_message" placeholder="Type here..."></textarea>
+                                <small class="text-danger">{{form.oreder_message.errors | striptags}}</small>
+                                <span id="char-count">0 characters</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            {{form.how_to_now_job.label_tag}} {{form.how_to_now_job}} <small
+                                class="text-danger">{{form.how_to_now_job.errors | striptags}}</small>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-12">
+                            <input id="myButton" class="btn btn-info" type="submit" value="حفظ">
+                        </div>
+                    </div>
+                    <p><a href="/jobs/show_cv/">رجوع</a></p>
+
+
+            </div>
+
+        </form>
+        {% if messages %} {% for message in messages %}
+        <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+        {% endfor %} {% endif %}
+    </div>
+</div>
+</dvi>
+</div>
+<script>
+    // Get references to the textarea and counter elements
+    const textInput = document.getElementById('text-input');
+    const charCount = document.getElementById('char-count');
+    const B = document.getElementById('myButton');
+
+    // Function to update the character count
+    function updateCharacterCount() {
+        const text = textInput.value;
+        const count = text.length;
+
+        if (count <= 250) {
+            charCount.textContent = count + ' character' + (count !== 0 ? 's' : '');
+            charCount.style.color = 'red';
+            B.disabled = true;
+            B.display = 'none'
+        } else {
+            charCount.textContent = count + ' character' + (count !== 0 ? 's' : '');
+            charCount.style.color = 'black';
+            B.disabled = false;
+        }
+
+    }
+
+    // Add an input event listener to the textarea
+    textInput.addEventListener('input', updateCharacterCount);
+
+    // Initial character count
+    updateCharacterCount();
+</script>
+{% endblock %}

@@ -1,0 +1,79 @@
+User-agent:  *
+Allow: /
+
+User-agent: SiteAuditBot
+Crawl-delay: 1
+Allow: /
+
+User-agent: Semrushbot-SI
+Allow: /
+
+User-agent: Yahoo Pipes 2.0
+Allow: /
+
+User-agent: Facebot
+Allow: /archive/graphs.php
+
+User-agent: Bingbot
+Allow: /archive/graphs.php
+
+User-agent: BingPreview
+Allow: /archive/graphs.php
+
+User-agent: Twitterbot
+Allow: /blog/*
+Allow: /ranking-factors/*
+Allow: /forrester-marketing-silos/*
+
+User-agent: *
+Allow: /blogs/
+Allow: /partner/
+Allow: /blogs/*
+Allow: /analytics/seomagic/
+Allow: /my_reports/reports/*
+Allow: /archive/
+Allow: /admin/
+Allow: /users/
+
+Allow: /payment/
+Allow: /no_cookies/
+Allow: /support/
+Allow: /double_activation/
+Allow: /news?*
+Allow: /events?*
+Allow: /?*/
+Allow: /*/
+
+
+# blog
+Allow: /blogs/
+Allow: /blogs/*
+
+# event
+Allow: /events/
+Allow: /events/*
+
+
+# news
+Allow: /news/
+Allow: /news/*
+
+
+# Features new pages
+Allow: /features/index2/
+Allow: /features/for-*
+
+# jops
+Allow: /jops/$
+Allow: /jops/*
+Allow: /jops/*/*/*
+Allow: /jops/*/*
+
+
+
+
+Allow: /*/?*
+Crawl-delay: 20
+
+# Sitemap files
+Sitemap: https://alinmabank.com/sitemap

@@ -1,0 +1,19 @@
+
+{% load static %}
+{% block OurMission %}
+{% comment %} {% if ourmission %} {% endcomment %}
+{% if ourmission and setting and not setting.is_hidden_ourmission %}
+
+  
+      
+          <div class="content">
+            <p>{{ ourmission.detial_ar|safe }}</p>
+           
+        </div>
+       
+      
+
+{% endif  %}
+
+<!-- End Brand Carousel -->
+{% endblock %}
