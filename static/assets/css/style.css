@@ -2286,9 +2286,6 @@ form .custom-select:focus {
 
 .slider-buttons .blog-details-next,
 .slider-buttons .blog-details-prev {
-
-
-
     margin-right: 10px;
     transform: translateY(-50%);
     background-color: var(--body-bg);
@@ -4094,6 +4091,26 @@ main {
     }
 }
 
+
+.services-section-home .hero-slider-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2
+}
+
+@media (max-width: 767px) {
+    .services-section-home .hero-slider-buttons {
+        width: 100%;
+        display: none
+    }
+}
+
 .services-section-home .services-pagination {
     margin-top: 32px
 }
@@ -5475,6 +5492,19 @@ swiper-slide img {
 .service-show .other-services-section .other-services-section-container .other-services-slider .service-card .service-card-body {
     box-shadow: none
 }
+
+.service-show .other-services-section .other-services-section-container .hero-slider-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 16px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    z-index: 2;
+    padding: 0 25px
+}
+
 
 .service-show .other-services-section .other-services-section-container .services-slider-buttons {
     display: flex;
