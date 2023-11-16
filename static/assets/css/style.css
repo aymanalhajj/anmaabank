@@ -3730,7 +3730,7 @@ main {
 
 
 .services-section-home:after {
-    background: linear-gradient(0deg, var(--primary) 0%, rgba(53, 60, 107, 0.8) 100%);
+    /*background: linear-gradient(0deg, var(--primary) 0%, rgba(53, 60, 107, 0.8) 100%);*/
 
 }
 
@@ -3739,10 +3739,11 @@ main {
 }
 
 .services-section-home:before {
+    /*
     background-color: var(--primary);
     background-image: url(../img/patern-background-white-5.png);
     background-size: 400px;
-    background-repeat: repeat;
+    background-repeat: repeat;*/
 
 }
 

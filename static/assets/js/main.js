@@ -130,7 +130,8 @@ const sliderservicesmobile = () => {
   }
 };
 
-new Swiper(".slider-services", {
+
+new Swiper(".hero-slider", {
   speed: 500,
   autoplay: {
     delay: 5000,
@@ -138,11 +139,7 @@ new Swiper(".slider-services", {
     reverseDirection: true,
 
   },
-
   spaceBetween: 5,
-
-  // effect: "coverflow",
-  // "space-between": 0,
   grabCursor: false,
   centeredSlides: true,
   coverflowEffect: {
@@ -151,21 +148,112 @@ new Swiper(".slider-services", {
     modifier: 1,
     slideShadows: true
   },
-
   lazy: true,
   spaceBetween: 30,
   freeMode: false,
-
-  mousewheel: {
-    invert: true,
-    // onlyInViewport: false,
-
-  },
   keyboard: {
     enabled: true,
     onlyInViewport: false,
+  },
+  loop: true,
+  slidesOffsetBefore: 0,
+  navigation: {
+    prevEl: ".hero-prev",
+    nextEl: ".hero-next"
+  },
+  loop: true,
+  pagination: {
+    el: ".hero-pagination",
+    type: "bullets",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 40,
+    },
+    992: {
+      slidesPerView: 1,
+      spaceBetween: 40,
+    },
+  },
+  
+});
+
+
+
+
+new Swiper(".slider-services", {
+  speed: 500,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+    reverseDirection: true,
 
   },
+  spaceBetween: 5,
+  grabCursor: false,
+  centeredSlides: true,
+  coverflowEffect: {
+    rotate: 0,
+    depth: 500,
+    modifier: 1,
+    slideShadows: true
+  },
+  lazy: true,
+  spaceBetween: 30,
+  freeMode: false,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false,
+  },
+  loop: true,
+  slidesOffsetBefore: 0,
+  navigation: {
+    prevEl: ".services-prev",
+    nextEl: ".services-next"
+  },
+  loop: true,
+  pagination: {
+    el: ".services-pagination",
+    type: "bullets",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+    992: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+    // 600: {
+    //   slidesPerView: 3,
+    //   spaceBetween: 0,
+    // },
+    // 800: {
+    //   slidesPerView: 3,
+    //   spaceBetween: 0,
+
+    // },
+    // 1200: {
+    //   slidesPerView: 3,
+    //   spaceBetween: 0,
+
+    // },
+    // 480: {
+    //   slidesPerView: 2,
+    //   spaceBetween: 40,
+    // },
+    // 640: {
+    //   slidesPerView: 3,
+    //   spaceBetween: 40,
+    // },
+  },
+  
+});
+
   // navigation: {
   //   nextEl: '.swiper-button-next',
   //   prevEl: '.swiper-button-prev',
@@ -195,56 +283,9 @@ new Swiper(".slider-services", {
   // slidesNeView: "1",
 
 
-  loop: true,
-
-  slidesOffsetBefore: 0,
   // "slides-per-view": "auto",
   // slidesPerView: "auto",
   // slidesPerView: "3",
-
-  navigation: {
-    prevEl: ".services-prev",
-    nextEl: ".services-next"
-  },
-  loop: true,
-  pagination: {
-    el: ".services-pagination",
-    type: "bullets",
-    clickable: true,
-  },
-  breakpoints: {
-    // 600: {
-    //   slidesPerView: 3,
-    //   spaceBetween: 0,
-    // },
-    // 800: {
-    //   slidesPerView: 3,
-    //   spaceBetween: 0,
-
-    // },
-    // 1200: {
-    //   slidesPerView: 3,
-    //   spaceBetween: 0,
-
-    // },
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 40,
-    },
-    // 480: {
-    //   slidesPerView: 2,
-    //   spaceBetween: 40,
-    // },
-    // 640: {
-    //   slidesPerView: 3,
-    //   spaceBetween: 40,
-    // },
-    992: {
-      slidesPerView: 3,
-      spaceBetween: 40,
-    },
-  },
-});
 
 new Swiper(".blog-details-slider", {
   speed: 600,

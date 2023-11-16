@@ -1,106 +1,150 @@
-{% load  static %}
+{% load static %}
 {% block ads-swiper %}
 {% if AdsenceHeder and setting and not setting.is_hidden_adsence_header %}
 
+
+
+<section id="services-home" class="services-section-home" style="order: 1; padding: 0px;height: 750px;" >
+  
+
+<div class="services-section-container" style="border: 0px rgb(18, 14, 14) solid; ">
+  <div class="containerr" style="border: rgb(81, 0, 255) 0px solid; padding: 0px;margin: 0px; ">
+    <div  style="border: 0px red solid; " class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden hero-slider slider-services-js">
+      <div class="swiper-wrapper"  style="width: 100%; height: 50%;" >
+        {% for services in AdsenceHeder %}
+          <div class="swiper-slide" role="group" >
+            <img src="{{services.image.url}}" alt="" style="width: 100%; height: 750px;" />
+          </div>
+          {% endfor %}
+      </div>
+      <div class="services-pagination custom-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+      </div>
+      <div class="services-slider-buttons slider-buttons">
+        <div class="slider-button hero-prev">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 116.45 133.01"
+            style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
+            <style type="text/css">
+              .st0 {
+                fill: #1D70B8;
+              }
+            </style>
+            <polygon class="st0" points="72.21,79.29 56.78,63.87 72.21,48.45 72.21,19.73 28.06,63.87 72.21,108.01 " />
+          </svg>
+        </div>
+        <div class="slider-button hero-next">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+            id="Layer_1" x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;"
+            xml:space="preserve">
+            <style type="text/css">
+              .st0 {
+                fill: #1D70B8;
+              }
+            </style>
+            <polygon class="st0" points="46.76,48.45 62.19,63.87 46.76,79.29 46.76,108.01 90.91,63.87 46.76,19.73 " />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+{% comment %} 
+
 <section id="hero" class="ads-swiper d-flex align-items-center">
   <div class="ads-swiper-container">
-    <div class="column">
-        <div class=" hero-slider swiper swiper-initialized  swiper-pointer-events">
-              <div class="swiper-wrapper align-items-center
-              swiper swiper-fade swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl swiper-watch-progress hero-swiper 
-              "  
-              aria-live="off" style="transition-duration: 0ms;">
-              {% for services in AdsenceHeder %}
-                        <div class="swiper-slide" role="group" aria-label="1 / 2" >
-                          <img src="{{services.image.url}}" alt="",
-                                              
-
-                          />
-                        </div>
-              {% endfor %}
-        
-              </div>
-            
-
-
-              {% comment %} <iframe width="560" height="315"
-              src="https://www.youtube.com/embed/Jx19svLRorQ" 
-              title="حول سوق رواد ماركتنج إلكتروني" frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; 
-              encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-              </iframe> {% endcomment %}
-    </div>
-
-  </div>
+      <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden hero-slider ">
+        <div class="swiper-wrapper align-items-center swiper swiper-fade swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl swiper-watch-progress hero-swiper "
+          aria-live="off" style="transition-duration: 0ms;">
+          {% for services in AdsenceHeder %}
+          <div class="swiper-slide" role="group" aria-label="1 / 2">
+            <img src="{{services.image.url}}" alt="" />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
 
     <div class="hero-slider-buttons">
-
-
-          <div class="slider-button hero-next">
-              {% comment %} <img src="{% static "assets/img/alsahm-right.svg" %}" alt="alsahm"> {% endcomment %}
-            {% comment %} <svg width="24" height="15" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.93 13.5352L23 7.46516L16.93 1.39516" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path><path d="M0.999999 7.53515L23 7.53516" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path></svg> {% endcomment %}
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
-              <style type="text/css">
-                .st0{fill:#1D70B8;}
-              </style>
-              <polygon class="st0" points="46.76,48.45 62.19,63.87 46.76,79.29 46.76,108.01 90.91,63.87 46.76,19.73 "/>
-            </svg>
-          </div>
-
-
-          <div class="slider-button hero-prev ">
-            {% comment %} <img src="{% static "assets/img/alsahm-right.svg" %}" alt="alsahm"> {% endcomment %}
-            {% comment %} <svg width="24" height="15" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.07 1.39453L1 7.46453L7.07 13.5345" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path><path d="M23 7.39453H1" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path></svg> {% endcomment %}
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	            viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
-              <style type="text/css">
-                .st0{fill:#1D70B8;}
-                </style>
-                <polygon class="st0" points="72.21,79.29 56.78,63.87 72.21,48.45 72.21,19.73 28.06,63.87 72.21,108.01 "/>
-                </svg>
-          </div>
-        </div>
-    {% comment %} <div class="swiper-button-prev"></div> {% endcomment %}
-    {% comment %} <div class="swiper-button-next"></div> {% endcomment %}
-    
-
-    <div class="
-    hero-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal
-    swiper-pagination">
-     
-  </div>
-
+      <div class="slider-button hero-next">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1"
+          x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;"
+          xml:space="preserve">
+          <style type="text/css">
+            .st0 {
+              fill: #1D70B8;
+            }
+          </style>
+          <polygon class="st0" points="46.76,48.45 62.19,63.87 46.76,79.29 46.76,108.01 90.91,63.87 46.76,19.73 " />
+        </svg>
+      </div>
+      <div class="slider-button hero-prev ">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;"
+          xml:space="preserve">
+          <style type="text/css">
+            .st0 {
+              fill: #1D70B8;
+            }
+          </style>
+          <polygon class="st0" points="72.21,79.29 56.78,63.87 72.21,48.45 72.21,19.73 28.06,63.87 72.21,108.01 " />
+        </svg>
+      </div>
     </div>
-        <span class="swiper-notification
+    <div
+      class=" hero-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination">
+    </div>
+
+  </div>
+  <span class="swiper-notification
         
         " aria-live="assertive" aria-atomic="true">
-        </span>
+  </span>
   </div>
-  
-{% comment %} <div class="mouse-scroll">
-  <div class="mouse">
-    <div class="wheel">
-
-    </div>
   </div>
-
-</div> {% endcomment %}
-
-
-
-
-</div>
-</div>
-</div>
+  </div>
+  </div>
   </div>
 </section>
+{% endcomment %}
 
 
 <div class="elementor-element-c14b42c elementor-widget__width-initial elementor-absolute animated-slow hover-img-all e-transform e-transform elementor-widget elementor-widget-image animated slideInDown" data-id="c14b42c" data-element_type="widget" data-settings="" data-widget_type="image.default">
   <div class="elementor-widget-container">
-											
-<img decoding="async" fetchpriority="high" width="250" height="258" src="{% static 'assets/img/patern-ads-block.png'  %}" class="attachment-large size-large wp-image-1206" alt="" srcset="{% static 'assets/img/patern-ads-block.png'  %} 250w, https://wfco.sa/wp-content/uploads/2022/07/image05-141x146.png 141w, {% static 'assets/img/patern-ads-block.png'  %} 48w, {% static 'assets/img/patern-ads-block.png'  %} 73w" sizes="(max-width: 250px) 100vw, 250px">															</div>
+
+    <img decoding="async" fetchpriority="high" width="250" height="258"
+      src="{% static 'assets/img/patern-ads-block.png'  %}" class="attachment-large size-large wp-image-1206" alt=""
+      srcset="{% static 'assets/img/patern-ads-block.png'  %} 250w, https://wfco.sa/wp-content/uploads/2022/07/image05-141x146.png 141w, {% static 'assets/img/patern-ads-block.png'  %} 48w, {% static 'assets/img/patern-ads-block.png'  %} 73w"
+      sizes="(max-width: 250px) 100vw, 250px">
   </div>
+</div>
 {% endif %}
 
 {% endblock ads-swiper %}

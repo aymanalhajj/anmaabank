@@ -3122,11 +3122,11 @@ main {
 }
 
 .services-section-home:before {
-    background-color: #4353c2;
+    /*background-color: #4353c2;
     background-image: url(../img/patern-background-white-5.png);
     background-size: 400px;
     background-repeat: repeat;
-    /* background: linear-gradient(180deg, #7c7b7b 0%, rgb(255, 255, 255) 100%) */
+     background: linear-gradient(180deg, #7c7b7b 0%, rgb(255, 255, 255) 100%) */
 
 }
 
