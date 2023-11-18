@@ -219,7 +219,7 @@
     justify-content: center;
     position: relative;
     background: url(../img/wave-blue.png) -110px -100px no-repeat,
-    url(../img/app-background.png) -150px 50px no-repeat;
+    url(../img/app-background.png) -150px 100px no-repeat;
     
     background-size: contain;
 }

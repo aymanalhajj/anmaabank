@@ -5,10 +5,10 @@
 
 {% block navbar %}
 {% if navbar %}
-<div style="margin-top: 37px;" class="container-fluid container-xl d-flex align-items-center justify-content-center">
+<div style="margin-top: 102px;" class="container-fluid container-xl d-flex align-items-center justify-content-center">
     <nav id="navbar" class="navbar align-items-center justify-content-center">
 
-        <ul id="navbar-main" class="backcolorwhite"  >
+        <ul id="navbar-main" class="backcolorwhite" style="padding: 2px;" >
 
             <li >
                 <a style=" height: 32px;" class="nav-link scrollto" href="/#hero"><span>الرئيسية</span></a>
@@ -361,7 +361,6 @@
                             </a>
                     </li>
                     {% endif %}
-               <li>
                     <a style="background-color: var(--accent); height: 32px;" class="getstarted scrollto" href="{% url 'open-account' %}">
 
                         <span style="display: inline-block;
@@ -373,7 +372,7 @@
                         </span>
 
                     </a>
-                </li>
+            </li>
 
             {% block custom-menu-navbar %}
 

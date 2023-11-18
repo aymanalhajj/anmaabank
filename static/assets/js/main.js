@@ -221,7 +221,7 @@ new Swiper(".slider-services", {
   },
   breakpoints: {
     0: {
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 40,
     },
     992: {

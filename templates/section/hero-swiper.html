@@ -10,14 +10,14 @@
 <div class="services-section-container" style="border: 0px rgb(18, 14, 14) solid; ">
   <div class="containerr" style="border: rgb(81, 0, 255) 0px solid; padding: 0px;margin: 0px; ">
     <div  style="border: 0px red solid; " class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden hero-slider slider-services-js">
-      <div class="swiper-wrapper"  style="width: 100%; height: 50%;" >
+      <div class="swiper-wrapper"   >
         {% for services in AdsenceHeder %}
           <div class="swiper-slide" role="group" >
             <img src="{{services.image.url}}" alt="" style="width: 100%; height: 750px;" />
           </div>
           {% endfor %}
       </div>
-      <div class="hero-slider-buttons slider-buttons">
+      <div class="hero-slider-buttons slider-buttons" style="border: 0px red solid;">
         <div class="hero-prev">
           <img src="../../static/assets/img/arrow-blue-right.png" width="30px" height="60px"/>
         </div>
@@ -99,18 +99,19 @@
   </div>
   </div>
 </section>
-{% endcomment %}
 
 
 <div class="elementor-element-c14b42c elementor-widget__width-initial elementor-absolute animated-slow hover-img-all e-transform e-transform elementor-widget elementor-widget-image animated slideInDown" data-id="c14b42c" data-element_type="widget" data-settings="" data-widget_type="image.default">
   <div class="elementor-widget-container">
 
-    <img decoding="async" fetchpriority="high" width="250" height="258"
-      src="{% static 'assets/img/patern-ads-block.png'  %}" class="attachment-large size-large wp-image-1206" alt=""
-      srcset="{% static 'assets/img/patern-ads-block.png'  %} 250w, https://wfco.sa/wp-content/uploads/2022/07/image05-141x146.png 141w, {% static 'assets/img/patern-ads-block.png'  %} 48w, {% static 'assets/img/patern-ads-block.png'  %} 73w"
+    <img decoding="async" fetchpriority="high" width="200" height="200"
+       class="attachment-large size-large wp-image-1206" alt=""
+      srcset="
+       {% static 'assets/img/patern-ads-block.png'  %} 73w"
       sizes="(max-width: 250px) 100vw, 250px">
   </div>
 </div>
+{% endcomment %}
 {% endif %}
 
 {% endblock ads-swiper %}

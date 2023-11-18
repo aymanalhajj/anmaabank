@@ -3374,10 +3374,15 @@ main {
     overflow: hidden;
     color: var(--color-primary);
     padding: 60px 0 16px;
+
+
+
+/*
     border-top-right-radius: 100px;
     border-top-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 100px;
+    border-bottom-left-radius: 100px;*/
+    
 }
 
 .currencies-section:before {
@@ -3405,11 +3410,11 @@ main {
     transition: all .3s ease-in-out;
 
 
-
+/*
     border-top-right-radius: 100px;
     border-top-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 100px;
+    border-bottom-left-radius: 100px;*/
 }
 
 .currencies-section .container {
@@ -4106,8 +4111,8 @@ main {
 
 @media (max-width: 767px) {
     .services-section-home .hero-slider-buttons {
-        width: 100%;
-        display: none
+        width: 50%;
+        display: flex;
     }
 }
 
@@ -10142,6 +10147,14 @@ header .backcolorwhite {
     backdrop-filter: blur(3px);
     border-radius: 12px;
     background-color: #ffffff1a;
+    background-color: var(--primary);
+}
+
+@media (min-width: 900px){
+    header .backcolorwhite {
+        height: 40px;
+        padding: 0px;
+    }
 }
 
 .header.header-scrolled {
@@ -11884,150 +11897,6 @@ header .top-header .alinma-logo .logo-color {
 
 }
 
-.cursor-alias {
-    cursor: alias;
-}
-
-.cursor-all-scroll {
-    cursor: all-scroll;
-}
-
-.cursor-auto {
-    cursor: auto;
-}
-
-.cursor-cell {
-    cursor: cell;
-}
-
-.cursor-col-resize {
-    cursor: col-resize;
-}
-
-.cursor-context-menu {
-    cursor: context-menu;
-}
-
-.cursor-copy {
-    cursor: copy;
-}
-
-.cursor-crosshair {
-    cursor: crosshair;
-}
-
-.cursor-default {
-    cursor: default;
-}
-
-.cursor-e-resize {
-    cursor: e-resize;
-}
-
-.cursor-ew-resize {
-    cursor: ew-resize;
-}
-
-.cursor-grab {
-    cursor: grab;
-}
-
-.cursor-grabbing {
-    cursor: grabbing;
-}
-
-.cursor-help {
-    cursor: help;
-}
-
-.cursor-move {
-    cursor: move;
-}
-
-.cursor-n-resize {
-    cursor: n-resize;
-}
-
-.cursor-ne-resize {
-    cursor: ne-resize;
-}
-
-.cursor-nesw-resize {
-    cursor: nesw-resize;
-}
-
-.cursor-ns-resize {
-    cursor: ns-resize;
-}
-
-.cursor-nw-resize {
-    cursor: nw-resize;
-}
-
-.cursor-nwse-resize {
-    cursor: nwse-resize;
-}
-
-.cursor-no-drop {
-    cursor: no-drop;
-}
-
-.cursor-none {
-    cursor: none;
-}
-
-.cursor-not-allowed {
-    cursor: not-allowed;
-}
-
-.cursor-pointer {
-    cursor: pointer;
-}
-
-.cursor-progress {
-    cursor: progress;
-}
-
-.cursor-row-resize {
-    cursor: row-resize;
-}
-
-.cursor-s-resize {
-    cursor: s-resize;
-}
-
-.cursor-se-resize {
-    cursor: se-resize;
-}
-
-.cursor-sw-resize {
-    cursor: sw-resize;
-}
-
-.cursor-text {
-    cursor: text;
-}
-
-.cursor-url {
-    cursor: url(myBall.cur), auto;
-}
-
-.cursor-w-resize {
-    cursor: w-resize;
-}
-
-.cursor-wait {
-    cursor: wait;
-}
-
-.cursor-zoom-in {
-    cursor: zoom-in;
-}
-
-.cursor-zoom-out {
-    cursor: zoom-out;
-}
-
 .ads-swiper {
     width: 100%;
     max-height: 100vh;
@@ -12840,7 +12709,8 @@ bdo {
 #counts {
     background: url(../img/yemen-map.png) center no-repeat,
         url(../img/map-background.png) center no-repeat;
-    background-size: 100% 150%;
+        background-size: 100% 150%;
+        background-size: cover;
 
 }
 
@@ -18941,6 +18811,8 @@ img {
         max-width: 540px;
     }
 }
+
+
 
 @media (min-width: 768px) {
 
