@@ -4116,6 +4116,34 @@ main {
     }
 }
 
+
+
+@media (max-width: 400px) {
+    .banar .swiper-slide img {
+        height: 200px;
+    }
+}
+
+
+@media (max-width: 600px)  and (min-width: 401px) {
+    .banar .swiper-slide img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 800px) and (min-width: 601px) {
+    .banar .swiper-slide img {
+        height: 600px;
+    }
+}
+
+
+@media (min-width: 801px) {
+    .banar .swiper-slide img {
+        height: 750px;
+    }
+}
+
 .services-section-home .services-pagination {
     margin-top: 32px
 }
