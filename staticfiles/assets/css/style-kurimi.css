@@ -11406,14 +11406,6 @@ main {
   margin-bottom: 60px
 }
 
-.page-hero-body .p-hero {
-  color: #fff;
-  background-color: #423064;
-  padding-top: 210.9px;
-  padding-bottom: 200px;
-  min-height: 55vh;
-  position: relative
-}
 
 .page-hero-body .p-hero.has-img-bg {
   background-color: #42306400;

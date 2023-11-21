@@ -91,15 +91,10 @@ class CategoriesServicesAdmin(admin.ModelAdmin):
                    )
     search_fields = (
         "id",
-        "titel",
-        "detial_ar",
-        "created_by",
-        # "screen_image",
-        # "barcode_image",
-
-
-        "Date_Update",
-        "Date_Added",
+        "name",
+        "description",
+        "date_added",
+        "date_update",
     )
 
 

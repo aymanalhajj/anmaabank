@@ -3698,9 +3698,6 @@ main {
     top: 0;
     width: 100%;
     height: 100px;
-    background-image: url(../img/patern-background.png);
-    background-size: 526px;
-    background-repeat: repeat;
     opacity: .2;
 }
 
@@ -4828,13 +4825,13 @@ swiper-slide img {
 
 @media (max-width: 991px) {
     .service-show .page-hero-body .p-hero {
-        padding-bottom: 210px
+        padding-bottom: 10px
     }
 }
 
 @media (max-width: 767px) {
     .service-show .page-hero-body .p-hero {
-        padding-bottom: 260px
+        padding-bottom: 60px
     }
 }
 
@@ -6319,9 +6316,9 @@ swiper-slide img {
 .page-hero-body .p-hero {
     color: var(--color-primary);
     background-color: var(--primary);
-    padding-top: 210.9px;
-    padding-bottom: 200px;
-    min-height: 55vh;
+    padding-top: 10.9px;
+    padding-bottom: 10px;
+    min-height: 10vh;
     position: relative
 }
 
@@ -6493,9 +6490,6 @@ swiper-slide img {
     width: 100%;
     height: 20px;
 
-    background-image: url(../img/patern-background.png);
-    background-size: 330px;
-    background-repeat: repeat;
     opacity: .2
 }
 
@@ -15353,9 +15347,6 @@ textarea::placeholder {
     width: 100%;
     height: 20px;
 
-    background-image: url(../img/patern-background.png);
-    background-size: 330px;
-    background-repeat: repeat;
     opacity: .2;
 }
 
@@ -15371,9 +15362,7 @@ textarea::placeholder {
     width: 100%;
     height: 20px;
 
-    background-image: url(../img/patern-background.png);
-    background-size: 330px;
-    background-repeat: repeat;
+    
     opacity: .2;
 }
 
@@ -18245,9 +18234,6 @@ img {
 .about .image-wrapper .image:after {
     top: 35px;
     left: -35px;
-    background-image: url(../img/patern-background.png);
-    background-size: 580px;
-    background-repeat: repeat;
     max-width: 400px;
     border-radius: 24px;
     opacity: .2

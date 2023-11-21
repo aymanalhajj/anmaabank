@@ -398,9 +398,13 @@ class RegisterForm(ModelForm):
             'idnumber', 'Release_date', 'place_issue', 'date_birth', 'place_birth', 'marital_status', 'number_childer',
             'current_address', 'permanent_address', 'mobile_number', 'number_whatsapp', 'link_facebook', 'link_twiter', 'link_instigrem',
         ]
-        labels = {'username': _('اسم المستخدم'), 'full_name': 'الاسم الكامل :',
-                  'email': 'البريد الإلكتروني:', 'password': 'كلمة السر:',
-                  'confirmpassword': 'تأكيد كلمة السر:', 'gender': 'الجنس:', 'governorate': 'المحافظة:',
+        labels = {'username': _('اسم المستخدم'),
+                 'full_name': 'الاسم الكامل :',
+                  'email': 'البريد الإلكتروني:', 
+                  'password': 'كلمة السر:',
+                  'confirmpassword': 'تأكيد كلمة السر:', 
+                  'gender': 'الجنس:', 
+                  'governorate': 'المحافظة:',
                   'city': 'المدينة/المديرية:',  'address': 'العزلة/الشارع:', 'village': 'القرية/الحي:',
                   'idnumber': 'رقم البطاقة:', 'Release_date': 'تاريخ الإصدار:', 'place_issue': 'مكان الإصدار:',
                   'date_birth': 'تاريخ الميلاد:', 'place_birth': 'محل الميلاد:', 'marital_status': 'الحالة الاجتماعية:',
@@ -1422,16 +1426,14 @@ class RequestToOpenAccountForm(forms.ModelForm):
         # raw_id_fields = ('birth_data',
 
         #              )
-        widgets = {'cookie': forms.HiddenInput(
-        ),
+        widgets = {
+            'cookie': forms.HiddenInput(),
             # 'birth_data': forms.HiddenInput(
             # ),
             # 'address_location': forms.HiddenInput(
             # ),
-            'user': forms.HiddenInput(
-        ),
-            'objects': forms.HiddenInput(
-        ),
+            'user': forms.HiddenInput(),
+            'objects': forms.HiddenInput(),
             'gender': forms.RadioSelect(),
             # 'nationality'
             'nationality': Select2Widget(attrs={'class': 'form-control'}),

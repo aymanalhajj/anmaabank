@@ -29,7 +29,6 @@ def SectionPageAllQuerySet():
 def section_single(request, id):
 
     from anmaabankApp.views import get_cookie
-
     # if request.method == 'GET':
     # saveInfoReqestHeder(request, 'index.html')
     # saveInfoIp(request, 'service-single.html')
@@ -67,7 +66,7 @@ def section_single(request, id):
     # dataAbout = dataAbout.latest('Date_Added')
 
     context["navbar"] = NavbarsQuerySet()
-    context["ColumnNavbars"] = ColumnNavbarsQuerySet()
+    # context["ColumnNavbars"] = ColumnNavbarsQuerySet()
     # context['services'] = dataAbout
     context["navbar"] = NavbarsQuerySet()
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()

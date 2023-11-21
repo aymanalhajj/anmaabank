@@ -2,266 +2,175 @@
 {% load i18n static %}
 {% load static %}
 {% load i18n static %}
-{% comment %} {% block content %} {% endcomment %}
-
-
-{% block breadcrumbs %}
-
-    <!-- ======= Breadcrumbs ======= -->
- 
-
-    <!-- ======= Breadcrumbs ======= -->
-    <section class="breadcrumbs">
-        <div class="container">
-  
-          <ol>
-            <li><a href="/">الرئيسية</a></li>
-            {% if application and setting and not setting.is_hidden_bank_applications   %}
-
+{% block content %} 
+  {% include 'base/header-back.html' %}
+  {% block breadcrumbs %}
+    <section class="breadcrumbs" style="border: 0px rgb(0, 255, 8) solid; background: none;padding: 0px;">
+      <div class="container" style="margin-top: 30px;margin-right: 20px;color: var(--primary);">
+        <ol>
+          <li><a style="color: var(--primary);" href="/">الرئيسية</a></li>
+          {% if application and setting and not setting.is_hidden_bank_applications %}
             <li>التطبيقات</li>
-
             <li>{{application.titel|safe}}</li>
-            {% comment %} {% endif  %} {% endcomment %}
-            {% elif section_page     %}
-
+          {% elif section_page %}
             <li>القسم</li>
-
-            <li>{{OurAdvantage.titel|safe}}</li>
-            {% comment %} {% endif  %} {% endcomment %}
-            {% elif news %}
-
+            <li>{{section_page.titel|safe}}</li>
+          {% elif news %}
             <li>{{news.category}}</li>
-
             <li>{{news.titel|safe}}</li>
-            {% comment %} {% endif  %} {% endcomment %}
-            {% elif privace %}
-
+          {% elif privace %}
             <li>سياسة الخصوصية</li>
-            {% elif policie %}
-
-            <li>السياسات</li>
-
-            
-            {% elif  title %}    
-       
-            <li>{{ title }} </li>
-       
-          {% elif  titel %}  
-              <li>{{ titel }} </li>
-
-            {% else %}
-            
-            <li>Page not found (404)</li>
-            {% endif  %}
-          </ol>
-          {% if OurAdvantage   %}
-            <h2>{{OurAdvantage.titel|safe}}</h2>
-          {% endif  %}
-          {% if news   %}
-          <h2>{{news.titel}}</h2>
-          {% endif  %}
-          {% if privace   %}
-          <h2>سياسة الخصوصية</h2>
           {% elif policie %}
-            <h2>السياسات</h2>
-          {% endif  %}
-        </div>
-      </section><!-- End Breadcrumbs -->
-
-      {% endblock %}
-
+            <li>السياسات</li>
+          {% elif title %}
+            <li>{{ title }} </li>
+          {% elif titel %}
+            <li>{{ titel }} </li>
+          {% else %}
+            <li>Page not found (404)</li>
+          {% endif %}
+        </ol>
+        {% if OurAdvantage %}
+          <h2>{{OurAdvantage.titel|safe}}</h2>
+        {% endif %}
+        {% if news %}
+          <h2>{{news.titel}}</h2>
+        {% endif %}
+        {% if privace %}
+          <h2>سياسة الخصوصية</h2>
+        {% elif policie %}
+          <h2>السياسات</h2>
+        {% endif %}
+      </div>
+    </section>
+  {% endblock %}
   {% block content_body %}
-
-  {% if policie %}
-  <!-- code here to list the books -->
-
-  {% comment %} {% for dailyFlight in daily_flight_list %} {% endcomment %}
-   {% comment %} {% load to_and %} {% endcomment %}
-   <article class="entry">
-
-  <div class="container">
-
-            <div class="page-cover">
-              {% if policie.image %}
-
-              <img 
-              src="{{policie.image.url}}"
-            class="img-fluid img-flight-schedule"
-            alt="{{blog.detial_ar}}"
-              {% comment %} src="{% static 'assets/img/blog/blog-1.jpg'  %}" alt="" class="img-fluid" {% endcomment %}
-              
-              >
-                    {% endif %}
-            </div>
-     
-
-      <h2 class="entry-title">
-        {{policie.titel}}
-        {% comment %} Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a> {% endcomment %}
-      </h2>
-
-      <div class="entry-meta">
-        <ul>
-          <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i>   
-          <time datetime="{{policie.Date_Added.date}}"> {{policie.Date_Added.date}}</time>
-        </li>
-          
-           {% comment %} <a href="">12 Comments</a></li> {% endcomment %}
-        </ul>
-      </div>
-
-      <div class="entry-content">
-        <p>
-         {{policie.detial_ar|safe}}
-        </p>
-     
-      </div>
-
-  </div>
-</article><!-- End blog entry -->
-
-        {% elif news %}
-          <!-- code here to list the books -->
-
-          {% comment %} {% for dailyFlight in daily_flight_list %} {% endcomment %}
-           {% comment %} {% load to_and %} {% endcomment %}
-           <article class="entry">
-
-          <div class="container">
-
-             <div class="blog-details-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden slider-services-blog-js">
-                <div class="swiper-wrapper align-items-center">
-                  {% if imagesblogs %}
-
-                    {% for imageblog in imagesblogs %}
-
-                      <div class="swiper-slide">
-                        {% if imageblog.image %}
-                        <div class="page-cover">
-                            <img 
-                              src="{{imageblog.image.url}}"
-                              alt="{{news.titel}}"
-                            />
-                      </div>
-
-                        {% else %}
-                        <div class="page-cover">
-                          <img src="{% static 'assets/img/logo-only.png'  %}"   alt="">
-                         </div>
-                          {% endif %}
-
-
-                      </div>
-
-
-              
-                  {% endfor %}
-                  {% endif %}
-
-                  
-                  {% comment %} {% for dataportfolioimg in DataPortfolioImages %} {% endcomment %}
-
-                  {% if news.image %}
-                  <div class="swiper-slide">
-
-                    <div class="page-cover">
-                      <img 
-                      src="{{news.image.url}}"
-                    class="img-fluid img-flight-schedule"
-                    alt="{{news.titel}}"
-                      {% comment %} src="{% static 'assets/img/blog/blog-1.jpg'  %}" alt="" class="img-fluid" {% endcomment %}
-                      
-                      >
-                    </div>
-
-                  {% comment %} {% endfor %} {% endcomment %}
+    {% if policie %}
+      <article class="entry">
+        <div class="container">
+          <div class="page-cover">
+            {% if policie.image %}
+              <img src="{{policie.image.url}}" class="img-fluid img-flight-schedule" alt="{{blog.detial_ar}}">
+            {% endif %}
+          </div>
+          <h2 class="entry-title">
+            {{policie.titel}}
+          </h2>
+          <div class="entry-meta">
+            <ul>
+              <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i>
+                <time datetime="{{policie.Date_Added.date}}"> {{policie.Date_Added.date}}</time>
+              </li>
+            </ul>
+          </div>
+          <div class="entry-content">
+            <p>
+              {{policie.detial_ar|safe}}
+            </p>
+          </div>
+        </div>
+      </article>
+    {% elif news %}
+      <article class="entry">
+        <div class="container">
+          <div
+            class="blog-details-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden slider-services-blog-js">
+            <div class="swiper-wrapper align-items-center">
+              {% if imagesblogs %}
+              {% for imageblog in imagesblogs %}
+              <div class="swiper-slide">
+                {% if imageblog.image %}
+                <div class="page-cover">
+                  <img src="{{imageblog.image.url}}" alt="{{news.titel}}" />
+                </div>
+                {% else %}
+                <div class="page-cover">
+                  <img src="{% static 'assets/img/logo-only.png'  %}" alt="">
                 </div>
                 {% endif %}
+              </div>
+              {% endfor %}
+              {% endif %}
+              {% if news.image %}
+              <div class="swiper-slide">
+                <div class="page-cover">
+                  <img src="{{news.image.url}}" class="img-fluid img-flight-schedule" alt="{{news.titel}}">
                 </div>
-
-                {% comment %} <div class="swiper-pagination"></div> {% endcomment %}
-            <div class="blog-details-pagination custom-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-              <span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
-            <div class="blog-details-slider-buttons slider-buttons"><div class="slider-button blog-details-prev">
-              {% comment %} <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.16055 14.9172L1.56055 8.29844L8.16055 1.67969" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg> {% endcomment %}
-                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	                  viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
-                    <style type="text/css">
-                      .st0{fill:#1D70B8;}
-                    </style>
-                    <polygon class="st0" points="72.21,79.29 56.78,63.87 72.21,48.45 72.21,19.73 28.06,63.87 72.21,108.01 "/>
+              </div>
+              {% endif %}
+            </div>
+            <div
+              class="blog-details-pagination custom-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+              <span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+                class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span
+                class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+                class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+                class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+                class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+                class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span
+                class="swiper-pagination-bullet"></span>
+            </div>
+            <div class="blog-details-slider-buttons slider-buttons">
+              <div class="slider-button blog-details-prev">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;"
+                  xml:space="preserve">
+                  <style type="text/css">
+                    .st0 {
+                      fill: #1D70B8;
+                    }
+                  </style>
+                  <polygon class="st0" points="72.21,79.29 56.78,63.87 72.21,48.45 72.21,19.73 28.06,63.87 72.21,108.01 " />
                 </svg>
-            </div><div class="slider-button blog-details-next">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
-              <style type="text/css">
-                .st0{fill:#1D70B8;}
-              </style>
-              <polygon class="st0" points="46.76,48.45 62.19,63.87 46.76,79.29 46.76,108.01 90.91,63.87 46.76,19.73 "/>
-            </svg>           
-          </div></div>
-
-              
-
-
-              <h2 class="entry-title">
-                {{news.titel}}
-                {% comment %} Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a> {% endcomment %}
-              </h2>
-
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i>   
+              </div>
+              <div class="slider-button blog-details-next">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1"
+                  x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;"
+                  xml:space="preserve">
+                  <style type="text/css">
+                    .st0 {
+                      fill: #1D70B8;
+                    }
+                  </style>
+                  <polygon class="st0" points="46.76,48.45 62.19,63.87 46.76,79.29 46.76,108.01 90.91,63.87 46.76,19.73 " />
+                </svg>
+              </div>
+            </div>
+            <h2 class="entry-title">
+              {{news.titel}}
+            </h2>
+            <div class="entry-meta">
+              <ul>
+                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i>
                   <time datetime="{{news.Date_Added.date}}"> {{news.Date_Added.date}}</time>
                 </li>
-                  
-                   {% comment %} <a href="">12 Comments</a></li> {% endcomment %}
-                </ul>
-              </div>
-
-              <div class="entry-content">
-                <p>
-                 {{news.detial_ar|safe}}
-                </p>
-             
-              </div>
-
+              </ul>
+            </div>
+            <div class="entry-content">
+              <p>
+                {{news.detial_ar|safe}}
+              </p>
+            </div>
           </div>
-        </article><!-- End blog entry -->
-
-          {% comment %} {% endfor %} {% endcomment %}
-          {% elif application %}
-          <article class="entry">
-              {% include 'section/apps-detial.html' %}
-              {% block app %}
-              {% endblock %}
-          </article>
-
-          {% elif section_page     %}
-
-          <article class="entry">
-            {% include 'section/single-custome-section.html' %}
-            {% block ouradvantage %}
-            {% endblock %}
-          </article>
-          {% comment %} {% endif  %} {% endcomment %}
-         {% comment %} {% else %} {% endcomment %}
-         {% comment %} {% if forloop.first %} {% endcomment %}
-         
-         {% else %}
-       <article class="entry">
-             {% include 'section/404.html' %}
-                {% block section-err-404 %}
-                {% endblock %} 
-               
-            </article><!-- End blog entry -->
-           
-
-        {% endif %}
-
-
-
-
+      </article>
+    {% elif application %}
+      <article class="entry">
+        {% include 'section/apps-detial.html' %}
+        {% block app %}
+        {% endblock %}
+      </article>
+    {% elif section_page %}
+      <article class="entry">
+        {% include 'section/single-custome-section.html' %}
+        {% block ouradvantage %}
+        {% endblock %}
+      </article>
+    {% else %}
+      <article class="entry">
+        {% include 'section/404.html' %}
+        {% block section-err-404 %}
+        {% endblock %}
+      </article>
+    {% endif %}
+  {% endblock %}
 {% endblock %}
-
-
-

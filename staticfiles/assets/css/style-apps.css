@@ -3122,11 +3122,11 @@ main {
 }
 
 .services-section-home:before {
-    /*background-color: #4353c2;
+    background-color: #4353c2;
     background-image: url(../img/patern-background-white-5.png);
     background-size: 400px;
     background-repeat: repeat;
-     background: linear-gradient(180deg, #7c7b7b 0%, rgb(255, 255, 255) 100%) */
+    /* background: linear-gradient(180deg, #7c7b7b 0%, rgb(255, 255, 255) 100%) */
 
 }
 
@@ -3308,25 +3308,6 @@ main {
 
 @media (max-width: 767px) {
     .services-section-home .services-slider-buttons {
-        width: 100%;
-        display: none
-    }
-}
-
-.services-section-home .hero-slider-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2
-}
-
-@media (max-width: 767px) {
-    .services-section-home .hero-slider-buttons {
         width: 100%;
         display: none
     }
@@ -4000,13 +3981,13 @@ main {
 
 @media (max-width: 991px) {
     .service-show .page-hero-body .p-hero {
-        padding-bottom: 210px
+        padding-bottom: 10px
     }
 }
 
 @media (max-width: 767px) {
     .service-show .page-hero-body .p-hero {
-        padding-bottom: 260px
+        padding-bottom: 60px
     }
 }
 
@@ -4697,19 +4678,6 @@ main {
 .service-show .other-services-section .other-services-section-container .other-services-slider .service-card .service-card-body {
     box-shadow: none
 }
-
-.service-show .other-services-section .other-services-section-container .hero-slider-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: 16px;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    z-index: 2;
-    padding: 0 25px
-}
-
 
 .service-show .other-services-section .other-services-section-container .services-slider-buttons {
     display: flex;
@@ -5723,15 +5691,6 @@ main {
     position: relative;
     margin-top: -178.9px;
     margin-bottom: 60px
-}
-
-.page-hero-body .p-hero {
-    color: #fff;
-    background-color: #4353c2;
-    padding-top: 210.9px;
-    padding-bottom: 200px;
-    min-height: 55vh;
-    position: relative
 }
 
 .page-hero-body .p-hero.has-img-bg {

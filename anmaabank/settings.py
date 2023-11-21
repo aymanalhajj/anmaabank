@@ -190,7 +190,8 @@ INSTALLED_APPS = [
     'blogapp',
     'currencies',
     'jopapp',
-    
+    'loan_app',
+    'content_library'
 
 
 

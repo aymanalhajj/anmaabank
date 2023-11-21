@@ -150,6 +150,10 @@ def service_single(request, id):
     context["navbar"] = NavbarsQuerySet()
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()
     context['setting'] = SettingModelQuerySet()
+    if dataAbout.first().category_services.id ==5:
+        return render(request, 'finance-service.html', context)
+    
+    #return render(request, 'finance-service.html', context)
     return render(request, 'service-single.html', context)
 
 

@@ -28,7 +28,8 @@ from . import models
 from .sitemap import *
 # router.register('parents', ParentViewSet)
 from django.contrib.sitemaps.views import sitemap
-from jopapp.viewsaccount import RequestToOpenAccountView
+from jopapp.viewsaccount import RequestToOpenAccountView #,LoanApplicationView
+from loan_app.views import LoanApplicationView
 from django.conf.urls.i18n import i18n_patterns
 from servicesapp.views import service_single, application_single
 from branches.views import service_points
@@ -81,6 +82,9 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + \
 urlpatterns = [
     # path('', include(views.index)),
     path(r'', views.index, name='index'),
+    
+    path('loan-app/', LoanApplicationView, name='open-accounts'),
+
     #    path(r'^$', views.index,),
     #     17,19:                 '',
     path('#contact', views.index_section, name='contact'),
