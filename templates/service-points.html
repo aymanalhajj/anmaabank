@@ -8,392 +8,642 @@
 
 {% load i18n static %} {% block content %}
 
-<main id="main our-points">
-    <section class="breadcrumbs">
-                <div class="container">
-                    <ol>
-                        <li><a href="/">الرئيسية</a></li>
-                        <li>نقاط الخدمة</li>
-                        {% if branche %}
-                        <li>{{branche.name}}</li>
-                        {% endif %}
-                    </ol>
-            </section>
-   <div class="service-points-page">
-     
-   <div class="page-hero-body">
-      <div class="">
-        
-        
-         <div class="container">
-          
-              <div class="page-heading">
-            {% if branche %}
-                <h1 class="page-hero-title">نقطة خدمة بنك إنما  - {{branche.name}}</li>
-                    {% else %}
-               <h1 class="page-hero-title">نقاط خدمة بنك إنما </h1>
+{% include 'base/header-back.html' %}
 
-            {% endif %}
-               <p class="page-hero-desc">
-                  استخدم الخريطة لمعرفة أقرب صراف اليك أو فرع بنك إنما 
-               </p>
-            </div>
-            <div class="search-box">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-            {% load i18n static %} {% load crispy_forms_tags %}
-         
-                {% if form %}
-                   <label class="">
-                ابحث هنا
-                 </label>
-                <form   method="POST"
-                action="/service_points/"
-                class="search-form">
-                             {% csrf_token %} 
+<style>
+#map {
+  height: 800px;
+}
+.maptitle{
+    color: red;
+}
+</style>
+<script type="module">
 
-                    {% for field in form %}
-                    
-                <div class="col-md-12 ">
-                    {{field.oreder_message.label_tag}}
-                      <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
-                  <div class="input-group-prepend with-label">
-                      {% comment %} {{form.your_field_here.label_tag}}  {% endcomment %}
+import { MarkerClusterer } from "https://cdn.skypack.dev/@googlemaps/markerclusterer@2.3.1";
+async function initMap(_locations, contents) {
+// Request needed libraries.
+const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
+"marker",
+);
+const map = new google.maps.Map(document.getElementById("map"), {
+zoom: 3,
+center: { lat: -28.024, lng: 140.887 },
+mapId: "DEMO_MAP_ID",
+});
+const infoWindow = new google.maps.InfoWindow({
+content: "",
+disableAutoPan: true,
+});
+// Create an array of alphabetical characters used to label the markers.
+const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// Add some markers to the map.
+const markers = _locations.map((position, i) => {
+const label = labels[i % labels.length];
+const pinGlyph = new google.maps.marker.PinElement({
+  glyph: label,
+  glyphColor: "white",
+});
+const marker = new google.maps.marker.AdvancedMarkerElement({
+  position,
+  content: pinGlyph.element,
+});
 
-                      <span class="input-group-text" id="basic-addon1"><i class="{{field.field.icon}}"></i></span>
-                    </div>
-                    {{field|as_crispy_field}}
-                    </div>
-                  <small class="text-danger">{{field.errors | striptags}}</small>
+// markers can only be keyboard focusable when they have click listeners
+// open info window when marker is clicked
+marker.addListener("click", () => {
+  infoWindow.setContent(contents[i]);
+  infoWindow.open(map, marker);
+});
+return marker;
+});
 
-                {% comment %} </div> {% endcomment %}
-                </div>              
-                        {% endfor %}
-                        {% if messages %} {% for message in messages %} 
-                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-                        <div class="sent-message">{{ message }}</div>
-                        {% else %}
-                        <div class="error-message d-block">{{ message }}</div>
-                        {% endif %} {% endfor %} {% endif %}
+// Add a marker clusterer to manage the markers.
+new MarkerClusterer({ markers, map });
+}
 
 
-                        <button class="btn-primary" type="submit"><span>بحث</span></button>
-
-                        </form>
-                
-              {% endif %}
-             
-            </div>
-         </div>
-      </div>
-      <div class="p-body">
-        {% if branche %}
-        <div class="service-points-map-details  open">
-        {% else %}
-        <div class="service-points-map-details full-width open">
-            {% endif %}
-         {% comment %} <div class="service-points-map-details full-width open"> {% endcomment %}
-             {% if branche %}
-                <div id="btn-list-results" class="btn-list-results">
-                    <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.43555 14.9172L8.03555 8.29844L1.43555 1.67969" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </div>        
-            {% else %}
-            {% endif %}
-            
-            <h3 class="map-details-title">
-                {% comment %} {{branche.len}} {% endcomment %}
-                {% if branche %}
-                عنوان نقاط خدمة بنك إنما 
-                 <span>
-                 (1)
-                </span>
-                {% else %}
-                عناوين نقاط خدمة بنك إنما
-                <span>
-                {% if branches %}
-                 ({{ branches.count  }})
-                 {% else %}
-                 (0)
-                 {% endif %}
-                </span>
-                
-                
-                {% endif %}
-                
-             </h3>
-             
-             <p class="page-hero-desc">
-                  استخدم الخريطة لمعرفة أقرب نقطة خدمة لك أو فرع بنك إنما 
-               </p>
-            <div class="list-results">
-                
-                            {% if branche %}
-
-                            <a href="{% url 'services-point' branche.id %}" >
-                             <div class="service-point-box">
-                
-                                <span class="label">
-                                    {% comment %} وكيل انما اكسبرس {% endcomment %}
-                                
-                                {{ branche.category}}
-                                    </span>
-                                    <h5 class="point-name">
-                                        {{ branche.name}} 
-                                        {{ branche.address1.street}}
-                                    </h5>
-                                    {% if branche.address1  %}
-                                    <span class="point-location">
-                                            {{ branche.address1.region.country.name_ar}} 
-                                            -  {{ branche.address1.region.name_ar}}
-                                            -  {{ branche.address1.street}} 
-                                    </span>
-                                    <span class="point-location">
-                                            {{ branche.address_line}} 
-                                    </span>
-                                    
-                                    {% endif %}
-                                <ul class="list-info">
-
-                                        {% if  branche.phone%}
-                                        
-                                        
-                                    <li>
-                                        <span class="point-info-label">أرقام التواصل</span>
-                                        <div class="point-info-box">
-                                        <div class="icon">
-                                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M20.4367 17.2192C20.4367 17.5492 20.3634 17.8883 20.2075 18.2183C20.0517 18.5483 19.85 18.86 19.5842 19.1533C19.135 19.6483 18.64 20.0058 18.0809 20.235C17.5309 20.4642 16.935 20.5833 16.2934 20.5833C15.3584 20.5833 14.3592 20.3633 13.305 19.9142C12.2509 19.465 11.1967 18.86 10.1517 18.0992C9.09753 17.3292 8.09836 16.4767 7.14503 15.5325C6.20086 14.5792 5.34836 13.58 4.58753 12.535C3.83586 11.49 3.23086 10.445 2.79086 9.40917C2.35086 8.36417 2.13086 7.365 2.13086 6.41167C2.13086 5.78833 2.24086 5.1925 2.46086 4.6425C2.68086 4.08333 3.02919 3.57 3.51503 3.11167C4.10169 2.53417 4.74336 2.25 5.42169 2.25C5.67836 2.25 5.93503 2.305 6.16419 2.415C6.40253 2.525 6.61336 2.69 6.77836 2.92833L8.90503 5.92583C9.07003 6.155 9.18919 6.36583 9.27169 6.5675C9.35419 6.76 9.40003 6.9525 9.40003 7.12667C9.40003 7.34667 9.33586 7.56667 9.20753 7.7775C9.08836 7.98833 8.91419 8.20833 8.69419 8.42833L7.99753 9.1525C7.89669 9.25333 7.85086 9.3725 7.85086 9.51917C7.85086 9.5925 7.86003 9.65667 7.87836 9.73C7.90586 9.80333 7.93336 9.85833 7.95169 9.91333C8.11669 10.2158 8.40086 10.61 8.80419 11.0867C9.21669 11.5633 9.65669 12.0492 10.1334 12.535C10.6284 13.0208 11.105 13.47 11.5909 13.8825C12.0675 14.2858 12.4617 14.5608 12.7734 14.7258C12.8192 14.7442 12.8742 14.7717 12.9384 14.7992C13.0117 14.8267 13.085 14.8358 13.1675 14.8358C13.3234 14.8358 13.4425 14.7808 13.5434 14.68L14.24 13.9925C14.4692 13.7633 14.6892 13.5892 14.9 13.4792C15.1109 13.3508 15.3217 13.2867 15.5509 13.2867C15.725 13.2867 15.9084 13.3233 16.11 13.4058C16.3117 13.4883 16.5225 13.6075 16.7517 13.7633L19.7859 15.9175C20.0242 16.0825 20.1892 16.275 20.29 16.5042C20.3817 16.7333 20.4367 16.9625 20.4367 17.2192Z" stroke="#1D70B8" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                                <path d="M17.2557 8.66536C17.2557 8.11536 16.8249 7.27203 16.1832 6.58453C15.5965 5.95203 14.8174 5.45703 14.0474 5.45703" stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M20.464 8.66667C20.464 5.11917 17.5949 2.25 14.0474 2.25" stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            </svg>
-                                        </div>
-
-                                        <span dir="ltr"><a href="tel:{{branche.phone}}">
-                                            {{ branche.phone}}
-                                        </a> </span>
-                                            </div>
-                                    </li>
-                                        {% else %}
-                                        {% endif %}
-                                        {% if  branche.from_hourse_firest and branche.to_hourse_firest %}
-                                        {% if branche.HORSE == 'فترتين' or branche.HORSE == 'فترة واحده' %}
-                                        
-                                      
-
-                                    <li>
-                                        <span class="point-info-label">أوقات الدوام</span>
-                                        <div class="point-info-box-time">
-                                        <div class="working-time">
-                                            <div class="icon">
-                                                <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M20.2689 11.0007C20.2689 16.0607 16.1622 20.1673 11.1022 20.1673C6.04221 20.1673 1.93555 16.0607 1.93555 11.0007C1.93555 5.94065 6.04221 1.83398 11.1022 1.83398C16.1622 1.83398 20.2689 5.94065 20.2689 11.0007Z" stroke="#1D70B8" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M14.5037 13.9156L11.662 12.2198C11.167 11.9264 10.7637 11.2206 10.7637 10.6431V6.88477" stroke="#DBB24F" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="working-time-data"><span dir="rtl">
-                                                {{ branche.from_hourse_firest}}
-                                                </span><span>-</span><span dir="rtl">{{ branche.to_hourse_firest}}</span></div>
-                                        </div>
-                                        <div class="working-time">
-                                            <div class="icon">
-                                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M19.0891 11.6797H3.66162" stroke="#DBB24F" stroke-width="1.375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M9.07003 6.11523L3.50586 11.6794L9.07003 17.2436" stroke="#1D70B8" stroke-width="1.375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="working-time-data"><span dir="ltr">{{ branche.from_hourse_scond}}</span><span>-</span><span dir="ltr">{{ branche.to_hourse_scond}}</span></div>
-                                        </div>
-                                        </div>
-                                    </li>
-                                     {% else %}
-                                    <li>
-                                        <span class="point-info-label">أوقات الدوام
-
-                                        </span><div class="point-info-box"><div class="icon">
-                                            <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M20.2689 11.0007C20.2689 16.0607 16.1622 20.1673 11.1022 20.1673C6.04221 20.1673 1.93555 16.0607 1.93555 11.0007C1.93555 5.94065 6.04221 1.83398 11.1022 1.83398C16.1622 1.83398 20.2689 5.94065 20.2689 11.0007Z" stroke="#1D70B8" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.5037 13.9156L11.662 12.2198C11.167 11.9264 10.7637 11.2206 10.7637 10.6431V6.88477" stroke="#DBB24F" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            </svg>
-                                        </div><span>
-                                            
-                                            {{ branche.HORSE}} ساعة
-                                        </span></div></li>
-                                    {% endif %}
-                                     
-                                        {% endif %}
-                                </ul>
-                            </div>
-                           </a>
-                            {% elif branches %}
-                           {% for branche in branches %}
-                           <a href="{% url 'services-point' branche.id %}" >
-                             <div class="service-point-box">
-                
-                                <span class="label">
-                                    {% comment %} وكيل انما اكسبرس {% endcomment %}
-                                
-                                {{ branche.category}}
-                                    </span>
-                                    <h5 class="point-name">
-                                        {{ branche.name}} 
-                                        {{ branche.address1.street}}
-                                    </h5>
-                                    {% if branche.address1  %}
-                                    <span class="point-location">
-                                            {{ branche.address1.region.country.name_ar}} 
-                                            -  {{ branche.address1.region.name_ar}}
-                                            -  {{ branche.address1.street}} 
-                                    </span>
-                                     <span class="point-location">
-                                            {{ branche.address_line}} 
-                                    </span>
-                                    {% endif %}
-                                <ul class="list-info">
-
-                                        {% if  branche.phone%}
-                                        
-                                        
-                                    <li>
-                                        <span class="point-info-label">أرقام التواصل</span>
-                                        <div class="point-info-box">
-                                        <div class="icon">
-                                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M20.4367 17.2192C20.4367 17.5492 20.3634 17.8883 20.2075 18.2183C20.0517 18.5483 19.85 18.86 19.5842 19.1533C19.135 19.6483 18.64 20.0058 18.0809 20.235C17.5309 20.4642 16.935 20.5833 16.2934 20.5833C15.3584 20.5833 14.3592 20.3633 13.305 19.9142C12.2509 19.465 11.1967 18.86 10.1517 18.0992C9.09753 17.3292 8.09836 16.4767 7.14503 15.5325C6.20086 14.5792 5.34836 13.58 4.58753 12.535C3.83586 11.49 3.23086 10.445 2.79086 9.40917C2.35086 8.36417 2.13086 7.365 2.13086 6.41167C2.13086 5.78833 2.24086 5.1925 2.46086 4.6425C2.68086 4.08333 3.02919 3.57 3.51503 3.11167C4.10169 2.53417 4.74336 2.25 5.42169 2.25C5.67836 2.25 5.93503 2.305 6.16419 2.415C6.40253 2.525 6.61336 2.69 6.77836 2.92833L8.90503 5.92583C9.07003 6.155 9.18919 6.36583 9.27169 6.5675C9.35419 6.76 9.40003 6.9525 9.40003 7.12667C9.40003 7.34667 9.33586 7.56667 9.20753 7.7775C9.08836 7.98833 8.91419 8.20833 8.69419 8.42833L7.99753 9.1525C7.89669 9.25333 7.85086 9.3725 7.85086 9.51917C7.85086 9.5925 7.86003 9.65667 7.87836 9.73C7.90586 9.80333 7.93336 9.85833 7.95169 9.91333C8.11669 10.2158 8.40086 10.61 8.80419 11.0867C9.21669 11.5633 9.65669 12.0492 10.1334 12.535C10.6284 13.0208 11.105 13.47 11.5909 13.8825C12.0675 14.2858 12.4617 14.5608 12.7734 14.7258C12.8192 14.7442 12.8742 14.7717 12.9384 14.7992C13.0117 14.8267 13.085 14.8358 13.1675 14.8358C13.3234 14.8358 13.4425 14.7808 13.5434 14.68L14.24 13.9925C14.4692 13.7633 14.6892 13.5892 14.9 13.4792C15.1109 13.3508 15.3217 13.2867 15.5509 13.2867C15.725 13.2867 15.9084 13.3233 16.11 13.4058C16.3117 13.4883 16.5225 13.6075 16.7517 13.7633L19.7859 15.9175C20.0242 16.0825 20.1892 16.275 20.29 16.5042C20.3817 16.7333 20.4367 16.9625 20.4367 17.2192Z" stroke="#1D70B8" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                                <path d="M17.2557 8.66536C17.2557 8.11536 16.8249 7.27203 16.1832 6.58453C15.5965 5.95203 14.8174 5.45703 14.0474 5.45703" stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M20.464 8.66667C20.464 5.11917 17.5949 2.25 14.0474 2.25" stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            </svg>
-                                        </div>
-
-                                        <span dir="ltr"><a href="tel:{{branche.phone}}">
-                                            {{ branche.phone}}
-                                        </a> </span>
-                                            </div>
-                                    </li>
-                                        {% elif branche.emile %}
-                                        
-                                    <li>
-                                        <span class="point-info-label">أرقام التواصل</span>
-                                        <div class="point-info-box">
-                                        <div class="icon">
-                                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M20.4367 17.2192C20.4367 17.5492 20.3634 17.8883 20.2075 18.2183C20.0517 18.5483 19.85 18.86 19.5842 19.1533C19.135 19.6483 18.64 20.0058 18.0809 20.235C17.5309 20.4642 16.935 20.5833 16.2934 20.5833C15.3584 20.5833 14.3592 20.3633 13.305 19.9142C12.2509 19.465 11.1967 18.86 10.1517 18.0992C9.09753 17.3292 8.09836 16.4767 7.14503 15.5325C6.20086 14.5792 5.34836 13.58 4.58753 12.535C3.83586 11.49 3.23086 10.445 2.79086 9.40917C2.35086 8.36417 2.13086 7.365 2.13086 6.41167C2.13086 5.78833 2.24086 5.1925 2.46086 4.6425C2.68086 4.08333 3.02919 3.57 3.51503 3.11167C4.10169 2.53417 4.74336 2.25 5.42169 2.25C5.67836 2.25 5.93503 2.305 6.16419 2.415C6.40253 2.525 6.61336 2.69 6.77836 2.92833L8.90503 5.92583C9.07003 6.155 9.18919 6.36583 9.27169 6.5675C9.35419 6.76 9.40003 6.9525 9.40003 7.12667C9.40003 7.34667 9.33586 7.56667 9.20753 7.7775C9.08836 7.98833 8.91419 8.20833 8.69419 8.42833L7.99753 9.1525C7.89669 9.25333 7.85086 9.3725 7.85086 9.51917C7.85086 9.5925 7.86003 9.65667 7.87836 9.73C7.90586 9.80333 7.93336 9.85833 7.95169 9.91333C8.11669 10.2158 8.40086 10.61 8.80419 11.0867C9.21669 11.5633 9.65669 12.0492 10.1334 12.535C10.6284 13.0208 11.105 13.47 11.5909 13.8825C12.0675 14.2858 12.4617 14.5608 12.7734 14.7258C12.8192 14.7442 12.8742 14.7717 12.9384 14.7992C13.0117 14.8267 13.085 14.8358 13.1675 14.8358C13.3234 14.8358 13.4425 14.7808 13.5434 14.68L14.24 13.9925C14.4692 13.7633 14.6892 13.5892 14.9 13.4792C15.1109 13.3508 15.3217 13.2867 15.5509 13.2867C15.725 13.2867 15.9084 13.3233 16.11 13.4058C16.3117 13.4883 16.5225 13.6075 16.7517 13.7633L19.7859 15.9175C20.0242 16.0825 20.1892 16.275 20.29 16.5042C20.3817 16.7333 20.4367 16.9625 20.4367 17.2192Z" stroke="#1D70B8" stroke-width="1.5" stroke-miterlimit="10"></path>
-                                                <path d="M17.2557 8.66536C17.2557 8.11536 16.8249 7.27203 16.1832 6.58453C15.5965 5.95203 14.8174 5.45703 14.0474 5.45703" stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M20.464 8.66667C20.464 5.11917 17.5949 2.25 14.0474 2.25" stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            </svg>
-                                        </div>
-
-                                        <span dir="ltr"><a href="tel:{{branche.emile}}">
-                                            {{ branche.emile}}
-                                        </a> </span>
-                                            </div>
-                                    </li>
-                                {% endif %}
-                                     {% if  branche.from_hourse_firest and branche.to_hourse_firest %}
-                                        {% if branche.HORSE == 'فترتين' or branche.HORSE == 'فترة واحده' %}
-                                        
-                                      
-
-                                    <li>
-                                        <span class="point-info-label">أوقات الدوام</span>
-                                        <div class="point-info-box-time">
-                                        <div class="working-time">
-                                            <div class="icon">
-                                                <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M20.2689 11.0007C20.2689 16.0607 16.1622 20.1673 11.1022 20.1673C6.04221 20.1673 1.93555 16.0607 1.93555 11.0007C1.93555 5.94065 6.04221 1.83398 11.1022 1.83398C16.1622 1.83398 20.2689 5.94065 20.2689 11.0007Z" stroke="#1D70B8" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M14.5037 13.9156L11.662 12.2198C11.167 11.9264 10.7637 11.2206 10.7637 10.6431V6.88477" stroke="#DBB24F" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="working-time-data"><span dir="rtl">
-                                                {{ branche.from_hourse_firest}}
-                                                </span><span>-</span><span dir="rtl">{{ branche.to_hourse_firest}}</span></div>
-                                        </div>
-                                        <div class="working-time">
-                                            <div class="icon">
-                                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M19.0891 11.6797H3.66162" stroke="#DBB24F" stroke-width="1.375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                    <path d="M9.07003 6.11523L3.50586 11.6794L9.07003 17.2436" stroke="#1D70B8" stroke-width="1.375" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="working-time-data"><span dir="ltr">{{ branche.from_hourse_scond}}</span><span>-</span><span dir="ltr">{{ branche.to_hourse_scond}}</span></div>
-                                        </div>
-                                        </div>
-                                    </li>
-                                     {% else %}
-                                    <li>
-                                        <span class="point-info-label">أوقات الدوام
-
-                                        </span><div class="point-info-box"><div class="icon">
-                                            <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M20.2689 11.0007C20.2689 16.0607 16.1622 20.1673 11.1022 20.1673C6.04221 20.1673 1.93555 16.0607 1.93555 11.0007C1.93555 5.94065 6.04221 1.83398 11.1022 1.83398C16.1622 1.83398 20.2689 5.94065 20.2689 11.0007Z" stroke="#1D70B8" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.5037 13.9156L11.662 12.2198C11.167 11.9264 10.7637 11.2206 10.7637 10.6431V6.88477" stroke="#DBB24F" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            </svg>
-                                        </div><span>
-                                            
-                                            {{ branche.HORSE}} ساعة
-                                        </span></div></li>
-                                    {% endif %}
-                                     
-                                        {% endif %}
-                                </ul>
-                            </div>
-                           </a>
-               
-                         
-                        {% endfor %}
-                          {% else %}
-                          <div class="service-point-box">
-                
-                              
-                              <h5 class="point-name">
-                                      لايوجد نقاط خدمة  
-                                      {% if category %}
-                                      في
-                                      {{category}},
-                                      {% endif %}
-                                      {% if region %}
-                                      {{region}} 
-                                      {% endif %}
-                            </h5>
-                        </div>
-                        {% comment %} <h3 class="map-details-title"></h3> {% endcomment %}
-
-                        {% endif %}
-
-       
-            
+var contents = [];
+var locations =[];
+var index = 0;
+{% for branche in branches %}
+locations[index] = 
+{
+   // lat: '{{branche.address1.lat}}' ,
+   // lng: "{{branche.address1.long}}"
+    lat: Number("{{branche.address1.lat}}".replace(",",".")) ,
+    lng: Number("{{branche.address1.long}}".replace(",","."))
+};
+contents[index] = '<p class="maptitle">ddddd</p>';
+contents[index] = 
+`
+<div class="list-results">
+<a href="{% url 'services-point' branche.id %}">
+                                <div class="service-point-box">
                         
-               
-               
-                    
-            </div>
-         </div>
-          {% if branche %}
-  <div class="vue-map-container google-map">
-
-                                        {% if branche.address1.lat and  branche.address1.long  %}
-                                          {% load to_lat %}
-                                        <iframe src="https://maps.google.com/maps?q={{branche.address1.lat|to_lat}},+{{branche.address1.long|to_lat}}&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                                                  width="100%" 
-                                                  loading="lazy"
-                                                  {% comment %} allowfullscreen {% endcomment %}
-                                                  height="100%" frameborder="0"
-                                                  frameborder="0" 
-                                                    scrolling="no" 
-                                                    marginheight="0" 
-                                                    marginwidth="0" 
-
-                                                  style="border:0;">
-                                          </iframe>
+                                    <span class="label">
+                                        {{ branche.category}}
+                                    </span>
+                                    <h5 class="point-name">
+                                        {{ branche.name}}
+                                        {{ branche.address1.street}}
+                                    </h5>
+                                    {% if branche.address1 %}
+                                        <span class="point-location">
+                                            {{ branche.address1.region.country.name_ar}}
+                                            - {{ branche.address1.region.name_ar}}
+                                            - {{ branche.address1.street}}
+                                        </span>
+                                        <span class="point-location">
+                                            {{ branche.address_line}}
+                                        </span>
                                     {% endif %}
+                                    <ul class="list-info">
+                                        {% if branche.phone%}
+                                            <li>
+                                                <span class="point-info-label">أرقام التواصل</span>
+                                                <div class="point-info-box">
+                                                    <div class="icon">
+                                                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M20.4367 17.2192C20.4367 17.5492 20.3634 17.8883 20.2075 18.2183C20.0517 18.5483 19.85 18.86 19.5842 19.1533C19.135 19.6483 18.64 20.0058 18.0809 20.235C17.5309 20.4642 16.935 20.5833 16.2934 20.5833C15.3584 20.5833 14.3592 20.3633 13.305 19.9142C12.2509 19.465 11.1967 18.86 10.1517 18.0992C9.09753 17.3292 8.09836 16.4767 7.14503 15.5325C6.20086 14.5792 5.34836 13.58 4.58753 12.535C3.83586 11.49 3.23086 10.445 2.79086 9.40917C2.35086 8.36417 2.13086 7.365 2.13086 6.41167C2.13086 5.78833 2.24086 5.1925 2.46086 4.6425C2.68086 4.08333 3.02919 3.57 3.51503 3.11167C4.10169 2.53417 4.74336 2.25 5.42169 2.25C5.67836 2.25 5.93503 2.305 6.16419 2.415C6.40253 2.525 6.61336 2.69 6.77836 2.92833L8.90503 5.92583C9.07003 6.155 9.18919 6.36583 9.27169 6.5675C9.35419 6.76 9.40003 6.9525 9.40003 7.12667C9.40003 7.34667 9.33586 7.56667 9.20753 7.7775C9.08836 7.98833 8.91419 8.20833 8.69419 8.42833L7.99753 9.1525C7.89669 9.25333 7.85086 9.3725 7.85086 9.51917C7.85086 9.5925 7.86003 9.65667 7.87836 9.73C7.90586 9.80333 7.93336 9.85833 7.95169 9.91333C8.11669 10.2158 8.40086 10.61 8.80419 11.0867C9.21669 11.5633 9.65669 12.0492 10.1334 12.535C10.6284 13.0208 11.105 13.47 11.5909 13.8825C12.0675 14.2858 12.4617 14.5608 12.7734 14.7258C12.8192 14.7442 12.8742 14.7717 12.9384 14.7992C13.0117 14.8267 13.085 14.8358 13.1675 14.8358C13.3234 14.8358 13.4425 14.7808 13.5434 14.68L14.24 13.9925C14.4692 13.7633 14.6892 13.5892 14.9 13.4792C15.1109 13.3508 15.3217 13.2867 15.5509 13.2867C15.725 13.2867 15.9084 13.3233 16.11 13.4058C16.3117 13.4883 16.5225 13.6075 16.7517 13.7633L19.7859 15.9175C20.0242 16.0825 20.1892 16.275 20.29 16.5042C20.3817 16.7333 20.4367 16.9625 20.4367 17.2192Z"
+                                                                stroke="#1D70B8" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                            <path
+                                                                d="M17.2557 8.66536C17.2557 8.11536 16.8249 7.27203 16.1832 6.58453C15.5965 5.95203 14.8174 5.45703 14.0474 5.45703"
+                                                                stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                                            </path>
+                                                            <path d="M20.464 8.66667C20.464 5.11917 17.5949 2.25 14.0474 2.25" stroke="#DBB24F" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <span dir="ltr"><a href="tel:{{branche.phone}}">
+                                                            {{ branche.phone}}
+                                                        </a> </span>
+                                                </div>
+                                            </li>
+                                        {% elif branche.emile %}
+                                            <li>
+                                                <span class="point-info-label">أرقام التواصل</span>
+                                                <div class="point-info-box">
+                                                    <div class="icon">
+                                                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M20.4367 17.2192C20.4367 17.5492 20.3634 17.8883 20.2075 18.2183C20.0517 18.5483 19.85 18.86 19.5842 19.1533C19.135 19.6483 18.64 20.0058 18.0809 20.235C17.5309 20.4642 16.935 20.5833 16.2934 20.5833C15.3584 20.5833 14.3592 20.3633 13.305 19.9142C12.2509 19.465 11.1967 18.86 10.1517 18.0992C9.09753 17.3292 8.09836 16.4767 7.14503 15.5325C6.20086 14.5792 5.34836 13.58 4.58753 12.535C3.83586 11.49 3.23086 10.445 2.79086 9.40917C2.35086 8.36417 2.13086 7.365 2.13086 6.41167C2.13086 5.78833 2.24086 5.1925 2.46086 4.6425C2.68086 4.08333 3.02919 3.57 3.51503 3.11167C4.10169 2.53417 4.74336 2.25 5.42169 2.25C5.67836 2.25 5.93503 2.305 6.16419 2.415C6.40253 2.525 6.61336 2.69 6.77836 2.92833L8.90503 5.92583C9.07003 6.155 9.18919 6.36583 9.27169 6.5675C9.35419 6.76 9.40003 6.9525 9.40003 7.12667C9.40003 7.34667 9.33586 7.56667 9.20753 7.7775C9.08836 7.98833 8.91419 8.20833 8.69419 8.42833L7.99753 9.1525C7.89669 9.25333 7.85086 9.3725 7.85086 9.51917C7.85086 9.5925 7.86003 9.65667 7.87836 9.73C7.90586 9.80333 7.93336 9.85833 7.95169 9.91333C8.11669 10.2158 8.40086 10.61 8.80419 11.0867C9.21669 11.5633 9.65669 12.0492 10.1334 12.535C10.6284 13.0208 11.105 13.47 11.5909 13.8825C12.0675 14.2858 12.4617 14.5608 12.7734 14.7258C12.8192 14.7442 12.8742 14.7717 12.9384 14.7992C13.0117 14.8267 13.085 14.8358 13.1675 14.8358C13.3234 14.8358 13.4425 14.7808 13.5434 14.68L14.24 13.9925C14.4692 13.7633 14.6892 13.5892 14.9 13.4792C15.1109 13.3508 15.3217 13.2867 15.5509 13.2867C15.725 13.2867 15.9084 13.3233 16.11 13.4058C16.3117 13.4883 16.5225 13.6075 16.7517 13.7633L19.7859 15.9175C20.0242 16.0825 20.1892 16.275 20.29 16.5042C20.3817 16.7333 20.4367 16.9625 20.4367 17.2192Z"
+                                                                stroke="#1D70B8" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                            <path
+                                                                d="M17.2557 8.66536C17.2557 8.11536 16.8249 7.27203 16.1832 6.58453C15.5965 5.95203 14.8174 5.45703 14.0474 5.45703"
+                                                                stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                                            </path>
+                                                            <path d="M20.464 8.66667C20.464 5.11917 17.5949 2.25 14.0474 2.25" stroke="#DBB24F" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <span dir="ltr"><a href="tel:{{branche.emile}}">
+                                                            {{ branche.emile}}
+                                                        </a> </span>
+                                                </div>
+                                            </li>
+                                        {% endif %}
+                                        {% if branche.from_hourse_firest and branche.to_hourse_firest %}
+                                            {% if branche.HORSE == 'فترتين' or branche.HORSE == 'فترة واحده' %}
+                                                <li>
+                                                    <span class="point-info-label">أوقات الدوام</span>
+                                                    <div class="point-info-box-time">
+                                                        <div class="working-time">
+                                                            <div class="icon">
+                                                                <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M20.2689 11.0007C20.2689 16.0607 16.1622 20.1673 11.1022 20.1673C6.04221 20.1673 1.93555 16.0607 1.93555 11.0007C1.93555 5.94065 6.04221 1.83398 11.1022 1.83398C16.1622 1.83398 20.2689 5.94065 20.2689 11.0007Z"
+                                                                        stroke="#1D70B8" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                    <path d="M14.5037 13.9156L11.662 12.2198C11.167 11.9264 10.7637 11.2206 10.7637 10.6431V6.88477"
+                                                                        stroke="#DBB24F" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="working-time-data">
+                                                                <span dir="rtl">{{ branche.from_hourse_firest}}</span>
+                                                                <span>-</span>
+                                                                <span dir="rtl">{{ branche.to_hourse_firest}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="working-time">
+                                                            <div class="icon">
+                                                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M19.0891 11.6797H3.66162" stroke="#DBB24F" stroke-width="1.375" stroke-miterlimit="10"
+                                                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                    <path d="M9.07003 6.11523L3.50586 11.6794L9.07003 17.2436" stroke="#1D70B8" stroke-width="1.375"
+                                                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="working-time-data">
+                                                                <span dir="ltr">{{ branche.from_hourse_scond}}</span>
+                                                                <span>-</span>
+                                                                <span dir="ltr">{{ branche.to_hourse_scond}}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            {% else %}
+                                                <li>
+                                                    <span class="point-info-label">أوقات الدوام
+                                
+                                                    </span>
+                                                    <div class="point-info-box">
+                                                        <div class="icon">
+                                                            <svg width="23" height="22" viewBox="0 0 23 22" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M20.2689 11.0007C20.2689 16.0607 16.1622 20.1673 11.1022 20.1673C6.04221 20.1673 1.93555 16.0607 1.93555 11.0007C1.93555 5.94065 6.04221 1.83398 11.1022 1.83398C16.1622 1.83398 20.2689 5.94065 20.2689 11.0007Z"
+                                                                    stroke="#1D70B8" stroke-width="1.375" stroke-linecap="round"
+                                                                    stroke-linejoin="round"></path>
+                                                                <path
+                                                                    d="M14.5037 13.9156L11.662 12.2198C11.167 11.9264 10.7637 11.2206 10.7637 10.6431V6.88477"
+                                                                    stroke="#DBB24F" stroke-width="1.375" stroke-linecap="round"
+                                                                    stroke-linejoin="round"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <span>
+                                                            {{ branche.HORSE}} ساعة
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            {% endif %}
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </a>
+                            </dev>`;
 
-         </div>            {% endif %}
-       
+index = index+1;
 
-      </div>
-   </div>
-   
-   <!-- Google Tag Manager (noscript) -->
+//console.error("{{branche.address1.long}}".replace(",","."));
+//console.log(typeof "{{branche.address1.long}}".replace(",","."));
+//console.log(typeof Number("{{branche.address1.long}}".replace(",",".")));
+/*
+locations = [
+{ lat: -31.56391, lng: 147.154312 },
+{ lat: -33.718234, lng: 150.363181 },
+{ lat: -33.727111, lng: 150.371124 },
+{ lat: -33.848588, lng: 151.209834 },
+{ lat: -33.851702, lng: 151.216968 },
+{ lat: -34.671264, lng: 150.863657 },
+{ lat: -35.304724, lng: 148.662905 },
+{ lat: -36.817685, lng: 175.699196 },
+{ lat: -36.828611, lng: 175.790222 },
+{ lat: -37.75, lng: 145.116667 },
+{ lat: -37.759859, lng: 145.128708 },
+{ lat: -37.765015, lng: 145.133858 },
+{ lat: -37.770104, lng: 145.143299 },
+{ lat: -37.7737, lng: 145.145187 },
+{ lat: -37.774785, lng: 145.137978 },
+{ lat: -37.819616, lng: 144.968119 },
+{ lat: -38.330766, lng: 144.695692 },
+{ lat: -39.927193, lng: 175.053218 },
+{ lat: -41.330162, lng: 174.865694 },
+{ lat: -42.734358, lng: 147.439506 },
+{ lat: -42.734358, lng: 147.501315 },
+{ lat: -42.735258, lng: 147.438 },
+{ lat: -43.999792, lng: 170.463352 },
+];*/
 
-   <!-- End Google Tag Manager (noscript) -->
+{% endfor %}
+
+initMap(locations,contents);
+</script>
+<main id="main our-points">
+    <section class="breadcrumbs" style="padding: 0px; background: white;margin: 0px;">
+        <div class="container" style="margin-top: 30px;margin-right: 20px;color: var(--primary);z-index: 10;">
+            <ol>
+                <li><a style="color: var(--primary);" href="/">الرئيسية</a></li>
+                <li>نقاط الخدمة</li>
+                {% if branche %}
+                <li>{{branche.name}}</li>
+                {% endif %}
+            </ol>
+        </div>
+    </section>
+    <div class="service-points-page">
+        <div class="page-hero-body" style="margin-top: -80px;padding-top: 0px;" >
+            <div  style="margin-top: 0px;padding-top: 0px;">
+                <div class="container" >
+                    <div class="page-heading" style="padding-top: 0px;">
+                        {% if branche %}
+                            <h1 class="page-hero-title" style="color: var(--primary);">نقطة خدمة بنك إنما  - {{branche.name}}</li>
+                        {% else %}
+                            <h1 class="page-hero-title"  style="color: var(--primary);">نقاط خدمة بنك إنما </h1>
+                        {% endif %}
+                        <p class="page-hero-desc"  style="color: var(--primary);">
+                            استخدم الخريطة لمعرفة أقرب صراف اليك أو فرع بنك إنما 
+                        </p>
+                    </div>
+                    <div class="search-box"  style="border: 1px gray solid;box-shadow: 5px 5px gray; margin-bottom: 10px;">
+                        {% load i18n static %} {% load crispy_forms_tags %}
+                        {% if form %}
+                            <label class="">
+                            ابحث هنا
+                            </label>
+                            <form method="POST" action="/service_points/" class="search-form">
+                                {% csrf_token %}
+                                {% for field in form %}
+                                    <div class="col-md-3 ">
+                                        {{field.oreder_message.label_tag}}
+                                        <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+                                            <div class="input-group-prepend with-label">
+                                                {% comment %} {{form.your_field_here.label_tag}} {% endcomment %}
+                                                <span class="input-group-text" id="basic-addon1"><i class="{{field.field.icon}}"></i></span>
+                                            </div>
+                                            {{field|as_crispy_field}}
+                                        </div>
+                                        <small class="text-danger">{{field.errors | striptags}}</small>
+                                    </div>
+                                {% endfor %}
+                                {% if messages %} 
+                                    {% for message in messages %}
+                                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                            <div class="sent-message">{{ message }}</div>
+                                        {% else %}
+                                            <div class="error-message d-block">{{ message }}</div>
+                                        {% endif %} 
+                                    {% endfor %} 
+                                {% endif %}         
+                                
+                                <div class="col-md-2 " style="align-self: center;">       
+                                <button class="btn-primary" type="submit"><span>بحث</span></button>
+                                </div>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="p-body" >
+                    {% if branche %}
+                <div class="service-points-map-details  open"  style="height: 730px;">
+                    {% else %}
+                <div class="service-points-map-details open" style="height: 730px;" >
+                    {% endif %}
+                    {% if branche %}
+                        <div id="btn-list-results" class="btn-list-results">
+                            <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.43555 14.9172L8.03555 8.29844L1.43555 1.67969" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                    {% endif %}
+                    
+                    <h3 class="map-details-title">
+                        {% if branche %}
+                            عنوان نقاط خدمة بنك إنما
+                            <span>
+                                (1)
+                            </span>
+                        {% else %}
+                            عناوين نقاط خدمة بنك إنما
+                            <span>
+                                {% if branches %}
+                                ({{ branches.count }})
+                                {% else %}
+                                (0)
+                                {% endif %}
+                            </span>
+                        {% endif %}
+                    </h3>
+                    <p class="page-hero-desc">
+                        استخدم الخريطة لمعرفة أقرب نقطة خدمة لك أو فرع بنك إنما
+                    </p>
+                    <div class="list-results">
+                        {% if branche %}
+                            <a href="{% url 'services-point' branche.id %}">
+                                <div class="service-point-box">
+                                    <span class="label">
+                                        {{ branche.category}}
+                                    </span>
+                                    <h5 class="point-name">
+                                        {{ branche.name}}
+                                        {{ branche.address1.street}}
+                                    </h5>
+                                    {% if branche.address1 %}
+                                        <span class="point-location">
+                                            {{ branche.address1.region.country.name_ar}}
+                                            - {{ branche.address1.region.name_ar}}
+                                            - {{ branche.address1.street}}
+                                        </span>
+                                        <span class="point-location">
+                                            {{ branche.address_line}}
+                                        </span>
+                                    {% endif %}
+                                    <ul class="list-info">
+                                        {% if branche.phone%}
+                                            <li>
+                                                <span class="point-info-label">أرقام التواصل</span>
+                                                <div class="point-info-box">
+                                                    <div class="icon">
+                                                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M20.4367 17.2192C20.4367 17.5492 20.3634 17.8883 20.2075 18.2183C20.0517 18.5483 19.85 18.86 19.5842 19.1533C19.135 19.6483 18.64 20.0058 18.0809 20.235C17.5309 20.4642 16.935 20.5833 16.2934 20.5833C15.3584 20.5833 14.3592 20.3633 13.305 19.9142C12.2509 19.465 11.1967 18.86 10.1517 18.0992C9.09753 17.3292 8.09836 16.4767 7.14503 15.5325C6.20086 14.5792 5.34836 13.58 4.58753 12.535C3.83586 11.49 3.23086 10.445 2.79086 9.40917C2.35086 8.36417 2.13086 7.365 2.13086 6.41167C2.13086 5.78833 2.24086 5.1925 2.46086 4.6425C2.68086 4.08333 3.02919 3.57 3.51503 3.11167C4.10169 2.53417 4.74336 2.25 5.42169 2.25C5.67836 2.25 5.93503 2.305 6.16419 2.415C6.40253 2.525 6.61336 2.69 6.77836 2.92833L8.90503 5.92583C9.07003 6.155 9.18919 6.36583 9.27169 6.5675C9.35419 6.76 9.40003 6.9525 9.40003 7.12667C9.40003 7.34667 9.33586 7.56667 9.20753 7.7775C9.08836 7.98833 8.91419 8.20833 8.69419 8.42833L7.99753 9.1525C7.89669 9.25333 7.85086 9.3725 7.85086 9.51917C7.85086 9.5925 7.86003 9.65667 7.87836 9.73C7.90586 9.80333 7.93336 9.85833 7.95169 9.91333C8.11669 10.2158 8.40086 10.61 8.80419 11.0867C9.21669 11.5633 9.65669 12.0492 10.1334 12.535C10.6284 13.0208 11.105 13.47 11.5909 13.8825C12.0675 14.2858 12.4617 14.5608 12.7734 14.7258C12.8192 14.7442 12.8742 14.7717 12.9384 14.7992C13.0117 14.8267 13.085 14.8358 13.1675 14.8358C13.3234 14.8358 13.4425 14.7808 13.5434 14.68L14.24 13.9925C14.4692 13.7633 14.6892 13.5892 14.9 13.4792C15.1109 13.3508 15.3217 13.2867 15.5509 13.2867C15.725 13.2867 15.9084 13.3233 16.11 13.4058C16.3117 13.4883 16.5225 13.6075 16.7517 13.7633L19.7859 15.9175C20.0242 16.0825 20.1892 16.275 20.29 16.5042C20.3817 16.7333 20.4367 16.9625 20.4367 17.2192Z"
+                                                                stroke="#1D70B8" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                            <path
+                                                                d="M17.2557 8.66536C17.2557 8.11536 16.8249 7.27203 16.1832 6.58453C15.5965 5.95203 14.8174 5.45703 14.0474 5.45703"
+                                                                stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                                            </path>
+                                                            <path d="M20.464 8.66667C20.464 5.11917 17.5949 2.25 14.0474 2.25" stroke="#DBB24F" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <span dir="ltr">
+                                                        <a href="tel:{{branche.phone}}">
+                                                            {{ branche.phone}}
+                                                        </a> 
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        {% endif %}
+                                        {% if branche.from_hourse_firest and branche.to_hourse_firest %}
+                                            {% if branche.HORSE == 'فترتين' or branche.HORSE == 'فترة واحده' %}
+                                                <li>
+                                                    <span class="point-info-label">أوقات الدوام</span>
+                                                    <div class="point-info-box-time">
+                                                        <div class="working-time">
+                                                            <div class="icon">
+                                                                <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M20.2689 11.0007C20.2689 16.0607 16.1622 20.1673 11.1022 20.1673C6.04221 20.1673 1.93555 16.0607 1.93555 11.0007C1.93555 5.94065 6.04221 1.83398 11.1022 1.83398C16.1622 1.83398 20.2689 5.94065 20.2689 11.0007Z"
+                                                                        stroke="#1D70B8" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                    <path d="M14.5037 13.9156L11.662 12.2198C11.167 11.9264 10.7637 11.2206 10.7637 10.6431V6.88477"
+                                                                        stroke="#DBB24F" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="working-time-data"><span dir="rtl">
+                                                                    {{ branche.from_hourse_firest}}
+                                                                </span><span>-</span><span dir="rtl">{{ branche.to_hourse_firest}}</span></div>
+                                                        </div>
+                                                        <div class="working-time">
+                                                            <div class="icon">
+                                                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M19.0891 11.6797H3.66162" stroke="#DBB24F" stroke-width="1.375" stroke-miterlimit="10"
+                                                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                    <path d="M9.07003 6.11523L3.50586 11.6794L9.07003 17.2436" stroke="#1D70B8" stroke-width="1.375"
+                                                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="working-time-data"><span dir="ltr">{{
+                                                                    branche.from_hourse_scond}}</span><span>-</span><span dir="ltr">{{
+                                                                    branche.to_hourse_scond}}</span></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            {% else %}
+                                                <li>
+                                                    <span class="point-info-label">أوقات الدوام
+                                                    </span>
+                                                    <div class="point-info-box">
+                                                        <div class="icon">
+                                                            <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M20.2689 11.0007C20.2689 16.0607 16.1622 20.1673 11.1022 20.1673C6.04221 20.1673 1.93555 16.0607 1.93555 11.0007C1.93555 5.94065 6.04221 1.83398 11.1022 1.83398C16.1622 1.83398 20.2689 5.94065 20.2689 11.0007Z"
+                                                                    stroke="#1D70B8" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                <path d="M14.5037 13.9156L11.662 12.2198C11.167 11.9264 10.7637 11.2206 10.7637 10.6431V6.88477"
+                                                                    stroke="#DBB24F" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                            </svg>
+                                                        </div><span>
+                                                            {{ branche.HORSE}} ساعة
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            {% endif %}
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </a>
+                        {% elif branches %}
+                            {% for branche in branches %}
+                                <a href="{% url 'services-point' branche.id %}">
+                                    <div class="service-point-box">
+                            
+                                        <span class="label">
+                                            {{ branche.category}}
+                                        </span>
+                                        <h5 class="point-name">
+                                            {{ branche.name}}
+                                            {{ branche.address1.street}}
+                                        </h5>
+                                        {% if branche.address1 %}
+                                            <span class="point-location">
+                                                {{ branche.address1.region.country.name_ar}}
+                                                - {{ branche.address1.region.name_ar}}
+                                                - {{ branche.address1.street}}
+                                            </span>
+                                            <span class="point-location">
+                                                {{ branche.address_line}}
+                                            </span>
+                                        {% endif %}
+                                        <ul class="list-info">
+                                            {% if branche.phone%}
+                                                <li>
+                                                    <span class="point-info-label">أرقام التواصل</span>
+                                                    <div class="point-info-box">
+                                                        <div class="icon">
+                                                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M20.4367 17.2192C20.4367 17.5492 20.3634 17.8883 20.2075 18.2183C20.0517 18.5483 19.85 18.86 19.5842 19.1533C19.135 19.6483 18.64 20.0058 18.0809 20.235C17.5309 20.4642 16.935 20.5833 16.2934 20.5833C15.3584 20.5833 14.3592 20.3633 13.305 19.9142C12.2509 19.465 11.1967 18.86 10.1517 18.0992C9.09753 17.3292 8.09836 16.4767 7.14503 15.5325C6.20086 14.5792 5.34836 13.58 4.58753 12.535C3.83586 11.49 3.23086 10.445 2.79086 9.40917C2.35086 8.36417 2.13086 7.365 2.13086 6.41167C2.13086 5.78833 2.24086 5.1925 2.46086 4.6425C2.68086 4.08333 3.02919 3.57 3.51503 3.11167C4.10169 2.53417 4.74336 2.25 5.42169 2.25C5.67836 2.25 5.93503 2.305 6.16419 2.415C6.40253 2.525 6.61336 2.69 6.77836 2.92833L8.90503 5.92583C9.07003 6.155 9.18919 6.36583 9.27169 6.5675C9.35419 6.76 9.40003 6.9525 9.40003 7.12667C9.40003 7.34667 9.33586 7.56667 9.20753 7.7775C9.08836 7.98833 8.91419 8.20833 8.69419 8.42833L7.99753 9.1525C7.89669 9.25333 7.85086 9.3725 7.85086 9.51917C7.85086 9.5925 7.86003 9.65667 7.87836 9.73C7.90586 9.80333 7.93336 9.85833 7.95169 9.91333C8.11669 10.2158 8.40086 10.61 8.80419 11.0867C9.21669 11.5633 9.65669 12.0492 10.1334 12.535C10.6284 13.0208 11.105 13.47 11.5909 13.8825C12.0675 14.2858 12.4617 14.5608 12.7734 14.7258C12.8192 14.7442 12.8742 14.7717 12.9384 14.7992C13.0117 14.8267 13.085 14.8358 13.1675 14.8358C13.3234 14.8358 13.4425 14.7808 13.5434 14.68L14.24 13.9925C14.4692 13.7633 14.6892 13.5892 14.9 13.4792C15.1109 13.3508 15.3217 13.2867 15.5509 13.2867C15.725 13.2867 15.9084 13.3233 16.11 13.4058C16.3117 13.4883 16.5225 13.6075 16.7517 13.7633L19.7859 15.9175C20.0242 16.0825 20.1892 16.275 20.29 16.5042C20.3817 16.7333 20.4367 16.9625 20.4367 17.2192Z"
+                                                                    stroke="#1D70B8" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                                <path
+                                                                    d="M17.2557 8.66536C17.2557 8.11536 16.8249 7.27203 16.1832 6.58453C15.5965 5.95203 14.8174 5.45703 14.0474 5.45703"
+                                                                    stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                                                </path>
+                                                                <path d="M20.464 8.66667C20.464 5.11917 17.5949 2.25 14.0474 2.25" stroke="#DBB24F" stroke-width="1.5"
+                                                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <span dir="ltr"><a href="tel:{{branche.phone}}">
+                                                                {{ branche.phone}}
+                                                            </a> </span>
+                                                    </div>
+                                                </li>
+                                            {% elif branche.emile %}
+                                                <li>
+                                                    <span class="point-info-label">أرقام التواصل</span>
+                                                    <div class="point-info-box">
+                                                        <div class="icon">
+                                                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M20.4367 17.2192C20.4367 17.5492 20.3634 17.8883 20.2075 18.2183C20.0517 18.5483 19.85 18.86 19.5842 19.1533C19.135 19.6483 18.64 20.0058 18.0809 20.235C17.5309 20.4642 16.935 20.5833 16.2934 20.5833C15.3584 20.5833 14.3592 20.3633 13.305 19.9142C12.2509 19.465 11.1967 18.86 10.1517 18.0992C9.09753 17.3292 8.09836 16.4767 7.14503 15.5325C6.20086 14.5792 5.34836 13.58 4.58753 12.535C3.83586 11.49 3.23086 10.445 2.79086 9.40917C2.35086 8.36417 2.13086 7.365 2.13086 6.41167C2.13086 5.78833 2.24086 5.1925 2.46086 4.6425C2.68086 4.08333 3.02919 3.57 3.51503 3.11167C4.10169 2.53417 4.74336 2.25 5.42169 2.25C5.67836 2.25 5.93503 2.305 6.16419 2.415C6.40253 2.525 6.61336 2.69 6.77836 2.92833L8.90503 5.92583C9.07003 6.155 9.18919 6.36583 9.27169 6.5675C9.35419 6.76 9.40003 6.9525 9.40003 7.12667C9.40003 7.34667 9.33586 7.56667 9.20753 7.7775C9.08836 7.98833 8.91419 8.20833 8.69419 8.42833L7.99753 9.1525C7.89669 9.25333 7.85086 9.3725 7.85086 9.51917C7.85086 9.5925 7.86003 9.65667 7.87836 9.73C7.90586 9.80333 7.93336 9.85833 7.95169 9.91333C8.11669 10.2158 8.40086 10.61 8.80419 11.0867C9.21669 11.5633 9.65669 12.0492 10.1334 12.535C10.6284 13.0208 11.105 13.47 11.5909 13.8825C12.0675 14.2858 12.4617 14.5608 12.7734 14.7258C12.8192 14.7442 12.8742 14.7717 12.9384 14.7992C13.0117 14.8267 13.085 14.8358 13.1675 14.8358C13.3234 14.8358 13.4425 14.7808 13.5434 14.68L14.24 13.9925C14.4692 13.7633 14.6892 13.5892 14.9 13.4792C15.1109 13.3508 15.3217 13.2867 15.5509 13.2867C15.725 13.2867 15.9084 13.3233 16.11 13.4058C16.3117 13.4883 16.5225 13.6075 16.7517 13.7633L19.7859 15.9175C20.0242 16.0825 20.1892 16.275 20.29 16.5042C20.3817 16.7333 20.4367 16.9625 20.4367 17.2192Z"
+                                                                    stroke="#1D70B8" stroke-width="1.5" stroke-miterlimit="10"></path>
+                                                                <path
+                                                                    d="M17.2557 8.66536C17.2557 8.11536 16.8249 7.27203 16.1832 6.58453C15.5965 5.95203 14.8174 5.45703 14.0474 5.45703"
+                                                                    stroke="#DBB24F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                                                </path>
+                                                                <path d="M20.464 8.66667C20.464 5.11917 17.5949 2.25 14.0474 2.25" stroke="#DBB24F" stroke-width="1.5"
+                                                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <span dir="ltr"><a href="tel:{{branche.emile}}">
+                                                                {{ branche.emile}}
+                                                            </a> </span>
+                                                    </div>
+                                                </li>
+                                            {% endif %}
+                                            {% if branche.from_hourse_firest and branche.to_hourse_firest %}
+                                                {% if branche.HORSE == 'فترتين' or branche.HORSE == 'فترة واحده' %}
+                                                    <li>
+                                                        <span class="point-info-label">أوقات الدوام</span>
+                                                        <div class="point-info-box-time">
+                                                            <div class="working-time">
+                                                                <div class="icon">
+                                                                    <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path
+                                                                            d="M20.2689 11.0007C20.2689 16.0607 16.1622 20.1673 11.1022 20.1673C6.04221 20.1673 1.93555 16.0607 1.93555 11.0007C1.93555 5.94065 6.04221 1.83398 11.1022 1.83398C16.1622 1.83398 20.2689 5.94065 20.2689 11.0007Z"
+                                                                            stroke="#1D70B8" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                        <path d="M14.5037 13.9156L11.662 12.2198C11.167 11.9264 10.7637 11.2206 10.7637 10.6431V6.88477"
+                                                                            stroke="#DBB24F" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="working-time-data">
+                                                                    <span dir="rtl">{{ branche.from_hourse_firest}}</span>
+                                                                    <span>-</span>
+                                                                    <span dir="rtl">{{ branche.to_hourse_firest}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="working-time">
+                                                                <div class="icon">
+                                                                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M19.0891 11.6797H3.66162" stroke="#DBB24F" stroke-width="1.375" stroke-miterlimit="10"
+                                                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                        <path d="M9.07003 6.11523L3.50586 11.6794L9.07003 17.2436" stroke="#1D70B8" stroke-width="1.375"
+                                                                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="working-time-data">
+                                                                    <span dir="ltr">{{ branche.from_hourse_scond}}</span>
+                                                                    <span>-</span>
+                                                                    <span dir="ltr">{{ branche.to_hourse_scond}}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                {% else %}
+                                                    <li>
+                                                        <span class="point-info-label">أوقات الدوام
+                                    
+                                                        </span>
+                                                        <div class="point-info-box">
+                                                            <div class="icon">
+                                                                <svg width="23" height="22" viewBox="0 0 23 22" fill="none"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M20.2689 11.0007C20.2689 16.0607 16.1622 20.1673 11.1022 20.1673C6.04221 20.1673 1.93555 16.0607 1.93555 11.0007C1.93555 5.94065 6.04221 1.83398 11.1022 1.83398C16.1622 1.83398 20.2689 5.94065 20.2689 11.0007Z"
+                                                                        stroke="#1D70B8" stroke-width="1.375" stroke-linecap="round"
+                                                                        stroke-linejoin="round"></path>
+                                                                    <path
+                                                                        d="M14.5037 13.9156L11.662 12.2198C11.167 11.9264 10.7637 11.2206 10.7637 10.6431V6.88477"
+                                                                        stroke="#DBB24F" stroke-width="1.375" stroke-linecap="round"
+                                                                        stroke-linejoin="round"></path>
+                                                                </svg>
+                                                            </div>
+                                                            <span>
+                                                                {{ branche.HORSE}} ساعة
+                                                            </span>
+                                                        </div>
+                                                    </li>
+                                                {% endif %}
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        {% else %}
+                            <div class="service-point-box">
+                                <h5 class="point-name">
+                                    لايوجد نقاط خدمة
+                                    {% if category %}
+                                    في
+                                    {{category}},
+                                    {% endif %}
+                                    {% if region %}
+                                    {{region}}
+                                    {% endif %}
+                                </h5>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            {% if branche %}
+                <div class="vue-map-container google-map">
+                    
+                    {% if branche.address1.lat and branche.address1.long %}
+                    {% load to_lat %}
+                    <iframe
+                        src="https://maps.google.com/maps?q={{branche.address1.lat|to_lat}},+{{branche.address1.long|to_lat}}&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        width="100%" loading="lazy" {% comment %} allowfullscreen {% endcomment %} height="100%" frameborder="0"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border:0;">
+                    </iframe>
+                    {% endif %}
+                </div>
+            {% elif branches %}
+                <div class="map-holder" style="border: 2px red solid;margin: 0px;">
+                    <div id="map">
+                    </div>
+                    <script>/**/(g => { 
+                        var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; 
+                        b = b[c] || (b[c] = {}); 
+                        var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); 
+                        e.set("libraries", [...r] + ""); 
+                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); 
+                        e.set("callback", c + ".maps." + q); 
+                        a.src = `https://maps.${c}apis.com/maps/api/js?` + e; 
+                        d[q] = f; 
+                        a.onerror = () => h = n(Error(p + " could not load.")); 
+                        a.nonce = m.querySelector("script[nonce]")?.nonce || ""; 
+                        m.head.append(a) })); 
+                        d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
+                        ({ key: "AIzaSyC1IawCLGZnrrntKxUdN9ZHTPWfaAJdNmo-api_key", v: "weekly" });
+                    </script>
+                </div>
+            {% endif %}
+        </div>
+    </div>
 </main>
 
 {% endblock content %}

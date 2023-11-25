@@ -465,12 +465,12 @@ id="inputPhoneNumber" required="" autocomplete="off" placeholder="(772) 703-145"
                     {% comment %} {% endif %} {% endcomment %}
                     {% if   setting and not setting.is_hidden_about  %}
                     <li>
-                      <a class="has-sub-header" href="/about">تقارير سنوية</a>
+                      <a class="has-sub-header" href="/report-list/yearly">تقارير سنوية</a>
                     </li>
                     {% endif %}
                     {% if   setting and not setting.is_hidden_contact  %}
                     <li>
-                      <a class="has-sub-header" href="/#contact">تقارير مالية</a>
+                      <a class="has-sub-header" href="/report-list/finance">تقارير مالية</a>
                     </li>
                     {% endif %}
                   </ul>

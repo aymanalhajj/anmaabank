@@ -88,45 +88,10 @@ const sliderservicesmobile = () => {
   ) {
 
     Array.prototype.forEach.call(servicessection, function (element) {
-      // servicessection.forEach((navbarlink) => {
-      // if (!element.hash) return;
-      // let section = select(navbarlink.hash);
-      // if (!section) return;
-      // element.classList.add("slider-services-mobile");
-      // element.classList.remove("slider-services");
-      // element.classList.remove("swiper-pointer-events");
-      // element.classList.remove("swiper-backface-hidden");
-
-
-      // if (element.classList.contains("slider-services") == true) {
-
-      // } else {
-
-
-
-      // }
-
     });
   } else {
     Array.prototype.forEach.call(servicessection, function (element) {
-      // servicessection.forEach((navbarlink) => {
-      // if (!element.hash) return;
-      // let section = select(navbarlink.hash);
-      // if (!section) return;
-      // element.classList.add("slider-services");
-      // element.classList.remove("slider-services-mobile");
-      // // if (element.classList.contains("slider-services") == true) {
-      // element.classList.add("swiper-pointer-events");
-      // element.classList.add("swiper-backface-hidden");
-      // } else {
-
-
-
-      // }
-
     });
-    // navbarlink.classList.remove("slider-services-mobile");
-    // navbarlink.classList.add("slider-services");
   }
 };
 
@@ -180,6 +145,57 @@ new Swiper(".hero-slider", {
   
 });
 
+
+
+
+new Swiper(".slider-videos", {
+  speed: 500,
+  autoplay: {
+    delay: 360000,
+    disableOnInteraction: false,
+    reverseDirection: true,
+
+  },
+  spaceBetween: 5,
+  grabCursor: false,
+  centeredSlides: true,
+  coverflowEffect: {
+    rotate: 0,
+    depth: 500,
+    modifier: 1,
+    slideShadows: true
+  },
+  lazy: true,
+  spaceBetween: 30,
+  freeMode: false,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false,
+  },
+  loop: true,
+  slidesOffsetBefore: 0,
+  navigation: {
+    prevEl: ".video-prev",
+    nextEl: ".video-next"
+  },
+  loop: true,
+  pagination: {
+    el: ".videos-pagination",
+    type: "bullets",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 40,
+    },
+    992: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+  },
+  
+});
 
 
 

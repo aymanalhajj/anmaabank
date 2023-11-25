@@ -1,0 +1,56 @@
+{% extends 'base/base.html' %} {% load i18n static %} 
+{% block content %}
+{% include 'base/header-back.html' %}
+
+<main id="main" >
+<div style="text-align: center;"  >
+    <section class="breadcrumbs" style="border: 0px rgb(0, 255, 8) solid;padding: 0px; background: white;margin: 0px;">
+        <div class="container" style="margin-top: 30px;margin-right: 20px;color: var(--primary);">
+            <ol>
+                <li><a style="color: var(--primary);" href="/">الرئيسية</a></li>
+                <li>
+                    {% if type == "yearly" %}تقارير سنوية {% elif type == "finance" %} تقارير مالية {% endif %}
+                </li>
+            </ol>
+        </div>
+    </section>
+    {% for report in reports %}
+        <div style="margin: auto;width: fit-content;box-shadow: 0px 0px 10px gray;margin-bottom: 10px;border-radius: 20px;padding: 10px;">
+            <p style="line-height: 40px;font-size: 24pt;color: var(--primary);width: 550px;text-wrap: pretty;margin: auto;">{{report.title}}</p>
+            <p style="line-height: 40px;font-size: 18pt;color: black;width: 550px;text-wrap: pretty;margin: auto;">
+                تاريخ الإصدار:  12/11/2023
+            </p>
+
+            <div style="padding-top: 15px;" >
+                <img src="{{report.thumbnail_name.url}}" width="550px" height="550px" style="position: relative;align-self: center;border-radius: 20px;"/>
+            </div>
+            <p style="display: none;">
+                {% if report.report_type == "yearly" %}تقارير سنوية {% else %} تقارير مالية {% endif %}
+            </p>
+            <div style="text-align: center;width: 200px;margin: auto; ">
+                <a href="{{report.filename.url}}" style="display: block;height: 50px;background: var(--primary);padding: 10px;
+                                border-radius: 5px;color: white;  font-weight: bold; line-height: 25px;margin: 25px;">
+                            تنزيل التقرير
+                </a>
+            </div>
+        </div>
+
+    {% endfor %}
+
+</div>
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

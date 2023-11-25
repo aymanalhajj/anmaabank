@@ -1,5 +1,7 @@
 from django.db import models
 from jopapp.models import Register
+
+from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
 
@@ -29,7 +31,7 @@ class GuaranteeType(models.Model):
         verbose_name_plural = "نوع الضمانات"
 
 class LoanApplication(models.Model):
-    client_name =           models.CharField(max_length = 200,                                  verbose_name="اسم العميل")
+    client_name =           models.CharField(max_length = 200,                                  verbose_name=_("client name"))#verbose_name=_("اسم العميل"))
     mobile_number =         models.CharField(max_length = 200,                                  verbose_name="رقم الجوال")
     city_name =             models.CharField(max_length = 200,                                  verbose_name="المدينة")
     street_name =           models.CharField(max_length = 200,                                  verbose_name="الحي/الشارع")

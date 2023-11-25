@@ -37,6 +37,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import GenericSitemap
 from blogapp.views import BlogsListView, download_file, BlogSingleListView, EventListView, NewsListView, PoliciesSingleListView, AntiMoneyLaunderingSingleListView, PrivacyPoliciesSingleListView
 from django.views.generic.base import TemplateView
+from content_library.views import ReportListView,VideoListView
 
 # class BlogSitemap(sitemaps.Sitemap):
 #     changefreq = "never"
@@ -83,7 +84,11 @@ urlpatterns = [
     # path('', include(views.index)),
     path(r'', views.index, name='index'),
     
-    path('loan-app/', LoanApplicationView, name='open-accounts'),
+    path('loan-app/', LoanApplicationView, name='loan-app'),
+
+    path('report-list/<str:type>', ReportListView, name='report-lis'),
+
+    path('video-list/', VideoListView, name='video-list'),
 
     #    path(r'^$', views.index,),
     #     17,19:                 '',
