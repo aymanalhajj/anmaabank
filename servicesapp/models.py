@@ -14,18 +14,12 @@ from django.utils import timezone
 
 class CategoriesServices(models.Model):
 
-    name = models.CharField(max_length=20, null=True,
-                            verbose_name="ا", unique=True)
-    description = models.CharField(
-        max_length=100, verbose_name="وصف مختصر جملة واحده فقط", null=True, blank=True, unique=True)
-    # image = models.ImageField(
-    #     upload_to="Image/CategoriesServices/%Y/%m/%d/" verbose_name=" إختيار صورة", null=True,
-    # )
-    created_by = models.ForeignKey(User, blank=True, editable=False,
-                                   related_name="created_by_category_services",
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
-    is_deleted = models.BooleanField(
-        default=False,
+    name = models.CharField(max_length=20, null=True,verbose_name="اسم نوع الخدمة", unique=True)
+    name_en = models.CharField(max_length=20, null=True,verbose_name="Service Type Name", unique=True)
+    description = models.CharField(max_length=100, verbose_name="وصف مختصر جملة واحده فقط", null=True, blank=True, unique=True)
+    created_by = models.ForeignKey(User, blank=True, editable=False,related_name="created_by_category_services",
+            null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+    is_deleted = models.BooleanField(default=False,
         help_text="سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
         verbose_name="محذوف "
     )
@@ -125,6 +119,8 @@ class Services(models.Model):
     titel = models.CharField(
         max_length=100, verbose_name="العنوان"
     )
+    titel_en = models.CharField(max_length=100, verbose_name="Service Title")
+    
     category_services = models.ForeignKey(
         CategoriesServices,
         null=True,
@@ -182,6 +178,7 @@ class Services(models.Model):
 
         help_text="عنوان البوتون المراد النقر  فيها مثال : احجز الان او استفسر اكثر"
     )
+    
     booking_link = models.URLField(
         null=True, blank=True,
         verbose_name="رابط الحجز او استفسار عن الخدمة (اختياري)"

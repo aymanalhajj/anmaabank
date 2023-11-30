@@ -431,7 +431,7 @@ def about(request,lang="ar"):
     return render(request, 'about.html', context)
 
 
-def index(request,lang):
+def index(request,lang="ar"):
     return indexed(request = request,lang = lang)
 
 

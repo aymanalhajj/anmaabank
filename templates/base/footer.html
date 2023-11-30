@@ -127,6 +127,11 @@
                       <a class="has-sub-header" href="/{{static_content.lang}}/report-list/finance">{{static_content.financial_reports}}</a>
                     </li>
                     {% endif %}
+                    {% if   setting and not setting.is_hidden_contact  %}
+                    <li>
+                      <a class="has-sub-header" href="/{{static_content.lang}}/video-list">{{static_content.video_library}}</a>
+                    </li>
+                    {% endif %}
                   </ul>
                 </div>
                 <div class="footer-col footer-links" style="border: red 0px solid; margin: 20px;">

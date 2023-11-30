@@ -5,10 +5,11 @@
     <div style="text-align: center;"  >
         <section class="breadcrumbs" style="border: 0px rgb(0, 255, 8) solid;padding: 0px; background: white;margin: 0px;">
             <div class="container" style="margin-top: 30px;margin-right: 20px;color: var(--primary);">
-                <ol>
-                    <li><a style="color: var(--primary);" href="/">الرئيسية</a></li>
+                <div class="container" style="margin-top: 30px;margin-right: 20px;color: var(--primary);">
+                    <ol dir="{{static_content.direction}}">
+                        <li><a  style="color: var(--primary);" href="/">{{static_content.main}}</a></li>
                     <li>
-                        مكتبة الفيديوهات
+                        {{static_content.video_library}}
                     </li>
                 </ol>
             </div>

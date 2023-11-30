@@ -157,12 +157,14 @@ static_content= {
         "personal_info":"بيانات شخصية",
         "livig_address":"عنوان السكن الاقامة الميلاد",
         "id_info":"بيانات الهوية الشخصية",
+        "video_library":"مكتبة الفيديوهات",
         
 
     }
     ,
     "en":
     {
+        "video_library":"Video Library",
         "id_info":"Personal Identity Information",
         "birth_info":"Birth Information",
         "personal_info":"Personal Information",

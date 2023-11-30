@@ -43,6 +43,7 @@ class ServicesAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'titel',
+        'titel_en',
         'short_detial',
         # 'detial_ar',
         'image',
@@ -77,7 +78,7 @@ class CategoriesServicesAdmin(admin.ModelAdmin):
             obj.deleted_at = datetime.datetime.now()
 
         super().save_model(request, obj, form, change)
-    list_display = ('id', 'name', 'description', 'date_added', 'date_update')
+    list_display = ('id', 'name','name_en', 'description', 'date_added', 'date_update')
     list_filter = ('date_added', 'date_update',
                    'is_deleted',
                    'is_hidden',

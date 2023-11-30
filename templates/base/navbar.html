@@ -107,14 +107,22 @@
 
                 <a style=" height: 32px;" href="#">
                     <span>
+                        {% if static_content.lang == "ar" %}
                         {{categories_service.name}}
+                        {% else %}
+                        {{categories_service.name_en}}
+                        {% endif %}
                     </span>
                 </i></a>
 
                 <ul class="sub-header-container">
                     <div class="sub-header-description">
                         <h5>
+                            {% if static_content.lang == "ar" %}
                             {{categories_service.name}}
+                            {% else %}
+                            {{categories_service.name_en}}
+                            {% endif %}
                         </h5>
                         {% if categories_service.description %}
                         <p>
@@ -136,7 +144,14 @@
                                         <img src="{% static 'assets/img/logo-only.png'  %}" alt="logo  Alinma ">
                                     </div>
                                     {% endif %}
-                                    <span>{{service.titel}}</span>
+                                    <span>
+                                        {% if static_content.lang == "ar" %}
+                                            {{service.titel}}
+                                        {% else %}
+                                            {{service.titel_en}}
+                                        {% endif %}
+                                        
+                                    </span>
                                 </a>
                             </li>
                         {% endfor %}
