@@ -9,7 +9,7 @@
 <div id="main" class="col-lg-9">
 
     <div>
-        <h2>البيانات الأساسية</h2>
+        <h2>{{static_content.basic_info}}</h2>
         <div class="edit">
 
             {% load i18n static %} {% load crispy_forms_tags %}
@@ -56,55 +56,47 @@
 
                 {% for field in form.visible_fields %}
                 {% if field.name != "password" and  field.name != "confirmpassword" %}
-
-
-                {% comment %} {% for field in address_location %} {% endcomment %}
-                {% comment %} <div class="col-md-12 ">
-
-                    {{field|as_crispy_field}}
-                </div> {% endcomment %}
                 {% if  field.field.widget.input_type == 'radio' or   field.field.widget.input_type == 'file'%}
                 <div class="col-md-12 ">
                     {{field.oreder_message.label_tag}}
                     <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+                        {% if static_content.lang == "ar" %}
                         <div class="input-group-prepend with-label">
-                            {% comment %} {{form.your_field_here.label_tag}} {% endcomment %}
-
-                            <span class="input-group-text" id="basic-addon1">
-                                {% if field.field.icon %}
-                                <i class="{{field.field.icon}}"></i>
-
-                                {% else %}
-                                <i class="bi bi-journal-code"></i>
-
-                                {% endif %}
-
-                            </span>
+                            
+              {% if static_content.lang == "ar" %}
+              <span class="input-group-text" id="basic-addon1">
+                  {% if field.field.icon %}
+                  <i class="{{field.field.icon}}"></i>
+                  {% else %}
+                  <i class="bi bi-journal-code"></i>
+                  {% endif %}
+              </span>
+          {% endif %}
                         </div>
+                        {% endif %}
                         {{field|as_crispy_field}}
                     </div>
                     <small class="text-danger">{{field.errors | striptags}}</small>
-
                 </div>
-
-
                 {% else %}
                 <div class="col-md-12 ">
                     {{field.oreder_message.label_tag}}
                     <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
                         <div class="input-group-prepend with-label">
-                            {% comment %} {{form.your_field_here.label_tag}} {% endcomment %}
-
-                            <span class="input-group-text" id="basic-addon1">
-                                {% if field.field.icon %}
-                                <i class="{{field.field.icon}}"></i>
-
-                                {% else %}
-                                <i class="bi bi-journal-code"></i>
-
-                                {% endif %}
-
-                            </span>
+                            {% if static_content.lang == "ar" %}
+                            <div class="input-group-prepend with-label">
+                               
+              {% if static_content.lang == "ar" %}
+              <span class="input-group-text" id="basic-addon1">
+                  {% if field.field.icon %}
+                  <i class="{{field.field.icon}}"></i>
+                  {% else %}
+                  <i class="bi bi-journal-code"></i>
+                  {% endif %}
+              </span>
+          {% endif %}
+                            </div>
+                            {% endif %}
                         </div>
                         {{field|as_crispy_field}}
                     </div>
@@ -115,157 +107,20 @@
                 {% endif %}
                 {% endif %}
                 {% endfor %}
-                <!-- {% for field in form %}
 
-                
-                {% endfor %} -->
-                <!-- <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.full_name.id_for_label }}">{{ form.full_name.label }}</label>
-                        {{ form.full_name }} <small class="text-danger">{{form.full_name.errors | striptags}}</small>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
-                        {{ form.email }} <small class="text-danger">{{form.email.errors | striptags}}</small>
-                    </div>
-                </div> -->
-
-                <!-- <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}</label>
-                        {{ form.gender }} <small class="text-danger">{{form.gender.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.governorate.id_for_label }}">{{ form.governorate.label }}</label>
-                        {{ form.governorate }} <small
-                            class="text-danger">{{form.governorate.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.city.id_for_label }}">{{ form.city.label }}</label>
-                        {{ form.city }} <small class="text-danger">{{form.city.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.address.id_for_label }}">{{ form.address.label }}</label>
-                        {{ form.address }} <small class="text-danger">{{form.address.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.village.id_for_label }}">{{ form.village.label }}</label>
-                        {{ form.village }} <small class="text-danger">{{form.village.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.idnumber.id_for_label }}">{{ form.idnumber.label }}</label>
-                        {{ form.idnumber }} <small class="text-danger">{{form.idnumber.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.Release_date.id_for_label }}">{{ form.Release_date.label }}</label>
-                        {{ form.Release_date }} <small
-                            class="text-danger">{{form.Release_date.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.place_issue.id_for_label }}">{{ form.place_issue.label }}</label>
-                        {{ form.place_issue }} <small
-                            class="text-danger">{{form.place_issue.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.date_birth.id_for_label }}">{{ form.date_birth.label }}</label>
-                        {{ form.date_birth }} <small class="text-danger">{{form.date_birth.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.place_birth.id_for_label }}">{{ form.place_birth.label }}</label>
-                        {{ form.place_birth }} <small
-                            class="text-danger">{{form.place_birth.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.marital_status.id_for_label }}">{{ form.marital_status.label }}</label>
-                        {{ form.marital_status }} <small
-                            class="text-danger">{{form.marital_status.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.current_address.id_for_label }}">{{ form.current_address.label }}</label>
-                        {{ form.current_address }} <small
-                            class="text-danger">{{form.current_address.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label
-                            for="{{ form.permanent_address.id_for_label }}">{{ form.permanent_address.label }}</label>
-                        {{ form.permanent_address }} <small
-                            class="text-danger">{{form.permanent_address.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.mobile_number.id_for_label }}">{{ form.mobile_number.label }}</label>
-                        {{ form.mobile_number }} <small
-                            class="text-danger">{{form.mobile_number.errors | striptags}}</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.number_whatsapp.id_for_label }}">{{ form.number_whatsapp.label }}</label>
-                        {{ form.number_whatsapp }} <small
-                            class="text-danger">{{form.number_whatsapp.errors | striptags}}</small>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.link_facebook.id_for_label }}">{{ form.link_facebook.label }}</label>
-                        {{ form.link_facebook }} <small
-                            class="text-danger">{{form.link_facebook.errors | striptags}}</small>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.link_twiter.id_for_label }}">{{ form.link_twiter.label }}</label>
-                        {{ form.link_twiter }} <small
-                            class="text-danger">{{form.link_twiter.errors | striptags}}</small>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <label for="{{ form.link_instigrem.id_for_label }}">{{ form.link_instigrem.label }}</label>
-                        {{ form.link_instigrem }} <small
-                            class="text-danger">{{form.link_instigrem.errors | striptags}}</small>
-                    </div>
-                </div> -->
-
+            
                 </br>
-                <div class="form-group">
-                    <div class=" col-sm-12">
-                        <button class="btn btn-info btn-primary" name="updateSectorNameBtn" type="submit">حفظ</button>
-                        <a type="button" class="btn btn-default next col-lg-2 navbar-left" href="{% url "education"%}"
-                            role="button">التالي</a>
-                    </div>
-                </div>
+                
+    <div class="row gx-5">
+        <div class=" col">
+            <button class="btn btn-info btn-primary" name="updateSectorNameBtn" type="submit">{{static_content.save}}</button>
+        </div>
+        <div class=" col">
+            <a type="button" class="btn btn-default next col-lg-2 navbar-left" href="/{{static_content.lang}}/jobs/education"
+            role="button">{{static_content.next}}</a>
+        </div>
+      </div>
+
             </form>
             {% if messages %}
             {% for message in messages %}

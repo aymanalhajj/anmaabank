@@ -4,24 +4,24 @@
 <main id="main" style="background: none;">
   <section class="breadcrumbs" style="border: 0px rgb(0, 255, 8) solid;padding: 0px; background: white;margin: 0px;">
     <div class="container" style="margin-top: 30px;margin-right: 20px;color: var(--primary);">
-      <ol>
-        <li><a style="color: var(--primary);" href="/">الرئيسية</a></li>
+      <ol dir="{{static_content.direction}}">
+        <li><a  style="color: var(--primary);" href="/{{static_content.lang}}">{{static_content.main}}</a></li>
         <li>
           {% block title-name %}
-          تقديم طلب تمويل 
+          {{static_content.loan_app}}
           {% endblock title-name %}
 
         </li>
       </ol>
     </div>
   </section>
-  <section id="blog" class="blog" style="border: 0px red solid;padding: 0px;">
+  <section id="blog" class="blog" style="border: 0px red solid;padding: 0px;" >
     <section id="add-ordar" class="services-details job" style="border: 0px red solid; padding: 0px; ">
       <div class="container" style="border: 0px rgb(72, 0, 255) solid;">
         <header class="section-header">
-          <h2> تقديم طلب تمويل</h2>
+          <h2 style="text-transform: capitalize;">{{static_content.loan_app}}</h2>
         </header>
-        <div  style="padding-bottom: 30px;" id="add-ordar-content" class="align-content-center align-item-center">
+        <div  style="padding-bottom: 30px; text-align: start;" dir="{{static_content.direction}}" id="add-ordar-content" class="align-content-center align-item-center">
           <article class="entry"  >
             <div class="row" >
               {% if forms %}
@@ -53,11 +53,11 @@
                       
                       {% for field in forms.visible_fields %}
                       {% if field.name == 'client_name' %}
-                        <h1 style="margin-bottom: 10px;text-align: center;width: 98%;">بيانات العميل </h1>
+                        <h1 style="margin-bottom: 10px;text-align: center;width: 98%;">{{static_content.client_data}}</h1>
                       {% elif field.name == 'city_name' %}
-                          <h1 style="margin-bottom: 10px;text-align: center;width: 98%;">بيانات المشروع</h1>
+                          <h1 style="margin-bottom: 10px;text-align: center;width: 98%;">{{static_content.project_data}}</h1>
                       {% elif field.name == 'loan_purpose' %}
-                          <h1 style="margin-bottom: 10px;text-align: center;width: 98%;">تفاصيل طلب التمويل</h1>
+                          <h1 style="margin-bottom: 10px;text-align: center;width: 98%;">{{static_content.loan_app_detail}}</h1>
                       {% endif %}
                         
                         {% if field.field.widget.input_type == 'radio' or field.field.widget.input_type == 'file'%}
@@ -70,10 +70,14 @@
                             {{field.oreder_message.label_tag}}
                             <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
                               <div class="input-group-prepend with-label">
-                                {% if field.field.icon %}
-                                <span class="input-group-text" id="basic-addon1"><i class="{{field.field.icon}}"></i></span>
-                                {% else %}
-                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-journal-code"></i></span>
+                                {% if static_content.lang == "ar" %}
+                                  <span class="input-group-text" id="basic-addon1">
+                                      {% if field.field.icon %}
+                                      <i class="{{field.field.icon}}"></i>
+                                      {% else %}
+                                      <i class="bi bi-journal-code"></i>
+                                      {% endif %}
+                                  </span>
                                 {% endif %}
                               </div>
                               {{field|as_crispy_field}}
@@ -94,7 +98,7 @@
                         {% endif %}            
                       </div>
                       <div class=" col-md-12">
-                        <button type="submit">إرسال الطلب</button>
+                        <button type="submit">{{static_content.submit_loan_app}}</button>
                       </div>
                     </div>
                   </form>

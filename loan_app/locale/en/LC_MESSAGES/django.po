@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-29 22:45+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\models.py:8
+msgid "اسم نوع النشاط"
+msgstr "activity type name"
+
+#: .\models.py:9
+msgid "وصف مختصر لنوع النشاط"
+msgstr "activity type short description"
+
+#: .\models.py:16 .\models.py:17 .\models.py:44
+msgid "نوع النشاط"
+msgstr "activity type"
+
+#: .\models.py:21
+msgid "اسم نوع الضمانه"
+msgstr "guarantee type name"
+
+#: .\models.py:22
+msgid "وصف مختصر لنوع الضمانة"
+msgstr "guarantee type short description"
+
+#: .\models.py:29
+msgid "نوع  الضمانة"
+msgstr "guarantee type"
+
+#: .\models.py:30
+msgid "نوع الضمانات"
+msgstr "guarantees types"
+
+#: .\models.py:33
+msgid "client name"
+msgstr "client name"
+
+#: .\models.py:34
+msgid "رقم الجوال"
+msgstr "mobile number"
+
+#: .\models.py:35
+msgid "المدينة"
+msgstr "city"
+
+#: .\models.py:36
+msgid "الحي/الشارع"
+msgstr "street/nighborhood"
+
+#: .\models.py:37
+msgid "أقرب معلم بارز"
+msgstr "nearest known place"
+
+#: .\models.py:38
+msgid "عمر المشروع(تاريخ التأسيس)"
+msgstr "Project establishement date"
+
+#: .\models.py:39
+msgid "رأس مال المشروع حالياً"
+msgstr "project capital"
+
+#: .\models.py:40
+msgid "غرض التمويل"
+msgstr "loan purpose"
+
+#: .\models.py:41
+msgid "مبلغ التمويل المطلوب"
+msgstr "loan amount"
+
+#: .\models.py:42
+msgid "مدة التمويل بالأشهر"
+msgstr "loan period by months"
+
+#: .\models.py:43
+msgid "القسط الشهري"
+msgstr "monthly installment"
+
+#: .\models.py:45
+msgid "نوع الضمانة"
+msgstr "guarantee type"
+
+#: .\models.py:46
+msgid "المستخدم"
+msgstr "user"
+
+#: .\models.py:49
+msgid "طلب التمويل"
+msgstr "loan application"
+
+#: .\models.py:50
+msgid "طلبات التمويل"
+msgstr "loan applications"
+
+#: .\views.py:48
+msgid "تقديم طلب  تمويل"
+msgstr "send loan application"
+
+#: .\views.py:60
+#, fuzzy
+#| msgid "مدة التمويل بالأشهر"
+msgid "تم ارسال طلب التمويل بنجاح"
+msgstr "loan period by months"
+
+#: .\views.py:64
+msgid "حدث خطأ، نرجو التأكد من البيانات واعادة المحاولة."
+msgstr "error happened, please check the data and try again"

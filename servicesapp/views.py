@@ -11,7 +11,7 @@ from django.http import HttpResponse, request
 from django.contrib import messages
 from OurNewsletter.forms import OurNewsletterForm
 from django.db.models import Q
-
+from settingapp.views import static_content
 
 def getUrl(request):
     if request is None:
@@ -23,7 +23,7 @@ def getUrl(request):
 def CategoryServicesWithServicesNotNullQuerySet():
     queryset = CategoriesServices.objects.filter(
         is_deleted=False, is_hidden=False,
-    ).filter(Q(category_services__isnull=False)).order_by('date_added')
+    ).filter(Q(category_services__isnull=False)).distinct().order_by('date_added')
     return queryset
 
 
@@ -75,7 +75,9 @@ def BankApplicationsQuerySet():
     # return queryset
 
 
-def service_single(request, id):
+def service_single(request, id, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
 
     from anmaabankApp.views import get_cookie
 
@@ -150,14 +152,15 @@ def service_single(request, id):
     context["navbar"] = NavbarsQuerySet()
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()
     context['setting'] = SettingModelQuerySet()
+    context["static_content"] = static_content[lang]
     if dataAbout.first().category_services.id ==5:
         return render(request, 'finance-service.html', context)
-    
-    #return render(request, 'finance-service.html', context)
     return render(request, 'service-single.html', context)
 
 
-def application_single(request, id):
+def application_single(request, lang , id):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
 
     from anmaabankApp.views import get_cookie
     from settingapp.views import SettingModelQuerySet
@@ -228,4 +231,6 @@ def application_single(request, id):
     # context['services'] = dataAbout
     context['setting'] = SettingModelQuerySet()
 
+    
+    context["static_content"] = static_content[lang]
     return render(request, 'blog-single.html', context)

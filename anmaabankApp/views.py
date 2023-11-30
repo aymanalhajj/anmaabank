@@ -47,6 +47,7 @@ from django.shortcuts import render, get_object_or_404
 
 from currencies.views import getCurancy
 
+from settingapp.views import static_content
 
 def getUrl(request):
     if request is None:
@@ -318,26 +319,16 @@ def saveInfoReqestHeder(request, fromUrl, cookie, ip_info):
         # pass
 
 
-def indexed(request, tag=''):
-    # if request.method == 'GET':
-    # saveInfoReqestHeder(request, 'index.html')
-    # saveInfoIp(request, 'index.html')
-
-    # dataImagesPortfolio = ImagesPortfolio.objects.all()
+def indexed(request, tag='', lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
     datCategory = Category.objects.all(
 
     )
-
-    # dataPortfolio = Portfolio.objects.all()
-    # dataPortfolioNoDetils = PortfolioNoDetils.objects.all(
-
-    # )
-    # dataAbout = About.objects.filter(),
     dataService = Services.objects.filter(
 
         is_deleted=False, is_hidden=False,
     )
-    # dataImagesPortfolio = ImagesPortfolio.objects.all()
     dataImagesPortfolioNoDetils = ImagesPortfolioNoDetils.objects.all().order_by('-Date_Added')
 
     formOurNewsletter = OurNewsletterForm()
@@ -368,53 +359,24 @@ def indexed(request, tag=''):
     #     messages.error(request, 'خطأ')
     #     return redirect(revers_fun)
     statistic = Statistics.objects.all()
-    # formOurNewsletter = OurNewsletterForm()
-
     context = {
-        # 'data': data,
         'form': form,
         'FormOurNewsletter': formOurNewsletter,
         'SectionPageHome': SectionPageHomeQuerySet,
-
-        # 'ImagesPortfolioss': dataImagesPortfolio,
         'Category': datCategory,
-        # 'portfolios': dataPortfolio,
         "statistics": statistic,
-        # 'PortfolioNoDetils': dataPortfolioNoDetils,
         'ImagesPortfolioNoDetils': dataImagesPortfolioNoDetils,
-        # s"abouts": dataAbout,
         "ServiceItem": dataService,
 
         "title": "الرئيسية",
         "titel": "الرئيسية",
         "section_title_services": "   خدماتنا دوماً معك ",
-        "url": getUrl(request=request)
+        "url": getUrl(request=request),
 
     }
 
     dataImagesPortfolio = ImagesPortfolio.objects.all()
     context['ImagesPortfolioss'] = dataImagesPortfolio
-
-    # dataAbout = About.objects.all()
-    # try:
-    #     if dataAbout is not None:
-    #         dataAbout = dataAbout.latest('Date_Added')
-    # except About.DoesNotExist:
-    #     print(" About DoesNotExist ")
-    #     # return False
-    # context['abouts'] = AboutQuerySet()
-    # context['Massegeabout'] = MassegeAboutQuerySet()
-
-# OurVision.objects.filter(
-
-    # ourVision = OurVision.objects.all()
-    # if ourVision is not None:
-    # ourVision = ourVision
-
-    # context['ourvision'] = ourVision
-
-    # context['ourvision'] = OurVisionQuerySet()
-    # context['ourmission'] = OurMissionQuerySet()
     context['AdsenceHeder'] = AdsenceHederQuerySet()
     context['Clients'] = ClientsQuerySet()
     context['teams'] = TeamsQuerySet()
@@ -432,7 +394,9 @@ def indexed(request, tag=''):
 
     context['blogs'] = BlogsHomeListView()
     context["curancy"] = getCurancy()
-
+    
+    
+    context["static_content"] = static_content[lang]
     if request.method == 'POST':
         SaveContact(request, "index.html", context)
         return render(request, 'index.html', context)
@@ -440,128 +404,35 @@ def indexed(request, tag=''):
     return render(request, 'index.html', context)
 
 
-def about(request,):
-    # if request.method == 'GET':
-    # saveInfoReqestHeder(request, 'index.html')
-    # saveInfoIp(request, 'index.html')
-
-    # dataImagesPortfolio = ImagesPortfolio.objects.all()
-    # datCategory = Category.objects.all(
-
-    # )
-
-    # dataPortfolio = Portfolio.objects.all()
-    # dataPortfolioNoDetils = PortfolioNoDetils.objects.all(
-
-    # )
-    # dataAbout = About.objects.filter(),
-    # dataService = Services.objects.filter(
-
-    # )
-    # # dataImagesPortfolio = ImagesPortfolio.objects.all()
-    # dataImagesPortfolioNoDetils = ImagesPortfolioNoDetils.objects.all().order_by('-Date_Added')
-
-    # form = ContactForm()
-
-    # send_email( "This is an important message.",
-    #             "This is an important message.",
-    #             html_content=html_designer(),
-    #             is_html_content=True,
-    #             to="ialzoriqi@gmail.com",
-    #             to_list=["ialzoriqi@gmail.com", "ibrahim.alzoriqi@gmail.com"]
-    #            )
-    # data = Contact.objects.all()
-    # form = ContactForm()
-
-    # revers_fun = '/#contact'
-    # 'اتصل بناء'
-    # form = ContactForm(request.POST, request.FILES)
-    # if form.is_valid():
-
-    #     form.save()
-    #     messages.success(request, 'تم الإضافة بنجاح')
-    #     return redirect(revers_fun)
-    # else:
-    #     # if name_model == Task3:
-    #     #     form.save(commit=False)
-    #     messages.error(request, 'خطأ')
-    #     return redirect(revers_fun)
+def about(request,lang="ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
     statistic = Statistics.objects.all()
-    # formOurNewsletter = OurNewsletterForm()
-
     context = {
-        # 'data': data,
-        # 'form': form,
-        # 'FormOurNewsletter': formOurNewsletter,
-        # 'SectionPageHome':SectionPageHomeQuerySet,
-
-        # 'ImagesPortfolioss': dataImagesPortfolio,
-        # 'Category': datCategory,
-        # 'portfolios': dataPortfolio,
-        # "statistics": statistic,
-        # 'PortfolioNoDetils': dataPortfolioNoDetils,
-        # 'ImagesPortfolioNoDetils': dataImagesPortfolioNoDetils,
-        # s"abouts": dataAbout,
-        # "ServiceItem": dataService
         "title": "عن بنك الانماء",
         "titel": "عن بنك الانماء",
-
-        # "title": "الرئيسية",
-        # "title": "الرئيسية",
         "url": getUrl(request=request)
     }
-
-    # dataImagesPortfolio = ImagesPortfolio.objects.all()
-    # context['ImagesPortfolioss'] = dataImagesPortfolio
-
-    # dataAbout = About.objects.all()
-    # try:
-    #     if dataAbout is not None:
-    #         dataAbout = dataAbout.latest('Date_Added')
-    # except About.DoesNotExist:
-    #     print(" About DoesNotExist ")
-    #     # return False
+    
+    context["static_content"] = static_content[lang]
     context['abouts'] = AboutQuerySet()
     context['Massegeabout'] = MassegeAboutQuerySet()
-
-# OurVision.objects.filter(
-
-    # ourVision = OurVision.objects.all()
-    # if ourVision is not None:
-    # ourVision = ourVision
-
-    # context['ourvision'] = ourVision
-
     context['objective'] = ObjectivesQuerySet()
-
     context['ourvision'] = OurVisionQuerySet()
     context['ourmission'] = OurMissionQuerySet()
-    # context['AdsenceHeder'] = AdsenceHederQuerySet()
-    # context['Clients'] = ClientsQuerySet()
-    # context['teams'] = TeamsQuerySet()
-# ,
-    # context['partners'] = PartnersQuerySet()
-
-    # context['frequentlys'] = FrequentlyAskedQuestionsQuerySet()
-    # context['testimonials'] = TestimonialsQuerySet()
-    # context["branches"] =BranchesHederQuerySet()
-    # context["applications"] = BankApplicationsQuerySet()
     context["navbar"] = NavbarsQuerySet()
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()
     context['setting'] = SettingModelQuerySet()
     context['FormOurNewsletter'] = OurNewsletterForm()
     context['ourmarch'] = OurMarchQuerySet()
-
-    # context['blogs'] = BlogsHomeListView()
-
     if request.method == 'POST':
         SaveContact(request, "about.html", context)
         return render(request, 'about.html', context)
     return render(request, 'about.html', context)
 
 
-def index(request):
-    return indexed(request)
+def index(request,lang):
+    return indexed(request = request,lang = lang)
 
 
 def index_section(request, tag=""):

@@ -417,7 +417,7 @@ class Register(models.Model):
         validators=[file_size, validate_file_extension],
         verbose_name=_(
             'ملف السيرة الذاتية / pdf or png or jpg or doc or docx  '),
-        help_text=" نوع الملف pdf او png او jpg او doc او docx فقط والحجم لا يزيد 10 ميجا  "
+        help_text=_(" نوع الملف pdf او png او jpg او doc او docx فقط والحجم لا يزيد 10 ميجا  ")
     )
 
     def cv_dispaly(self):
@@ -462,8 +462,8 @@ class Register(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = " الحسابات  "
-        verbose_name_plural = " الحسابات  "
+        verbose_name = _(" الحسابات  ")
+        verbose_name_plural = _(" الحسابات  ")
 
     def get_absolute_url(self):
         # return reverse_lazy('service-single', kwargs={'pk': self.pk})
@@ -518,8 +518,8 @@ class SignUpValidete(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = " التحقق من الايميل  "
-        verbose_name_plural = " التحقق من الايميل  "
+        verbose_name = _(" التحقق من الايميل  ")
+        verbose_name_plural = _(" التحقق من الايميل  ")
 
     # longitude = models.DecimalField(blank=True,null=True,max_digits=9, decimal_places=6)
     def __str__(self):
@@ -576,17 +576,17 @@ class Jobs(models.Model):
     # job_type = models.CharField(
     #     max_length=30, choices=CHOICES, verbose_name=_(' النوع '), default='Full Time', null=True)
     created_at = models.DateTimeField(
-        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     # created_at = models.DateTimeField(
     # null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
     Date_Added = models.DateTimeField(
-        auto_now_add=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, verbose_name="تاريخ التعديل"
+        auto_now=True, verbose_name=_("تاريخ التعديل")
     )
     edite_at = models.DateTimeField(
-        null=True,    auto_now=True, editable=False, blank=True, verbose_name="تاريخ التعديل ")
+        null=True,    auto_now=True, editable=False, blank=True, verbose_name=_("تاريخ التعديل "))
     # order_num = models.PositiveIntegerField(
     #     blank=True, null=True, verbose_name=_('رقم الطلب'))
     # image = models.ImageField(upload_to="Image/Jobs/%Y/%m/%d/%H/%M/%S",
@@ -606,8 +606,8 @@ class Jobs(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = " الوظيفة  "
-        verbose_name_plural = "الوظائف  "
+        verbose_name = _(" الوظيفة  ")
+        verbose_name_plural = _("الوظائف  ")
 
     # longitude = models.DecimalField(blank=True,null=True,max_digits=9, decimal_places=6)
     def __str__(self):
@@ -620,12 +620,11 @@ class Jobs(models.Model):
 
 class SerchJobsModel(models.Model):
     search = models.CharField(verbose_name=_(
-        "ابحث هنا"), blank=True, help_text="عنوان الوظيفة  او التخصص او اسم المقدم للوظيفة", null=True, max_length=64,)
+        "ابحث هنا"), blank=True, help_text=_("عنوان الوظيفة  او التخصص او اسم المقدم للوظيفة"), null=True, max_length=64,)
     # category = models.CharField(verbose_name=_(
     # "نوع نقطة الخدمة"), blank=True, null=True, max_length=100, choices=CATEGORU,)
     job = models.ForeignKey(
-        Jobs, verbose_name=_(
-            "الوظيفة"), blank=True,  on_delete=models.DO_NOTHING, null=True,)
+        Jobs, verbose_name=_("الوظيفة"), blank=True,  on_delete=models.DO_NOTHING, null=True,)
 
     specialization = models.CharField(
         max_length=100,  blank=True, choices=SELECT_specialization, verbose_name=_('التخصص:'))
@@ -635,7 +634,7 @@ class SerchJobsModel(models.Model):
         blank=True,
         choices=SELECT_GERDER,
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="الجنس"
+        verbose_name=_("الجنس")
     )
     all_data = models.BooleanField(
         # max_length=20,
@@ -644,7 +643,7 @@ class SerchJobsModel(models.Model):
         default=False,
         # choices=SELECT_GERDER
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="بيانات  شبه مكتملة"
+        verbose_name=_("بيانات  شبه مكتملة")
     )
 
 
@@ -692,19 +691,19 @@ class loginModel(models.Model):
 
 class oreder_Jobs(models.Model):
     oreder_message = models.TextField(verbose_name=_('رسالة الطلب'),
-                                      help_text="يجب أن لا تقل رسالة طلب العمل عن 1250 حرف "
+                                      help_text=_("يجب أن لا تقل رسالة طلب العمل عن 1250 حرف ")
                                       )
     how_to_now_job = models.CharField(
         max_length=300, choices=SELECT_NOW_US, verbose_name=_('كيف عرفت عنا'))
     created_at = models.DateTimeField(
-        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     # created_at = models.DateTimeField(
     # null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
     Date_Added = models.DateTimeField(
-        auto_now_add=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, verbose_name="تاريخ التعديل"
+        auto_now=True, verbose_name=_("تاريخ التعديل")
     )
     edite_at = models.DateTimeField(
         null=True,    auto_now=True, editable=False, blank=True, verbose_name="تاريخ التعديل ")
@@ -717,8 +716,8 @@ class oreder_Jobs(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = " طلب تقديم للوظيفة  "
-        verbose_name_plural = " طلبات التقديم للوظائف  "
+        verbose_name = _(" طلب تقديم للوظيفة  ")
+        verbose_name_plural = _(" طلبات التقديم للوظائف  ")
 
     # longitude = models.DecimalField(blank=True,null=True,max_digits=9, decimal_places=6)
 
@@ -728,7 +727,7 @@ class oreder_Jobs(models.Model):
 
 class Education(models.Model):
     id = models.IntegerField(
-        auto_created=True, primary_key=True, verbose_name="الرقم")
+        auto_created=True, primary_key=True, verbose_name=_("الرقم"))
     name_educational_institution = models.CharField(
         max_length=100, verbose_name=_('اسم المؤسسة التعليمية:'))
     country = models.ForeignKey(
@@ -755,7 +754,7 @@ class Education(models.Model):
         max_length=100, choices=SELECT_specialization, verbose_name=_('التخصص:'))
     othar_specialization = models.CharField(
         max_length=100, null=True, blank=True,
-        help_text="يتم تعبئة هذا الحقل في حال لم يتوفر التخصص في القائمة السابقة",
+        help_text=_("يتم تعبئة هذا الحقل في حال لم يتوفر التخصص في القائمة السابقة"),
         verbose_name=_('تخصص أخر :'))
 
     rate = models.CharField(max_length=100, verbose_name=_('المعدل:'))
@@ -769,7 +768,7 @@ class Education(models.Model):
         # verbose_name=_('  الشهادة'),
         verbose_name=_(
             'الشهادة/ pdf or png or jpg or doc or docx  '),
-        help_text=" نوع الملف pdf او png او jpg او doc او docx فقط والحجم لا يزيد 10 ميجا  "
+        help_text=_(" نوع الملف pdf او png او jpg او doc او docx فقط والحجم لا يزيد 10 ميجا  ")
     )
 
     def cv_dispaly(self):
@@ -800,8 +799,8 @@ class Education(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = " المؤهل "
-        verbose_name_plural = "الموهلات "
+        verbose_name = _(" المؤهل ")
+        verbose_name_plural = _("الموهلات ")
 
 
 class LanguageSkill(models.Model):
@@ -811,7 +810,7 @@ class LanguageSkill(models.Model):
                                      choices=lang,
                                      verbose_name=_('اللغة'))
     otharـname_language = models.CharField(max_length=100,
-                                           help_text="يتم تعبئة هذا الحقل في حال لم يتوفر اللغة في القائمة السابقة",
+                                           help_text=_("يتم تعبئة هذا الحقل في حال لم يتوفر اللغة في القائمة السابقة"),
                                            verbose_name=_('اللغة أخر :'),
                                            null=True,
                                            blank=True
@@ -835,8 +834,8 @@ class LanguageSkill(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "مهاراة اللغة "
-        verbose_name_plural = "مهارات اللغة "
+        verbose_name = _("مهاراة اللغة ")
+        verbose_name_plural =_( "مهارات اللغة ")
 
 
 class ComputerSkill(models.Model):
@@ -855,8 +854,8 @@ class ComputerSkill(models.Model):
 
     class Meta:
         managed = True
-        verbose_name_plural = "مهارات الحاسوب "
-        verbose_name = "مهاراة الحاسوب "
+        verbose_name_plural = _("مهارات الحاسوب ")
+        verbose_name = _("مهاراة الحاسوب ")
 
 
 class TrainingCourses(models.Model):
@@ -889,8 +888,8 @@ class TrainingCourses(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = " الدورات التدربية "
-        verbose_name_plural = "الدورات التدريبية "
+        verbose_name = _(" الدورات التدربية ")
+        verbose_name_plural = _("الدورات التدريبية ")
 
 
 class Experience(models.Model):
@@ -929,8 +928,8 @@ class Experience(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "الخبرة "
-        verbose_name_plural = "الخبرات  "
+        verbose_name = _("الخبرة ")
+        verbose_name_plural = _("الخبرات  ")
 
 
 class Employment(models.Model):
@@ -947,8 +946,8 @@ class Employment(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = " مجال العمل  "
-        verbose_name_plural = " مجالات العمل  "
+        verbose_name = _(" مجال العمل  ")
+        verbose_name_plural = _(" مجالات العمل  ")
 
 
 class BankKonown(models.Model):
@@ -968,8 +967,8 @@ class BankKonown(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = " المعرف  "
-        verbose_name_plural = "  المعرفين  "
+        verbose_name = _(" المعرف  ")
+        verbose_name_plural = _("  المعرفين  ")
 
 
 class GeneralData(models.Model):
@@ -1002,7 +1001,7 @@ class GeneralData(models.Model):
     lowest_salary = models.IntegerField(
         null=True, blank=True, verbose_name=_('أدنى راتب تقبله'))
     health_problems = models.CharField(
-        max_length=250, null=True, help_text="معا السبب ان توفر", blank=True, verbose_name=_('مشاكل صحية'))
+        max_length=250, null=True, help_text=_("معا السبب ان توفر"), blank=True, verbose_name=_('مشاكل صحية'))
     hobbies = models.TextField(verbose_name=_('الهوايات'))
     person_closest = models.CharField(
         max_length=250, verbose_name=_('اسم أقرب شخص'))
@@ -1021,17 +1020,17 @@ class GeneralData(models.Model):
     manage_business = models.CharField(
         max_length=250, verbose_name=_('هل تدير عمل خاص'))
     ready_work = models.CharField(
-        max_length=250, help_text="معا السبب ان توفر", verbose_name=_('هل أنت جاهز للعمل'))
+        max_length=250, help_text=_("معا السبب ان توفر"), verbose_name=_('هل أنت جاهز للعمل'))
     government_job = models.CharField(
         max_length=250, help_text="معا السبب ان توفر", verbose_name=_('هل تفضل وظيفة حكومية'))
     source_financial_income = models.CharField(
-        max_length=250, help_text="معا السبب ان توفر", verbose_name=_('مصدر دخلك المالي'))
+        max_length=250, help_text=_("معا السبب ان توفر"), verbose_name=_('مصدر دخلك المالي'))
     proficient_English = models.CharField(
-        max_length=250, help_text="معا السبب ان توفر", verbose_name=_('مهارة اللغة الإنجليزية'))
+        max_length=250, help_text=_("معا السبب ان توفر"), verbose_name=_('مهارة اللغة الإنجليزية'))
     have_illness = models.CharField(
-        max_length=250, help_text="معا السبب ان توفر", verbose_name=_('هل تعاني من أمراض'))
+        max_length=250, help_text=_("معا السبب ان توفر"), verbose_name=_('هل تعاني من أمراض'))
     graduation_certificate = models.CharField(
-        max_length=250, help_text="معا السبب ان توفر", verbose_name=_('شهادة التخرج'))
+        max_length=250, help_text=_("معا السبب ان توفر"), verbose_name=_('شهادة التخرج'))
     graduation_certificate_file = models.FileField(
 
         validators=[validate_file_extension, file_size],
@@ -1040,7 +1039,7 @@ class GeneralData(models.Model):
         # verbose_name=_('  الشهادة'),
         verbose_name=_(
             'شهادة التخرج ان توفرت/ pdf or png or jpg or doc or docx  '),
-        help_text=" نوع الملف pdf او png او jpg او doc او docx فقط والحجم لا يزيد 10 ميجا  "
+        help_text=_(" نوع الملف pdf او png او jpg او doc او docx فقط والحجم لا يزيد 10 ميجا  ")
     )
 
     def graduation_certificate_dispaly(self):
@@ -1085,8 +1084,8 @@ class GeneralData(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = " البيانات العامة  "
-        verbose_name_plural = " البيانات العامة  "
+        verbose_name = _(" البيانات العامة  ")
+        verbose_name_plural = _(" البيانات العامة  ")
 
 
 class BirthData(models.Model):
@@ -1103,8 +1102,8 @@ class BirthData(models.Model):
         # related_name="countr_RequestToOpenAccount",
         on_delete=models.SET_NULL,
         # blank=True,
-        verbose_name="الدولة",
-        help_text="اختار دولة",
+        verbose_name=_("الدولة"),
+        help_text=_("اختار دولة"),
     )
 
     cookie = models.TextField(
@@ -1115,8 +1114,8 @@ class BirthData(models.Model):
         # related_name="countr_RequestToOpenAccount",
         on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="المحافظة",
-        help_text="اختار المحافظة",
+        verbose_name=_("المحافظة"),
+        help_text=_("اختار المحافظة"),
 
     )
     directorate = models.ForeignKey(
@@ -1126,8 +1125,8 @@ class BirthData(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         # blank=True,
-        verbose_name="المديرية",
-        help_text="اختار المديرية",
+        verbose_name=_("المديرية"),
+        help_text=_("اختار المديرية"),
 
     )
     isolation = models.ForeignKey(
@@ -1137,15 +1136,15 @@ class BirthData(models.Model):
         # related_name="countr_RequestToOpenAccount",
         on_delete=models.SET_NULL,
         # blank=True,
-        verbose_name="العزلة",
-        help_text="اختار العزلة",
+        verbose_name=_("العزلة"),
+        help_text=_("اختار العزلة"),
 
     )
 
     class Meta:
         managed = True
-        verbose_name = "طلب فتح حساب" + " - بيانات الميلاد "
-        verbose_name_plural = "طلب فتح حساب" + " - بيانات الميلاد "
+        verbose_name = _("طلب فتح حساب") + _(" - بيانات الميلاد ")
+        verbose_name_plural = _("طلب فتح حساب") + _(" - بيانات الميلاد ")
 
 
 class AddressLocation(models.Model):
@@ -1160,7 +1159,7 @@ class AddressLocation(models.Model):
         # related_name="countr_RequestToOpenAccount",
         on_delete=models.SET_NULL,
         # blank=True,
-        verbose_name="الدولة"
+        verbose_name=_("الدولة")
     )
     cookie = models.TextField(
         max_length=10000000, editable=False, null=True, blank=True)
@@ -1170,7 +1169,7 @@ class AddressLocation(models.Model):
         # related_name="countr_RequestToOpenAccount",
         on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="المحافظة"
+        verbose_name=_("المحافظة")
     )
     directorate_address = models.ForeignKey(
         Directorate,
@@ -1178,7 +1177,7 @@ class AddressLocation(models.Model):
         # related_name="countr_RequestToOpenAccount",
         on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="المديرية"
+        verbose_name=_("المديرية")
     )
     isolation_address = models.ForeignKey(
         Isolation,
@@ -1186,37 +1185,37 @@ class AddressLocation(models.Model):
         # related_name="countr_RequestToOpenAccount",
         on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="العزلة"
+        verbose_name=_("العزلة")
     )
     street = models.CharField(
         max_length=20,
         null=True, blank=True,
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="الشارع"
+        verbose_name=_("الشارع")
     )
     nearest_branch = models.CharField(
         max_length=20,
         null=True, blank=True,
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="اقرب فرع لبنك الإنماء من محل اقامتك"
+        verbose_name=_("اقرب فرع لبنك الإنماء من محل اقامتك")
     )
     nearest_outstanding_landmark = models.CharField(
         max_length=20,
         null=True, blank=True,
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="اقرب معلم بارز من محل اقامتك"
+        verbose_name=_("اقرب معلم بارز من محل اقامتك")
     )
     accommodation_type = models.CharField(
         max_length=20,
         null=True, blank=True,
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="نوع السكن"
+        verbose_name=_("نوع السكن")
     )
 
     class Meta:
         managed = True
-        verbose_name = "طلب فتح حساب"+" - بيانات العنوان "
-        verbose_name_plural = "طلب فتح حساب" + " - بيانات العنوان "
+        verbose_name = _("طلب فتح حساب")+_(" - بيانات العنوان ")
+        verbose_name_plural = _("طلب فتح حساب") + _(" - بيانات العنوان ")
 
 
 class IdentificationCard (models.Model):
@@ -1230,7 +1229,7 @@ class IdentificationCard (models.Model):
     objects = UserManager()
     full_name = models.CharField(
         max_length=250, null=True,
-        verbose_name="الاسم الرباعي حسب البطاقة الشخصية"
+        verbose_name=_("الاسم الرباعي حسب البطاقة الشخصية")
     )
     birth_date = models.DateField(
         # BirthData,
@@ -1238,7 +1237,7 @@ class IdentificationCard (models.Model):
         # related_name="countr_RequestToOpenAccount",
         # on_delete=models.SET_NULL,
         # blank=True,
-        verbose_name="تاريخ الميلاد"
+        verbose_name=_("تاريخ الميلاد")
     )
     id_number = models.PositiveBigIntegerField(
         # BirthData,
@@ -1246,7 +1245,7 @@ class IdentificationCard (models.Model):
         # related_name="countr_RequestToOpenAccount",
         # on_delete=models.SET_NULL,
         # blank=True,
-        verbose_name="رقم الهوية الشخصية"
+        verbose_name=_("رقم الهوية الشخصية")
     )
     birth_date = models.DateField(
         # BirthData,
@@ -1254,7 +1253,7 @@ class IdentificationCard (models.Model):
         # related_name="countr_RequestToOpenAccount",
         # on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="تاريخ الميلاد"
+        verbose_name=_("تاريخ الميلاد")
     )
     id_issuance_date = models.DateField(
         # BirthData,
@@ -1262,7 +1261,7 @@ class IdentificationCard (models.Model):
         # related_name="countr_RequestToOpenAccount",
         # on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="تاريخ اصدار الهوية"
+        verbose_name=_("تاريخ اصدار الهوية")
     )
     id_expiry_date = models.DateField(
         # BirthData,
@@ -1270,35 +1269,35 @@ class IdentificationCard (models.Model):
         # related_name="countr_RequestToOpenAccount",
         # on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="تاريخ انتهاء الهوية"
+        verbose_name=_("تاريخ انتهاء الهوية")
     )
     image_front = models.ImageField(
         max_length=250, null=True,
         upload_to="Image/IdentificationCard/%Y/%m/%d/%H/%M/%S",
 
-        verbose_name="صورة البطاقة الآمامية"
+        verbose_name=_("صورة البطاقة الآمامية")
     )
     image_back = models.ImageField(
         max_length=250, null=True,
         upload_to="Image/IdentificationCard/%Y/%m/%d/%H/%M/%S",
 
-        verbose_name="صورة البطاقة الخلفية"
+        verbose_name=_("صورة البطاقة الخلفية")
     )
     gender = models.CharField(
         max_length=20,
         null=True,
         choices=SELECT_GERDER,
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="الجنس"
+        verbose_name=_("الجنس")
     )
     nationality_amrican = models.BooleanField(
         # max_length=20,
 
-        help_text="هل لديك الجنسية الامريكية",
+        help_text=_("هل لديك الجنسية الامريكية"),
         # null=True,
         # choices=[('male', "ذكر"), ("faimle", "انثى"),],
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="هل لديك الجنسية الامريكية",
+        verbose_name=_("هل لديك الجنسية الامريكية"),
         choices=[(False, "لا"), (True, "نعم"),],
         serialize=False,
 
@@ -1311,7 +1310,7 @@ class IdentificationCard (models.Model):
         # null=True,
         # choices=[('male', "ذكر"), ("faimle", "انثى"),],
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="هل لديك جنسية اخرى ؟",
+        verbose_name=_("هل لديك جنسية اخرى ؟"),
         choices=[(False, "لا"), (True, "نعم"),],
         # serialize=False,
 
@@ -1322,7 +1321,7 @@ class IdentificationCard (models.Model):
         null=True,
         #   blank=True,
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="الجنسية"
+        verbose_name=_("الجنسية")
     )
     # nationality = models.ForeignKey(
     #     Country,
@@ -1338,7 +1337,7 @@ class IdentificationCard (models.Model):
 
         # blank=True,
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="جنسية اخرى"
+        verbose_name=_("جنسية اخرى")
     )
     # nationality_othar = models.ForeignKey(
     #     Country,
@@ -1353,7 +1352,7 @@ class IdentificationCard (models.Model):
         choices=[('bachelor', "اعزب"), ("married", "متزوج"),
                  ("divorced", "مطلق"), ("widow", "ارمل")],
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="الحالة الاجتماعية"
+        verbose_name=_("الحالة الاجتماعية")
     )
     educational_level = models.CharField(
         max_length=20,
@@ -1368,25 +1367,25 @@ class IdentificationCard (models.Model):
 
                  ],
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="المستوى التعلمي"
+        verbose_name=_("المستوى التعلمي")
     )
     specialization = models.CharField(
         max_length=100,
         null=True,
         choices=SELECT_specialization,
 
-        verbose_name="التخصص"
+        verbose_name=_("التخصص")
     )
     othar_specialization = models.CharField(
         max_length=100, null=True, blank=True,
-        help_text="يتم تعبئة هذا الحقل في حال لم يتوفر التخصص في القائمة السابقة",
+        help_text=("يتم تعبئة هذا الحقل في حال لم يتوفر التخصص في القائمة السابقة"),
         verbose_name=_('تخصص أخر :'))
     name_language = models.CharField(max_length=100,
 
                                      choices=lang,
                                      verbose_name=_('اللغة'))
     otharـname_language = models.CharField(max_length=100,
-                                           help_text="يتم تعبئة هذا الحقل في حال لم يتوفر اللغة في القائمة السابقة",
+                                           help_text=_("يتم تعبئة هذا الحقل في حال لم يتوفر اللغة في القائمة السابقة"),
                                            verbose_name=_('اللغة أخر :'),
                                            null=True,
                                            blank=True
@@ -1394,10 +1393,10 @@ class IdentificationCard (models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "طلب فتح حساب" + " - بيانات البطاقة الشخصية "
-        verbose_name_plural = "طلب فتح حساب" + " - بيانات البطاقة الشخصية "
+        verbose_name = _("طلب فتح حساب") + _(" - بيانات البطاقة الشخصية ")
+        verbose_name_plural = _("طلب فتح حساب")+ _( " - بيانات البطاقة الشخصية ")
 
-
+from django.utils.translation import gettext_lazy as _
 class RequestToOpenAccount(models.Model):
 
     # contry =
@@ -1442,21 +1441,21 @@ class RequestToOpenAccount(models.Model):
         # related_name="countr_RequestToOpenAccount",
         on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="الدولة"
+        verbose_name=_("الدولة")
     )
     phone_whatsapp = models.CharField(
         max_length=20,
         null=True, blank=True,
         # help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="رقم تلفون الواتساب"
+        verbose_name=_("رقم تلفون الواتساب")
     )
     Phone_Number = PhoneNumberField(
         null=True,
-        verbose_name="رقم التلفون "
+        verbose_name=_("رقم التلفون")
     )
     emile = models.EmailField(
         null=True, blank=True,
-        verbose_name="  البريد الألكتروني",
+        verbose_name=_("البريد الألكتروني"),
 
     )
 
@@ -1475,12 +1474,12 @@ class RequestToOpenAccount(models.Model):
     cookie = models.TextField(
        default=" ", null=True, blank=True)
     note = models.TextField(
-        null=True, blank=True, verbose_name="ادخل ملاحظة")
+        null=True, blank=True, verbose_name=_("ادخل ملاحظة"))
     # image = models.ManyToManyField()
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     gender = models.CharField(
         choices=SELECT_GERDER, max_length=10, default='ather', verbose_name=_('الجنس'))
 
@@ -1489,5 +1488,5 @@ class RequestToOpenAccount(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "طلب فتح حساب" + " - بيانات عامة"
-        verbose_name_plural = "طلب فتح حساب" + " - بيانات عامة"
+        verbose_name = _("طلب فتح حساب") + _(" - بيانات عامة")
+        verbose_name_plural = _("طلب فتح حساب") + _(" - بيانات عامة")

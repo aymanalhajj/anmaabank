@@ -1,47 +1,18 @@
-{% extends 'jop/base-jop.html' %} {% load i18n static %} {% block title %}
+{% extends 'jop/base-jop.html' %}
+{% load i18n %}
+{% load i18n static %} {% block title %}
 {% endblock %} {% load static%}
 {% block custom_head %}
-
-
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-
 <meta content="" name="description">
 <meta content="" name="keywords">
-
-<!-- Favicons -->
-{% comment %}
-<link href="{% static 'jop/assets/img/logo2.jpg' %}" rel="icon"> {% endcomment %} {% comment %}
-<link href="{% static 'jop/assets/img/logo2.jpg' %}" rel="apple-touch-icon"> {% endcomment %}
-
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-    rel="stylesheet"> {% comment %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> {% endcomment %}
-
-<!-- Vendor CSS Files -->
-{% comment %}
-<link href="{% static 'jop/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> {% endcomment %}
-{% comment %}
-<link href="{% static 'jop/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet"> {% endcomment %}
-{% comment %}
-<link href="{% static 'jop/assets/vendor/aos/aos.css' %}" rel="stylesheet"> {% endcomment %} {% comment %}
-<link href="{% static 'jop/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet"> {% endcomment %}
-{% comment %}
-<link href="{% static 'jop/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet"> {% endcomment %}
-{% comment %}
-<link href="{% static 'jop/theme/standard/style.css" rel="stylesheet' %}" type="text/css" /> {% endcomment %}
-
-<!-- Template Main CSS File -->
-{% comment %}
-<link href="{% static 'jop/assets/css/main.css' %}" rel="stylesheet"> {% endcomment %} {% comment %}
-<link href="{% static 'jop/assets/css/w3.css' %}" rel="stylesheet"> {% endcomment %} {% comment %}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> {% endcomment %}
-
+    rel="stylesheet">
 {% block body_style %}
 
 {% endblock %}
@@ -50,18 +21,13 @@
 <div class="job">
 
     {% block content-section %}
-
-
-
-
-    <!-- Navbar on small screens -->
     <div class="w3-center w3-light-grey w3-padding-16 w3-hide-large w3-hide-medium">
         <div class="w3-bar w3-light-grey">
             <center>
-                <a href="{% url 'cvedit' %}" class="w3-bar-item w3-button">السيرة الذاتية</a>
-                <a href="{% url 'passwordchange' %}" class="w3-bar-item w3-button">تغيير كلمة المرور</a>
-                <a href="{% url 'jobsoffered' %}" class="w3-bar-item w3-button">الوظائف المقدم فيها</a>
-                <a class="w3-bar-item w3-button" href="{% url 'show_cv' %}">عرض السيرة الذاتية</a>
+                <a href="/{{static_content.lang}}/jobs/cvedit" class="w3-bar-item w3-button">السيرة الذاتية</a>
+                <a href="/{{static_content.lang}}/jobs/passwordchange" class="w3-bar-item w3-button">تغيير كلمة المرور</a>
+                <a href="/{{static_content.lang}}/jobs/jobsoffered" class="w3-bar-item w3-button">الوظائف المقدم فيها</a>
+                <a class="w3-bar-item w3-button" href="/{{static_content.lang}}/jobs/show_cv">عرض السيرة الذاتية</a>
                 {% if user.is_active and user.is_staff %}
                 <a href="{% url "home-jop-manage-admin"%}" class="w3-bar-item w3-button">
                     ادارة المقدمين على الوظائف
@@ -70,14 +36,6 @@
             </center>
         </div>
     </div>
-
-
-
-
-
-
-
-
     <div class="container">
         {% if count  %}
         <div class="progress progressbar">
@@ -89,32 +47,30 @@
         {% endif %}
 
         <div class="row">
-            <div id="progress_menu" class="col-lg-3">
-                <h3>السيرة الذاتية</h3>
+            <div id="progress_menu" class="col-lg-3" style="text-align: center;">
+                <h3>{{static_content.cv}}</h3>
                 <div class="list-group">
-                    <a href="{% url 'baseinfo' %}" {%  if url_name == 'baseinfo'   %} class="list-group-item active"
-                        {% else %} class="list-group-item" {% endif %}>بيانات أساسية</a>
-                    <a href="{% url 'education' %}" {%  if url_name == 'education'   %} class="list-group-item active"
-                        {% else %} class="list-group-item" {% endif %}>المؤهلات العلمية</a>
-                    <a href="{% url 'languagskills' %}" {%  if url_name == 'languagskills'   %}
-                        class="list-group-item active" {% else %} class="list-group-item" {% endif %}>مهارات اللغة</a>
-                    <a href="{% url 'computerskills' %}" {%  if url_name == 'computerskills'   %}
-                        class="list-group-item active" {% else %} class="list-group-item" {% endif %}>مهارات الحاسب</a>
-                    <a href="{% url 'triningcourses' %}" {%  if url_name == 'triningcourses'   %}
-                        class="list-group-item active" {% else %} class="list-group-item" {% endif %}>الدورات
-                        التدريبية</a>
-                    <a href="{% url 'experince' %}" {%  if url_name == 'experince'   %} class="list-group-item active"
-                        {% else %} class="list-group-item" {% endif %}>الخبرات </a>
-                    <a href="{% url 'employment' %}" {%  if url_name == 'employment'   %} class="list-group-item active"
-                        {% else %} class="list-group-item" {% endif %}>مجالات العمل</a>
-
-                    <a href="{% url 'BankKonown' %}" {%  if url_name == 'BankKonown'   %} class="list-group-item active"
-                        {% else %} class="list-group-item" {% endif %}>معرفين من البنك</a>
-                    <a href="{% url 'generaldata' %}" {%  if url_name == 'generaldata'   %}
-                        class="list-group-item active" {% else %} class="list-group-item" {% endif %}>بيانات عامة</a>
-                    <a href="{% url 'filedupload' %}" {%  if url_name == 'filedupload'   %}
-                        class="list-group-item active" {% else %} class="list-group-item" {% endif %}> رفع ملف السيرة
-                        الذاتية </a>
+                    <a href="/{{static_content.lang}}/jobs/baseinfo/"  {%  if url_name == 'baseinfo'   %} class="list-group-item active"
+                        {% else %} class="list-group-item" {% endif %}>{{static_content.basic_info}}</a>
+                    <a href="/{{static_content.lang}}/jobs/education" {%  if url_name == 'education'   %} class="list-group-item active"
+                        {% else %} class="list-group-item" {% endif %}>{{static_content.education}}</a>
+                    <a href="/{{static_content.lang}}/jobs/languagskills" {%  if url_name == 'languagskills'   %}
+                        class="list-group-item active" {% else %} class="list-group-item" {% endif %}>{{static_content.lang_skills}}</a>
+                    <a href="/{{static_content.lang}}/jobs/computerskills" {%  if url_name == 'computerskills'   %}
+                        class="list-group-item active" {% else %} class="list-group-item" {% endif %}>{{static_content.computer_skills}}</a>
+                    <a href="/{{static_content.lang}}/jobs/triningcourses" {%  if url_name == 'triningcourses'   %}
+                        class="list-group-item active" {% else %} class="list-group-item" {% endif %}>
+                        {{static_content.training_courses}}</a>
+                    <a href="/{{static_content.lang}}/jobs/experince" {%  if url_name == 'experince'   %} class="list-group-item active"
+                        {% else %} class="list-group-item" {% endif %}>{{static_content.experiences}}</a>
+                    <a href="/{{static_content.lang}}/jobs/employment" {%  if url_name == 'employment'   %} class="list-group-item active"
+                        {% else %} class="list-group-item" {% endif %}>{{static_content.work_domains}}</a>
+                    <a href="/{{static_content.lang}}/jobs/BankKonown" {%  if url_name == 'BankKonown'   %} class="list-group-item active"
+                        {% else %} class="list-group-item" {% endif %}>{{static_content.bank_known}}</a>
+                    <a href="/{{static_content.lang}}/jobs/generaldata" {%  if url_name == 'generaldata'   %}
+                        class="list-group-item active" {% else %} class="list-group-item" {% endif %}>{{static_content.general_info}}</a>
+                    <a href="/{{static_content.lang}}/jobs/filedupload" {%  if url_name == 'filedupload'   %}
+                        class="list-group-item active" {% else %} class="list-group-item" {% endif %}> {{static_content.upload_cv}} </a>
 
                 </div>
             </div>

@@ -15,38 +15,30 @@
       <div class="news-page" style="order: 5;">
         <div class="page-hero-body" style="margin-top: 0px;;">
           <div class="p-hero" style="padding: 0px;background: none;border: 0px red solid;">
-            <div class="container" >
-              <div class="page-heading" style="color: var(--primary);">
-                <div class="breadcrumb" style="color: var(--primary); background: none;font-weight: bolder;">
-                  <div class="breadcrumb-item"><a style="color: var(--primary);" href="/" class="router-link-active">الرئيسية</a>
-                    <div class="breadcrumb-divider">
-                      <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow">
-                        <path d="M8.16055 14.9172L1.56055 8.29844L8.16055 1.67969" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <div>
-                    <a style="color: var(--primary);opacity: 1;" aria-current="page" class="router-link-active router-link-exact-active disabled">
-                      {% if titel   %}
-                        {{ titel }}
-                      {% endif  %}
-                    </a>
-                  </div>
-                </div>
+            <section class="breadcrumbs" style="border: 0px rgb(0, 255, 8) solid;padding: 0px; background: white;margin: 0px;">
+              <div class="container" style="margin-top: 30px;margin-right: 20px;color: var(--primary);text-align: start;" dir="{{static_content.direction}}"  >
+                <ol dir="{{static_content.direction}}">
+                  <li><a  style="color: var(--primary);" href="/">{{static_content.main}}</a></li>
+                  <li>
+                    {% if titel   %}
+                      {{ titel }}
+                    {% endif  %}
+                  </li>      
+                </ol>
                 <h1  >
                   {% if titel %}
                     {{titel}}
                   {% endif  %}
                 </h1>
               </div>
-            </div>
+            </section>
           </div>
           <div class="p-body" style="order: 5;margin: 10px;border-radius: 10px;box-shadow: 0px 0px 10px gray;">
             <div class="container">
               <div class="page-body-container">
               <div class="list-news">
                 {% for blog in blogs %}
-                  <a href="{% url 'last-news-detiel' blog.id %}" class="news-card">
+                  <a href="/{{static_content.lang}}/news/{{blog.id}}" class="news-card">
                     <div class="news-img">
                       {% if blog.image %}
                       <img alt="news-img" src="{{blog.image.url}}">

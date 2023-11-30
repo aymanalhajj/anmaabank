@@ -14,7 +14,7 @@ from django.contrib import messages
 # from views import countdata
 # Create your views here.
 from django.shortcuts import redirect, render, get_object_or_404
-
+from settingapp.views import static_content
 
 def getUrl(request):
     if request is None:
@@ -45,7 +45,8 @@ def contextDate(request, form=None, djobs=None, jobs=None, count=None,
                 generaldata=None,
                 orederJob=None,
                 title="التوظيف",
-                url_name=""
+                url_name="",
+                lang ="ar"
 
 
 
@@ -105,6 +106,7 @@ def contextDate(request, form=None, djobs=None, jobs=None, count=None,
     context['education_admin'] = education_admin
 
     context['url_name'] = url_name
+    context["static_content"] = static_content[lang]
     # context['orederJob'] = orederJob
 
     # context['url'] = orederJob
@@ -183,12 +185,21 @@ def countdata(request):
 
 
 class ProfileRegistration(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        print(lang)
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
+        print("LANGUAGE_CODE")
+        print(request.LANGUAGE_CODE)
+        print(lang)
         form = RegisterForm()
         # Access the session variable
         user = request.session.get('userLoggedUserId')
         print(user)
-        return render(request, 'jop/create_accounte.html', contextDate(request=request, form=form,))
+        context =  contextDate(request=request, form=form,title=_("مستخدم جديد"))
+        context["static_content"] = static_content[lang]
+        return render(request, 'jop/create_accounte.html', context)
 
     def post(self, request):
         form = RegisterForm(request.POST)
@@ -230,14 +241,17 @@ def register(request):
     return render(request, "jop/create_accounte.html", contextDate(request=request, formset=formset))
 
 
-def userSignin(request):
+def userSignin(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
+    
     urlredirect = request.GET.get("urlredirect")
 
     if islogin(request) == True:
         if urlredirect and str(urlredirect).endswith("userLogout/") == False:
             return redirect(urlredirect)
-
-        return redirect("/jobs/")
+        return redirect("/"+lang)
     else:
 
         # Access the session variable
@@ -293,14 +307,14 @@ def userSignin(request):
                     if urlredirect and str(urlredirect).endswith("userLogout/") == False:
                         return redirect(urlredirect)
 
-                    return redirect("/jobs/")
+                    return redirect("/"+lang)
 
                 # messages.warning(request, 'Login Email Or Password')
                 elif not emailExistQuery.exists():
                     print(" ")
                     messages.warning(request, 'ادخل ايميل او كلمة سر صحيحة')
 
-        return render(request, "jop/login.html", contextDate(request=request, form=form))
+        return render(request, "jop/login.html", contextDate(lang= lang ,request=request, form=form, title=_("تسجيل الدخول")))
 
 
 def userLogout(request):
@@ -314,11 +328,15 @@ def userLogout(request):
         del request.session['userLoggedUserId']
         return redirect('/login/?urlredirect='+getUrl(request))
 
-
-def RequestToOpenAccountView(request, page=0):
-
+from django.utils.translation import gettext_lazy as _
+# Create your views here.
+from django.utils import translation
+def RequestToOpenAccountView(request, page=0, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     if islogin(request) == False:
-        return redirect('/login/?urlredirect='+getUrl(request))
+        return redirect("/"+lang+'/login/?urlredirect='+getUrl(request))
     from anmaabankApp.views import get_cookie
 
     # if request.method == 'GET':
@@ -345,8 +363,8 @@ def RequestToOpenAccountView(request, page=0):
         # 'birth_data':birthdata,
         # "address_location":addresslocation,
         # "id_card":id_card,
-        "titel": "تقديم طلب فتح حساب - بيانات عامة" if get_page <= 1 else "تقديم طلب فتح حساب - بيانات الميلاد" if get_page == 2 else "تقديم طلب فتح حساب - عنوان السكن والاقامة " if get_page == 3 else "تقديم طلب فتح حساب - بيانات الهوية الشخصية ",
-        "title": "تقديم طلب فتح حساب - بيانات عامة" if get_page <= 1 else "تقديم طلب فتح حساب - بيانات الميلاد" if get_page == 2 else "تقديم طلب فتح حساب - عنوان السكن والاقامة " if get_page == 3 else "تقديم طلب فتح حساب - بيانات الهوية الشخصية ",
+        "titel": _("تقديم طلب فتح حساب - بيانات عامة") if get_page <= 1 else _("تقديم طلب فتح حساب - بيانات الميلاد") if get_page == 2 else _("تقديم طلب فتح حساب - عنوان السكن والاقامة ") if get_page == 3 else _("تقديم طلب فتح حساب - بيانات الهوية الشخصية "),
+        "title": _("تقديم طلب فتح حساب - بيانات عامة") if get_page <= 1 else _("تقديم طلب فتح حساب - بيانات الميلاد") if get_page == 2 else _("تقديم طلب فتح حساب - عنوان السكن والاقامة ") if get_page == 3 else _("تقديم طلب فتح حساب - بيانات الهوية الشخصية "),
         "url": getUrl(request=request)
 
 
@@ -370,6 +388,7 @@ def RequestToOpenAccountView(request, page=0):
     context["navbar"] = NavbarsQuerySet()
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()
     context['setting'] = SettingModelQuerySet()
+    context["static_content"] = static_content[lang]
     # formOurNewsletterForm = OurNewsletterForm(request.POST, request.FILES)
     if request.method == 'POST':
         # revers_fun = '/service/'+str(id)+'#services-detail'
@@ -476,8 +495,8 @@ def RequestToOpenAccountView(request, page=0):
             # 'birth_data':birthdata,
             # "address_location":addresslocation,
             # "id_card":id_card,
-            "titel": "تقديم طلب فتح حساب - بيانات عامة" if get_page <= 1 else "تقديم طلب فتح حساب - بيانات الميلاد" if get_page == 2 else "تقديم طلب فتح حساب - عنوان السكن والاقامة " if get_page == 3 else "تقديم طلب فتح حساب - بيانات الهوية الشخصية ",
-            "title": "تقديم طلب فتح حساب - بيانات عامة" if get_page <= 1 else "تقديم طلب فتح حساب - بيانات الميلاد" if get_page == 2 else "تقديم طلب فتح حساب - عنوان السكن والاقامة " if get_page == 3 else "تقديم طلب فتح حساب - بيانات الهوية الشخصية ",
+            "titel": _("تقديم طلب فتح حساب - بيانات عامة") if get_page <= 1 else _("تقديم طلب فتح حساب - بيانات الميلاد") if get_page == 2 else _("تقديم طلب فتح حساب - عنوان السكن والاقامة ") if get_page == 3 else _("تقديم طلب فتح حساب - بيانات الهوية الشخصية "),
+            "title": _("تقديم طلب فتح حساب - بيانات عامة") if get_page <= 1 else _("تقديم طلب فتح حساب - بيانات الميلاد") if get_page == 2 else _("تقديم طلب فتح حساب - عنوان السكن والاقامة ") if get_page == 3 else _("تقديم طلب فتح حساب - بيانات الهوية الشخصية "),
             "url": getUrl(request=request)
 
 

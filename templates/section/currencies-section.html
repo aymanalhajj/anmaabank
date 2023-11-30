@@ -2,14 +2,16 @@
 {% block currencies-section %}
 {% if setting and curancy%}
 
+{% with "../../static/assets/img/currency-arrow-"|add:static_content.lang|add:".png" as icon_src %}
 
-<section id="currencies" class="currencies-section" style="order: 3;">
+
+<section id="currencies" class="currencies-section" style="order: 3;text-align: start;"  dir="{{static_content.direction}}">
     <div class="container">
-        <div class="section-heading text-white">
-            <h2 class="section-title">أسعار العملات
+        <div class="section-heading text-white">{{static_content.currency_rate}}
+            <h2 class="section-title">
             </h2>
             <p>
-                سعر صرف العملات الأجنبية مقابل الريال اليمني
+                {{static_content.currency_rate_msg}}
 
 
             </p>
@@ -72,13 +74,13 @@
             </ul>
             {% endcomment %}
             <div class="currency-card">
-                <span class="currency-info name">العملة</span>
+                <span class="currency-info name">{{static_content.currency}}</span>
                 
-                <div class="currency-icon">
-                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                <div class="currency-icon" >
+                    <img src="{{icon_src}}"  alt="...">
                 </div>
-                <span class="currency-info currency">شراء</span>
-                <span class="currency-info currency">بيع</span>
+                <span class="currency-info currency">{{static_content.purchase}}</span>
+                <span class="currency-info currency">{{static_content.sell}}</span>
             </div>
             <div class="list-box">
                 <div
@@ -93,7 +95,7 @@
                                 <span class="currency-info name">درهم اماراتي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_emarat}}</span>
                                 <span class="currency-info currency">{{curancy.sale_emarat}}</span>
@@ -107,7 +109,7 @@
                                 <span class="currency-info name">دولار امريكي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_dolar}}</span>
                                 <span class="currency-info currency">{{curancy.sale_dolar}}</span>
@@ -120,7 +122,7 @@
                                 <span class="currency-info name">ريال سعودي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_ksa}}</span>
                                 <span class="currency-info currency">{{curancy.sale_ksa}}</span>
@@ -132,7 +134,7 @@
                                 <span class="currency-info name">درهم اماراتي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_emarat}}</span>
                                 <span class="currency-info currency">{{curancy.sale_emarat}}</span>
@@ -146,7 +148,7 @@
 
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
 
                                 <span class="currency-info currency">{{curancy.buy_dolar}}</span>
@@ -161,7 +163,7 @@
                                 <span class="currency-info name">ريال سعودي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_ksa}}</span>
                                 <span class="currency-info currency">{{curancy.sale_ksa}}</span>
@@ -174,7 +176,7 @@
                                 <span class="currency-info name">درهم اماراتي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_emarat}}</span>
                                 <span class="currency-info currency">{{curancy.sale_emarat}}</span>
@@ -186,7 +188,7 @@
                                 <span class="currency-info name">دولار امريكي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_dolar}}</span>
                                 <span class="currency-info currency">{{curancy.sale_dolar}}</span>
@@ -199,7 +201,7 @@
                                 <span class="currency-info name">ريال سعودي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_ksa}}</span>
                                 <span class="currency-info currency">{{curancy.sale_ksa}}</span>
@@ -218,7 +220,7 @@
                                 <span class="currency-info name">درهم اماراتي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_emarat}}</span>
 
@@ -233,7 +235,7 @@
                                 <span class="currency-info name">ريال سعودي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_ksa}}</span>
                                 <span class="currency-info currency">{{curancy.sale_ksa}}</span>
@@ -246,7 +248,7 @@
                                 <span class="currency-info name">دولار امريكي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_dolar}}</span>
                                 <span class="currency-info currency">{{curancy.sale_dolar}}</span>
@@ -259,7 +261,7 @@
                                 <span class="currency-info name">درهم اماراتي</span>
                                 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span
                                     class="currency-info currency">{{curancy.buy_emarat}}</span>
@@ -275,7 +277,7 @@
                                 <span class="currency-info name">ريال سعودي</span>
                                 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span
                                     class="currency-info currency">{{curancy.buy_ksa}}</span> <span
@@ -290,7 +292,7 @@
                                 
                                 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span
                                     class="currency-info currency">{{curancy.buy_dolar}}</span><span
@@ -304,7 +306,7 @@
                                 <span class="currency-info name">درهم اماراتي</span>
                                 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span
                                     class="currency-info currency">{{curancy.buy_emarat}}</span><span
@@ -317,7 +319,7 @@
                                 <span class="currency-info name">ريال سعودي</span>
                                 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 
                                 <span
@@ -332,7 +334,7 @@
                                 <span class="currency-info name">دولار امريكي</span>
 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_dolar}}</span>
                                 <span class="currency-info currency">{{curancy.sale_dolar}}</span>
@@ -351,7 +353,7 @@
                                 <span class="currency-info name">درهم اماراتي</span>
                                 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span
                                     class="currency-info currency">{{curancy.buy_emarat}}</span><span
@@ -364,7 +366,7 @@
                                 <span class="currency-info name">ريال سعودي</span>
                                 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span class="currency-info currency">{{curancy.buy_ksa}}</span>
                                 <span class="currency-info currency">{{curancy.sale_ksa}}</span>
@@ -378,7 +380,7 @@
                                 <span class="currency-info name">دولار امريكي</span>
                                 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span
                                     class="currency-info currency">{{curancy.buy_dolar}}</span><span
@@ -391,7 +393,7 @@
                                 <span class="currency-info name">درهم اماراتي</span>
                                 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
                                 <span
                                     class="currency-info currency">{{curancy.buy_emarat}}</span><span
@@ -404,7 +406,7 @@
                                <span class="currency-info name">ريال سعودي</span>
                                
                                <div class="currency-icon">
-                                <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                <img src="{{icon_src}}" alt="...">
                             </div>
                                <span
                                     class="currency-info currency">{{curancy.buy_ksa}}</span> <span
@@ -417,7 +419,7 @@
                                <span class="currency-info name">دولار امريكي</span>
                                
                                <div class="currency-icon">
-                                <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                <img src="{{icon_src}}" alt="...">
                             </div>
                                <span
                                     class="currency-info currency">{{curancy.buy_dolar}}</span><span
@@ -430,7 +432,7 @@
                                <span class="currency-info name">درهم اماراتي</span>
                                
                                <div class="currency-icon">
-                                <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                <img src="{{icon_src}}" alt="...">
                             </div>
                                <span
                                     class="currency-info currency">{{curancy.buy_emarat}}</span><span
@@ -443,7 +445,7 @@
                              <span class="currency-info name">ريال سعودي</span>
                              
                              <div class="currency-icon">
-                                <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                <img src="{{icon_src}}" alt="...">
                             </div>
                              
                              <span
@@ -458,7 +460,7 @@
                                 
                                 
                                 <div class="currency-icon">
-                                    <img src="../../static/assets/img/currency-arrow.png" alt="...">
+                                    <img src="{{icon_src}}" alt="...">
                                 </div>
 
                                 <span
@@ -472,6 +474,8 @@
         </div>
     </div>
 </section>
+
+{% endwith %}
 {% endif %}
 
 <!-- End Brand Carousel -->

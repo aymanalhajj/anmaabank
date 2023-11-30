@@ -17,8 +17,18 @@ def getUrl(request):
     return request.build_absolute_uri()
 
 
+from django.utils import translation
+from settingapp.views import static_content
+from django.utils.translation import gettext_lazy as _
 class Baseinfo(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
+        print("langgggggggggggg")
+        print(lang)
+
+        # context["static_content"] = static_content[lang]
         if not islogin(request):
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
@@ -27,7 +37,7 @@ class Baseinfo(View):
             form = RegisterForm(instance=user)  # Correct indentation here
             print(request.session['userLoggedUserId'])
             return render(request, 'jop/cv/baseinfo.html',
-                          contextDate(request=request, form=form, count=count, jobs=None, djobs=None,
+                          contextDate(lang = lang,request=request, form=form, count=count, jobs=None, djobs=None,
                                       job=None, formset=None,
                                       bankKonownData=None,
                                       bankKonown=None,
@@ -54,7 +64,10 @@ class Baseinfo(View):
                                       )
                           )
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         user = Register.objects.get(id=request.session['userLoggedUserId'])
         form = RegisterForm(request.POST, request.FILES, instance=user)
         # print(request.POST, request.FILES)
@@ -104,7 +117,7 @@ class Baseinfo(View):
 
             # messages.success(request, 'Sector Name Updated  Successfully')
             return redirect("baseinfo")
-        return render(request, 'jop/cv/baseinfo.html',  contextDate(request=request, form=form, count=None, jobs=None, djobs=None,
+        return render(request, 'jop/cv/baseinfo.html',  contextDate(lang = lang,request=request, form=form, count=None, jobs=None, djobs=None,
                                                                     job=None, formset=None,
                                                                     bankKonownData=None,
                                                                     bankKonown=None,
@@ -129,7 +142,10 @@ class Baseinfo(View):
                                                                     ))
 
 
-def cv_edit(request):
+def cv_edit(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     if islogin(request) == False:
         redirect('/login/?urlredirect='+getUrl(request))
     else:
@@ -155,7 +171,7 @@ def cv_edit(request):
 
         return render(request, 'jop/cv/cvedit.html',
 
-                      contextDate(request=request, form=None, count=count, jobs=None, djobs=None,
+                      contextDate(lang = lang,request=request, form=None, count=count, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=bankKonownData,
                                   bankKonown=None,
@@ -183,7 +199,10 @@ def cv_edit(request):
 
 class show_cv(View):
 
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if islogin(request) == False:
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
@@ -206,7 +225,7 @@ class show_cv(View):
             print('gdata')
             return render(request, 'jop/cv/showCv.html',
 
-                          contextDate(request=request, form=None, count=count, jobs=None, djobs=None,
+                          contextDate(lang = lang,request=request, form=None, count=count, jobs=None, djobs=None,
                                       job=None, formset=None,
                                       bankKonownData=None,
                                       bankKonown=None,
@@ -230,7 +249,10 @@ class show_cv(View):
                                       )
                           )
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         return get(self.request)
 
 
@@ -289,7 +311,10 @@ def UpdateEducation(request, id):
 
 class educationView(View):
 
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if islogin(request) == False:
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
@@ -299,7 +324,7 @@ class educationView(View):
             formdata = Education.objects.filter(
                 user=request.session['userLoggedUserId'])
             return render(request, 'jop/cv/education.html',
-                          contextDate(url_name="education", request=request, form=form, count=count, jobs=None, djobs=None,
+                          contextDate(lang = lang,url_name="education", request=request, form=form, count=count, jobs=None, djobs=None,
                                       job=None, formset=None,
                                       bankKonownData=None,
                                       bankKonown=None,
@@ -319,7 +344,10 @@ class educationView(View):
                                       )
                           )
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
 
         form = EducationForm(request.POST, request.FILES)
         if form.is_valid():
@@ -333,7 +361,7 @@ class educationView(View):
 
             return redirect('education')
 
-        return render(request, 'jop/cv/education.html', contextDate(url_name="education", request=request, form=form, count=None, jobs=None, djobs=None,
+        return render(request, 'jop/cv/education.html', contextDate(lang = lang,url_name="education", request=request, form=form, count=None, jobs=None, djobs=None,
                                                                     job=None, formset=None,
                                                                     bankKonownData=None,
                                                                     bankKonown=None,
@@ -359,7 +387,10 @@ def DeleteLangskils(request, id):
     return redirect('languagskills')
 
 
-def UpdateLangskils(request, id):
+def UpdateLangskils(request, id, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     disabled = "disabled"
     task = get_object_or_404(LanguageSkill, pk=id)
     formdata = LanguageSkill.objects.filter(
@@ -373,7 +404,7 @@ def UpdateLangskils(request, id):
     else:
         form = LanguageSkillFrom(instance=task)
         return render(request, 'jop/cv/languagskills.html',
-                      contextDate(url_name="languagskills", request=request, form=form, count=None, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="languagskills", request=request, form=form, count=None, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=None,
                                   bankKonown=None,
@@ -395,7 +426,10 @@ def UpdateLangskils(request, id):
 
 
 class LanguageSkillView(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if islogin(request) == False:
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
@@ -405,7 +439,7 @@ class LanguageSkillView(View):
             formdata = LanguageSkill.objects.filter(
                 user=Register(id=request.session['userLoggedUserId']))
             return render(request, 'jop/cv/languagskills.html',
-                          contextDate(url_name="languagskills", request=request, form=form, count=count, jobs=None, djobs=None,
+                          contextDate(lang = lang,url_name="languagskills", request=request, form=form, count=count, jobs=None, djobs=None,
                                       job=None, formset=None,
                                       bankKonownData=None,
                                       bankKonown=None,
@@ -424,7 +458,10 @@ class LanguageSkillView(View):
                                       )
                           )
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         form = LanguageSkillFrom(request.POST, request.FILES)
         if form.is_valid():
             self.object = form.save(commit=False)
@@ -434,7 +471,7 @@ class LanguageSkillView(View):
             formdata = LanguageSkill.objects.filter(
                 user=Register(id=request.session['userLoggedUserId']))
         return render(request, 'jop/cv/languagskills.html',
-                      contextDate(url_name="languagskills", request=request, form=form, count=None, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="languagskills", request=request, form=form, count=None, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=None,
                                   bankKonown=None,
@@ -461,7 +498,10 @@ def DeleteComSilks(request, id):
     return redirect('computerskills')
 
 
-def UpdateComputerSkil(request, id):
+def UpdateComputerSkil(request, id, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     disabled = "disabled"
     task = get_object_or_404(ComputerSkill, pk=id)
     computerdata = LanguageSkill.objects.filter(
@@ -475,7 +515,7 @@ def UpdateComputerSkil(request, id):
     else:
         comform = ComputerSkillFrom(instance=task)
         return render(request, 'jop/cv/computerkills.html',
-                      contextDate(url_name="computerskills", request=request, form=None, count=None, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="computerskills", request=request, form=None, count=None, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=None,
                                   bankKonown=None,
@@ -495,7 +535,10 @@ def UpdateComputerSkil(request, id):
 
 
 class ComputerSkillView(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if islogin(request) == False:
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
@@ -505,7 +548,7 @@ class ComputerSkillView(View):
             computerdata = ComputerSkill.objects.filter(
                 user=Register(id=request.session['userLoggedUserId']))
             return render(request, 'jop/cv/computerkills.html',
-                          contextDate(url_name="computerskills", request=request, form=None, count=count, jobs=None, djobs=None,
+                          contextDate(lang = lang,url_name="computerskills", request=request, form=None, count=count, jobs=None, djobs=None,
                                       job=None, formset=None,
                                       bankKonownData=None,
                                       bankKonown=None,
@@ -524,7 +567,10 @@ class ComputerSkillView(View):
 
                           )
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         computerdata = ComputerSkill.objects.filter(
             user=Register(id=request.session['userLoggedUserId']))
 
@@ -539,7 +585,7 @@ class ComputerSkillView(View):
             comform = ComputerSkillFrom()
 
         return render(request, 'jop/cv/computerkills.html',
-                      contextDate(url_name="computerkills", request=request, form=None, count=None, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="computerkills", request=request, form=None, count=None, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=None,
                                   bankKonown=None,
@@ -565,7 +611,10 @@ def DeleteTraincoiurses(request, id):
     return redirect('triningcourses')
 
 
-def UpdateTrainingCourses(request, id):
+def UpdateTrainingCourses(request, id, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     disabled = "disabled"
     task = get_object_or_404(TrainingCourses, pk=id)
     coursesdata = TrainingCourses.objects.filter(
@@ -579,7 +628,7 @@ def UpdateTrainingCourses(request, id):
     else:
         courses = TrainingCoursesForm(instance=task)
         return render(request, 'jop/cv/triningcourses.html',
-                      contextDate(url_name="triningcourses", request=request, form=None, count=None, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="triningcourses", request=request, form=None, count=None, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=None,
                                   bankKonown=None,
@@ -597,7 +646,10 @@ def UpdateTrainingCourses(request, id):
 
 class TrainingCoursesview(View):
 
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if islogin(request) == False:
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
@@ -607,7 +659,7 @@ class TrainingCoursesview(View):
             coursesdata = TrainingCourses.objects.filter(
                 user=Register(id=request.session['userLoggedUserId']))
             return render(request, 'jop/cv/triningcourses.html',
-                          contextDate(url_name="triningcourses", request=request, form=None, count=count, jobs=None, djobs=None,
+                          contextDate(lang = lang,url_name="triningcourses", request=request, form=None, count=count, jobs=None, djobs=None,
                                       job=None, formset=None,
                                       bankKonownData=None,
                                       bankKonown=None,
@@ -622,7 +674,10 @@ class TrainingCoursesview(View):
                                       )
                           )
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         coursesdata = TrainingCourses.objects.filter(
             user=Register(id=request.session['userLoggedUserId']))
 
@@ -637,7 +692,7 @@ class TrainingCoursesview(View):
             courses = TrainingCoursesForm()
 
         return render(request, 'jop/cv/triningcourses.html',
-                      contextDate(url_name="triningcourses", request=request, form=None, count=None, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="triningcourses", request=request, form=None, count=None, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=None,
                                   bankKonown=None,
@@ -660,7 +715,10 @@ def DeleteExperiene(request, id):
     return redirect('experincev')
 
 
-def UpdateExperience(request, id):
+def UpdateExperience(request, id, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     disabled = "disabled"
     task = get_object_or_404(Experience, pk=id)
     experincedata = Experience.objects.filter(
@@ -674,7 +732,7 @@ def UpdateExperience(request, id):
     else:
         experince = ExperienceForm(instance=task)
         return render(request, 'jop/cv/experince.html',
-                      contextDate(url_name="experince", request=request, form=None, count=None, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="experince", request=request, form=None, count=None, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=None,
                                   bankKonown=None,
@@ -689,7 +747,10 @@ def UpdateExperience(request, id):
 
 
 class ExperienceView(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if islogin(request) == False:
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
@@ -699,7 +760,7 @@ class ExperienceView(View):
             experincedata = Experience.objects.filter(
                 user=Register(id=request.session['userLoggedUserId']))
             return render(request, 'jop/cv/experince.html',
-                          contextDate(url_name="experince", request=request, form=None, count=count, jobs=None, djobs=None,
+                          contextDate(lang = lang,url_name="experince", request=request, form=None, count=count, jobs=None, djobs=None,
                                       job=None, formset=None,
                                       bankKonownData=None,
                                       bankKonown=None,
@@ -712,7 +773,10 @@ class ExperienceView(View):
                                       )
                           )
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         experincedata = Experience.objects.filter(
             user=request.session['userLoggedUserId'])
 
@@ -727,7 +791,7 @@ class ExperienceView(View):
             experince = ExperienceForm()
 
         return render(request, 'jop/cv/experince.html',
-                      contextDate(url_name="experince", request=request, form=None, count=None, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="experince", request=request, form=None, count=None, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=None,
                                   bankKonown=None,
@@ -748,7 +812,10 @@ def DeleteEmployment(request, id):
     return redirect('employment')
 
 
-def UpdateEmployment(request, id):
+def UpdateEmployment(request, id, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     disabled = "disabled"
     task = get_object_or_404(Employment, pk=id)
     count = countdata(request)
@@ -764,7 +831,7 @@ def UpdateEmployment(request, id):
         employment = EmploymentForm(instance=task)
         return render(request, 'jop/cv/employment.html',
 
-                      contextDate(url_name="employment", request=request, count=count, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="employment", request=request, count=count, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=None,
                                   bankKonown=None,
@@ -778,7 +845,10 @@ def UpdateEmployment(request, id):
 
 
 class EmploymentView(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if islogin(request) == False:
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
@@ -788,7 +858,7 @@ class EmploymentView(View):
             employmentData = Employment.objects.filter(
                 user=Register(id=request.session['userLoggedUserId']))
             return render(request, 'jop/cv/employment.html',
-                          contextDate(url_name="employment", request=request, count=count, jobs=None, djobs=None,
+                          contextDate(lang = lang,url_name="employment", request=request, count=count, jobs=None, djobs=None,
                                       job=None, formset=None,
                                       bankKonownData=None,
                                       bankKonown=None,
@@ -800,7 +870,10 @@ class EmploymentView(View):
                                       )
                           )
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         employmentData = Employment.objects.filter(
             user=request.session['userLoggedUserId'])
 
@@ -816,7 +889,7 @@ class EmploymentView(View):
             count = countdata(request)
 
         return render(request, 'jop/cv/employment.html',
-                      contextDate(url_name="employment", request=request, form=employment, count=count, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="employment", request=request, form=employment, count=count, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=None,
                                   bankKonown=None,
@@ -835,7 +908,10 @@ def Deletebanknow(request, id):
     return redirect('BankKonown')
 
 
-def UpdateBankKonown(request, id):
+def UpdateBankKonown(request, id, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     disabled = "disabled"
     task = get_object_or_404(BankKonown, pk=id)
     bankKonownData = BankKonown.objects.filter(
@@ -850,7 +926,7 @@ def UpdateBankKonown(request, id):
     else:
         bankKonown = BankKonownForm(instance=task)
         return render(request, 'jop/cv/BankKonown.html',
-                      contextDate(url_name="BankKonown", request=request, count=count, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="BankKonown", request=request, count=count, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=bankKonownData,
                                   bankKonown=bankKonown,
@@ -861,7 +937,10 @@ def UpdateBankKonown(request, id):
 
 
 class BankKonownView(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if islogin(request) == False:
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
@@ -871,7 +950,7 @@ class BankKonownView(View):
             bankKonownData = BankKonown.objects.filter(
                 user=Register(id=request.session['userLoggedUserId']))
             return render(request, 'jop/cv/BankKonown.html',
-                          contextDate(url_name="BankKonown", request=request, count=count, jobs=None, djobs=None,
+                          contextDate(lang = lang,url_name="BankKonown", request=request, count=count, jobs=None, djobs=None,
                                       job=None, formset=None,
                                       bankKonownData=bankKonownData,
                                       bankKonown=bankKonown,
@@ -879,7 +958,10 @@ class BankKonownView(View):
                                       )
                           )
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         bankKonownData = BankKonown.objects.filter(
             user=request.session['userLoggedUserId'])
 
@@ -895,7 +977,7 @@ class BankKonownView(View):
             count = countdata(request)
 
         return render(request, 'jop/cv/BankKonown.html',
-                      contextDate(url_name="BankKonown", request=request, form=bankKonown, count=count, jobs=None, djobs=None,
+                      contextDate(lang = lang,url_name="BankKonown", request=request, form=bankKonown, count=count, jobs=None, djobs=None,
                                   job=None, formset=None,
                                   bankKonownData=bankKonownData,
                                   bankKonown=bankKonown
@@ -904,7 +986,10 @@ class BankKonownView(View):
 
 
 class GeneralDataView(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if islogin(request) == False:
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
@@ -916,11 +1001,14 @@ class GeneralDataView(View):
             except GeneralData.DoesNotExist:
                 form = GeneralDataForm()
 
-            return render(request, 'jop/cv/general_data.html', contextDate(url_name="generaldata", request=request, form=form, count=count, jobs=None, djobs=None,
+            return render(request, 'jop/cv/general_data.html', contextDate(lang = lang,url_name="generaldata", request=request, form=form, count=count, jobs=None, djobs=None,
                                                                            job=None, formset=None,
                                                                            ))
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         try:
             g = GeneralData.objects.filter(
                 user=Register(id=request.session['userLoggedUserId'])).first()
@@ -940,13 +1028,17 @@ class GeneralDataView(View):
         form = GeneralDataForm(
             request.POST, request.FILES, instance=g)
 
-        return render(request, 'jop/cv/general_data.html', contextDate(url_name="generaldata", request=request, form=form, count=None, jobs=None, djobs=None,
+        return render(request, 'jop/cv/general_data.html', contextDate(lang = lang,url_name="generaldata", request=request, form=form, count=None, jobs=None, djobs=None,
                                                                        job=None, formset=None,
                                                                        ))
 
 
 class JobsOfferedView(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
+
         if islogin(request) == False:
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
@@ -954,9 +1046,12 @@ class JobsOfferedView(View):
             user = Register.objects.get(id=request.session['userLoggedUserId'])
             job = oreder_Jobs.objects.filter(user=Register(
                 id=request.session['userLoggedUserId']))
-            return render(request, 'jop/cv/Jobs_offered.html', contextDate(url_name="Jobs_offered", request=request, job=job, count=count))
+            return render(request, 'jop/cv/Jobs_offered.html', contextDate(lang = lang,url_name="Jobs_offered", request=request, job=job, count=count))
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         jobs = oreder_Jobs.objects.filter(
             user=request.session['userLoggedUserId'])
 
@@ -970,4 +1065,4 @@ class JobsOfferedView(View):
             #     request, 'Congratualtions !! lauguage save Successfully')
             job = OrderJobForm()
 
-        return render(request, 'jop/cv/Jobs_offered.html', contextDate(url_name="Jobs_offered", request=request, job=job))
+        return render(request, 'jop/cv/Jobs_offered.html', contextDate(lang = lang,url_name="Jobs_offered", request=request, job=job))

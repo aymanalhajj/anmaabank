@@ -5,6 +5,8 @@ from navbarapp.views import NavbarsQuerySet,ColumnNavbarsQuerySet
 
 from settingapp.views import SettingModelQuerySet
 
+from settingapp.views import static_content
+
 def SectionPageHomeQuerySet():
     # current_datetime = datetime.datetime.now().date()
     # print(current_datetime)
@@ -26,7 +28,9 @@ def SectionPageAllQuerySet():
     queryset = SectionPage.objects.filter(
         is_deleted=False, is_hidden=False,).order_by('-sort_no')
     return queryset
-def section_single(request, id):
+def section_single(request, id, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
 
     from anmaabankApp.views import get_cookie
     # if request.method == 'GET':
@@ -71,5 +75,7 @@ def section_single(request, id):
     context["navbar"] = NavbarsQuerySet()
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()
     context['setting'] = SettingModelQuerySet()
+    
+    context["static_content"] = static_content[lang]
     return render(request, 'blog-single.html', context)
 

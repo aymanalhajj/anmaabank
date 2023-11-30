@@ -25,7 +25,7 @@ class LoanApplicationForm(ModelForm):
         'activity_type'         : Select2Widget(attrs={'class':'form-control'}),
         'guarantee_type'        : Select2Widget(attrs={'class':'form-control'})
         }
-        labels = {
+        """labels = {
         'client_name'           :'اسم العميل',
         'mobile_number'         :'رقم الجوال',
         'city_name'             :'المدينة',
@@ -39,7 +39,7 @@ class LoanApplicationForm(ModelForm):
         'monthly_installment'   :'القسط الشهري',
         'activity_type'         :'نوع النشاط',
         'guarantee_type'        :'نوع الضمانة'
-        }
+        }"""
         error_messages = {
         'client_name'           :{'required': 'يجب ادخال اسم العميل'},
         'mobile_number'         :{'required': 'يجب ادخال رقم الجوال'},

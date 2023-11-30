@@ -1,13 +1,12 @@
 
 {% extends "jop/cv/basecv.html" %}
 {% load static%}
-{% comment %} {% block title %} الوظائف المقدم فيها{% endblock %} {% endcomment %}
 
 {% block title %} 
-الوظائف المقدم فيها
+{{static_content.cv_file}}
 {% endblock %}
 {% block content_Breadcrumbs %}
-الوظائف المقدم فيها
+{{static_content.cv_file}}
 {% endblock %}
 
   {% block body_style %}
@@ -20,14 +19,14 @@
  
     <div id="main" style="background:#ffffff;" class="col-lg-9">
         <div style="background:#ffffff;padding:10px">
-            <h2> قم باضافة ملف السيرة الذاتية   </h2>            
+            <h2>{{static_content.add_cv_file}}</h2>            
     
             <form method="post" enctype="multipart/form-data" height="100px">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <div class="col-sm-offset-2 col-lg-10">
                     <div class="form-group">
-                        <button class="btn btn-primary"name="signinBtn" type="submit">رفع الملف</button>
+                        <button class="btn btn-primary"name="signinBtn" type="submit">{{static_content.upload_file}}</button>
                        
                     </div>
                 </div>

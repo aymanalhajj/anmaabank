@@ -63,8 +63,15 @@ class CreateAccoute(View):
 # .html
 
 
+from django.utils import translation
+from settingapp.views import static_content
+from django.utils.translation import gettext_lazy as _
 class vacancies(View):
-    def get(self, request, *args, **kwargs):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
+
         jobs = Jobs.objects.all()
         try:
             user_id = request.session.get('userLoggedUserId')
@@ -665,19 +672,26 @@ class Changepassword(View):
 
 class FileUploadView(View):
 
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         form = uploadCvForm()
         count = countdata(request)
-        return render(request, 'jop/cv/uploadcv.html', contextDate(url_name="filedupload", request=request, form=form, count=count))
+        return render(request, 'jop/cv/uploadcv.html', contextDate(lang= lang, url_name="filedupload", request=request, form=form, count=count))
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
+
         task = get_object_or_404(
             Register, id=request.session['userLoggedUserId'])
         form = uploadCvForm(request.POST, request.FILES, instance=task)
         if form.is_valid():
             form.save()
             return redirect('baseinfo')  # Redirect to a success page
-        return render(request, 'jop/cv/uploadcv.html', contextDate(url_name="filedupload", request=request, form=form,))
+        return render(request, 'jop/cv/uploadcv.html', contextDate(lang= lang, url_name="filedupload", request=request, form=form,))
 
 
 def countdata(request):

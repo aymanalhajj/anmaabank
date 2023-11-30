@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %} {% load i18n static %}
 
-{% block title %} الرئيسية {% endblock %}
+{% block title %} {{statc_content.main}} الرئيسية {% endblock %}
 
 {% block content %}
 
@@ -15,68 +15,27 @@
 {% block ads-swiper %}
 {% endblock ads-swiper %}
 
-
-
-
 <main id="main">
 
-
-    {% comment %} {% include 'section/slide_show.html' %}
-    {% block Slideshow  %}
-    {% endblock Slideshow  %} {% endcomment %}
-
-    {% comment %} {% include 'section/about.html' %}
-    {% block about %}
-    {% endblock about %} {% endcomment %}
-
-  
-
- 
-
-
-  {% comment %} {% include 'section/aftar_header.html' %}
-    {% block aftarAds %}
-    {% endblock aftarAds %} {% endcomment %}
-  
-    {% comment %} {% include 'section/our_vision.html' %}
-    {% block OurVision %}
-    {% endblock OurVision %} {% endcomment %}
-  
   {% include 'section/service-item-list-section.html' %}
-  
+
   {% block service-item-list-section %}
-  {% comment %} {% block section-title-services %}
-            <h2 class="section-title">
-                 خدماتنا دوماً معك
-            </h2> {% endcomment %}
-           
+
   {% endblock service-item-list-section %}
-  {% comment %} {% include 'section/apps.html' %}
-  {% block apps %}
-  {% endblock apps %} {% endcomment %}
-
-
 
   {% include 'section/apps-bank-section.html' %}
   {% block app-bank-section %}
   {% endblock app-bank-section %}
 
-
   {% include 'section/currencies-section.html' %}
   {% block currencies-section %}
   {% endblock currencies-section %}
-  
+
   {% include 'section/statistics.html' %}
   {% block statistics %}
   {% endblock statistics %}
-  
 
-   
-  
 
 </main>
-{% comment %} </div> {% endcomment %}
-{% comment %} </div> {% endcomment %}
-
 <!-- End #main -->
 {% endblock %}

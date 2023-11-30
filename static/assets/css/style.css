@@ -59,6 +59,16 @@
     font-display: swap
 }
 
+.footer-bk{
+    position: absolute;
+    bottom: -15px;
+    overflow: visible;
+    width: 500px; 
+    height: 520px;  
+    opacity: .9;  
+    z-index: 10;
+}
+
 :root {
     /* --main: var(--primary); */
     --color-default: #444;
@@ -10035,7 +10045,7 @@ body {
     font-family: "AbdoMaster", "Open Sans", sans-serif, 'SpaceMono';
     color: #444444;
 
-    cursor: none;
+    cursor: default;
     direction: rtl;
     text-align: right;
 }

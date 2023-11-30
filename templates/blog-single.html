@@ -6,22 +6,22 @@
   {% include 'base/header-back.html' %}
   {% block breadcrumbs %}
     <section class="breadcrumbs" style="border: 0px rgb(0, 255, 8) solid; background: none;padding: 0px;">
-      <div class="container" style="margin-top: 30px;margin-right: 20px;color: var(--primary);">
-        <ol>
-          <li><a style="color: var(--primary);" href="/">الرئيسية</a></li>
+      <div class="container" style="margin-top: 30px;margin-right: 20px;color: var(--primary);text-align: start;"  dir="{{static_content.direction}}">
+        <ol dir="{{static_content.direction}}">
+          <li><a  style="color: var(--primary);" href="/">{{static_content.main}}</a></li>
           {% if application and setting and not setting.is_hidden_bank_applications %}
-            <li>التطبيقات</li>
+            <li>{{static_content.applications}}</li>
             <li>{{application.titel|safe}}</li>
           {% elif section_page %}
-            <li>القسم</li>
+            <li>{{static_content.section}}</li>
             <li>{{section_page.titel|safe}}</li>
           {% elif news %}
             <li>{{news.category}}</li>
             <li>{{news.titel|safe}}</li>
           {% elif privace %}
-            <li>سياسة الخصوصية</li>
+            <li>{{static_content.privacy_policy}}</li>
           {% elif policie %}
-            <li>السياسات</li>
+            <li>{{static_content.policies}}</li>
           {% elif title %}
             <li>{{ title }} </li>
           {% elif titel %}

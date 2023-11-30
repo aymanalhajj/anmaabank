@@ -3,7 +3,7 @@ from .models import Report,Video
 
 from settingapp.views import SettingModelQuerySet
 from navbarapp.views import NavbarsQuerySet, ColumnNavbarsQuerySet
-# Create your views here.
+from settingapp.views import static_content
 
 def getUrl(request):
     if request is None:
@@ -12,7 +12,9 @@ def getUrl(request):
     # print(request.build_absolute_uri())
     return request.build_absolute_uri()
 
-def VideoListView(request):
+def VideoListView(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
     videos = Video.objects.all
     context ={
         'videos' : videos,
@@ -22,9 +24,12 @@ def VideoListView(request):
     context['setting'] = SettingModelQuerySet()
     context["navbar"] = NavbarsQuerySet()
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()
+    context["static_content"] = static_content[lang]
     return render(request, 'video-list.html',context)
 
-def ReportListView(request, type):
+def ReportListView(request, type, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
     reports = Report.objects.filter(report_type = type)
     context ={
         'reports' : reports,
@@ -35,4 +40,5 @@ def ReportListView(request, type):
     context['setting'] = SettingModelQuerySet()
     context["navbar"] = NavbarsQuerySet()
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()
+    context["static_content"] = static_content[lang]
     return render(request, 'report-list.html',context)

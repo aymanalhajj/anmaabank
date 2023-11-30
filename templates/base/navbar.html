@@ -5,18 +5,18 @@
 
 {% block navbar %}
 {% if navbar %}
-<div style=" margin-top: 37px;" class="container-fluid container-xl d-flex align-items-center justify-content-center">
+<div style=" margin-top: 37px;" class="container-fluid container-xl d-flex align-items-center justify-content-center" dir="{{static_content.direction}}">
     <nav id="navbar" class="navbar align-items-center justify-content-center">
 
         <ul id="navbar-main" class="backcolorwhite"  >
 
             <li >
-                <a style=" height: 32px;" class="nav-link scrollto" href="/#hero"><span>الرئيسية</span></a>
+                <a style=" height: 32px;" class="nav-link scrollto" href="/{{static_content.lang}}"><span> {{static_content.main}} </span></a>
             </li>
 
             <li>
 
-                <a style=" height: 32px;" class="nav-link scrollto" href="/about"> <span>عن البنك</span></a>
+                <a style=" height: 32px;" class="nav-link scrollto" href="/{{static_content.lang}}/about">{{static_content.about}}<span></span></a>
             </li>
 
 
@@ -30,16 +30,13 @@
 
                 <a style=" height: 32px;" href="#">
 
-                    <span>تطبيقات البنك</span>
-                    
-                    {% comment %}<i class="bi bi-chevron-down">{% endcomment %}</i></a>
-
+                    <span>{{static_content.bank_applications}}</span></i></a>
                 <ul class="sub-header-container">
                     <div class="sub-header-description">
-                        <h5>تطبيقات البنك</h5>
+                        <h5>{{static_content.bank_applications}}</h5>
                     </div>
                     {% for application in navbar.bank_applications %}
-                    <li><a href="{% url 'application-single' application.id %}">
+                    <li><a href="/{{static_content.lang}}/application/{{application.id}}">
                             {% if application.logo_image %}
                             <div class="icon-container">
                                 <img src="{{application.logo_image.url}}" alt="service icon">
@@ -65,7 +62,7 @@
 
                 <span>
 
-                    اقسام وصفحات
+                    {{static_content.pages_and_sections}}
 
                 </span>
 
@@ -74,17 +71,18 @@
             <ul class="sub-header-container">
                 <div class="sub-header-description">
                     <h5>
-                        اقسام وصفحات
+                        {{static_content.pages_and_sections}}
+                        
                     </h5>
                     <p>
-                        تحويل .. سهولة .. ابتكار
+                        {{static_content.service_title3}}
                     </p>
                 </div>
 
                 {% for section in navbar.section %}
 
 
-                <li><a href="{% url 'section-singl' section.id %}">
+                <li><a href="/{{static_content.lang}}/section/{{section.id}}">
                         {% if section.image %}
                         <div class="icon-container">
                             <img src="{{section.image.url}}" alt="service icon">
@@ -103,72 +101,51 @@
         {% endif %}
 
         {% if navbar.servicess and navbar.categories_services %}
-        {% comment %} {% for service in navbar.servicess|in_type_services:"1" %} {% endcomment %}
-        {% for categories_service in navbar.categories_services %}
+            {% for categories_service in navbar.categories_services %}
 
-        <li class="dropdown">
+            <li class="dropdown">
 
-            <a style=" height: 32px;" href="#">
-
-                <span>
-                    {{categories_service.name}}
-                    {% comment %} خدمات الأفراد {% endcomment %}
-                </span>
-
-                {% comment %}<i class="bi bi-chevron-down">{% endcomment %}</i></a>
-
-            <ul class="sub-header-container">
-                <div class="sub-header-description">
-                    <h5>
-
+                <a style=" height: 32px;" href="#">
+                    <span>
                         {{categories_service.name}}
+                    </span>
+                </i></a>
 
-                    </h5>
-                    {% if categories_service.description %}
-                    <p>
-
-
-                        {{categories_service.description}}
-
-
-                    </p>
-                    {% endif %}
-                </div>
-
-                {% if navbar.servicess %}
-
-                {% comment %} {% else %} {% endcomment %}
-
-                {% for service in navbar.servicess|in_categories_services:categories_service %}
-
-
-                <li><a href="{% url 'service-single' service.id %}">
-                        {% if service.image %}
-                        <div class="icon-container">
-                            <img src="{{service.image.url}}" alt="service icon">
-
-                        </div>
-                        {% else %}
-                        <div class="icon-container">
-
-                            <img src="{% static 'assets/img/logo-only.png'  %}" alt="logo  Alinma ">
-                        </div>
+                <ul class="sub-header-container">
+                    <div class="sub-header-description">
+                        <h5>
+                            {{categories_service.name}}
+                        </h5>
+                        {% if categories_service.description %}
+                        <p>
+                            {{categories_service.description}}
+                        </p>
                         {% endif %}
-                        <span>{{service.titel}}</span>
-                    </a>
-                </li>
+                    </div>
+                    {% if navbar.servicess %}
+                        {% for service in navbar.servicess|in_categories_services:categories_service %}
+                            <li><a href="/{{static_content.lang}}/service/{{service.id}}">
+                                    {% if service.image %}
+                                    <div class="icon-container">
+                                        <img src="{{service.image.url}}" alt="service icon">
 
+                                    </div>
+                                    {% else %}
+                                    <div class="icon-container">
 
-                {% endfor %}
-                {% endif %}
+                                        <img src="{% static 'assets/img/logo-only.png'  %}" alt="logo  Alinma ">
+                                    </div>
+                                    {% endif %}
+                                    <span>{{service.titel}}</span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
 
-            </ul>
+                </ul>
 
-        </li>
-
-        {% comment %} {% endif %} {% endcomment %}
-
-        {% endfor %}
+            </li>
+            {% endfor %}
 
         {% endif %}
 
@@ -179,7 +156,7 @@
 
             <a style=" height: 32px;" href="#">
 
-                <span>خدمات الأفراد
+                <span>{{static_content.individual_services}}
                 </span>
 
                 <i class="bi bi-chevron-down"></i></a>
@@ -188,12 +165,12 @@
                 <div class="sub-header-description">
                     <h5>
 
-                        خدمات الأفراد
+                        {{static_content.individual_services}}
 
                     </h5>
                     <p>
 
-                        باقة فريدة من الخدمات البنكية المتطورة
+                        {{static_content.service_title2}}
 
 
                     </p>
@@ -202,7 +179,7 @@
                 {% for service in navbar.servicess|in_type_services:"1" %}
 
 
-                <li><a href="{% url 'service-single' service.id %}">
+                <li><a href="/{{static_content.lang}}/service/{{service.id}}">
                         {% if service.image %}
                         <div class="icon-container">
                             <img src="{{service.image.url}}" alt="service icon">
@@ -235,7 +212,7 @@
             <a style=" height: 32px;" href="#">
 
                 <span>
-                    خدمات المنظمات
+                    {{static_content.organization_services}}
                 </span>
 
                 <i class="bi bi-chevron-down"></i></a>
@@ -244,7 +221,7 @@
                 <div class="sub-header-description">
                     <h5>
 
-                        خدمات المنظمات
+                        {{static_content.organization_services}}
 
 
                     </h5>
@@ -259,7 +236,7 @@
                 {% for service in navbar.servicess|in_type_services:"2" %}
 
 
-                <li><a href="{% url 'service-single' service.id %}">
+                <li><a href="/{{static_content.lang}}/service/{{service.id}}">
                         {% if service.image %}
                         <div class="icon-container">
                             <img src="{{service.image.url}}" alt="service icon">
@@ -294,7 +271,7 @@
             <a style=" height: 32px;" href="#">
 
                 <span>
-                    خدمات الشركات
+                    {{static_content.company_services}}
 
                 </span>
 
@@ -304,7 +281,7 @@
                 <div class="sub-header-description">
                     <h5>
 
-                        خدمات الشركات
+                        {{static_content.company_services}}
 
 
 
@@ -320,7 +297,7 @@
                 {% for service in navbar.servicess|in_type_services:"3" %}
 
 
-                <li><a href="{% url 'service-single' service.id %}">
+                <li><a href="/{{static_content.lang}}/service/{{service.id}}">
                         {% if service.image %}
                         <div class="icon-container">
                             <img src="{{service.image.url}}" alt="service icon">
@@ -349,27 +326,27 @@
 
                     {% if user is None %}
                     <li class="nav-item-mobile">
-                        <a href="{% url 'login-user' %}" class="">
-                                <span>تسجيل الدخول</span>
+                        <a href="/{{static_content.lang}}/login" class="">
+                            <span>{{static_content.login}}</span>
                             </a>
                     </li>
                     <li class="nav-item-mobile">
-                        <a href="{% url 'createaccoute-user' %}" class="">
+                        <a href="/{{static_content.lang}}/createaccoute" class="">
                             {% comment %} <a href="#/map"> {% endcomment %}
 
-                                <span>انشاء حساب</span>
+                                <span>{{static_content.register}}</span>
                             </a>
                     </li>
                     {% endif %}
                <li>
-                    <a style="background-color: var(--accent); height: 32px;" class="getstarted scrollto" href="{% url 'open-account' %}">
+                    <a style="background-color: var(--accent); height: 32px;" class="getstarted scrollto" href="/{{static_content.lang}}/open-account">
 
                         <span style="display: inline-block;
                         font-size: 18px;
                         font-weight: bold;
                         font-family: HacenTunisiaBoldRegular;">
 
-                            طلب فتح حساب
+                            {{static_content.request_open_account}}
                         </span>
 
                     </a>

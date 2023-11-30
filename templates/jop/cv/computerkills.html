@@ -1,7 +1,11 @@
 {% extends "jop/cv/basecv.html" %}
 {% load static%}
 {% load i18n static %}
-{% block title %} مهارات الحاسوب{% endblock %}
+{% block title %}{{static_content.computer_skills}}{% endblock %}
+
+{% block content_Breadcrumbs %}
+{{static_content.computer_skills}}
+{% endblock %}
 {% block body_style %} {% endblock%} {% block content-page %}
 
 <div id="main" style="overflow-x:auto;background:#ffffff;" class="col-lg-9">
@@ -9,16 +13,14 @@
         <div class="pro-scroll" style="position:relative;">
             <div class="card-body p-0">
                 <div class="table-responsive">
-                    <h2>مهارات الحاسوب</h2>
+                    <h2>{{static_content.computer_skills}}</h2>
 
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th> رقم </th>
-                                <th>اسم المهارة </th>
-                                <th>مستوى المهارة</th>
-
-
+                                <th>{{static_content.number}}</th>
+                                <th>{{static_content.skill_name}}</th>
+                                <th>{{static_content.skill_level}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,17 +29,12 @@
                                 <td>{{f.id}}</td>
                                 <td>{{f.name}}</td>
                                 <td>{{f.level}}</td>
-
-
                                 <td>
-
                                     <div class="button-container">
                                         <a href="UpdateComputerSkil/{{f.id}}"
                                             class="btn btn-info form-inline {{disabled}}">تحرير</a>
                                         <a href="DeleteComSilks/{{f.id}}" class="btn btn-danger form-inline">حذف</a>
-
                                     </div>
-
                                 </td>
                             </tr>
                             {% endfor %}
@@ -48,7 +45,7 @@
         </div>
 
         <div class="add_new">
-            <h3>إضافة مهارات حاسوب</h3>
+            <h3>{{static_content.add_computer_skills}}</h3>
             {% load  static %} {% load crispy_forms_tags %}
 
 
@@ -91,16 +88,15 @@
                         <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
                             <div class="input-group-prepend with-label">
 
+                                {% if static_content.lang == "ar" %}
                                 <span class="input-group-text" id="basic-addon1">
                                     {% if field.field.icon %}
                                     <i class="{{field.field.icon}}"></i>
-
                                     {% else %}
                                     <i class="bi bi-journal-code"></i>
-
                                     {% endif %}
-
                                 </span>
+                            {% endif %}
                             </div>
                             {{field|as_crispy_field}}
                         </div>
@@ -115,16 +111,15 @@
                         <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
                             <div class="input-group-prepend with-label">
 
+                                {% if static_content.lang == "ar" %}
                                 <span class="input-group-text" id="basic-addon1">
                                     {% if field.field.icon %}
                                     <i class="{{field.field.icon}}"></i>
-
                                     {% else %}
                                     <i class="bi bi-journal-code"></i>
-
                                     {% endif %}
-
                                 </span>
+                            {% endif %}
                             </div>
                             {{field|as_crispy_field}}
                         </div>
@@ -139,17 +134,17 @@
                     <div class="row gx-5">
                         <div class=" col">
                             <a href="{% url "computerskills" %}"> <button class="btn btn-info btn-primary"
-                                    type="submit">حفظ</button>
+                                    type="submit">{{static_content.save}}</button>
                             </a>
                         </div>
                         <div class=" col">
 
-                            <a type="button" class="btn btn-default prev p-3" href="{% url "languagskills"%}"
-                                role="button">السابق</a>
+                            <a type="button" class="btn btn-default prev p-3" href="/{{static_content.lang}}/jobs/languagskills"
+                                role="button">{{static_content.previous}}</a>
                         </div>
                         <div class=" col">
                             <a type="button" class="btn btn-default next p-3 navbar-left"
-                                href="{% url "triningcourses"%}" role="button">التالي</a>
+                                href="/{{static_content.lang}}/jobs/triningcourses" role="button">{{static_content.next}}</a>
                         </div>
 
                     </div>

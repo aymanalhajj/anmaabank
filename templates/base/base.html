@@ -1,14 +1,11 @@
+{% load i18n %}
 {% load static %}
 
 
 {% load selectable_tags %}
 
 <!DOCTYPE html>
-<html lang="ar" dir="ltr">
-
-{% comment %} <head> {% endcomment %}
-{% comment %} <meta charset="UTF-8"> {% endcomment %}
-
+<html lang="ar" dir="{{static_content.direction}}">
 
   <head>
 
@@ -27,7 +24,6 @@
     <meta name="googlebot-news" content="all">
     <meta name="googlebot" content="all">
 
-{% comment %} hreflang="ar" {% endcomment %}
     {% block custom_head %}
   
   
@@ -37,20 +33,16 @@
 
     <title> 
 
-        بنك الإنماء  - 
+      {{static_content.alinma_bank}}   - 
       {% if  title %}    
        {{ title }} 
        
-      {% comment %} {% endif %} {% endcomment %}
 
       {% elif  titel %}    
        {{ titel }} 
        {% else %}
          {% block title %} {% endblock %} 
       {% endif %}
-       
-       {% comment %} {% block titel %} {% endblock %}  |       {% endcomment %}
-       {% comment %} {% block title %} {% endblock %} {% endcomment %}
 
     
 
@@ -60,8 +52,7 @@
     <meta charset="UTF-8" />
    
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-{% comment %} <meta name="keywords" content=""> {% endcomment %}
-<meta name="author" content="Ibrahim shaher Saeed - ابراهيم شاهر سعيد www.ialzoriqi.com/ar">
+<meta name="author" content="Ayman Al-Rabyee - ابراهيم شاهر سعيد www.ialzoriqi.com/ar">
 <meta name="mobile-web-app-capable" content="no">
 <meta name="apple-mobile-web-app-title" content="بنك الإنماء للتمويل الأصغر الإسلامي">
 
@@ -70,8 +61,6 @@
 
 
 <meta name="MobileOptimized" content="320">
-{% comment %} {% if titel %} {% endcomment %}
-{% comment %} <meta property="og:title" content="{% block title-name %} بنك     {% endblock %}"> {% endcomment %}
 {% if about %}
 <meta property="og:title" content="عن بنك الإنماء للتمويل الأصغر الإسلامي ">
 <meta name="title" contact=" عن بنك الإنماء للتمويل الأصغر الإسلامي ">
@@ -91,8 +80,6 @@
 <meta name="title" contact="{{services.titel}}">
 
       {% else  %}
-{% comment %} <meta property="og:title" content="بنك الإنماء "> {% endcomment %}
-{% comment %} <meta name="title" content="بنك الإنماء "> {% endcomment %}
 <meta name="title" content="{% block title-name %} {% endblock %} بنك الإنماء للتمويل الأصغر الإسلامي ">
 <meta name="og:title" content="{% block title-og %} {% endblock %} بنك الإنماء للتمويل الأصغر الإسلامي ">
 
@@ -118,12 +105,6 @@
       <meta itemprop="url" content="{{ url }}">
     {% endif %}
 <script src='https://kit.fontawesome.com/index.11b8ecfa.js' crossorigin='anonymous'></script>
-{% comment %} <script type="module" crossorigin="" src="{% static 'assets/tinymce/tinymce.min.js'  %}?version=4"></script> {% endcomment %}
-{% comment %} /Users/ialzoriqi/flutter_project/alinmabankdevloper/static/assets/tinymce {% endcomment %}
- {% comment %} <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> {% endcomment %}
- {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" /> {% endcomment %}
- {% comment %} <link rel="stylesheet" href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'  %}?version=4" /> {% endcomment %}
-    {% comment %} <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script> {% endcomment %}
 
 
 
@@ -140,8 +121,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/icon/favicon-32x32.png'  %}?version=4">
 <link rel="icon" type="image/png" sizes="96x96" href="{% static 'assets/icon/favicon.png'  %}?version=4">
 <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/icon/favicon.png'  %}?version=4">
-{% comment %} <link rel="manifest" href="{% url 'manifest.json'  %}">  {% endcomment %}
-{% comment %} <link rel="manifest" href="{% url 'manifest.json'  %}">  {% endcomment %}
 
 <link rel="manifest" href="{% static '/manifest.json'  %}"> 
 <meta name="msapplication-TileColor" content="#ffffff">
@@ -162,7 +141,7 @@
 <meta name="twitter:image:src" content="{% static 'assets/img/favicon.png'  %}?version=4">
 <meta name="twitter:description"
   content="المساهمة في التنمية الاقتصادية والاجتماعية وفي تحسين مستوى معيشة المجتمع اليمني عن طريق تقديم خدمات مالية متنوعة ومتميزة...">
-{% comment %} <meta property="og:url" content="{{ url }}"> {% endcomment %}
+
    {% if  url %}
       <meta property="og:url" content="{{ url }}">
     {% endif %}
@@ -170,47 +149,9 @@
   
             
 <meta property="og:image:alt" content="{{ title }} | بنك الإنماء للتمويل الأصغر الإسلامي">
-{% comment %} <meta itemprop="name" content="بنك الإنماء "> {% endcomment %}
-{% comment %} <meta itemprop="description" content="المساهمة في التنمية الاقتصادية والاجتماعية وفي تحسين مستوى معيشة المجتمع اليمني عن طريق تقديم خدمات مالية متنوعة ومتميزة.."> {% endcomment %}
+
 <meta itemprop="image" content="{% static 'assets/img/favicon.png'  %}?version=4">
 <!--start theme style -->
-    {% comment %} <meta http-equiv="X-UA-Compatible" content="IE=edge" /> {% endcomment %}
-    <!-- mobile metas -->
-    {% comment %} <meta name="viewport" content="width=device-width, initial-scale=1" /> {% endcomment %}
-    {% comment %} <meta name="viewport" content="initial-scale=1, maximum-scale=1" /> {% endcomment %}
-    {% comment %} <meta name="robots" content= "index, follow"> {% endcomment %}
-    {% comment %} <meta content="width=device-width, initial-scale=1.0" name="viewport"> {% endcomment %}
-    {% comment %} <meta name="google-site-verification" content="Ym-L4n3CAk_JR_D6l9B2c15yYYNKbjxzgShXwLTnEmk" /> {% endcomment %}
-
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/HomeView.c198231a.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/IconAppStore.ee785a59.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/index.2ab10854.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/fbevents.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/ServiceCard.9be2c1e3.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/IconArrowLeft.2c09fcb5.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/ServiceCardSkeleton.c663eea4.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/IconArrowRight.c6c737f3.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/SuccessStoryBox.b7903ba4.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/index.2ab10854.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/PartnerCard.8a09a006.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/SuccessStoryBox.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/SuccessStoryBox.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/SuccessStoryBox.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <link rel="modulepreload" as="script" crossorigin="" href="{% static 'assets/js/SuccessStoryBox.js'  %}?version=4"> {% endcomment %}
-    {% comment %} <script type="module" crossorigin="" src="{% static 'assets/js/index.11b8ecfa.js' %}"></script> {% endcomment %}
-
-    {% comment %} <script type="module" crossorigin="" src="{% static 'assets/js/index.2ab10854.js' %}"></script> {% endcomment %}
-
-    {% comment %} <script type="module" crossorigin="" src="/assets/js/index.2ab10854.js"></script> {% endcomment %}
-    {% comment %} <script type="module" crossorigin="" src="{% static 'assets/js/PartnerCard.8a09a006.js'  %}?version=4"></script> {% endcomment %}
-
-    {% comment %} <script type="module" crossorigin="" src="{% static 'assets/js/index.2ab10854.js'  %}?version=4"></script> {% endcomment %}
-    {% comment %} <script type="module" crossorigin="" src="{% static 'assets/js/HomeView.c198231a.js'  %}?version=4"></script> {% endcomment %}
-    {% comment %} <script type="module" crossorigin="" src="{% static 'assets/js/PartnerCard.8a09a006.js'  %}?version=4"></script> {% endcomment %}
-    {% comment %} <script type="module" crossorigin="" src="{% static 'assets/js/HomeView.c18d3278.js'  %}?version=4"></script> {% endcomment %}
-    {% comment %} <script type="module" crossorigin="" src="{% static 'assets/js/IconCalendar.5f75d21a.js'  %}?version=4"></script> {% endcomment %}
-    {% comment %} <script type="module" crossorigin="" src="{% static 'assets/js/index.2ab10854.js'  %}?version=4"></script> {% endcomment %}
-    {% comment %} <script type="module" crossorigin="" src="{% static 'assets/js/index.2ab10854.js'  %}?version=4"></script> {% endcomment %}
     {% comment %} {% include_jquery_libs %}
     {% include_ui_theme %}
     {% comment %} {% include_ui_theme 'ui-lightness' '1.11.4' %} {% endcomment %}
@@ -380,7 +321,7 @@
 
     {% comment %} <meta name="keywords" content="   {% endcomment %}
     {% comment %} بنك الإنماء , Safar By Call Me Info, anmaa, Safar By Call Me  , تصميم الشعارات  التجارية , وتصميم وتنفيذ كافة المطبوعات باحترافية عالية , وبأفضل الأسعار, من أعمالنا تصميم شعارات إحترافية ( شخصية وتجارية ) , هويات تجارية إحترافية , بروشورات , بروفايل , صحف , مجلات , كروت شخصية , أختام , مطبوعات تجارية , فواتير , سندات , كافة أعمال التصاميم , مجلدات لحفظ الاوراق , وظروف بمختلف مقاساتها , تصميم لوحات الفيليكس , كافة انواع التصاميم نقوم بتصميمها ,الطباعة على (تيشيرتات , قبعات , أكواب , أكياس , , أقلام , )   ليكوبوند , لوحات عملاقة , لوحات فلكس , بنرات , لواصق,  التسويق , ابراهيم الزريقي , ابراهيم  شاهر سعيد الزريقي  ,شعارات , تصميم مواقع , مطبوعات , تيشيرتات ,لوحات عملاقة , اكواب , اكياس ,أختام ,مطبوعات , صحف , مجلات , فواتيرس" /> {% endcomment %}
-    <meta name="author" content="Ibrahim shaher Saeed - ابراهيم شاهر سعيد" />
+    <meta name="author" content="Ayman Al-Rabyee - ابراهيم شاهر سعيد" />
 
     <!-- Favicons -->
     <link href="{% static 'assets/img/favicon.png'  %}?version=4" rel="icon" />
@@ -591,13 +532,9 @@
     </footer> {% endcomment %}
     <!-- End Footer -->
 
-    <a
-      href="#"
-      class="back-to-top d-flex align-items-center justify-content-center"
-      >
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
       
 
-      {% comment %} <i class="bi bi-arrow-up-short"></i> {% endcomment %}
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;" xml:space="preserve">
       <style type="text/css">
         

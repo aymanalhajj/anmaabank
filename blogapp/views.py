@@ -12,6 +12,7 @@ from settingapp.views import SettingModelQuerySet
 # from anmaabankApp.forms import OurNewsletterForm
 from OurNewsletter.forms import *
 from OurNewsletter.views import *
+from settingapp.views import static_content
 
 
 def getUrl(request):
@@ -70,18 +71,19 @@ class BlogsListView(generic.ListView):
     # model = Blogs
     # your own name for the list as a template variable
     context_object_name = 'blogs'
-    # queryset = Blogs.objects.all()
     template_name = 'blog.html'
     allow_empty = True
+    paginator = Paginator  # 6 employees per page
+    paginate_by = 10
+    ordering = ['-date_post']
+    # queryset = Blogs.objects.all()
     # make_object_list = True
     # allow_future = True
-    paginator = Paginator  # 6 employees per page
 
     # queryset = None
     # model = ['prodactHome', 'category', 'citys', 'countrys', 'category']
     # paginate_by = 'page'
     # paginate_by = 1  # and that's it !!
-    paginate_by = 10
 
     # paginate_orphans = 10
     # context_object_name = None
@@ -90,7 +92,6 @@ class BlogsListView(generic.ListView):
     # ordering = '-date_post'
     # context_object_name = 'index'
     # schema = None
-    ordering = ['-date_post']
 
     def get_context_data(self, **kwargs):
         from django.db.models import Count, Case, When
@@ -143,7 +144,9 @@ class BlogsListView(generic.ListView):
         # if self.request.method == 'POST':
         # return SaveContact(request,"blog.html",context)
         context['page'] = int(self.request.GET.get('page', 1))
-
+        
+        lang = self.kwargs['lang']
+        context["static_content"] = static_content[lang]
         context['some_data'] = 'This is just some data'
 
         if self.request.method == 'POST':
@@ -265,6 +268,10 @@ class NewsListView(generic.ListView):
         # )
     # )
 # )
+        
+        context['page'] = int(self.request.GET.get('page', 1))
+        lang = self.kwargs['lang']
+        context["static_content"] = static_content[lang]
         context['page'] = int(self.request.GET.get('page', 1))
         if self.request.method == 'POST':
             SaveContact(self.request, "blog.html", context)
@@ -389,6 +396,8 @@ class EventListView(generic.ListView):
         context['page'] = int(self.request.GET.get('page', 1))
         # if self.request.method == 'POST':
         #     return SaveContact(request,"blog.html",context)
+        lang = self.kwargs['lang']
+        context["static_content"] = static_content[lang]
         context['some_data'] = 'This is just some data'
         return context
 
@@ -435,7 +444,10 @@ class EventListView(generic.ListView):
 
 # class (generic.ListView):
 
-def BlogSingleListView(request, id):
+def BlogSingleListView(request, id, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+
     from django.db.models import Count, Case, When
     context = {
 
@@ -506,6 +518,7 @@ def BlogSingleListView(request, id):
 # )
     # context['page'] = intrequest.GET.get('page', 1))
 
+    context["static_content"] = static_content[lang]
     context['some_data'] = 'This is just some data'
     # return context
 
@@ -528,7 +541,10 @@ def BlogSingleListView(request, id):
     # Specify your own template name/location
 
 
-def PrivacyPoliciesSingleListView(request):
+def PrivacyPoliciesSingleListView(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+
     from django.db.models import Count, Case, When
     context = {
 
@@ -599,6 +615,7 @@ def PrivacyPoliciesSingleListView(request):
 # )
     # context['page'] = intrequest.GET.get('page', 1))
 
+    context["static_content"] = static_content[lang]
     context['some_data'] = 'This is just some data'
     # return context
 
@@ -621,7 +638,10 @@ def PrivacyPoliciesSingleListView(request):
     # Specify your own template name/location
 
 
-def AntiMoneyLaunderingSingleListView(request):
+def AntiMoneyLaunderingSingleListView(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+
     from django.db.models import Count, Case, When
     context = {
 
@@ -692,6 +712,7 @@ def AntiMoneyLaunderingSingleListView(request):
 # )
     # context['page'] = intrequest.GET.get('page', 1))
 
+    context["static_content"] = static_content[lang]
     context['some_data'] = 'This is just some data'
    
     # return context
@@ -715,7 +736,10 @@ def AntiMoneyLaunderingSingleListView(request):
     # Specify your own template name/location
 
 
-def PoliciesSingleListView(request, id):
+def PoliciesSingleListView(request, id, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+
     from django.db.models import Count, Case, When
     context = {
 

@@ -1,11 +1,10 @@
 {% extends "jop/cv/basecv.html" %}
 {% load static%}
-{% comment %} {% block title %} الدورات التدريبية{% endblock %} {% endcomment %}
 {% block title %}
-الدورات التدريبية
+{{static_content.training_courses}}
 {% endblock %}
 {% block content_Breadcrumbs %}
-الدورات التدريبية
+{{static_content.training_courses}}
 {% endblock %}
 {% block body_style %}
 
@@ -20,15 +19,15 @@
     <div class="pro-scroll" style="position:relative;">
       <div class="card-body p-0">
         <div class="table-responsive">
-          <h2> الدورات التدريبية</h2>
+          <h2>{{static_content.training_courses}}</h2>
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>اسم المعهد </th>
-                <th>الدورة</th>
-                <th> البلد</th>
-                <th>من تاريخ</th>
-                <th>الى تاريخ</th>
+                <th>{{static_content.institute_name}}</th>
+                <th>{{static_content.course_name}}</th>
+                <th>{{static_content.country}}</th>
+                <th>{{static_content.from_dtae}}</th>
+                <th>{{static_content.to_date}}</th>
 
               </tr>
             </thead>
@@ -57,7 +56,7 @@
       </div>
     </div>
     <div class="add_new">
-      <h3>إضافة</h3>
+      <h3>{{static_content.add}}</h3>
       <div style="background:#ffffff;">
         {% load i18n static %} {% load crispy_forms_tags %}
 
@@ -76,20 +75,16 @@
           <div class="col-md-12 ">
             {{field.oreder_message.label_tag}}
             <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
-              <div class="input-group-prepend with-label">
-                {% comment %} {{courses.your_field_here.label_tag}} {% endcomment %}
-
-                <span class="input-group-text" id="basic-addon1">
-                  {% if field.field.icon %}
-                  <i class="{{field.field.icon}}"></i>
-
-                  {% else %}
-                  <i class="bi bi-journal-code"></i>
-
-                  {% endif %}
-
-                </span>
-              </div>
+              
+              {% if static_content.lang == "ar" %}
+                  <span class="input-group-text" id="basic-addon1">
+                      {% if field.field.icon %}
+                      <i class="{{field.field.icon}}"></i>
+                      {% else %}
+                      <i class="bi bi-journal-code"></i>
+                      {% endif %}
+                  </span>
+              {% endif %}
               {{field|as_crispy_field}}
             </div>
             <small class="text-danger">{{field.errors | striptags}}</small>
@@ -104,16 +99,15 @@
               <div class="input-group-prepend with-label">
                 {% comment %} {{courses.your_field_here.label_tag}} {% endcomment %}
 
+                {% if static_content.lang == "ar" %}
                 <span class="input-group-text" id="basic-addon1">
-                  {% if field.field.icon %}
-                  <i class="{{field.field.icon}}"></i>
-
-                  {% else %}
-                  <i class="bi bi-journal-code"></i>
-
-                  {% endif %}
-
+                    {% if field.field.icon %}
+                    <i class="{{field.field.icon}}"></i>
+                    {% else %}
+                    <i class="bi bi-journal-code"></i>
+                    {% endif %}
                 </span>
+            {% endif %}
               </div>
               {{field|as_crispy_field}}
             </div>
@@ -127,17 +121,17 @@
           </br>
           <div class="row gx-5">
             <div class=" col">
-              <a href="{% url "triningcourses" %}"> <button class="btn btn-info btn-primary" type="submit">حفظ</button>
+              <a href="{% url "triningcourses" %}"> <button class="btn btn-info btn-primary" type="submit">{{static_content.save}}</button>
               </a>
             </div>
             <div class=" col">
 
-              <a type="button" class="btn btn-default prev p-3" href="{% url "computerskills"%}"
-                role="button">السابق</a>
+              <a type="button" class="btn btn-default prev p-3" href="/{{static_content.lang}}/jobs/computerskills"
+                role="button">{{static_content.previous}}</a>
             </div>
             <div class=" col">
-              <a type="button" class="btn btn-default next p-3 navbar-left" href="{% url "experince"%}"
-                role="button">التالي</a>
+              <a type="button" class="btn btn-default next p-3 navbar-left" href="/{{static_content.lang}}/jobs/experince"
+                role="button">{{static_content.next}}</a>
             </div>
 
           </div>

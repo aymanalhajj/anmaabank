@@ -647,31 +647,38 @@ TINYMCE_DEFAULT_CONFIG = {
     #     {"value": 'Email', "title": 'ibrhm.shahr@gmail.com'},
     # ]
 }
-MIDDLEWARE = [
-    'django_hosts.middleware.HostsRequestMiddleware',
 
-    'django.middleware.security.SecurityMiddleware',
+from django.utils.translation import ugettext_lazy as _
+
+LOCALE_PATHS = [    
+    os.path.join(BASE_DIR, "locale")
+    ,
+]
+LANGUAGE_CODE ="ar"
+LANGUAGE_COOKIE_NAME = "alinma-lang"
+LANGUAGES = [
+    ("ar", _("Arabic")),
+    ("en", _("English")),
+]
+MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django_hosts.middleware.HostsRequestMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     "django.contrib.admindocs.middleware.XViewMiddleware",
-    # "subdomains.middleware.SubdomainURLRoutingMiddleware",
-
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # "subdomains.middleware.SubdomainURLRoutingMiddleware",
     # "django.middleware.csrf.CsrfResponseMiddleware",
     # 'current_user.CurrentUserMiddleware',
     # 'tutorial.current_user.CurrentUserMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'django.middleware.locale.LocaleMiddleware',
-    'django_user_agents.middleware.UserAgentMiddleware',
-
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # "anmaabank.middleware.SaveInfoIpMiddleware",
-
     # 'django_hosts.middleware.HostsResponseMiddleware',
-
-
 ]
 # MIDDLEWARE_CLASSES = (
 #     # other middlewares...
@@ -763,7 +770,7 @@ DATABASES = {
    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'alinmabank',
-        'USER': 'djangouser',
+        'USER': 'root',
         'PASSWORD': 'MYSQL@2030',
         'HOST':'127.0.0.1',
         'PORT':'3306',

@@ -1,0 +1,411 @@
+{% load static %}
+{% load in_column_navbar_chield %}
+{% load in_type_services %}
+{% load in_categories_services %}
+
+{% block navbar %}
+{% if navbar %}
+<div style=" margin-top: 37px;" class="container-fluid container-xl d-flex align-items-center justify-content-center">
+    <nav id="navbar" class="navbar align-items-center justify-content-center">
+
+        <ul id="navbar-main" class="backcolorwhite"  >
+
+            <li >
+                <a style=" height: 32px;" class="nav-link scrollto" href="/#hero"><span> {{static_content.main}} </span></a>
+            </li>
+
+            <li>
+
+                <a style=" height: 32px;" class="nav-link scrollto" href="/about">{{static_content.about}}<span></span></a>
+            </li>
+
+
+            {% comment %} {% block custom-menu-navbar %}
+            {% endblock custom-menu-navbar %} {% endcomment %}
+
+
+            {% if navbar.bank_applications %}
+
+            <li class="dropdown">
+
+                <a style=" height: 32px;" href="#">
+
+                    <span>{{static_content.bank_applications}}</span></i></a>
+                <ul class="sub-header-container">
+                    <div class="sub-header-description">
+                        <h5>{{static_content.bank_applications}}</h5>
+                    </div>
+                    {% for application in navbar.bank_applications %}
+                    <li><a href="{% url 'application-single' application.id %}">
+                            {% if application.logo_image %}
+                            <div class="icon-container">
+                                <img src="{{application.logo_image.url}}" alt="service icon">
+                            </div>
+                            {% else%}
+                            <div class="icon-container"><img src="{% static 'assets/img/logo-only.png'  %}"
+                                    alt="service icon"></div>
+
+                            {% endif %}
+                            <span>{{application.titel}}</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+            </li>
+
+        </ul>
+        {% endif %}
+        {% if navbar.section %}
+
+        <li class="dropdown" >
+
+            <a style=" height: 32px;" href="#">
+
+                <span>
+
+                    {{static_content.pages_and_sections}}
+
+                </span>
+
+                {% comment %}<i class="bi bi-chevron-down">{% endcomment %}</i></a>
+
+            <ul class="sub-header-container">
+                <div class="sub-header-description">
+                    <h5>
+                        {{static_content.pages_and_sections}}
+                        
+                    </h5>
+                    <p>
+                        {{static_content.service_title3}}
+                    </p>
+                </div>
+
+                {% for section in navbar.section %}
+
+
+                <li><a href="{% url 'section-singl' section.id %}">
+                        {% if section.image %}
+                        <div class="icon-container">
+                            <img src="{{section.image.url}}" alt="service icon">
+                        </div>
+                        {% else%}
+                        <div class="icon-container"><img src="{% static 'assets/img/logo-only.png'  %}"
+                                alt="service icon"></div>
+
+                        {% endif %}
+                        <span>{{section.titel}}</span>
+                    </a></li>
+                {% endfor %}
+        </li>
+
+        </ul>
+        {% endif %}
+
+        {% if navbar.servicess and navbar.categories_services %}
+        {% for categories_service in navbar.categories_services %}
+
+        <li class="dropdown">
+
+            <a style=" height: 32px;" href="#">
+                <span>
+                    {{categories_service.name}}
+                </span>
+            </i></a>
+                {% endif %}
+                {% if navbar.section %}
+        
+                <li class="dropdown" >
+        
+                    <a style=" height: 32px;" href="#">
+        
+                        <span>
+        
+                            {{static_content.pages_and_sections}}
+        
+                        </span>
+        
+                        {% comment %}<i class="bi bi-chevron-down">{% endcomment %}</i></a>
+        
+                    <ul class="sub-header-container">
+                        <div class="sub-header-description">
+                            <h5>
+                                {{static_content.pages_and_sections}}
+                                
+                            </h5>
+                            <p>
+                                {{static_content.service_title3}}
+                            </p>
+                        </div>
+        
+                        {% for section in navbar.section %}
+        
+        
+                        <li><a href="{% url 'section-singl' section.id %}">
+                                {% if section.image %}
+                                <div class="icon-container">
+                                    <img src="{{section.image.url}}" alt="service icon">
+                                </div>
+                                {% else%}
+                                <div class="icon-container"><img src="{% static 'assets/img/logo-only.png'  %}"
+                                        alt="service icon"></div>
+        
+                                {% endif %}
+                                <span>{{section.titel}}</span>
+                            </a></li>
+                        {% endfor %}
+                </li>
+        
+                </ul>
+                {% endif %}
+            <ul class="sub-header-container">
+                <div class="sub-header-description">
+                    <h5>
+
+                        {{categories_service.name}}
+
+                    </h5>
+                    {% if categories_service.description %}
+                    <p>
+
+
+                        {{categories_service.description}}
+
+
+                    </p>
+                    {% endif %}
+                </div>
+
+                {% if navbar.servicess %}
+
+                {% comment %} {% else %} {% endcomment %}
+
+                {% for service in navbar.servicess|in_categories_services:categories_service %}
+
+
+                <li><a href="{% url 'service-single' service.id %}">
+                        {% if service.image %}
+                        <div class="icon-container">
+                            <img src="{{service.image.url}}" alt="service icon">
+
+                        </div>
+                        {% else %}
+                        <div class="icon-container">
+
+                            <img src="{% static 'assets/img/logo-only.png'  %}" alt="logo  Alinma ">
+                        </div>
+                        {% endif %}
+                        <span>{{service.titel}}</span>
+                    </a>
+                </li>
+
+
+                {% endfor %}
+                {% endif %}
+
+            </ul>
+
+        </li>
+
+        {% comment %} {% endif %} {% endcomment %}
+
+        {% endfor %}
+
+        {% endif %}
+
+        {% comment %} {% if navbar.servicess %}
+        {% for service in navbar.servicess|in_type_services:"1" %}
+        {% if forloop.first %}
+        <li class="dropdown">
+
+            <a style=" height: 32px;" href="#">
+
+                <span>{{static_content.individual_services}}
+                </span>
+
+                <i class="bi bi-chevron-down"></i></a>
+
+            <ul class="sub-header-container">
+                <div class="sub-header-description">
+                    <h5>
+                        {{static_content.individual_services}}
+                    </h5>
+                    <p>
+                        {{static_content.service_title2}}
+
+                    </p>
+                </div>
+
+                {% for service in navbar.servicess|in_type_services:"1" %}
+
+
+                <li><a href="{% url 'service-single' service.id %}">
+                        {% if service.image %}
+                        <div class="icon-container">
+                            <img src="{{service.image.url}}" alt="service icon">
+                        </div>
+                        {% else%}
+                        <div class="icon-container"><img src="{% static 'assets/img/logo-only.png'  %}"
+                                alt="service icon"></div>
+
+                        {% endif %}
+                        <span>{{service.titel}}</span>
+                    </a>
+                </li>
+
+
+                {% endfor %}
+
+            </ul>
+
+        </li>
+
+        {% endif %}
+
+        {% endfor %} {% endcomment %}
+
+
+        {% comment %} {% for service in navbar.servicess|in_type_services:"2" %}
+        {% if forloop.first %}
+        <li class="dropdown">
+
+            <a style=" height: 32px;" href="#">
+
+                <span>
+                    {{static_content.organization_services}}
+                </span>
+
+                <i class="bi bi-chevron-down"></i></a>
+
+            <ul class="sub-header-container">
+                <div class="sub-header-description">
+                    <h5>
+                        {{static_content.organization_services}}
+                    </h5>
+                    <p>
+
+
+
+
+                    </p>
+                </div>
+
+                {% for service in navbar.servicess|in_type_services:"2" %}
+
+
+                <li><a href="{% url 'service-single' service.id %}">
+                        {% if service.image %}
+                        <div class="icon-container">
+                            <img src="{{service.image.url}}" alt="service icon">
+                        </div>
+                        {% else%}
+                        <div class="icon-container"><img src="{% static 'assets/img/logo-only.png'  %}"
+                                alt="service icon"></div>
+
+                        {% endif %}
+                        <span>{{service.titel}}</span>
+                    </a>
+                </li>
+
+
+                {% endfor %}
+
+            </ul>
+
+        </li>
+
+        {% endif %}
+
+        {% endfor %} {% endcomment %}
+
+
+
+
+        {% comment %} {% for service in navbar.servicess|in_type_services:"3" %}
+        {% if forloop.first %}
+        <li class="dropdown">
+
+            <a style=" height: 32px;" href="#">
+
+                <span>
+                    {{static_content.company_services}}
+
+                </span>
+
+                <i class="bi bi-chevron-down"></i></a>
+
+            <ul class="sub-header-container">
+                <div class="sub-header-description">
+                    <h5>{{static_content.company_services}}
+                    </h5>
+                    <p>
+                    </p>
+                </div>
+
+                {% for service in navbar.servicess|in_type_services:"3" %}
+
+
+                <li><a href="{% url 'service-single' service.id %}">
+                        {% if service.image %}
+                        <div class="icon-container">
+                            <img src="{{service.image.url}}" alt="service icon">
+                        </div>
+                        {% else%}
+                        <div class="icon-container"><img src="{% static 'assets/img/logo-only.png'  %}"
+                                alt="service icon"></div>
+
+                        {% endif %}
+                        <span>{{service.titel}}</span>
+                    </a>
+                </li>
+
+
+                {% endfor %}
+
+            </ul>
+
+            </li>
+
+            {% endif %}
+
+            {% endfor %} {% endcomment %}
+
+            {% comment %} {% endif %} {% endcomment %}
+
+                    {% if user is None %}
+                    <li class="nav-item-mobile">
+                        <a href="{% url 'login-user' %}" class="">
+                                <span>{{static_content.login}}</span>
+                            </a>
+                    </li>
+                    <li class="nav-item-mobile">
+                        <a href="{% url 'createaccoute-user' %}" class="">
+                            {% comment %} <a href="#/map"> {% endcomment %}
+
+                                <span>{{static_content.register}}</span>
+                            </a>
+                    </li>
+                    {% endif %}
+               <li>
+                    <a style="background-color: var(--accent); height: 32px;" class="getstarted scrollto" href="{% url 'open-account' %}">
+
+                        <span style="display: inline-block;
+                        font-size: 18px;
+                        font-weight: bold;
+                        font-family: HacenTunisiaBoldRegular;">
+
+                            {{static_content.request_open_account}}
+                        </span>
+
+                    </a>
+                </li>
+
+            {% block custom-menu-navbar %}
+
+            {% endblock custom-menu-navbar %}
+        </ul>
+
+    </nav>
+</div>
+</div>
+
+{% endif %}
+{% endblock %}

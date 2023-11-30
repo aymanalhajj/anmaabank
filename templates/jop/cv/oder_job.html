@@ -13,7 +13,7 @@
                 <h3> طلب تقديم</h2>
                     <div class="col-sm-12">
                         <p>اكتب رسالة طلب عمل لهذه الوظيفة بشكل تعبير &nbsp;(بدون ترقيم او تنقيط) لتغطي و بشكل واضح
-                            النقاط الأربع التالية :</p>
+                            النقاط الأربع {{static_content.next}}ة :</p>
 
                         <ul>
                             <li dir="rtl">هدفك الشخصي والعام من العمل في بنك الانماء.</li>
@@ -66,16 +66,15 @@
                             <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
                                 <div class="input-group-prepend with-label">
 
+                                    {% if static_content.lang == "ar" %}
                                     <span class="input-group-text" id="basic-addon1">
                                         {% if field.field.icon %}
                                         <i class="{{field.field.icon}}"></i>
-
                                         {% else %}
                                         <i class="bi bi-journal-code"></i>
-
                                         {% endif %}
-
                                     </span>
+                                {% endif %}
                                 </div>
                                 {{field|as_crispy_field}}
                             </div>

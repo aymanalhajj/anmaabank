@@ -104,7 +104,7 @@ contents[index] =
                                     <ul class="list-info">
                                         {% if branche.phone%}
                                             <li>
-                                                <span class="point-info-label">أرقام التواصل</span>
+                                                <span class="point-info-label">{{static_content.contact_numbers}}</span>
                                                 <div class="point-info-box">
                                                     <div class="icon">
                                                         <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -126,7 +126,7 @@ contents[index] =
                                             </li>
                                         {% elif branche.emile %}
                                             <li>
-                                                <span class="point-info-label">أرقام التواصل</span>
+                                                <span class="point-info-label">{{static_content.contact_numbers}}</span>
                                                 <div class="point-info-box">
                                                     <div class="icon">
                                                         <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -150,7 +150,7 @@ contents[index] =
                                         {% if branche.from_hourse_firest and branche.to_hourse_firest %}
                                             {% if branche.HORSE == 'فترتين' or branche.HORSE == 'فترة واحده' %}
                                                 <li>
-                                                    <span class="point-info-label">أوقات الدوام</span>
+                                                    <span class="point-info-label">{{static_content.work_time}}</span>
                                                     <div class="point-info-box-time">
                                                         <div class="working-time">
                                                             <div class="icon">
@@ -187,7 +187,7 @@ contents[index] =
                                                 </li>
                                             {% else %}
                                                 <li>
-                                                    <span class="point-info-label">أوقات الدوام
+                                                    <span class="point-info-label">{{static_content.work_time}}
                                 
                                                     </span>
                                                     <div class="point-info-box">
@@ -205,7 +205,7 @@ contents[index] =
                                                             </svg>
                                                         </div>
                                                         <span>
-                                                            {{ branche.HORSE}} ساعة
+                                                            {{ branche.HORSE}} {{static_content.hour}}
                                                         </span>
                                                     </div>
                                                 </li>
@@ -255,9 +255,9 @@ initMap(locations,contents);
 <main id="main our-points">
     <section class="breadcrumbs" style="padding: 0px; background: white;margin: 0px;">
         <div class="container" style="margin-top: 30px;margin-right: 20px;color: var(--primary);z-index: 10;">
-            <ol>
-                <li><a style="color: var(--primary);" href="/">الرئيسية</a></li>
-                <li>نقاط الخدمة</li>
+            <ol dir="{{static_content.direction}}">
+                <li><a  style="color: var(--primary);" href="/">{{static_content.main}}</a></li>
+                <li>{{static_content.service_points}}</li>
                 {% if branche %}
                 <li>{{branche.name}}</li>
                 {% endif %}
@@ -265,24 +265,24 @@ initMap(locations,contents);
         </div>
     </section>
     <div class="service-points-page">
-        <div class="page-hero-body" style="margin-top: -80px;padding-top: 0px;" >
+        <div class="page-hero-body" style="margin-top: -80px;padding-top: 0px;text-align: start;" dir="{{static_content.direction}}">
             <div  style="margin-top: 0px;padding-top: 0px;">
                 <div class="container" >
                     <div class="page-heading" style="padding-top: 0px;">
                         {% if branche %}
-                            <h1 class="page-hero-title" style="color: var(--primary);">نقطة خدمة بنك إنما  - {{branche.name}}</li>
+                            <h1 class="page-hero-title" style="color: var(--primary);">{{static_content.inma_service_point}}  - {{branche.name}}</li>
                         {% else %}
-                            <h1 class="page-hero-title"  style="color: var(--primary);">نقاط خدمة بنك إنما </h1>
+                            <h1 class="page-hero-title"  style="color: var(--primary);">{{static_content.inma_service_points}}</h1>
                         {% endif %}
                         <p class="page-hero-desc"  style="color: var(--primary);">
-                            استخدم الخريطة لمعرفة أقرب صراف اليك أو فرع بنك إنما 
+                            {{static_content.use_the_map}}
                         </p>
                     </div>
-                    <div class="search-box"  style="border: 1px gray solid;box-shadow: 5px 5px gray; margin-bottom: 10px;">
+                    <div class="search-box"  style="border: 1px gray solid;box-shadow: 5px 5px gray; margin-bottom: 10px;text-align: start;" dir="{{static_content.direction}}">
                         {% load i18n static %} {% load crispy_forms_tags %}
                         {% if form %}
-                            <label class="">
-                            ابحث هنا
+                            <label style="direction: ltr;">
+                                {{static_content.search_here}}
                             </label>
                             <form method="POST" action="/service_points/" class="search-form">
                                 {% csrf_token %}
@@ -290,10 +290,7 @@ initMap(locations,contents);
                                     <div class="col-md-3 ">
                                         {{field.oreder_message.label_tag}}
                                         <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
-                                            <div class="input-group-prepend with-label">
-                                                {% comment %} {{form.your_field_here.label_tag}} {% endcomment %}
-                                                <span class="input-group-text" id="basic-addon1"><i class="{{field.field.icon}}"></i></span>
-                                            </div>
+                                           
                                             {{field|as_crispy_field}}
                                         </div>
                                         <small class="text-danger">{{field.errors | striptags}}</small>
@@ -310,14 +307,14 @@ initMap(locations,contents);
                                 {% endif %}         
                                 
                                 <div class="col-md-2 " style="align-self: center;">       
-                                <button class="btn-primary" type="submit"><span>بحث</span></button>
+                                <button class="btn-primary" type="submit"><span>{{static_content.search}}</span></button>
                                 </div>
                             </form>
                         {% endif %}
                     </div>
                 </div>
             </div>
-            <div class="p-body" >
+            <div class="p-body"  style="text-align: start;" dir="{{static_content.direction}}">
                     {% if branche %}
                 <div class="service-points-map-details  open"  style="height: 730px;">
                     {% else %}
@@ -331,14 +328,14 @@ initMap(locations,contents);
                         </div>
                     {% endif %}
                     
-                    <h3 class="map-details-title">
+                    <h3 class="map-details-title" >
                         {% if branche %}
-                            عنوان نقاط خدمة بنك إنما
+                            {{static_content.inma_service_point_address}}
                             <span>
                                 (1)
                             </span>
                         {% else %}
-                            عناوين نقاط خدمة بنك إنما
+                            {{static_content.inma_service_point_addresses}}
                             <span>
                                 {% if branches %}
                                 ({{ branches.count }})
@@ -349,7 +346,7 @@ initMap(locations,contents);
                         {% endif %}
                     </h3>
                     <p class="page-hero-desc">
-                        استخدم الخريطة لمعرفة أقرب نقطة خدمة لك أو فرع بنك إنما
+                        {{static_content.use_the_map}}
                     </p>
                     <div class="list-results">
                         {% if branche %}
@@ -375,7 +372,7 @@ initMap(locations,contents);
                                     <ul class="list-info">
                                         {% if branche.phone%}
                                             <li>
-                                                <span class="point-info-label">أرقام التواصل</span>
+                                                <span class="point-info-label">{{static_content.contact_numbers}}</span>
                                                 <div class="point-info-box">
                                                     <div class="icon">
                                                         <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -401,7 +398,7 @@ initMap(locations,contents);
                                         {% if branche.from_hourse_firest and branche.to_hourse_firest %}
                                             {% if branche.HORSE == 'فترتين' or branche.HORSE == 'فترة واحده' %}
                                                 <li>
-                                                    <span class="point-info-label">أوقات الدوام</span>
+                                                    <span class="point-info-label">{{static_content.work_time}}</span>
                                                     <div class="point-info-box-time">
                                                         <div class="working-time">
                                                             <div class="icon">
@@ -434,7 +431,7 @@ initMap(locations,contents);
                                                 </li>
                                             {% else %}
                                                 <li>
-                                                    <span class="point-info-label">أوقات الدوام
+                                                    <span class="point-info-label">{{static_content.work_time}}
                                                     </span>
                                                     <div class="point-info-box">
                                                         <div class="icon">
@@ -446,7 +443,7 @@ initMap(locations,contents);
                                                                     stroke="#DBB24F" stroke-width="1.375" stroke-linecap="round" stroke-linejoin="round"></path>
                                                             </svg>
                                                         </div><span>
-                                                            {{ branche.HORSE}} ساعة
+                                                            {{ branche.HORSE}} {{static_content.hour}}
                                                         </span>
                                                     </div>
                                                 </li>
@@ -480,7 +477,7 @@ initMap(locations,contents);
                                         <ul class="list-info">
                                             {% if branche.phone%}
                                                 <li>
-                                                    <span class="point-info-label">أرقام التواصل</span>
+                                                    <span class="point-info-label">{{static_content.contact_numbers}}</span>
                                                     <div class="point-info-box">
                                                         <div class="icon">
                                                             <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -502,7 +499,7 @@ initMap(locations,contents);
                                                 </li>
                                             {% elif branche.emile %}
                                                 <li>
-                                                    <span class="point-info-label">أرقام التواصل</span>
+                                                    <span class="point-info-label">{{static_content.contact_numbers}}</span>
                                                     <div class="point-info-box">
                                                         <div class="icon">
                                                             <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -526,7 +523,7 @@ initMap(locations,contents);
                                             {% if branche.from_hourse_firest and branche.to_hourse_firest %}
                                                 {% if branche.HORSE == 'فترتين' or branche.HORSE == 'فترة واحده' %}
                                                     <li>
-                                                        <span class="point-info-label">أوقات الدوام</span>
+                                                        <span class="point-info-label">{{static_content.work_time}}</span>
                                                         <div class="point-info-box-time">
                                                             <div class="working-time">
                                                                 <div class="icon">
@@ -563,7 +560,7 @@ initMap(locations,contents);
                                                     </li>
                                                 {% else %}
                                                     <li>
-                                                        <span class="point-info-label">أوقات الدوام
+                                                        <span class="point-info-label">{{static_content.work_time}}
                                     
                                                         </span>
                                                         <div class="point-info-box">
@@ -581,7 +578,7 @@ initMap(locations,contents);
                                                                 </svg>
                                                             </div>
                                                             <span>
-                                                                {{ branche.HORSE}} ساعة
+                                                                {{ branche.HORSE}} {{static_content.hour}}
                                                             </span>
                                                         </div>
                                                     </li>
@@ -622,7 +619,7 @@ initMap(locations,contents);
                     {% endif %}
                 </div>
             {% elif branches %}
-                <div class="map-holder" style="border: 2px red solid;margin: 0px;">
+                <div class="map-holder" style="border: 0px red solid;margin: 0px;">
                     <div id="map">
                     </div>
                     <script>/**/(g => { 

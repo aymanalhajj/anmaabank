@@ -20,7 +20,7 @@
 
     <ol>
       {% block content_Breadcrumbs %}
-      انشاء حساب
+      {{static_content.create_account}} 
       {% endblock %}
     </ol>
 
@@ -244,24 +244,20 @@
 </script>
 {% endblock %}
 
-{% comment %} {% extends "jop/base.html" %} {% endcomment %}
 {% load static%}
 
 
 {% block content-section %}
 
-{% comment %} <div class="align-content-center align-item-center"> {% endcomment %}
-  <div class="login">
+  <div class="login" style="text-align: start;" dir="{{static_content.direction}}">
     <div id="container">
         <div id="content-start" class="contents">
           <div id="header-log">
             <div id="branding">
-              <h2 id="site-name"><a href="{% url 'login-user' %}">بنك الإنماء - انشاء حساب جديد</a></h2>
+              <h2 id="site-name"><a href="{% url 'login-user' %}">{{static_content.alinma_bank}} - {{static_content.create_account}}</a></h2>
               <button class="theme-toggle"> </button>
             </div>
           </div>
-          {% comment %} <div class=" align-item-center align-self-center align-content-center"> {% endcomment %}
-          {% comment %} {% if forms %} {% endcomment %}
           {% load i18n static %} {% load crispy_forms_tags %}
           <div class="">
             {% if messages %}
@@ -295,23 +291,25 @@
                 {{field.oreder_message.label_tag}}
                 <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
                   <div class="input-group-prepend with-label">
-                    <span class="input-group-text" id="basic-addon1">
-                      {% if field.field.icon %}
-                      <i class="{{field.field.icon}}"></i>
-                      {% else %}
-                      <i class="bi bi-journal-code"></i>
-                      {% endif %}
-                    </span>
+                    
+              {% if static_content.lang == "ar" %}
+              <span class="input-group-text" id="basic-addon1">
+                  {% if field.field.icon %}
+                  <i class="{{field.field.icon}}"></i>
+                  {% else %}
+                  <i class="bi bi-journal-code"></i>
+                  {% endif %}
+              </span>
+          {% endif %}
                   </div>
                   {{field|as_crispy_field}}
                 </div>
                 <!-- <small class="text-danger">{{field.errors | striptags}}</small> -->
               </div>
-              {% comment %} <div class=" form-row ">{{fm|as_crispy_field}}</div> {% endcomment %}
             {% endfor %}
-
-            <button type="submit">ارسال</button>
-
+            <div  style="text-align: center;margin-bottom: 20px;"  >
+              <button type="submit">{{static_content.send}}</button>
+            </div>
           </form>
 
 

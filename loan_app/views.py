@@ -24,8 +24,16 @@ def islogin(request):
     else:
         return False
 
+from django.utils import translation
+from settingapp.views import static_content
+from django.utils.translation import gettext_lazy as _
 # Create your views here.
-def LoanApplicationView(request):
+def LoanApplicationView(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
+
+    print(lang)
 
     if islogin(request) == False:
         return redirect('/login/?urlredirect='+getUrl(request))
@@ -37,22 +45,23 @@ def LoanApplicationView(request):
 
     context = {
         'forms' : form,
-        "title": "تقديم طلب  تمويل",
+        "title": _("تقديم طلب  تمويل"),
         "url": getUrl(request=request)
     }
     
     context['setting'] = SettingModelQuerySet()
     context["navbar"] = NavbarsQuerySet()
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()
+    context["static_content"] = static_content[lang]
     if request.method == 'POST':
         form = LoanApplicationForm(request.POST , instance = request_to_instance)
         if form.is_valid():
             form.save()
-            messages.success(request,'تم ارسال طلب التمويل بنجاح')
+            messages.success(request,_('تم ارسال طلب التمويل بنجاح'))
             return render(request, 'load-app.html', context)
         else:
             messages.error(request,form.errors)
-            messages.error(request,'حدث خطأ، نرجو التأكد من البيانات واعادة المحاولة.')
+            messages.error(request,_('حدث خطأ، نرجو التأكد من البيانات واعادة المحاولة.'))
             return render(request, 'load-app.html', context)
     #form = LoanApplicationForm()
 

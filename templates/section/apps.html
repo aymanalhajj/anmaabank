@@ -2,19 +2,10 @@
 {% block apps %}
 {% if applications and setting and not setting.is_hidden_bank_applications   %}
 
-
-
-{% comment %} <div class="top-curve">
-    
-</div> {% endcomment %}
 <!-- Slider main container -->
 
 <div id="section-4" class="section-wrapper">
 <section id="apps" class="application-show">
-    {% comment %} <div class="top-curve">
-        <img src="{% static 'assets/img/top-curve.svg' %}">
-    </div> {% endcomment %}
-
   <!-- Additional required wrapper -->
 
         
@@ -23,21 +14,13 @@
     <header class="section-header">
         <h2>تطبيقات البنك
         </h2>
-        {% comment %} <p>في جميع الأوقات الرسمية</p> {% endcomment %}
       </header>
         <div class="app-bank-section-container">
 
-                    <div class="swiper swiper-apps-bank-slider
-                    
-                    ">
-                    <div class="swiper-wrapper
-                    
-                    ">
+                    <div class="swiper swiper-apps-bank-slider">
+                    <div class="swiper-wrapper">
 
                         {% for application in applications %}
-
-                                 
-                                    {% comment %} <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-autoheight swiper-rtl apps-bank-slider swiper-backface-hidden"> {% endcomment %}
                                             <div class="swiper-slide" >
                                               <section class="application-details">
                                                 <div class="features-app-box" data-img-id="app-img-3">
@@ -173,7 +156,6 @@
                                     
                                                     </div>
 
-                        {% comment %} <div class="apps-pagination"></div> {% endcomment %}
                         <div class="apps-pagination custom-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span></div>
                         <!-- If we need navigation buttons -->
                        
@@ -194,19 +176,12 @@
             </svg>            </div></div>
 
                         <!-- If we need scrollbar -->
-                        {% comment %} <div class="swiper-scrollbar"></div> {% endcomment %}
                     </div>
 
            </div>
 
 
 </div>
-{% comment %} </div> {% endcomment %}
-
-         
-
-    
-
 </section>
 </div>
 

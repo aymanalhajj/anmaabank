@@ -2,10 +2,10 @@
 {% load static%}
 {% comment %} {% block title %} انشاء حساب{% endblock %} {% endcomment %}
 {% block title %}
-البيانات الأساسية
+{{static_content.general_info}}
 {% endblock %}
 {% block content_Breadcrumbs %}
-البيانات الأساسية
+{{static_content.general_info}}
 {% endblock %}
 {% block body_style %}
 
@@ -18,10 +18,9 @@
     <div style="" class=" p-7">
         <div style="">
 
-            <h2>البيانات الأساسية</h2>
+            <h2>{{static_content.general_info}}</h2>
             <div class="edit">
-                <h3>تعديل</h3>
-
+                <h3>{{static_content.update}}</h3>
                 {% load i18n static %} {% load crispy_forms_tags %}
 
                 {% if messages %}
@@ -70,16 +69,15 @@
                             <div class="input-group-prepend with-label">
                                 {% comment %} {{form.your_field_here.label_tag}} {% endcomment %}
 
+                                {% if static_content.lang == "ar" %}
                                 <span class="input-group-text" id="basic-addon1">
                                     {% if field.field.icon %}
                                     <i class="{{field.field.icon}}"></i>
-
                                     {% else %}
                                     <i class="bi bi-journal-code"></i>
-
                                     {% endif %}
-
                                 </span>
+                            {% endif %}
                             </div>
                             {{field|as_crispy_field}}
                         </div>
@@ -102,11 +100,11 @@
                     <div class="">
                         <div class=" row ">
                             <button class="btn btn-info btn-primary" name="updateSectorNameBtn"
-                                type="submit">حفظ</button>
-                            <a type="button" class="btn btn-default prev col-lg-6" href="{% url "BankKonown" %}"
-                                role="button">السابق</a>
+                                type="submit">{{static_content.save}}</button>
+                            <a type="button" class="btn btn-default prev col-lg-6" href="/{{static_content.lang}}/jobs/BankKonown"
+                                role="button">{{static_content.previous}}</a>
                             {% comment %} <a type="button" class="btn btn-default prev col-lg-6"
-                                href="{% url filedupload %}" role="button">التالي</a> {% endcomment %}
+                                href="/{{static_content.lang}}/jobs/filedupload" role="button">{{static_content.next}}</a> {% endcomment %}
 
                         </div>
                     </div>

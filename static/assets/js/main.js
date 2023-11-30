@@ -1415,10 +1415,6 @@ new Swiper(".slider-services-mobile", {
       slideShadows: true
     },
 
-    mousewheel: {
-      invert: true,
-
-    },
     keyboard: {
       enabled: true,
       onlyInViewport: false,

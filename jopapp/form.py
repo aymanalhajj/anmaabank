@@ -106,7 +106,7 @@ def iconsdata():
         'link_facebook': 'bi bi-facebook',
         'current_address': 'bi bi-geo',
         'permanent_address': 'bi bi-geo',
-        # 'number_whatsapp':'bi bi-geo',
+        # 'number_whatsapp''bi bi-geo',
         'number_whatsapp': 'bi bi-whatsapp ',
         'mobile_number': 'bi bi-phone ',
         'twitter': 'bi bi-twitter ',
@@ -364,8 +364,8 @@ class OrderJobForm(ModelForm):
             'oreder_message',
             'how_to_now_job',
         ]
-        labels = {'how_to_now_job': 'كيف عرفت أن لدينا وظيفة شاغرة:',
-                  'oreder_message': ''}
+        """labels = {'how_to_now_job': 'كيف عرفت أن لدينا وظيفة شاغرة',
+                  'oreder_message': ''}"""
         help_texts = {'oreder_message': 'Some useful help text.',
                       'how_to_now_job': 'Some useful help text.', },
         error_messages = {
@@ -398,22 +398,32 @@ class RegisterForm(ModelForm):
             'idnumber', 'Release_date', 'place_issue', 'date_birth', 'place_birth', 'marital_status', 'number_childer',
             'current_address', 'permanent_address', 'mobile_number', 'number_whatsapp', 'link_facebook', 'link_twiter', 'link_instigrem',
         ]
-        labels = {'username': _('اسم المستخدم'),
-                 'full_name': 'الاسم الكامل :',
-                  'email': 'البريد الإلكتروني:', 
-                  'password': 'كلمة السر:',
-                  'confirmpassword': 'تأكيد كلمة السر:', 
-                  'gender': 'الجنس:', 
-                  'governorate': 'المحافظة:',
-                  'city': 'المدينة/المديرية:',  'address': 'العزلة/الشارع:', 'village': 'القرية/الحي:',
-                  'idnumber': 'رقم البطاقة:', 'Release_date': 'تاريخ الإصدار:', 'place_issue': 'مكان الإصدار:',
-                  'date_birth': 'تاريخ الميلاد:', 'place_birth': 'محل الميلاد:', 'marital_status': 'الحالة الاجتماعية:',
-                  'number_childer': 'عدد من تعولهم:', 'current_address': 'العنوان الحالي:',
-                  'permanent_address': 'عنوان السكن الدائم:', 'mobile_number': 'رقم الموبايل:',
-                  'number_whatsapp': 'رقم الواتساب:', 'link_facebook': 'صفحتك على الفيسبوك:',
-                  'link_twiter': 'صفحتك على التويتر:', 'link_instigrem': 'صفحتك على الإنستجرام:',
+        """labels = {'username': _("اسم المستخدم"),
+                 'full_name': _('الاسم الكامل '),
+                  'email': _('البريد الإلكتروني'), 
+                  'password': _('كلمة السر'),
+                  'confirmpassword': _('تأكيد كلمة السر'), 
+                  'gender': _('الجنس'), 
+                  'governorate': _('المحافظة'),
+                  'city': _('المدينة/المديرية'),  
+                  'address': _('العزلة/الشارع'), 
+                  'village': _('القرية/الحي'),
+                  'idnumber': _('رقم البطاقة'), 
+                  'Release_date': _('تاريخ الإصدار'), 
+                  'place_issue': _('مكان الإصدار'),
+                  'date_birth': _('تاريخ الميلاد'), 
+                  'place_birth': _('محل الميلاد'), 
+                  'marital_status': _('الحالة الاجتماعية'),
+                  'number_childer': _('عدد من تعولهم'), 
+                  'current_address': _('العنوان الحالي'),
+                  'permanent_address': _('عنوان السكن الدائم'), 
+                  'mobile_number': _('رقم الموبايل'),
+                  'number_whatsapp': _('رقم الواتساب'), 
+                  'link_facebook': 'صفحتك على الفيسبوك',
+                  'link_twiter': _('صفحتك على التويتر'), 
+                  'link_instigrem': _('صفحتك على الإنستجرام'),
 
-                  }
+                  }"""
         help_texts = {'username': 'Some useful help text.', 'full_name': 'Some useful help text.',
                       'email': 'Some useful help text.', 'password': 'Some useful help text.',
                       'confirmpassword': 'Some useful help text.', 'gender': 'Some useful help text.',
@@ -491,7 +501,7 @@ class uploadCvForm(forms.ModelForm):
     class Meta:
         model = Register
         fields = ['cv_uploaded_file']
-        labels = {'cv_uploaded_file': 'ملف السيرة الذاتية'}
+        """labels = {'cv_uploaded_file': 'ملف السيرة الذاتية'}"""
         help_texts = {'cv_uploaded_file': 'file cv', },
         error_messages = {'cv_uploaded_file': {'required': '   ارفع ملف السيرة الذاتية', },
                           }
@@ -540,7 +550,7 @@ class EmploymentForm(forms.ModelForm):
     class Meta:
         model = Employment
         fields = ['name']
-        labels = {'name': _('مجال العمل'), }
+        """labels = {'name': _('مجال العمل'), }"""
         help_texts = {'name': 'Some useful help text.', },
         error_messages = {'name': {'required': 'الرجاء كتابة مجال العمل', },
                           }
@@ -583,23 +593,23 @@ class EducationForm(forms.ModelForm):
             'name_language': Select2Widget(attrs={'class': 'form-control'}),
             'From_Date': forms.DateInput(attrs={'type': 'date', 'placeholder': 'yyyy-mm-dd (DOB)', 'class': 'form-control'}),
             'To_date': forms.DateInput(attrs={'type': 'date', 'placeholder': 'yyyy-mm-dd (DOB)', 'class': 'form-control'}), }
-        labels = {'name_educational_institution': _(' اسم المؤسسة التعليمية:'),
-                  'country': ' البلد:',
-                  #   'sducation_level':'  المستوى التعليمي:',
-                  'specialization': 'التخصص:',
-                  'From_Date': 'من تاريخ :',
-                  'rate': ' المعدل:',
+        """labels = {'name_educational_institution': _(' اسم المؤسسة التعليمية'),
+                  'country': ' البلد',
+                  #   'sducation_level''  المستوى التعليمي',
+                  'specialization': 'التخصص',
+                  'From_Date': 'من تاريخ ',
+                  'rate': ' المعدل',
                   'uploaded_image': 'شهادة التخرج',
-                  'To_date': ' إلى تاريخ :',
+                  'To_date': ' إلى تاريخ ',
 
-                  }
+                  }"""
         error_messages = {'name_educational_institution': {'required': 'الرجاء كتابة اسم المؤسسة التعليمية', },
                           'country': {'required': 'يرجى اختيار اسم البلد', },
                           'sducation_level': {'required': 'الرجاء كتابة المستوى التعليمي', },
                           'specialization': {'required': '   الرجاء كتابة التخصص', },
                           'From_Date': {'required': 'يجب تحديد تاريخ البداية', },
                           'rate': {'required': ' إدخال المعدل', },
-                          # 'uploaded_image': {'required':' قم برفع شهادة التخرج ',  },
+                          # 'uploaded_image': {'required'' قم برفع شهادة التخرج ',  },
                           'To_date': {'required': '   يجب تحديد تاريخ النهاية', }
 
                           }
@@ -649,13 +659,13 @@ class LanguageSkillFrom(forms.ModelForm):
                           'conversation': {'required': '   الرجاء كتابة مستوى المحادثة  ', },
 
                           }
-        labels = {'name_language': _('   اللغة:'),
-                  'reading': 'مستوى القراءة:',
-                  'writing': '  مستوى الكتابة :',
-                  'conversation': 'مستوى المحادثة:',
+        """labels = {'name_language': _('   اللغة'),
+                  'reading': 'مستوى القراءة',
+                  'writing': '  مستوى الكتابة ',
+                  'conversation': 'مستوى المحادثة',
 
 
-                  }
+                  }"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -688,13 +698,12 @@ class ComputerSkillFrom(forms.ModelForm):
                           'level': {'required': '   الرجاء كتابة مستوى الإجادة', },
 
                           }
-        labels = {'name': _('   اسم المهارة:'),
-                  'level': 'مستوى الإجادة :',
+        """labels = {'name': _('   اسم المهارة'),
+                  'level': 'مستوى الإجادة ',
 
 
 
-                  }
-
+                  }"""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         icons = getattr(self.Meta, 'icons', iconsdata())
@@ -734,14 +743,14 @@ class TrainingCoursesForm(forms.ModelForm):
                           'To_date': {'required': '     يجب تحديد تاريخ النهاية   ', },
 
                           }
-        labels = {'name_institute': _('   اسم المعهد:'),
-                  'name_courses': 'اسم الدورة :',
-                  'country': '  البلد:',
-                  'From_Date': 'من تاريخ:',
-                  'To_date': 'إلى تاريخ:',
+        """labels = {'name_institute': _('   اسم المعهد'),
+                  'name_courses': 'اسم الدورة ',
+                  'country': '  البلد',
+                  'From_Date': 'من تاريخ',
+                  'To_date': 'إلى تاريخ',
 
 
-                  }
+                  }"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -800,24 +809,24 @@ class ExperienceForm(forms.ModelForm):
                           'salary_end': {'required': '   يرجى ادخال الراتب في النهاية  ', },
 
                           }
-        labels = {'name_word': _('  اسم العمل:'),
-                  'name_owner': 'اسم صاحب العمل:',
+        """labels = {'name_word': _('  اسم العمل'),
+                  'name_owner': 'اسم صاحب العمل',
 
-                  'name_shop': 'اسم المحل/الجهة:',
-                  'From_Date': 'من تاريخ:',
-                  'To_date': 'إلى تاريخ:',
-                  'address': '  عنوان العمل:',
-                  'mobile': ' تلفون العمل:',
-                  'task': 'المهام :',
-                  'name_job_start': '  المسمى الوظيفي في البداية:',
-                  'name_job_end': 'المسمى الوظيفي في النهاية: :',
-                  'salary_start': ' الراتب في البداية:',
-                  'salary_end': 'الراتب في النهاية:',
-                  'working_hours': 'عدد ساعات العمل:',
-                  'resson_leaving': '  سبب ترك العمل::',
+                  'name_shop': 'اسم المحل/الجهة',
+                  'From_Date': 'من تاريخ',
+                  'To_date': 'إلى تاريخ',
+                  'address': '  عنوان العمل',
+                  'mobile': ' تلفون العمل',
+                  'task': 'المهام ',
+                  'name_job_start': '  المسمى الوظيفي في البداية',
+                  'name_job_end': 'المسمى الوظيفي في النهاية: ',
+                  'salary_start': ' الراتب في البداية',
+                  'salary_end': 'الراتب في النهاية',
+                  'working_hours': 'عدد ساعات العمل',
+                  'resson_leaving': '  سبب ترك العمل',
 
 
-                  }
+                  }"""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -853,15 +862,15 @@ class BankKonownForm(forms.ModelForm):
                           'mobile': {'required': '  يجب ادخال التلفون    ', },
                           'address': {'required': '   الرجاء كتابة العنوان'},
                           }
-        labels = {'name': _('   الاسم:'),
-                  'relative': 'صلة القرابة:',
-                  'working': '  العمل:',
-                  'mobile': ' التلفون:',
-                  'address': 'العنوان: :',
+        """labels = {'name': _('   الاسم'),
+                  'relative': 'صلة القرابة',
+                  'working': '  العمل',
+                  'mobile': ' التلفون',
+                  'address': 'العنوان: ',
 
 
 
-                  }
+                  }"""
 
     def __init__(self, *args, **kwargs):
         super(BankKonownForm, self).__init__(*args, **kwargs)
@@ -894,19 +903,37 @@ class GeneralDataForm(forms.ModelForm):
                   'health_problems', 'hobbies', 'person_closest', 'person_closest_Phone', 'relative_relation', 'person_closest_address', 'name_village_justice',
                   'village_justice_Telephon', 'village_justice_address', 'manage_business', 'ready_work',
                   'government_job', 'source_financial_income', 'proficient_English', 'have_illness', 'graduation_certificate', "graduation_certificate_file"]
-        labels = {'work_bank': 'هل سبق لك العمل في الانماء:', 'receive_email': 'هل تريد استقبال بريد إلكتروني من البنك :', 'file_civil_service': 'هل قدمت ملفك للخدمة المدنية؟ ', 'spend_working': 'ما هي المدة التي تفكر في قضائها بالعمل لدينا؟ :',
-                  'purchasing_visa': 'هل تفكر بشراء فيزا للعمل في الخارج؟ :', 'traveling': 'هل تمانع من السفر في إطار العمل إذا تطلب الأمر؟ :', 'currently_working': 'مالعمل الذي تقوم به حالياً:', 'Current_working_phone': 'تلفون العمل الحالي:',
-                  'Current_work_address': 'عنوان العمل الحالي:', 'currently_studying': 'هل تدرس حاليا :', 'work_night': 'هل أنت مستعد للعمل ليلاً ؟:',
-                  'start_working': 'متى تستطيع البدء بالعمل ؟:', 'lowest_salary': 'ما هو أقل راتب يمكنك أن تقبل به شاملاً جميع البدلات :',
-                  'health_problems': 'هل لديك مشاكل صحية؟ :', 'hobbies': 'ماهي هواياتك ؟ :', 'person_closest': 'اسم أقرب شخص لك', 'person_closest_Phone': 'رقم تلفونه :', 'relative_relation': 'صلة القرابة :', 'person_closest_address': 'عنوانه:', 'name_village_justice': 'اسم عدل القرية',
-                  'village_justice_Telephon': 'رقم تلفون :', 'village_justice_address': 'عنوانه :', 'manage_business': 'هل تمتلك او تدير اي مشروع تجاري خاص بك؟',
-                  'ready_work': 'هل انت مستعد للعمل في اي محافظة وفي اي فرع من فروع المصرف في الجمهورية؟',
-                  'government_job': 'هل لديك وظيفة حكومية؟', 'source_financial_income': 'هل لديك اي مصدر دخل مالي؟',
-                  'proficient_English': 'هل تتقن اللغة الانجليزية (كتابة وقراءة ومحادثة)',
-                  'have_illness': 'هل لديك اي مرض دائم أو إعاقة؟',
-                  'graduation_certificate': 'هل حصلت على شهادة التخرج ؟',
-                  'graduation_certificate_file': 'ارفع شهادة التخرج ان وجدت',
-                  }
+        """labels = {'work_bank': _('هل سبق لك العمل في الانماء'), 
+                  'receive_email': _('هل تريد استقبال بريد إلكتروني من البنك '), 
+                  'file_civil_service': _('هل قدمت ملفك للخدمة المدنية؟ '), 
+                  'spend_working': _('ما هي المدة التي تفكر في قضائها بالعمل لدينا؟ '),
+                  'purchasing_visa': _('هل تفكر بشراء فيزا للعمل في الخارج؟ '), 
+                  'traveling': _('هل تمانع من السفر في إطار العمل إذا تطلب الأمر؟ '), 
+                  'currently_working': _('مالعمل الذي تقوم به حالياً'), 
+                  'Current_working_phone': _('تلفون العمل الحالي'),
+                  'Current_work_address': _('عنوان العمل الحالي'), 
+                  'currently_studying': _('هل تدرس حاليا '),
+                    'work_night': _('هل أنت مستعد للعمل ليلاً ؟'),
+                  'start_working': _('متى تستطيع البدء بالعمل ؟'), 
+                  'lowest_salary': _('ما هو أقل راتب يمكنك أن تقبل به شاملاً جميع البدلات '),
+                  'health_problems': _('هل لديك مشاكل صحية؟ '), 
+                  'hobbies': _('ماهي هواياتك ؟ '),
+                    'person_closest': _('اسم أقرب شخص لك'), 
+                    'person_closest_Phone': _('رقم تلفونه '), 
+                    'relative_relation': _('صلة القرابة '),
+                      'person_closest_address':_( 'عنوانه'), 
+                      'name_village_justice': _('اسم عدل القرية'),
+                  'village_justice_Telephon': _('رقم تلفون '), 
+                  'village_justice_address': _('عنوانه '), 
+                  'manage_business': _('هل تمتلك او تدير اي مشروع تجاري خاص بك؟'),
+                  'ready_work': _('هل انت مستعد للعمل في اي محافظة وفي اي فرع من فروع المصرف في الجمهورية؟'),
+                  'government_job': _('هل لديك وظيفة حكومية؟'),
+                    'source_financial_income': _('هل لديك اي مصدر دخل مالي؟'),
+                  'proficient_English': _('هل تتقن اللغة الانجليزية (كتابة وقراءة ومحادثة)'),
+                  'have_illness': _('هل لديك اي مرض دائم أو إعاقة؟'),
+                  'graduation_certificate':_( 'هل حصلت على شهادة التخرج ؟'),
+                  'graduation_certificate_file': _('ارفع شهادة التخرج ان وجدت'),
+                  }"""
         widgets = {'work_bank': forms.RadioSelect(attrs={'style': 'display: inline-block'}),
                    'receive_email': forms.TextInput(attrs={'class': 'form-control'}),
                    'file_civil_service': forms.RadioSelect(attrs={'style': 'display: inline-block'}),

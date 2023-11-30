@@ -1,0 +1,865 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-30 05:09+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\form.py:529
+msgid "Email"
+msgstr "email"
+
+#: .\models.py:361
+msgid "اسم المستخدم"
+msgstr "username"
+
+#: .\models.py:363
+msgid "الاسم الكامل"
+msgstr "Full Name"
+
+#: .\models.py:365 .\models.py:657
+msgid "البريد الإلكتروني"
+msgstr "Email"
+
+#: .\models.py:366 .\models.py:658
+msgid "كلمة السر"
+msgstr "Password"
+
+#: .\models.py:368 .\models.py:660
+msgid "تأكيد كلمة السر"
+msgstr "Password again"
+
+#: .\models.py:370 .\models.py:637 .\models.py:1291 .\models.py:1484
+msgid "الجنس"
+msgstr "Gender"
+
+#: .\models.py:377 .\models.py:1117 .\models.py:1172
+msgid "المحافظة"
+msgstr "Governorate"
+
+#: .\models.py:381
+msgid "المدينة"
+msgstr "city"
+
+#: .\models.py:382 .\models.py:904 .\models.py:957
+msgid "العنوان"
+msgstr "address"
+
+#: .\models.py:384
+msgid "القرية/الحي"
+msgstr "nighborhood"
+
+#: .\models.py:385
+msgid "رقم البطاقة"
+msgstr "Identity Number"
+
+#: .\models.py:387
+msgid "تاريخ الإصدار"
+msgstr "Issue Date"
+
+#: .\models.py:389
+msgid "مكان الإصدار"
+msgstr "Issue Place"
+
+#: .\models.py:391 .\models.py:1240 .\models.py:1256
+msgid "تاريخ الميلاد"
+msgstr "birthdate"
+
+#: .\models.py:393
+msgid "محل الميلاد"
+msgstr "birthplace"
+
+#: .\models.py:395 .\models.py:1355
+msgid "الحالة الاجتماعية"
+msgstr "spatial status"
+
+#: .\models.py:397
+msgid "عدد من تعولهم"
+msgstr "number of kids"
+
+#: .\models.py:399
+msgid "العنوان الحالي"
+msgstr "current address"
+
+#: .\models.py:401
+msgid "عنوان السكن الدائم"
+msgstr "permanent address"
+
+#: .\models.py:403
+msgid "رقم الموبايل"
+msgstr "mobile number"
+
+#: .\models.py:405
+msgid "رقم الواتساب"
+msgstr "Whatsapp mobile number"
+
+#: .\models.py:407
+msgid "صفحتك على الفيسبوك"
+msgstr "facebook page"
+
+#: .\models.py:409
+msgid "صفحتك على منصة x تويتر سابقاً"
+msgstr "your X page"
+
+#: .\models.py:411
+msgid "صفحتك على الإنستجرام"
+msgstr "your instegram page"
+
+#: .\models.py:413 .\models.py:502 .\models.py:829 .\models.py:849
+#: .\models.py:883 .\models.py:923 .\models.py:941 .\models.py:1076
+msgid "تاريخ الإنشاء"
+msgstr "create at"
+
+#: .\models.py:419
+msgid "ملف السيرة الذاتية / pdf or png or jpg or doc or docx  "
+msgstr "cv file"
+
+#: .\models.py:420 .\models.py:771 .\models.py:1042
+msgid ""
+" نوع الملف pdf او png او jpg او doc او docx فقط والحجم لا يزيد 10 ميجا  "
+msgstr "file type pdf,png,jpg,doc,docx and size smaller than 10MB"
+
+#: .\models.py:457
+msgid "الجلسة"
+msgstr "session"
+
+#: .\models.py:465 .\models.py:466
+msgid " الحسابات  "
+msgstr "accounts"
+
+#: .\models.py:512 .\models.py:789
+msgid "تاريخ الإنشاء:"
+msgstr "create at"
+
+#: .\models.py:515 .\models.py:711 .\models.py:792 .\models.py:827
+#: .\models.py:847 .\models.py:881 .\models.py:921 .\models.py:939
+#: .\models.py:961 .\models.py:1079 .\models.py:1095 .\models.py:1152
+#: .\models.py:1226 .\models.py:1409
+msgid "المستخدم"
+msgstr "user"
+
+#: .\models.py:521 .\models.py:522
+msgid " التحقق من الايميل  "
+msgstr "verify email"
+
+#: .\models.py:572 .\models.py:936
+msgid "اسم المجال"
+msgstr "domain name"
+
+#: .\models.py:574
+msgid "نوع المجال"
+msgstr "domain type"
+
+#: .\models.py:575
+msgid "الوصف"
+msgstr "description"
+
+#: .\models.py:579 .\models.py:699
+msgid "تاريخ الأنشاء "
+msgstr "create at"
+
+#: .\models.py:583 .\models.py:703
+msgid "تاريخ الأضافة"
+msgstr "start date"
+
+#: .\models.py:586 .\models.py:706
+msgid "تاريخ التعديل"
+msgstr "start date"
+
+#: .\models.py:589 .\models.py:1480
+msgid "تاريخ التعديل "
+msgstr "start date"
+
+#: .\models.py:595
+msgid "مهام الوظيفة"
+msgstr "job funtionalities"
+
+#: .\models.py:602
+msgid "شروط الوظيفة"
+msgstr "job terms"
+
+#: .\models.py:609
+msgid " الوظيفة  "
+msgstr "job"
+
+#: .\models.py:610
+msgid "الوظائف  "
+msgstr "job"
+
+#: .\models.py:623
+msgid "ابحث هنا"
+msgstr "search here"
+
+#: .\models.py:623
+msgid "عنوان الوظيفة  او التخصص او اسم المقدم للوظيفة"
+msgstr "job title"
+
+#: .\models.py:627 .\models.py:715
+msgid "الوظيفة"
+msgstr "job"
+
+#: .\models.py:630 .\models.py:754
+msgid "التخصص:"
+msgstr "speciality"
+
+#: .\models.py:646
+msgid "بيانات  شبه مكتملة"
+msgstr "information close to complete"
+
+#: .\models.py:666
+msgid "تذكرني"
+msgstr "remember me"
+
+#: .\models.py:674
+msgid "الموافقة على سياسة الخصوصية"
+msgstr "agree on privacy policy"
+
+#: .\models.py:693
+msgid "رسالة الطلب"
+msgstr "cover message"
+
+#: .\models.py:694
+msgid "يجب أن لا تقل رسالة طلب العمل عن 1250 حرف "
+msgstr "at least 1250 letters"
+
+#: .\models.py:697
+msgid "كيف عرفت عنا"
+msgstr "how did you know about us?"
+
+#: .\models.py:719
+msgid " طلب تقديم للوظيفة  "
+msgstr "job application"
+
+#: .\models.py:720
+msgid " طلبات التقديم للوظائف  "
+msgstr "job applications"
+
+#: .\models.py:730
+msgid "الرقم"
+msgstr "the number"
+
+#: .\models.py:732
+msgid "اسم المؤسسة التعليمية:"
+msgstr "Institute name"
+
+#: .\models.py:739 .\models.py:872
+msgid "البلد"
+msgstr "country"
+
+#: .\models.py:752
+msgid "المستوى التعليمي:"
+msgstr "education level"
+
+#: .\models.py:757
+msgid "يتم تعبئة هذا الحقل في حال لم يتوفر التخصص في القائمة السابقة"
+msgstr "fill thses fields if other"
+
+#: .\models.py:758 .\models.py:1382
+msgid "تخصص أخر :"
+msgstr "other speciality"
+
+#: .\models.py:760
+msgid "المعدل:"
+msgstr "grade"
+
+#: .\models.py:761
+msgid "من تاريخ:"
+msgstr "from date"
+
+#: .\models.py:762
+msgid "إلى تاريخ:"
+msgstr "to date"
+
+#: .\models.py:770
+msgid "الشهادة/ pdf or png or jpg or doc or docx  "
+msgstr "certificate file"
+
+#: .\models.py:802
+msgid " المؤهل "
+msgstr "qualification"
+
+#: .\models.py:803
+msgid "الموهلات "
+msgstr "qualifications"
+
+#: .\models.py:811 .\models.py:1386
+msgid "اللغة"
+msgstr "language"
+
+#: .\models.py:813 .\models.py:1388
+msgid "يتم تعبئة هذا الحقل في حال لم يتوفر اللغة في القائمة السابقة"
+msgstr "fill these fields if other"
+
+#: .\models.py:814 .\models.py:1389
+msgid "اللغة أخر :"
+msgstr "other language"
+
+#: .\models.py:820
+msgid "مهارة القراءة"
+msgstr "reading skill"
+
+#: .\models.py:822
+msgid "مهارة الكتابة"
+msgstr "writing skill"
+
+#: .\models.py:824
+msgid "مهارة الحديث"
+msgstr "speaking skill"
+
+#: .\models.py:837
+msgid "مهاراة اللغة "
+msgstr "reading skill"
+
+#: .\models.py:838
+msgid "مهارات اللغة "
+msgstr "reading skill"
+
+#: .\models.py:842
+msgid "المهارة"
+msgstr "skill"
+
+#: .\models.py:844
+msgid "مستوى المهارة"
+msgstr "skill level"
+
+#: .\models.py:857
+msgid "مهارات الحاسوب "
+msgstr "computer skill"
+
+#: .\models.py:858
+msgid "مهاراة الحاسوب "
+msgstr "speaking skill"
+
+#: .\models.py:863
+msgid "اسم المؤسسة التعليمية"
+msgstr "educational Institute name"
+
+#: .\models.py:865
+msgid "اسم الدورة التعليمية"
+msgstr "course name"
+
+#: .\models.py:876 .\models.py:898
+msgid "تاريخ البداية"
+msgstr "start date"
+
+#: .\models.py:877 .\models.py:899
+msgid "تاريخ الانتهاء"
+msgstr "finish date"
+
+#: .\models.py:891
+msgid " الدورات التدربية "
+msgstr "course name"
+
+#: .\models.py:892
+msgid "الدورات التدريبية "
+msgstr "course name"
+
+#: .\models.py:897
+msgid "اسم الشركة/المؤسسة"
+msgstr "company/organization name"
+
+#: .\models.py:901
+msgid "اسم المتجر/المكان"
+msgstr "shop name"
+
+#: .\models.py:903
+msgid "اسم صاحب المحل"
+msgstr "shop owner name"
+
+#: .\models.py:905 .\models.py:958
+msgid "رقم الهاتف"
+msgstr "telephone number"
+
+#: .\models.py:906
+msgid "المهام"
+msgstr "tasks"
+
+#: .\models.py:908
+msgid "المسمى الوظيفة (بداية)"
+msgstr "first job title"
+
+#: .\models.py:910
+msgid "اسم الوظيفة (نهاية)"
+msgstr "last job title"
+
+#: .\models.py:912
+msgid "الراتب (بداية)"
+msgstr "first salary"
+
+#: .\models.py:914
+msgid "الراتب (نهاية)"
+msgstr "last salary"
+
+#: .\models.py:916
+msgid "ساعات العمل"
+msgstr "working hours"
+
+#: .\models.py:918
+msgid "سبب مغادرة الوظيفة"
+msgstr "leave reason"
+
+#: .\models.py:931
+msgid "الخبرة "
+msgstr "experience"
+
+#: .\models.py:932
+msgid "الخبرات  "
+msgstr "experiences"
+
+#: .\models.py:949
+msgid " مجال العمل  "
+msgstr "work domain"
+
+#: .\models.py:950
+msgid " مجالات العمل  "
+msgstr "work domain"
+
+#: .\models.py:954
+msgid "اسم الشخص"
+msgstr "person name"
+
+#: .\models.py:955
+msgid "صلة القرابة"
+msgstr "relation name"
+
+#: .\models.py:956
+msgid "جهة العمل"
+msgstr "work place"
+
+#: .\models.py:970
+msgid " المعرف  "
+msgstr "grade"
+
+#: .\models.py:971
+msgid "  المعرفين  "
+msgstr "grade"
+
+#: .\models.py:977
+msgid "هل تعمل في البنك"
+msgstr "do you work at bank?"
+
+#: .\models.py:979
+msgid "هل تريد استقبال بريد إلكتروني من البنك "
+msgstr "do wont to receive email notifications?"
+
+#: .\models.py:981
+msgid "هل لديك ملف في الخدمة المدنية"
+msgstr "do you have file at national service?"
+
+#: .\models.py:983
+msgid "كيفية إنفاق راتبك"
+msgstr "how do you spend your salary?"
+
+#: .\models.py:985
+msgid "هل تمتلك تأشيرة للسفر"
+msgstr "do you have travel visa?"
+
+#: .\models.py:987
+msgid "هل تسافر"
+msgstr "do you travel usually?"
+
+#: .\models.py:989
+msgid "هل تعمل حاليًا"
+msgstr "do you have job now?"
+
+#: .\models.py:991
+msgid "رقم هاتف جهة العمل الحالية"
+msgstr "current work mobile number"
+
+#: .\models.py:993
+msgid "عنوان جهة العمل الحالية"
+msgstr "current wont address"
+
+#: .\models.py:996
+msgid "هل تدرس حاليًا"
+msgstr "do you study now?"
+
+#: .\models.py:998
+msgid "هل تعمل ليلاً"
+msgstr "do you work at night?"
+
+#: .\models.py:1000
+msgid "تاريخ بدء العمل"
+msgstr "start work date"
+
+#: .\models.py:1002
+msgid "أدنى راتب تقبله"
+msgstr "you minimum expected salary"
+
+#: .\models.py:1004 .\models.py:1023 .\models.py:1027 .\models.py:1029
+#: .\models.py:1031 .\models.py:1033
+msgid "معا السبب ان توفر"
+msgstr "reason if exists"
+
+#: .\models.py:1004
+msgid "مشاكل صحية"
+msgstr "health issues"
+
+#: .\models.py:1005
+msgid "الهوايات"
+msgstr "hoppies"
+
+#: .\models.py:1007
+msgid "اسم أقرب شخص"
+msgstr "name of the Nearest person"
+
+#: .\models.py:1009
+msgid "رقم هاتف الشخص الأقرب"
+msgstr "nearest person mobile number"
+
+#: .\models.py:1011
+msgid "علاقتك بالشخص الأقرب"
+msgstr "relation type"
+
+#: .\models.py:1013
+msgid "عنوان الشخص الأقرب"
+msgstr "nearest person address"
+
+#: .\models.py:1015
+msgid "اسم قريتك أو مدينتك"
+msgstr "your city name"
+
+#: .\models.py:1017
+msgid "رقم هاتف قائمة العدالة بقريتك أو مدينتك"
+msgstr "court telephone number at your city"
+
+#: .\models.py:1019
+msgid "عنوان قائمة العدالة بقريتك أو مدينتك"
+msgstr "court address at your city"
+
+#: .\models.py:1021
+msgid "هل تدير عمل خاص"
+msgstr "do you run your own business?"
+
+#: .\models.py:1023
+msgid "هل أنت جاهز للعمل"
+msgstr "are you ready to work?"
+
+#: .\models.py:1025
+msgid "هل تفضل وظيفة حكومية"
+msgstr "do you perfer governmental job?"
+
+#: .\models.py:1027
+msgid "مصدر دخلك المالي"
+msgstr "your income source"
+
+#: .\models.py:1029
+msgid "مهارة اللغة الإنجليزية"
+msgstr "English langauge skills"
+
+#: .\models.py:1031
+msgid "هل تعاني من أمراض"
+msgstr "Do ypu have any deseases?"
+
+#: .\models.py:1033
+msgid "شهادة التخرج"
+msgstr "Graduation Certificate"
+
+#: .\models.py:1041
+msgid "شهادة التخرج ان توفرت/ pdf or png or jpg or doc or docx  "
+msgstr "Graduation Certificate"
+
+#: .\models.py:1087 .\models.py:1088
+msgid " البيانات العامة  "
+msgstr "general information"
+
+#: .\models.py:1105 .\models.py:1162 .\models.py:1444
+msgid "الدولة"
+msgstr "country"
+
+#: .\models.py:1106
+msgid "اختار دولة"
+msgstr "choose the country"
+
+#: .\models.py:1118
+msgid "اختار المحافظة"
+msgstr "Governorate"
+
+#: .\models.py:1128 .\models.py:1180
+msgid "المديرية"
+msgstr "city"
+
+#: .\models.py:1129
+msgid "اختار المديرية"
+msgstr "birthdate"
+
+#: .\models.py:1139 .\models.py:1188
+msgid "العزلة"
+msgstr "region"
+
+#: .\models.py:1140
+msgid "اختار العزلة"
+msgstr "working hours"
+
+#: .\models.py:1146 .\models.py:1147 .\models.py:1217 .\models.py:1218
+#: .\models.py:1396 .\models.py:1397 .\models.py:1491 .\models.py:1492
+msgid "طلب فتح حساب"
+msgstr "open account request"
+
+#: .\models.py:1146 .\models.py:1147
+msgid " - بيانات الميلاد "
+msgstr "birthdate"
+
+#: .\models.py:1194
+msgid "الشارع"
+msgstr "street"
+
+#: .\models.py:1200
+msgid "اقرب فرع لبنك الإنماء من محل اقامتك"
+msgstr "Nearest Inma Branch to You"
+
+#: .\models.py:1206
+msgid "اقرب معلم بارز من محل اقامتك"
+msgstr "Nearest Inma Branch to You"
+
+#: .\models.py:1212
+msgid "نوع السكن"
+msgstr "domain type"
+
+#: .\models.py:1217 .\models.py:1218
+msgid " - بيانات العنوان "
+msgstr "address"
+
+#: .\models.py:1232
+msgid "الاسم الرباعي حسب البطاقة الشخصية"
+msgstr "agree on privacy policy"
+
+#: .\models.py:1248
+msgid "رقم الهوية الشخصية"
+msgstr "Identity number"
+
+#: .\models.py:1264
+msgid "تاريخ اصدار الهوية"
+msgstr "start date"
+
+#: .\models.py:1272
+msgid "تاريخ انتهاء الهوية"
+msgstr "finish date"
+
+#: .\models.py:1278
+msgid "صورة البطاقة الآمامية"
+msgstr "spatial status"
+
+#: .\models.py:1284
+msgid "صورة البطاقة الخلفية"
+msgstr "English langauge skills"
+
+#: .\models.py:1296 .\models.py:1300
+msgid "هل لديك الجنسية الامريكية"
+msgstr "do you have amarican nationallity?"
+
+#: .\models.py:1313
+msgid "هل لديك جنسية اخرى ؟"
+msgstr "do you have other nationallity"
+
+#: .\models.py:1324
+msgid "الجنسية"
+msgstr "nationallity"
+
+#: .\models.py:1340
+msgid "جنسية اخرى"
+msgstr "other nationallity"
+
+#: .\models.py:1370
+msgid "المستوى التعلمي"
+msgstr "education level"
+
+#: .\models.py:1377
+msgid "التخصص"
+msgstr "speciality"
+
+#: .\models.py:1396 .\models.py:1397
+msgid " - بيانات البطاقة الشخصية "
+msgstr "Identity card information"
+
+#: .\models.py:1450
+msgid "رقم تلفون الواتساب"
+msgstr "Whatsapp mobile number"
+
+#: .\models.py:1454
+msgid "رقم التلفون"
+msgstr "telephone number"
+
+#: .\models.py:1458
+msgid "البريد الألكتروني"
+msgstr "Email"
+
+#: .\models.py:1477
+msgid "ادخل ملاحظة"
+msgstr "note"
+
+#: .\models.py:1482
+msgid "تاريخ الأضافة "
+msgstr "start date"
+
+#: .\models.py:1491 .\models.py:1492
+msgid " - بيانات عامة"
+msgstr "general information"
+
+#: .\viewsaccount.py:200
+msgid "مستخدم جديد"
+msgstr "New User"
+
+#: .\viewsaccount.py:317
+msgid "تسجيل الدخول"
+msgstr "Login"
+
+#: .\viewsaccount.py:366 .\viewsaccount.py:367 .\viewsaccount.py:498
+#: .\viewsaccount.py:499
+msgid "تقديم طلب فتح حساب - بيانات عامة"
+msgstr ""
+
+#: .\viewsaccount.py:366 .\viewsaccount.py:367 .\viewsaccount.py:498
+#: .\viewsaccount.py:499
+#, fuzzy
+#| msgid " - بيانات الميلاد "
+msgid "تقديم طلب فتح حساب - بيانات الميلاد"
+msgstr "birthdate"
+
+#: .\viewsaccount.py:366 .\viewsaccount.py:367 .\viewsaccount.py:498
+#: .\viewsaccount.py:499
+msgid "تقديم طلب فتح حساب - عنوان السكن والاقامة "
+msgstr ""
+
+#: .\viewsaccount.py:366 .\viewsaccount.py:367 .\viewsaccount.py:498
+#: .\viewsaccount.py:499
+#, fuzzy
+#| msgid "الاسم الرباعي حسب البطاقة الشخصية"
+msgid "تقديم طلب فتح حساب - بيانات الهوية الشخصية "
+msgstr "agree on privacy policy"
+
+#, fuzzy
+#~| msgid "طلب فتح حساب"
+#~ msgid "انشاء حساب"
+#~ msgstr "open account request"
+
+#~ msgid " اسم المؤسسة التعليمية"
+#~ msgstr "Institute Name"
+
+#~ msgid "   اللغة"
+#~ msgstr "THe Language"
+
+#~ msgid "   اسم المهارة"
+#~ msgstr "Skill Name"
+
+#~ msgid "   اسم المعهد"
+#~ msgstr "Institute Name"
+
+#~ msgid "  اسم العمل"
+#~ msgstr "Client Name"
+
+#~ msgid "   الاسم"
+#~ msgstr "The Name:"
+
+#~ msgid "هل سبق لك العمل في الانماء"
+#~ msgstr "do you work at bank?"
+
+#~ msgid "هل قدمت ملفك للخدمة المدنية؟ "
+#~ msgstr "do you have file at national service?"
+
+#~ msgid "ما هي المدة التي تفكر في قضائها بالعمل لدينا؟ "
+#~ msgstr "how logg do you think you will spend with us?"
+
+#~ msgid "هل تفكر بشراء فيزا للعمل في الخارج؟ "
+#~ msgstr "do you think to buy a visa to work abroad?"
+
+#~ msgid "هل تمانع من السفر في إطار العمل إذا تطلب الأمر؟ "
+#~ msgstr "do you mind to travel for work neccessities?"
+
+#~ msgid "مالعمل الذي تقوم به حالياً"
+#~ msgstr "what is your current job?"
+
+#~ msgid "تلفون العمل الحالي"
+#~ msgstr "current wont address"
+
+#~ msgid "عنوان العمل الحالي"
+#~ msgstr "current wont address"
+
+#~ msgid "هل تدرس حاليا "
+#~ msgstr "do you study now?"
+
+#~ msgid "هل أنت مستعد للعمل ليلاً ؟"
+#~ msgstr "do you work at night?"
+
+#~ msgid "متى تستطيع البدء بالعمل ؟"
+#~ msgstr "start work date"
+
+#~ msgid "ما هو أقل راتب يمكنك أن تقبل به شاملاً جميع البدلات "
+#~ msgstr "what is your expected gross salary?"
+
+#~ msgid "هل لديك مشاكل صحية؟ "
+#~ msgstr "health issues"
+
+#~ msgid "ماهي هواياتك ؟ "
+#~ msgstr "hoppies"
+
+#~ msgid "اسم أقرب شخص لك"
+#~ msgstr "name of the Nearest person"
+
+#~ msgid "رقم تلفونه "
+#~ msgstr "telephone number"
+
+#~ msgid "صلة القرابة "
+#~ msgstr "relation name"
+
+#~ msgid "عنوانه"
+#~ msgstr "address"
+
+#~ msgid "اسم عدل القرية"
+#~ msgstr "course name"
+
+#~ msgid "رقم تلفون "
+#~ msgstr "telephone number"
+
+#~ msgid "عنوانه "
+#~ msgstr "address"
+
+#~ msgid "هل تمتلك او تدير اي مشروع تجاري خاص بك؟"
+#~ msgstr "do you run your own business?"
+
+#~ msgid ""
+#~ "هل انت مستعد للعمل في اي محافظة وفي اي فرع من فروع المصرف في الجمهورية؟"
+#~ msgstr "do you mind to work at any branch of the bank at any governorate?"
+
+#~ msgid "هل لديك وظيفة حكومية؟"
+#~ msgstr "do you perfer governmental job?"
+
+#~ msgid "هل لديك اي مصدر دخل مالي؟"
+#~ msgstr "do you have amarican nationallity?"
+
+#~ msgid "هل تتقن اللغة الانجليزية (كتابة وقراءة ومحادثة)"
+#~ msgstr "are you fluent at English?"
+
+#~ msgid "هل لديك اي مرض دائم أو إعاقة؟"
+#~ msgstr "do you have amarican nationallity?"
+
+#~ msgid "هل حصلت على شهادة التخرج ؟"
+#~ msgstr "Graduation Certificate"
+
+#~ msgid "ارفع شهادة التخرج ان وجدت"
+#~ msgstr "Graduation Certificate"
+
+#~ msgid "الاسم الكامل "
+#~ msgstr "Full Name"
+
+#~ msgid "المدينة/المديرية"
+#~ msgstr "nighborhood"
+
+#~ msgid "العزلة/الشارع"
+#~ msgstr "region"
+
+#~ msgid "صفحتك على التويتر"
+#~ msgstr "facebook page"

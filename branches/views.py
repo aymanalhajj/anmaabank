@@ -6,6 +6,7 @@ from settingapp.views import SettingModelQuerySet
 # Create your views here.
 from .form import SerchModelForm
 from django.db.models import Q
+from settingapp.views import static_content
 
 from country_regions.models import Region
 
@@ -26,7 +27,9 @@ def BranchesHederQuerySet():
     # serializer_class = BranchesHederSerializer
 
 
-def service_points(request, id=None):
+def service_points(request, id=None, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
 
     from anmaabankApp.views import get_cookie
 
@@ -58,6 +61,8 @@ def service_points(request, id=None):
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()
     context['setting'] = SettingModelQuerySet()
     context["branches"] = BranchesHederQuerySet()
+    
+    context["static_content"] = static_content[lang]
     if id != None:
         qs = Branches.objects.all().order_by(
             'created_at').filter(id=id).first()

@@ -12,10 +12,6 @@
 {% endblock custom_css %}
 <!-- {% block title %} انشاء حساب{% endblock %} -->
 {% block body_style %}
-
-
-
-
 {% endblock%}
 {% block content-page%}
 {% csrf_token %}
@@ -25,20 +21,20 @@
 <div id="main" style="overflow-x:auto;background:#ffffff;" class="col-lg-9">
   <div style="background:#ffffff;padding:10px">
 
-    <h2> الدرجات العلمية</h2>
+    <h2>{{static_content.education}}</h2>
     <div class="module filtered" id="changelist">
       <div class="changelist-form-container">
         <div class="results">
           <table id="result_list">
             <thead>
               <tr>
-                <th>اسم المؤسسة التعليمية</th>
-                <th>البلد</th>
-                <th>المستوى التعليمي</th>
-                <th>التخصص</th>
-                <th>المعدل</th>
-                <th>من تاريخ:</th>
-                <th>إلى تاريخ</th>
+                <th>{{static_content.institute_name}}</th>
+                <th>{{static_content.country}}</th>
+                <th>{{static_content.education_level}}</th>
+                <th>{{static_content.speciality}}</th>
+                <th>{{static_content.grade}}</th>
+                <th>{{static_content.from_date}}</th>
+                <th>{{static_content.to_date}}</th>
                 <th>#</th>
 
               </tr>
@@ -70,7 +66,7 @@
       </div>
     </div>
     <div class="add_new">
-      <h3>إضافة</h3>
+      <h3>{{static_content.add}}</h3>
       <div>
         {% if messages %}
         {% for message in messages %}
@@ -97,74 +93,23 @@
             </div>
           </div>
           {% endfor %}
-          <!-- <div class="form-group">
-            <div class="col-sm-12">
-              <label
-                for="{{ form.name_educational_institution.id_for_label }}">{{ form.name_educational_institution.label }}</label>
-              {{ form.name_educational_institution }} <small
-                class="text-danger">{{form.name_educational_institution.errors | striptags}}</small>
-            </div>
-          </div> -->
-
-          <!-- <div class="form-group">
-            <div class="col-sm-12">
-              <label for="{{ form.country.id_for_label }}">{{ form.country.label }}</label>
-              {{ form.country }} <small class="text-danger">{{form.country.errors | striptags}}</small>
-            </div>
-          </div> -->
-
-          <!-- <div class="form-group">
-            <div class="col-sm-12">
-              <label for="{{ form.sducation_level.id_for_label }}">{{ form.sducation_level.label }}</label>
-              {{ form.sducation_level }} <small class="text-danger">{{form.sducation_level.errors | striptags}}</small>
-            </div>
-          </div> -->
-
-          <!-- <div class="form-group">
-            <div class="col-sm-12">
-              <label for="{{ form.specialization.id_for_label }}">{{ form.specialization.label }}</label>
-              {{ form.specialization }} <small class="text-danger">{{form.specialization.errors | striptags}}</small>
-            </div>
-          </div> -->
-
-          <!-- <div class="form-group">
-            <div class="col-sm-12">
-              <label for="{{ form.rate.id_for_label }}">{{ form.rate.label }}</label>
-              {{ form.rate }} <small class="text-danger">{{form.rate.errors | striptags}}</small>
-            </div>
-          </div> -->
-          <!-- <div class="form-group">
-            <div class="col-sm-12">
-              <label for="{{ form.uploaded_image.id_for_label }}">{{ form.uploaded_image.label }}</label>
-              {{ form.uploaded_image }} <small class="text-danger">{{form.uploaded_image.errors | striptags}}</small>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-12">
-              <label for="{{ form.From_Date.id_for_label }}">{{ form.From_Date.label }}</label>
-              {{ form.From_Date }} <small class="text-danger">{{form.From_Date.errors | striptags}}</small>
-            </div>
-          </div> -->
-
-          <!-- <div class="form-group">
-            <div class="col-sm-12">
-              <label for="{{ form.To_date.id_for_label }}">{{ form.To_date.label }}</label>
-              {{ form.To_date }} <small class="text-danger">{{form.To_date.errors | striptags}}</small>
-            </div>
-          </div> -->
-          {% comment %} <label style="display:none;">{{ form.id }} </label> {% endcomment %}
-
       </div>
     </div>
     </br>
-    <div class="form-group">
-      <div class=" row gy-3">
-        <button class="btn btn-info btn-primary " type="submit">حفظ</button>
-        <a type="button" class="btn btn-default prev col-lg-1" href="{% url "baseinfo"%}" role="button">السابق</a>
-        <a type="button" class="btn btn-default next col-lg-2 navbar-left" href="{% url "languagskills"%}"
-          role="button">التالي</a>
+
+    
+    <div class="row gx-5">
+      <div class=" col">
+        <button class="btn btn-info btn-primary " type="submit">{{static_content.save}}</button>
+      </div>
+      <div class=" col">
+        <a type="button" class="btn btn-default prev col-lg-1" href="/{{static_content.lang}}/jobs/baseinfo" role="button">{{static_content.previous}}</a>
+      </div>
+      <div class=" col">
+        <a type="button" class="btn btn-default next col-lg-2 navbar-left" href="/{{static_content.lang}}/jobs/languagskills" role="button">{{static_content.next}}</a>
       </div>
     </div>
+
 
     </form>
 

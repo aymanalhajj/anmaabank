@@ -10,18 +10,16 @@
 
       {% if section_title_services %}
       <h2 class="section-title">
-        {{section_title_services}}
+        {{static_content.our_services_always_with_you}}
       </h2>
-      <p>باقة فريدة من الخدمات البنكية المتطورة</p>
+      <p>{{static_content.service_title2}}</p>
 
       {% else %}
       <h2 class="section-title">
-        خدماتنا دوماً معك
+        {{static_content.our_services_always_with_you}}
       </h2>
-      <p>باقة فريدة من الخدمات البنكية المتطورة</p>
+      <p>{{static_content.service_title2}}</p>
       {% endif %}
-
-      {% comment %} <p>باقة فريدة من الخدمات البنكية المتطورة</p> {% endcomment %}
     </div>
   </div>
 
@@ -31,8 +29,7 @@
         <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(7580px, 0px, 0px);">
           {% for services in ServiceItem %}
           <div class="swiper-slide">
-
-            <a href="{% url 'service-single' services.id %}" class="service-card">
+            <a href="{{static_content.lang}}/service/{{services.id}}" class="service-card">
 
               <div class="service-card-body">
                 <div class="service-img">
@@ -56,7 +53,7 @@
                 </div>
 
               </div>
-              <div class="btn btn-primary">عرض تفاصيل أكثر</div>
+              <div class="btn btn-primary">{{static_content.more_details}}</div>
 
             </a>
           </div>
