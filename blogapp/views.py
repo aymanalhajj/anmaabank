@@ -15,6 +15,24 @@ from OurNewsletter.views import *
 from settingapp.views import static_content
 
 
+
+def login_out_toggle(request):
+    if islogin(request):
+        return "userLogout"
+    else:
+        return "login"
+    
+
+def getSwitchLangUrl(request):
+    if request is None:
+        raise Exception("request is None")
+    url = request.build_absolute_uri()
+    if '/ar' in url:
+        url = url.replace('/ar','/en')
+    elif 'en' in url:
+        url = url.replace('/en','/ar')
+    return url
+
 def getUrl(request):
     if request is None:
         raise Exception("request is None")
@@ -449,7 +467,7 @@ def BlogSingleListView(request, id, lang = "ar"):
         lang = 'ar'
 
     from django.db.models import Count, Case, When
-    context = {
+    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
 
     }
     # if request.method == 'POST':
@@ -546,7 +564,7 @@ def PrivacyPoliciesSingleListView(request, lang = "ar"):
         lang = 'ar'
 
     from django.db.models import Count, Case, When
-    context = {
+    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
 
     }
     # if request.method == 'POST':
@@ -643,7 +661,7 @@ def AntiMoneyLaunderingSingleListView(request, lang = "ar"):
         lang = 'ar'
 
     from django.db.models import Count, Case, When
-    context = {
+    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
 
     }
     # if request.method == 'POST':
@@ -741,7 +759,7 @@ def PoliciesSingleListView(request, id, lang = "ar"):
         lang = 'ar'
 
     from django.db.models import Count, Case, When
-    context = {
+    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
 
     }
     # if request.method == 'POST':

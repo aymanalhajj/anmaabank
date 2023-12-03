@@ -8,6 +8,24 @@ from django.http import HttpResponse
 from django.views.generic.base import View
 from django.contrib import messages
 
+
+
+def login_out_toggle(request):
+    if islogin(request):
+        return "userLogout"
+    else:
+        return "login"
+    
+
+def getSwitchLangUrl(request):
+    if request is None:
+        raise Exception("request is None")
+    url = request.build_absolute_uri()
+    if '/ar' in url:
+        url = url.replace('/ar','/en')
+    elif 'en' in url:
+        url = url.replace('/en','/ar')
+    return url
 from settingapp.views import SettingModelQuerySet
 from navbarapp.views import NavbarsQuerySet, ColumnNavbarsQuerySet
 def getUrl(request):
@@ -43,7 +61,7 @@ def LoanApplicationView(request, lang = "ar"):
     request_to_instance = LoanApplication.objects.filter(user=user).first()
     form = LoanApplicationForm(instance = request_to_instance)
 
-    context = {
+    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
         'forms' : form,
         "title": _("تقديم طلب  تمويل"),
         "url": getUrl(request=request)

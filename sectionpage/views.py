@@ -3,6 +3,24 @@ from .models import *
 # Create your views here.
 from navbarapp.views import NavbarsQuerySet,ColumnNavbarsQuerySet
 
+
+
+def login_out_toggle(request):
+    if islogin(request):
+        return "userLogout"
+    else:
+        return "login"
+    
+
+def getSwitchLangUrl(request):
+    if request is None:
+        raise Exception("request is None")
+    url = request.build_absolute_uri()
+    if '/ar' in url:
+        url = url.replace('/ar','/en')
+    elif 'en' in url:
+        url = url.replace('/en','/ar')
+    return url
 from settingapp.views import SettingModelQuerySet
 
 from settingapp.views import static_content
@@ -53,7 +71,7 @@ def section_single(request, id, lang = "ar"):
     except SectionPage.DoesNotExist:
         print(" OurVision DoesNotExist ")
     # return queryset
-    context = {
+    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
         'section_page': queryset,
         # 'form': form,
         # 'ImagesPortfolioss': dataImagesPortfolio,

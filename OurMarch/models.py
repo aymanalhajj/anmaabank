@@ -1,10 +1,13 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from distutils.command.upload import upload
 import numbers
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, Group
 import datetime
 from tinymce.models import HTMLField
@@ -21,55 +24,55 @@ class OurMarch(models.Model):
     # column_navbar = models.ForeignKey(ColumnNavbars,
     #                                null=True, on_delete=models.SET_NULL, verbose_name="اسم العمود")
     created_by = models.ForeignKey(User, blank=True, editable=False,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
 
     detial_ar = HTMLField(
         max_length=10000000,
-        default=" ", null=True, blank=True, verbose_name="تفاصيل رؤية الشركة")
+        default=" ", null=True, blank=True, verbose_name=_("تفاصيل رؤية الشركة"))
     image = models.ImageField(
-        upload_to="Image/OurMarch/%Y/%m/%d/",  verbose_name=" إختيار صورة", null=True,
-        # verbose_name=" إختيار صورة"
+        upload_to="Image/OurMarch/%Y/%m/%d/",  verbose_name=_(" إختيار صورة"), null=True,
+        # verbose_name=_(" إختيار صورة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 
     is_hidden = models.BooleanField(
         default=False,
         help_text=" سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        verbose_name=_("مخفي")
     )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
     )
     # created_by = models.ForeignKey(User, blank=True, editable=False,
-    #    null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+    #    null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
     deleted_at = models.DateTimeField(null=True,
                                       blank=True,
                                       editable=False,
-                                      verbose_name="تاريخ الحذف "
+                                      verbose_name=_("تاريخ الحذف ")
                                       )
     created_at = models.DateTimeField(
-        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
                                      auto_now=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='OurMarch_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
                                   )
     deleted_by = models.ForeignKey(User, blank=True,   related_name='OurMarch_deleted_by',
-                                   verbose_name=" تم الحذف  بواسطة ",
+                                   verbose_name=_(" تم الحذف  بواسطة "),
                                    editable=False,
                                    null=True, on_delete=models.SET_NULL,)
 
@@ -82,8 +85,8 @@ class OurMarch(models.Model):
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
-        verbose_name="ملاحظة قصيرة"
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
+        verbose_name=_("ملاحظة قصيرة")
     )
 
     def save(self, *args, **kwargs):
@@ -116,5 +119,5 @@ class OurMarch(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "مسيرتنــــا"
-        verbose_name_plural = "مسيرتنــــا"
+        verbose_name = _("مسيرتنــــا")
+        verbose_name_plural = _("مسيرتنــــا")

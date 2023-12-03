@@ -24,6 +24,23 @@ def getUrl(request):
     return request.build_absolute_uri()
 
 
+def login_out_toggle(request):
+    if islogin(request):
+        return "userLogout"
+    else:
+        return "login"
+    
+
+def getSwitchLangUrl(request):
+    if request is None:
+        raise Exception("request is None")
+    url = request.build_absolute_uri()
+    if '/ar' in url:
+        url = url.replace('/ar','/en')
+    elif 'en' in url:
+        url = url.replace('/en','/ar')
+    return url
+
 def contextDate(request, form=None, djobs=None, jobs=None, count=None,
                 formset=None, job=None, bankKonownData=None, bankKonown=None,
                 disabled=None,
@@ -56,8 +73,9 @@ def contextDate(request, form=None, djobs=None, jobs=None, count=None,
         user = Register.objects.get(id=user_id) if user_id else None
     except Register.DoesNotExist:
         user = None
-    context = {
+    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
         "url": getUrl(request),
+        
         # "url": getUrl(request)
         "title": title,
 
@@ -223,7 +241,6 @@ class ProfileRegistration(View):
 def islogin(request):
     if request.session.has_key('userLoggedName') and request.session.has_key('userLoggedEmailId'):
         return True
-
     else:
         return False
 
@@ -241,7 +258,7 @@ def register(request):
     return render(request, "jop/create_accounte.html", contextDate(request=request, formset=formset))
 
 
-def userSignin(request, lang = "ar"):
+def login(request, lang = "ar"):
     if lang is None or lang not in("ar","en"):
         lang = 'ar'
     translation.activate(lang)
@@ -317,7 +334,10 @@ def userSignin(request, lang = "ar"):
         return render(request, "jop/login.html", contextDate(lang= lang ,request=request, form=form, title=_("تسجيل الدخول")))
 
 
-def userLogout(request):
+def userLogout(request,lang="ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+
     if islogin(request) == False:
         return redirect('/')
     else:
@@ -326,7 +346,7 @@ def userLogout(request):
         del request.session['userLoggedEmailId']
         del request.session['userLoggedName']
         del request.session['userLoggedUserId']
-        return redirect('/login/?urlredirect='+getUrl(request))
+        return redirect("/"+lang+'/login')
 
 from django.utils.translation import gettext_lazy as _
 # Create your views here.
@@ -358,7 +378,7 @@ def RequestToOpenAccountView(request, page=0, lang = "ar"):
     id_card = IdentificationCardForm(instance=Identification_Card_instance)
     get_page = int(request.GET.get('page', 1))
     print(get_page)
-    context = {
+    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
 
         # 'birth_data':birthdata,
         # "address_location":addresslocation,
@@ -490,7 +510,7 @@ def RequestToOpenAccountView(request, page=0, lang = "ar"):
         id_card = IdentificationCardForm(instance=Identification_Card_instance)
         get_page = int(request.GET.get('page', 1))
         print(get_page)
-        context = {
+        context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
 
             # 'birth_data':birthdata,
             # "address_location":addresslocation,

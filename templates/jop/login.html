@@ -37,14 +37,16 @@
                   <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
                     <div class="input-group-prepend with-label">
 
-                      {% if static_content.lang == "ar" %}
-                          <span class="input-group-text" id="basic-addon1">
-                              {% if field.field.icon %}
-                              <i class="{{field.field.icon}}"></i>
-                              {% else %}
+                      {% if static_content.lang == "arr" and field.widget.input_type != 'radio' and field.widget.input_type != 'checkbox' %}
+                          {% if field.field.icon %}    
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="{{field.field.icon}}"></i>
+                            </span>
+                          {% else %}
+                            <span class="input-group-text" id="basic-addon1">
                               <i class="bi bi-journal-code"></i>
-                              {% endif %}
-                          </span>
+                            </span>
+                          {% endif %}
                       {% endif %}
                     </div>
                     {{field|as_crispy_field}}

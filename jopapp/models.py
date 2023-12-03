@@ -4,6 +4,7 @@ from django.contrib.auth.models import UserManager
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from country_regions.models import Country, Region, Directorate, Isolation
 from phonenumber_field.modelfields import PhoneNumberField
 import datetime
@@ -13,6 +14,7 @@ from django.shortcuts import reverse
 import os
 from django.core.exceptions import ValidationError
 from django.utils.html import mark_safe
+
 
 CHOICES = (
     ('Full Time', 'Full Time'),
@@ -543,7 +545,7 @@ class SignUpValidete(models.Model):
         super().save(*args, **kwargs)
         subject = 'Your Subject'
         template_name = 'jop/email_template.html'
-        context = {
+        context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
             'verification_link': 'https://alinmabank.com/passswordrest/'+self.code}
         html_message = render_to_string(
             'jop/email_template.html', {'context': context})
@@ -578,7 +580,7 @@ class Jobs(models.Model):
     created_at = models.DateTimeField(
         null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     # created_at = models.DateTimeField(
-    # null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+    # null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     Date_Added = models.DateTimeField(
         auto_now_add=True, verbose_name=_("تاريخ الأضافة")
     )
@@ -698,7 +700,7 @@ class oreder_Jobs(models.Model):
     created_at = models.DateTimeField(
         null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     # created_at = models.DateTimeField(
-    # null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+    # null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     Date_Added = models.DateTimeField(
         auto_now_add=True, verbose_name=_("تاريخ الأضافة")
     )
@@ -706,7 +708,7 @@ class oreder_Jobs(models.Model):
         auto_now=True, verbose_name=_("تاريخ التعديل")
     )
     edite_at = models.DateTimeField(
-        null=True,    auto_now=True, editable=False, blank=True, verbose_name="تاريخ التعديل ")
+        null=True,    auto_now=True, editable=False, blank=True, verbose_name=_("تاريخ التعديل "))
     user = models.ForeignKey(Register, on_delete=models.SET_NULL,
                              null=True, blank=True, verbose_name=_('المستخدم'),
                              related_name="oreder_Jobs_user"

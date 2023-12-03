@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, Group
 from tinymce.models import HTMLField
 from navbarapp.models import Navbars,ColumnNavbars
@@ -36,18 +37,18 @@ class Teams(models.Model):
     # column_navbar = models.ForeignKey(ColumnNavbars,
     #                                null=True, on_delete=models.SET_NULL, verbose_name="اسم العمود")
     full_name = models.CharField(
-        max_length=250, verbose_name="الأسم الكامل"
+        max_length=250, verbose_name=_("الأسم الكامل")
     )
     jop = models.CharField(
         null=True,
         # blank=True,
-        max_length=250, verbose_name="العمل"
+        max_length=250, verbose_name=_("العمل")
     )
     facebook = models.URLField(
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="رابط حساب الفيسبوك إن وجد ",
+        verbose_name=_("رابط حساب الفيسبوك إن وجد "),
         help_text="https://facebook.com",
         validators=[validate_hostname('facebook.com', 'www.facebook.com')]
     )
@@ -55,7 +56,7 @@ class Teams(models.Model):
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="رابط حساب تويتر او منصة اكس إن وجد ",
+        verbose_name=_("رابط حساب تويتر او منصة اكس إن وجد "),
         help_text="https://twitter.com",
         validators=[validate_hostname('twitter.com', 'www.twitter.com',
                                       'x.com', 'www.x.com'
@@ -65,7 +66,7 @@ class Teams(models.Model):
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="رابط حساب انستجرام إن وجد ",
+        verbose_name=_("رابط حساب انستجرام إن وجد "),
         help_text="https://instagram.com",
         validators=[validate_hostname('instagram.com', 'www.instagram.com',
 
@@ -75,7 +76,7 @@ class Teams(models.Model):
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="رابط حساب لنكدإن  إن وجد ",
+        verbose_name=_("رابط حساب لنكدإن  إن وجد "),
         help_text="https://linkedin.com",
         validators=[validate_hostname('linkedin.com', 'www.linkedin.com',
 
@@ -85,7 +86,7 @@ class Teams(models.Model):
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="رابط قناة اليوتيوب ",
+        verbose_name=_("رابط قناة اليوتيوب "),
         help_text="https://youtube.com",
         validators=[validate_hostname('youtube.com', 'www.youtube.com',
 
@@ -98,58 +99,58 @@ class Teams(models.Model):
     # )
 
     detial_ar = HTMLField(
-        max_length=100000, default=" ", null=True, blank=True,  verbose_name="كلمة إن وجد")
+        max_length=100000, default=" ", null=True, blank=True,  verbose_name=_("كلمة إن وجد"))
     image = models.ImageField(
-        upload_to="Image/Teams/%Y/%m/%d/", blank=True, verbose_name=" إختيار صورة", null=True,
+        upload_to="Image/Teams/%Y/%m/%d/", blank=True, verbose_name=_(" إختيار صورة"), null=True,
     )
     created_by = models.ForeignKey(User, blank=True, editable=False,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
 
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     deleted_at = models.DateTimeField(null=True,
                                       blank=True,
                                       editable=False,
-                                      verbose_name="تاريخ الحذف "
+                                      verbose_name=_("تاريخ الحذف ")
                                       )
     created_at = models.DateTimeField(
-        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
                                      auto_now=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='teams_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
                                   )
     deleted_by = models.ForeignKey(User, blank=True, related_name='teams_deleted_by',
-                                   verbose_name=" تم الحذف  بواسطة ",
+                                   verbose_name=_(" تم الحذف  بواسطة "),
                                    editable=False,
                                    null=True, on_delete=models.SET_NULL,)
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     is_hidden = models.BooleanField(
         default=False,
         help_text=" سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        verbose_name=_("مخفي")
     )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
     )
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     sort_no = models.IntegerField(
-        null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+        null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
     )
 
     short_note = models.CharField(
@@ -157,15 +158,15 @@ class Teams(models.Model):
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
 
-        verbose_name="ملاحظة قصيرة إن وجد")
+        verbose_name=_("ملاحظة قصيرة إن وجد"))
 
     def __str__(self):
         return self.full_name
  # is_hidden = models.BooleanField(default=True,
     #                                 editable=True,
-    #                                 verbose_name="مخفي")
+    #                                 verbose_name=_("مخفي"))
 
     def save(self, *args, **kwargs):
         if self.sort_no is None:
@@ -193,5 +194,5 @@ class Teams(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "فريق العمل"
-        verbose_name_plural = "فريق العمل"
+        verbose_name = _("فريق العمل")
+        verbose_name_plural = _("فريق العمل")

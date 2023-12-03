@@ -1,12 +1,15 @@
 from country_regions.models import Region
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 # import shapely
 # Create your models here.
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, Group
 
 # Create your models here.
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
 # from teams.models import validate_hostname
@@ -110,8 +113,8 @@ class Address(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "عنوان فروع"
-        verbose_name_plural = "عناوين الفروع"
+        verbose_name = _("عنوان فروع")
+        verbose_name_plural = _("عناوين الفروع")
 
     def get_complete_address(self):
         address = ""
@@ -193,7 +196,7 @@ class Branches(models.Model):
     #     # max_length=250,
     #     null=True,
     #     blank=True,
-    #     verbose_name="رابط حساب الفيسبوك إن وجد ",
+    #     verbose_name=_("رابط حساب الفيسبوك إن وجد "),
     #     help_text="https://facebook.com",
     #     validators=[validate_hostname('facebook.com', 'www.facebook.com')]
     # )
@@ -201,7 +204,7 @@ class Branches(models.Model):
     #     # max_length=250,
     #     null=True,
     #     blank=True,
-    #     verbose_name="رابط قناة اليوتيوب ",
+    #     verbose_name=_("رابط قناة اليوتيوب "),
     #     help_text="https://youtube.com",
     #     validators=[validate_hostname('youtube.com', 'www.youtube.com',
 
@@ -211,7 +214,7 @@ class Branches(models.Model):
     #     # max_length=250,
     #     null=True,
     #     blank=True,
-    #     verbose_name="رابط حساب تويتر او منصة اكس إن وجد ",
+    #     verbose_name=_("رابط حساب تويتر او منصة اكس إن وجد "),
     #     help_text="https://twitter.com",
     #     validators=[validate_hostname('twitter.com', 'www.twitter.com',
     #                                   'x.com', 'www.x.com'
@@ -221,7 +224,7 @@ class Branches(models.Model):
     #     # max_length=250,
     #     null=True,
     #     blank=True,
-    #     verbose_name="رابط حساب انستجرام إن وجد ",
+    #     verbose_name=_("رابط حساب انستجرام إن وجد "),
     #     help_text="https://instagram.com",
     #     validators=[validate_hostname('instagram.com', 'www.instagram.com',
 
@@ -231,7 +234,7 @@ class Branches(models.Model):
     #     # max_length=250,
     #     null=True,
     #     blank=True,
-    #     verbose_name="رابط حساب لنكدإن  إن وجد ",
+    #     verbose_name=_("رابط حساب لنكدإن  إن وجد "),
     #     help_text="https://linkedin.com",
     #     validators=[validate_hostname('linkedin.com', 'www.linkedin.com',
 
@@ -284,20 +287,20 @@ class Branches(models.Model):
     # number_employees = models.IntegerField(
     #     blank=True, verbose_name=_("عدد الموظفين"), null=True,)
     created_at = models.DateTimeField(
-        null=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
     created_by = models.ForeignKey(User, blank=True, editable=False, related_name='branches_model_created_by',
                                    null=True,
                                    on_delete=models.SET_NULL,
-                                   verbose_name="تم الأنشاء بواسطة ")
+                                   verbose_name=_("تم الأنشاء بواسطة "))
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='branches_model_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
@@ -341,8 +344,8 @@ class Branches(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "الفروع و نقاط الخدمة"
-        verbose_name_plural = "نقاط الخدمة ,الفرع"
+        verbose_name = _("الفروع و نقاط الخدمة")
+        verbose_name_plural = _("نقاط الخدمة ,الفرع")
 # class Supplier(BaseModel):
 #     secondary_country_code = models.CharField(max_length=100)
 #     active_secondary_address = models.BooleanField()

@@ -14,6 +14,24 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
 
+
+def login_out_toggle(request):
+    if islogin(request):
+        return "userLogout"
+    else:
+        return "login"
+    
+
+def getSwitchLangUrl(request):
+    if request is None:
+        raise Exception("request is None")
+    url = request.build_absolute_uri()
+    if '/ar' in url:
+        url = url.replace('/ar','/en')
+    elif 'en' in url:
+        url = url.replace('/en','/ar')
+    return url
+
 def sendEmile():
     safarcallme = "anmaqbank@gmail.com"
 
@@ -220,6 +238,7 @@ def send_email(subject, text_content, html_content='', to='anmaqbank@gmail.com',
         try:
             if is_html_content:
                 context = {
+                    
                     'url_button': "url_button",
                     'text_content': text_content,
 

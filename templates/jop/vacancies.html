@@ -6,27 +6,23 @@
   {% load static%}
   
 {% block title %} 
-  الوظائف الشاغرة
+ {{static_content.available_jobs}}
 {% endblock %}
 {% block content_Breadcrumbs %}
-          الوظائف الشاغرة
+         {{static_content.available_jobs}}
 {% endblock %}
   {% block content-section %}
 
   {% comment %} {% if ServiceItem and setting and not setting.is_hidden_services %} {% endcomment %}
 
-  <section class="services-section-jop-home" style="order: 1;">
+  <section class="services-section-jop-home" style="order: 1;text-align: start;">
     <div class="container">
       <div class="section-header section-heading text-center">
         <h2 class="section-title">
-          
-          
           {% block title-name %}
-          الوظائف الشاغرة
+         {{static_content.available_jobs}}
           {% endblock %}
         </h2>
-
-        {% comment %} <p>باقة فريدة من الخدمات البنكية المتطورة</p> {% endcomment %}
       </div>
     </div>
     

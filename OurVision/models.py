@@ -1,7 +1,9 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from distutils.command.upload import upload
 import numbers
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, Group
 import datetime
 from tinymce.models import HTMLField
@@ -20,43 +22,43 @@ class OurVision(models.Model):
     #                                null=True, on_delete=models.SET_NULL, verbose_name="اسم العمود")
 
     titel = models.CharField(
-        max_length=250, verbose_name="عنوان القسم",
+        max_length=250, verbose_name=_("عنوان القسم"),
         null=True,
     )
     detial_ar = HTMLField(
         # max_length=10000000,
-        default=" ", null=True, blank=True, verbose_name="تفاصيل رؤية الشركة")
+        default=" ", null=True, blank=True, verbose_name=_("تفاصيل رؤية الشركة"))
 
     image = models.ImageField(
-        upload_to="Image/OurVision/%Y/%m/%d/", verbose_name=" إختيار صورة", null=True,
-        # verbose_name=" إختيار صورة"
+        upload_to="Image/OurVision/%Y/%m/%d/", verbose_name=_(" إختيار صورة"), null=True,
+        # verbose_name=_(" إختيار صورة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 
     is_hidden = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        help_text=_(" سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("مخفي")
     )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
     )
     # created_by = models.ForeignKey(User, blank=True, editable=False,
-    #                                null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+    #                                null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
     deleted_at = models.DateTimeField(null=True,
                                       blank=True,
                                       editable=False,
-                                      verbose_name="تاريخ الحذف "
+                                      verbose_name=_("تاريخ الحذف ")
                                       )
-    # created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name="تاريخ الأنشاء ")
+    # created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name=_("تاريخ الأنشاء "))
 
     deleted_by = models.ForeignKey(User, blank=True,
-                                   verbose_name=" تم الحذف  بواسطة ",
+                                   verbose_name=_(" تم الحذف  بواسطة "),
                                    editable=False,
                                    related_name='OurVision_deleted_by',
                                    null=True,
@@ -65,18 +67,18 @@ class OurVision(models.Model):
     created_by = models.ForeignKey(User, blank=True, editable=False, related_name='OurVision_created_by',
                                    null=True,
                                    on_delete=models.SET_NULL,
-                                   verbose_name="تم الأنشاء بواسطة ")
+                                   verbose_name=_("تم الأنشاء بواسطة "))
     created_at = models.DateTimeField(
-        null=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='OurVision_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
@@ -90,8 +92,8 @@ class OurVision(models.Model):
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
-        verbose_name="ملاحظة قصيرة"
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
+        verbose_name=_("ملاحظة قصيرة")
     )
     # name_action = models.CharField(
     #     max_length=250, verbose_name="اسم الحدث (النقرة)",
@@ -147,8 +149,8 @@ class OurVision(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "رؤيتنــــا"
-        verbose_name_plural = "رؤيتنــــا"
+        verbose_name = _("رؤيتنــــا")
+        verbose_name_plural = _("رؤيتنــــا")
 
 
 class Objectives(models.Model):
@@ -160,43 +162,43 @@ class Objectives(models.Model):
     #                                null=True, on_delete=models.SET_NULL, verbose_name="اسم العمود")
 
     titel = models.CharField(
-        max_length=250, verbose_name="عنوان القسم",
+        max_length=250, verbose_name=_("عنوان القسم"),
         null=True,
     )
     detial_ar = HTMLField(
         # max_length=10000000,
-        default=" ", null=True, blank=True, verbose_name="تفاصيل")
+        default=" ", null=True, blank=True, verbose_name=_("تفاصيل"))
 
     image = models.ImageField(
-        upload_to="Image/OurVision/%Y/%m/%d/", verbose_name=" إختيار صورة", null=True,
-        # verbose_name=" إختيار صورة"
+        upload_to="Image/OurVision/%Y/%m/%d/", verbose_name=_("إختيار صورة"), null=True,
+        # verbose_name=_(" إختيار صورة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 
     is_hidden = models.BooleanField(
         default=False,
         help_text=" سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        verbose_name=_("مخفي")
     )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
     )
     # created_by = models.ForeignKey(User, blank=True, editable=False,
-    #                                null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+    #                                null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
     deleted_at = models.DateTimeField(null=True,
                                       blank=True,
                                       editable=False,
-                                      verbose_name="تاريخ الحذف "
+                                      verbose_name=_("تاريخ الحذف ")
                                       )
-    # created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name="تاريخ الأنشاء ")
+    # created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name=_("تاريخ الأنشاء "))
 
     deleted_by = models.ForeignKey(User, blank=True,
-                                   verbose_name=" تم الحذف  بواسطة ",
+                                   verbose_name=_(" تم الحذف  بواسطة "),
                                    editable=False,
                                    related_name='Objectivesn_deleted_by',
                                    null=True,
@@ -205,18 +207,18 @@ class Objectives(models.Model):
     created_by = models.ForeignKey(User, blank=True, editable=False, related_name='Objectives_created_by',
                                    null=True,
                                    on_delete=models.SET_NULL,
-                                   verbose_name="تم الأنشاء بواسطة ")
+                                   verbose_name=_("تم الأنشاء بواسطة "))
     created_at = models.DateTimeField(
-        null=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='Objectives_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
@@ -230,8 +232,8 @@ class Objectives(models.Model):
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
-        verbose_name="ملاحظة قصيرة"
+        help_text=_("اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
+        verbose_name=_("ملاحظة قصيرة")
     )
     # name_action = models.CharField(
     #     max_length=250, verbose_name="اسم الحدث (النقرة)",
@@ -287,8 +289,8 @@ class Objectives(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "الـــغـــايــات"
-        verbose_name_plural = "الـــغـــايــات"
+        verbose_name = _("الـــغـــايــات")
+        verbose_name_plural = _("الـــغـــايــات")
 
 # class Objective(models.Model):
 
@@ -296,10 +298,10 @@ class Objectives(models.Model):
 #          null=True,max_length=100, verbose_name="اسم الغاية"
 #     )
 #     date_added = models.DateTimeField(
-#         auto_now_add=True, null=True, verbose_name="تاريخ الأضافة"
+#         auto_now_add=True, null=True, verbose_name=_("تاريخ الأضافة")
 #     )
 #     date_update = models.DateTimeField(
-#         auto_now=True, null=True, verbose_name="تاريخ التعديل"
+#         auto_now=True, null=True, verbose_name=_("تاريخ التعديل")
 #     )
 #     objective = models.ForeignKey(
 #         Objectives, on_delete=models.SET_NULL,related_name="future_applications" ,
@@ -316,7 +318,7 @@ class Objectives(models.Model):
 
 class About(models.Model):
     titel = models.CharField(
-        max_length=250, verbose_name="العنوان"
+        max_length=250, verbose_name=_("العنوان")
     )
     # Locations = models.ManyToManyField(
     #     Location_Country,
@@ -326,22 +328,22 @@ class About(models.Model):
     is_hidden = models.BooleanField(
         default=False,
         help_text=" سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        verbose_name=_("مخفي")
     )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
     )
     deleted_at = models.DateTimeField(null=True,
                                       blank=True,
                                       editable=False,
-                                      verbose_name="تاريخ الحذف "
+                                      verbose_name=_("تاريخ الحذف ")
                                       )
-    # created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name="تاريخ الأنشاء ")
+    # created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name=_("تاريخ الأنشاء "))
 
     deleted_by = models.ForeignKey(User, blank=True,
-                                   verbose_name=" تم الحذف  بواسطة ",
+                                   verbose_name=_(" تم الحذف  بواسطة "),
                                    editable=False,
                                    related_name='About_deleted_by',
                                    null=True,
@@ -350,18 +352,18 @@ class About(models.Model):
     created_by = models.ForeignKey(User, blank=True, editable=False, related_name='Abouton_created_by',
                                    null=True,
                                    on_delete=models.SET_NULL,
-                                   verbose_name="تم الأنشاء بواسطة ")
+                                   verbose_name=_("تم الأنشاء بواسطة "))
     created_at = models.DateTimeField(
-        null=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='About_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
@@ -375,19 +377,19 @@ class About(models.Model):
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
-        verbose_name="ملاحظة قصيرة"
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
+        verbose_name=_("ملاحظة قصيرة")
     )
     detial_ar = HTMLField(
-        max_length=100000, default=" ", null=True,  verbose_name="التفاصيل")
+        max_length=100000, default=" ", null=True,  verbose_name=_("التفاصيل"))
     image = models.ImageField(
-        upload_to="Image/About/%Y/%m/%d/",  verbose_name=" إختيار صورة", null=True,
-        # verbose_name=" إختيار صورة"
+        upload_to="Image/About/%Y/%m/%d/",  verbose_name=_(" إختيار صورة"), null=True,
+        # verbose_name=_(" إختيار صورة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 
     def __str__(self):
         return self.titel
@@ -422,13 +424,13 @@ class About(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "عنا"
-        verbose_name_plural = "عنا"
+        verbose_name = _("عنا")
+        verbose_name_plural = _("عنا")
 
 
 class MassegeAbout(models.Model):
     titel = models.CharField(
-        max_length=250, verbose_name="العنوان"
+        max_length=250, verbose_name=_("العنوان")
     )
     # Locations = models.ManyToManyField(
     #     Location_Country,
@@ -437,20 +439,20 @@ class MassegeAbout(models.Model):
     # )
 
     detial_ar = HTMLField(
-        null=True,  verbose_name="التفاصيل")
+        null=True,  verbose_name=_("التفاصيل"))
     image = models.ImageField(
-        upload_to="Image/About/%Y/%m/%d/",  verbose_name=" إختيار صورة", null=True,
-        # verbose_name=" إختيار صورة"
+        upload_to="Image/About/%Y/%m/%d/",  verbose_name=_(" إختيار صورة"), null=True,
+        # verbose_name=_(" إختيار صورة")
     )
     deleted_at = models.DateTimeField(null=True,
                                       blank=True,
                                       editable=False,
-                                      verbose_name="تاريخ الحذف "
+                                      verbose_name=_("تاريخ الحذف ")
                                       )
-    # created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name="تاريخ الأنشاء ")
+    # created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name=_("تاريخ الأنشاء "))
 
     deleted_by = models.ForeignKey(User, blank=True,
-                                   verbose_name=" تم الحذف  بواسطة ",
+                                   verbose_name=_(" تم الحذف  بواسطة "),
                                    editable=False,
                                    related_name='MassegeAbout_deleted_by',
                                    null=True,
@@ -459,18 +461,18 @@ class MassegeAbout(models.Model):
     created_by = models.ForeignKey(User, blank=True, editable=False, related_name='MassegeAbout_created_by',
                                    null=True,
                                    on_delete=models.SET_NULL,
-                                   verbose_name="تم الأنشاء بواسطة ")
+                                   verbose_name=_("تم الأنشاء بواسطة "))
     created_at = models.DateTimeField(
-        null=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='MassegeAbout_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
@@ -484,22 +486,22 @@ class MassegeAbout(models.Model):
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
-        verbose_name="ملاحظة قصيرة"
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
+        verbose_name=_("ملاحظة قصيرة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     is_hidden = models.BooleanField(
         default=False,
         help_text=" سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        verbose_name=_("مخفي")
     )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
     )
 
     def __str__(self):
@@ -535,5 +537,5 @@ class MassegeAbout(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "الرسالة"
-        verbose_name_plural = "الرسالة"
+        verbose_name = _("الرسالة")
+        verbose_name_plural = _("الرسالة")

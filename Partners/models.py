@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, Group
 from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
@@ -19,89 +20,89 @@ class Partners(models.Model):
     # ci = models.CharField(max_length=9)
     # birth_date = models.DateField(null=True, blank=True)
     phone = PhoneNumberField(null=True, blank=True,
-                             verbose_name="رقم التلفون ان وجد")
+                             verbose_name=_("رقم التلفون ان وجد"))
     city = models.CharField(max_length=20, blank=True, default="")
     image = models.ImageField(
-        upload_to="Image/Partners/%Y/%m/%d/", verbose_name="صورة الشعار ", null=True,
+        upload_to="Image/Partners/%Y/%m/%d/", verbose_name=_("صورة الشعار "), null=True,
     )
 
     is_hidden = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        help_text=_(" سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("مخفي")
     )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
     )
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     sort_no = models.IntegerField(
-        null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+        null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
     )
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     Date_Added = models.DateTimeField(
-        auto_now_add=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, verbose_name="تاريخ التعديل"
+        auto_now=True, verbose_name=_("تاريخ التعديل")
     )
 
     created_by = models.ForeignKey(User, blank=True, editable=False,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
 
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     deleted_at = models.DateTimeField(null=True,
                                       blank=True,
                                       editable=False,
-                                      verbose_name="تاريخ الحذف "
+                                      verbose_name=_("تاريخ الحذف ")
                                       )
     deleted_by = models.ForeignKey(User, related_name='Partners_deleted_by',
 
-                                   verbose_name=" تم الحذف  بواسطة ",
+                                   verbose_name=_(" تم الحذف  بواسطة "),
                                    editable=False,
 
                                    null=True, on_delete=models.SET_NULL,)
     created_at = models.DateTimeField(
-        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
                                      auto_now=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='Partners_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
                                   )
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     sort_no = models.IntegerField(
-        null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+        null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
     )
     short_note = models.CharField(
         max_length=200,
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
 
-        verbose_name="ملاحظة قصيرة إن وجد (مخفي لاتعرض بالموقع)")
+        verbose_name=_("ملاحظة قصيرة إن وجد (مخفي لاتعرض بالموقع)"))
 
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = " الشركاء "
-        verbose_name_plural = "الشركاء"
+        verbose_name = _("الشركاء")
+        verbose_name_plural = _("الشركاء")
 
     def save(self, *args, **kwargs):
         if self.sort_no is None:

@@ -1,5 +1,7 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django.utils import timezone
 from autoslug import AutoSlugField
@@ -24,7 +26,7 @@ class Job(models.Model):
         null=True,
         # max_length=1000000000,
         default="",
-        verbose_name="تفاصيل"
+        verbose_name=_("تفاصيل")
     )
     company = models.CharField(max_length=200)
     location = models.CharField(max_length=255)

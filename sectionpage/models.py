@@ -1,8 +1,10 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 # from navbarapp.models import ColumnNavbars as columnna
 
 # Create your models here.
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
 from django.contrib.auth.models import User, Group
 from phonenumber_field.modelfields import PhoneNumberField
@@ -37,35 +39,35 @@ class SectionPage(models.Model):
     # column_navbar = models.ForeignKey(ColumnNavbars,
     #                                null=True, on_delete=models.SET_NULL, verbose_name="اسم العمود")
     created_by = models.ForeignKey(User, blank=True, editable=False,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="   (إختياري) تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("(إختياري) تم الأنشاء بواسطة "))
 
     titel = models.CharField(
-        max_length=250, null=True, verbose_name="عنوان القسم  ")
+        max_length=250, null=True, verbose_name=_("عنوان القسم  "))
     short_titel = models.CharField(
-        max_length=250, null=True, default="",  blank=True, verbose_name="جملة قصيرة اسفل العنوان")
+        max_length=250, null=True, default="",  blank=True, verbose_name=_("جملة قصيرة اسفل العنوان"))
 
     detial_ar = HTMLField(
-        null=True,  blank=True, verbose_name="تفاصيل",
+        null=True,  blank=True, verbose_name=_("تفاصيل"),
         default="",
     )
 
    # image = models.ManyToManyField()
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     image = models.ImageField(
         # upload_to=portfolio_file_name,
 
         upload_to="Image/SectionPage/%Y/%m/%d/",
-        verbose_name=" إختيار صورة", null=True,
+        verbose_name=_(" إختيار صورة"), null=True,
     )
     view = models.CharField(
         max_length=100,
         choices=VIEW_CHOICES,
         # default="الرئيسية",
         null=True,
-        verbose_name="صفحة عرض القسم",
+        verbose_name=_("صفحة عرض القسم"),
         # blank=True
     )
     # style = models.CharField(
@@ -82,9 +84,9 @@ class SectionPage(models.Model):
         choices=NOMBAR_CHOICES,
 
         # default="4",
-        verbose_name="عدد الصفوف",
+        verbose_name=_("عدد الصفوف"),
         max_length=100,
-        help_text="عدد الصفوف العناصر في عرض الشاشة",
+        help_text=_("عدد الصفوف العناصر في عرض الشاشة"),
 
         # blank=True
 
@@ -97,58 +99,58 @@ class SectionPage(models.Model):
 
     is_hidden = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        help_text=_("سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("مخفي")
     )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
     )
     # created_by = models.ForeignKey(User, blank=True, editable=False,
-    #    null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+    #    null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
     deleted_at = models.DateTimeField(null=True,
                                       blank=True,
                                       editable=False,
-                                      verbose_name="تاريخ الحذف "
+                                      verbose_name=_("تاريخ الحذف ")
                                       )
     deleted_by = models.ForeignKey(User,
                                    related_name='SectionPage_deleted_by',
 
                                    blank=True,
-                                   verbose_name=" تم الحذف  بواسطة ",
+                                   verbose_name=_(" تم الحذف  بواسطة "),
                                    null=True,
                                    editable=False,
                                    on_delete=models.SET_NULL,)
     created_at = models.DateTimeField(
-        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
                                      auto_now=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='SectionPage_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
                                   )
     created_by = models.ForeignKey(User, blank=True, editable=False, related_name='SectionPage_created_by',
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
     sort_no = models.IntegerField(
-        null=True, editable=True, blank=True, verbose_name="رقم الترتيب ",
-        help_text=" اختياري - يتم ترتيب ظهور الأراء على حسب الرقم هذا ان وجد"
+        null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب "),
+        help_text=_(" اختياري - يتم ترتيب ظهور الأراء على حسب الرقم هذا ان وجد")
     )
     short_note = models.CharField(
         max_length=1000,
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
-        verbose_name="ملاحظة قصيرة"
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
+        verbose_name=_("ملاحظة قصيرة")
     )
 
     # def __str__(self):
@@ -156,8 +158,8 @@ class SectionPage(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "الاقسام والصفحات"
-        verbose_name_plural = "الاقسام والصفحات"
+        verbose_name = _("الاقسام والصفحات")
+        verbose_name_plural = _("الاقسام والصفحات")
 
     def save(self, *args, **kwargs):
         # if self.sort_no is None:
@@ -191,81 +193,81 @@ class SectionPage(models.Model):
 
 class SectionPageProperty(models.Model):
     titel = models.CharField(
-        max_length=250, null=True, verbose_name="عنوان الغاية  ")
+        max_length=250, null=True, verbose_name=_("عنوان الغاية"))
     image = models.ImageField(
         # upload_to=portfolio_file_name,
 
         upload_to="Image/SectionPage/%Y/%m/%d/",
-        blank=True, verbose_name=" إختيار صورة", null=True,
+        blank=True, verbose_name=_(" إختيار صورة"), null=True,
     )
     detial_ar = HTMLField(
-        null=True,  blank=True, verbose_name="التفاصيل")
+        null=True,  blank=True, verbose_name=_("التفاصيل"))
 
     Date_Added = models.DateTimeField(
-        auto_now_add=True, null=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, null=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, null=True, verbose_name="تاريخ التعديل"
+        auto_now=True, null=True, verbose_name=_("تاريخ التعديل")
     )
     our_advantage = models.ForeignKey(
 
         SectionPage, on_delete=models.SET_NULL, null=True, related_name="our_dvantages_property",
-        verbose_name=" القسم")
+        verbose_name=_("القسم"))
 
     is_hidden = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        help_text=_("سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("مخفي")
     )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
     )
     # created_by = models.ForeignKey(User, blank=True, editable=False,
-    #    null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+    #    null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
     deleted_at = models.DateTimeField(null=True,
                                       blank=True,
                                       editable=False,
-                                      verbose_name="تاريخ الحذف "
+                                      verbose_name=_("تاريخ الحذف ")
                                       )
     deleted_by = models.ForeignKey(User,
                                    related_name='SectionPageProperty_deleted_by',
 
                                    blank=True,
-                                   verbose_name=" تم الحذف  بواسطة ",
+                                   verbose_name=_(" تم الحذف  بواسطة "),
                                    null=True,
                                    editable=False,
                                    on_delete=models.SET_NULL,)
     created_at = models.DateTimeField(
-        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
                                      auto_now=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='SectionPageProperty_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
                                   )
     created_by = models.ForeignKey(User, blank=True, editable=False, related_name='SectionPageProperty_created_by',
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
     sort_no = models.IntegerField(
-        null=True, editable=True, blank=True, verbose_name="رقم الترتيب ",
-        help_text=" اختياري - يتم ترتيب ظهور الأراء على حسب الرقم هذا ان وجد"
+        null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب "),
+        help_text=_("اختياري - يتم ترتيب ظهور الأراء على حسب الرقم هذا ان وجد")
     )
     short_note = models.CharField(
         max_length=1000,
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
-        verbose_name="ملاحظة قصيرة"
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
+        verbose_name=_("ملاحظة قصيرة")
     )
 
     # def __str__(self):
@@ -273,8 +275,8 @@ class SectionPageProperty(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "محتوى فرعي للقسم"
-        verbose_name_plural = "محتوى فرعي للقسم"
+        verbose_name = _("محتوى فرعي للقسم")
+        verbose_name_plural = _("محتوى فرعي للقسم")
 
     def save(self, *args, **kwargs):
         # if self.sort_no is None:

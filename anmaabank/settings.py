@@ -655,7 +655,7 @@ LOCALE_PATHS = [
     ,
 ]
 LANGUAGE_CODE ="ar"
-LANGUAGE_COOKIE_NAME = "alinma-lang"
+# LANGUAGE_COOKIE_NAME = "alinma-lang"
 LANGUAGES = [
     ("ar", _("Arabic")),
     ("en", _("English")),

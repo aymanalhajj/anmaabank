@@ -13,6 +13,24 @@ from OurNewsletter.forms import OurNewsletterForm
 from django.db.models import Q
 from settingapp.views import static_content
 
+
+
+def login_out_toggle(request):
+    if islogin(request):
+        return "userLogout"
+    else:
+        return "login"
+    
+
+def getSwitchLangUrl(request):
+    if request is None:
+        raise Exception("request is None")
+    url = request.build_absolute_uri()
+    if '/ar' in url:
+        url = url.replace('/ar','/en')
+    elif 'en' in url:
+        url = url.replace('/en','/ar')
+    return url
 def getUrl(request):
     if request is None:
         raise Exception("request is None")
@@ -98,7 +116,7 @@ def service_single(request, id, lang = "ar"):
 
     if request.method == 'POST':
         from OurNewsletter.views import SaveContact
-        context = {
+        context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
 
         }
         SaveContact(request, "blog.html", context)
@@ -125,7 +143,7 @@ def service_single(request, id, lang = "ar"):
     # formOurNewsletter =
     dataAbout = Services.objects.filter(id=id)
 
-    context = {
+    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
         # 'data': data,
         'form': form,
         "section_title_services": "خدمات مشابهة",
@@ -201,8 +219,7 @@ def application_single(request, lang , id):
             messages.error(request, 'خطأ')
             return redirect(revers_fun)
     # formOurNewsletter =
-
-    context = {
+    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
         'application': application.first(),
         'applications': BankApplications.objects.all(),
 

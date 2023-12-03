@@ -1,42 +1,43 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from anmaabankApp.models import *
 from servicesapp.models import Services, BankApplications
-# Create your models here.
+
 
 
 class AdsenceHeder(models.Model):
     Tital_AR = models.CharField(
         max_length=300,     null=True,
-        blank=True, verbose_name="العنوان بالعربي"
+        blank=True, verbose_name=_("العنوان بالعربي")
     )
     Tital_EN = models.CharField(
         max_length=300,     null=True,
-        blank=True,  verbose_name="العنوان بالانجليزي"
+        blank=True,  verbose_name=_("العنوان بالانجليزي")
     )
 
     Description_AR = models.CharField(
         max_length=1000,     null=True,
-        blank=True,  verbose_name=" الوصف بالعربي "
+        blank=True,  verbose_name=_("الوصف بالعربي")
     )
     Description_EN = models.CharField(
         null=True,
-        blank=True,  max_length=1000, verbose_name=" الوصف بالانجليزي "
+        blank=True,  max_length=1000, verbose_name=_("الوصف بالانجليزي")
     )
     image = models.ImageField(
         null=True,
         # blank=True,
 
         upload_to="Image/Adsence/AdsenceHeder/%Y/%m/%d/%H/%M/%S",
-        verbose_name="صورة الاعلان"
+        verbose_name=_("صورة الاعلان")
     )
 
     Date_Update = models.DateTimeField(
-        auto_now=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, verbose_name=_("تاريخ الأضافة "))
     Date_Finish_Posted = models.DateTimeField(
         null=True, blank=True,
-        verbose_name="تاريخ أنتهاء النشر ")
+        verbose_name=_("تاريخ أنتهاء النشر "))
 
     Price = models.FloatField(
         default=0.0,
@@ -47,7 +48,7 @@ class AdsenceHeder(models.Model):
         related_name="service_ads_header",
         on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="الخدمات"
+        verbose_name=_("الخدمات")
     )
     service_application = models.ForeignKey(
         BankApplications,
@@ -55,7 +56,7 @@ class AdsenceHeder(models.Model):
         related_name="service_application_ads_header",
         on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="خدمات التطبيقات"
+        verbose_name=_("خدمات التطبيقات")
     )
     # daily_flight_schedule = models.ForeignKey(
     #     DailyFlightSchedule,
@@ -69,40 +70,40 @@ class AdsenceHeder(models.Model):
         max_length=1000,
         null=True,
         blank=True,
-        verbose_name="الرابط"
+        verbose_name=_("الرابط")
     )
 
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = "الأعلان في الصفحة الرئيسية "
-        verbose_name_plural = "صور إعلان متحرك في الصفحة الرئيسية "
+        verbose_name = _("الأعلان في الصفحة الرئيسية ")
+        verbose_name_plural = _("صور إعلان متحرك في الصفحة الرئيسية ")
         # verbose_name_plural = "الأعلانات في الاسف "
 
 
 class AdsenceFooter(models.Model):
     Tital_AR = models.CharField(
         max_length=300,     null=True,
-        blank=True,  verbose_name="العنوان بالعربي"
+        blank=True,  verbose_name=_("العنوان بالعربي")
     )
     Tital_EN = models.CharField(
         max_length=300,     null=True,
-        blank=True,  verbose_name="العنوان بالانجليزي"
+        blank=True,  verbose_name=_("العنوان بالانجليزي")
     )
 
     Description_AR = models.CharField(
-        max_length=1000, null=True, verbose_name="  الوصف عربي"
+        max_length=1000, null=True, verbose_name=_("  الوصف عربي")
     )
     Description_EN = models.CharField(
         max_length=1000,     null=True,
         blank=True,
-        verbose_name="  الوصف انجليزي"
+        verbose_name=_("  الوصف انجليزي")
     )
     image = models.ImageField(
         # blank=True,
         null=True,
         upload_to="Image/Adsence/AdsenceHeder/%Y/%m/%d/%H/%M/%S",
-        verbose_name="صورة الاعلان"
+        verbose_name=_("صورة الاعلان")
     )
 
     service = models.ForeignKey(
@@ -111,7 +112,7 @@ class AdsenceFooter(models.Model):
         related_name="services_footer",
         on_delete=models.SET_NULL,
         # blank=True,
-        verbose_name="الخدمات"
+        verbose_name=_("الخدمات")
     )
     service_application = models.ForeignKey(
         BankApplications,
@@ -119,7 +120,7 @@ class AdsenceFooter(models.Model):
         related_name="service_application_ads_footer",
         on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="خدمات التطبيقات"
+        verbose_name=_("خدمات التطبيقات")
     )
 
     # type_comercial_activies_primary = models.ForeignKey(
@@ -142,16 +143,16 @@ class AdsenceFooter(models.Model):
         max_length=1000,
         null=True,
         blank=True,
-        verbose_name="الرابط"
+        verbose_name=_("الرابط")
     )
 
     Date_Update = models.DateTimeField(
-        auto_now=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, verbose_name=_("تاريخ الأضافة "))
     Date_Finish_Posted = models.DateTimeField(
         null=True, blank=True,
-        verbose_name="تاريخ أنتهاء النشر ")
+        verbose_name=_("تاريخ أنتهاء النشر "))
 
     Price = models.FloatField(
         default=0.0,
@@ -160,40 +161,40 @@ class AdsenceFooter(models.Model):
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = "الأعلان في الاسف "
-        verbose_name_plural = "الأعلانات في الاسف "
+        verbose_name = _("الأعلان في الاسف ")
+        verbose_name_plural = _("الأعلانات في الاسف ")
 
 
 class Adsence(models.Model):
     Tital_AR = models.CharField(
         max_length=300,     null=True,
-        blank=True,  verbose_name="العنوان بالعربي"
+        blank=True,  verbose_name=_("العنوان بالعربي")
     )
     Tital_EN = models.CharField(
         max_length=300,     null=True,
-        blank=True,  verbose_name="العنوان بالانجليزي"
+        blank=True,  verbose_name=_("العنوان بالانجليزي")
     )
 
     Description_AR = models.CharField(
-        max_length=1000, null=True, verbose_name="  الوصف عربي"
+        max_length=1000, null=True, verbose_name=_("  الوصف عربي")
     )
     Description_EN = models.CharField(
         max_length=1000,     null=True,
         blank=True,
-        verbose_name="  الوصف انجليزي"
+        verbose_name=_("  الوصف انجليزي")
     )
 
     Date_Added = models.DateTimeField(
-        auto_now_add=True, null=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, null=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, null=True, verbose_name="تاريخ التعديل"
+        auto_now=True, null=True, verbose_name=_("تاريخ التعديل")
     )
 
     # Date_Update = models.DateTimeField(
-    #     auto_now=True, verbose_name="تاريخ التعديل ")
+    #     auto_now=True, verbose_name=_("تاريخ التعديل "))
     # Date_Added = models.DateTimeField(
-    #     auto_now_add=True, verbose_name="تاريخ الأضافة ")
+    #     auto_now_add=True, verbose_name=_("تاريخ الأضافة "))
     # Date_Finish_Posted = models.DateTimeField(
     #     null = True, blank=True,auto_now=True,
     #     verbose_name="تاريخ أنتهاء النشر ")
@@ -209,7 +210,7 @@ class Adsence(models.Model):
         related_name="serviceAdsence",
         on_delete=models.SET_NULL,
         blank=True,
-        verbose_name="المنتج"
+        verbose_name=_("المنتج")
     )
     # daily_flight_schedule = models.ForeignKey(
     #     DailyFlightSchedule,
@@ -223,33 +224,33 @@ class Adsence(models.Model):
         max_length=1000,
         null=True,
         blank=True,
-        verbose_name="الرابط"
+        verbose_name=_("الرابط")
     )
 
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = "الأعلانات "
-        verbose_name_plural = " الأعلانات "
+        verbose_name = _("الأعلانات")
+        verbose_name_plural = _("الأعلانات")
 
 
 class ViewAdcence(models.Model):
     IMEI_device = models.CharField(
-        max_length=30, null=True, verbose_name="رقم معرف الجوال"
+        max_length=30, null=True, verbose_name=_("رقم معرف الجوال")
     )
 
     Date_Added = models.DateTimeField(
-        auto_now_add=True, null=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, null=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, null=True, verbose_name="تاريخ التعديل"
+        auto_now=True, null=True, verbose_name=_("تاريخ التعديل")
     )
     # Date_Update = models.DateTimeField(
-    #     auto_now=True, verbose_name="تاريخ التعديل")
+    #     auto_now=True, verbose_name=_("تاريخ التعديل"))
     # Date_Added = models.DateTimeField(
     #     auto_now_add=True, verbose_name="تاريخ الاضافة")
     adsence = models.ForeignKey(
-        Adsence, on_delete=models.SET_NULL, null=True, verbose_name="الاعلانات"
+        Adsence, on_delete=models.SET_NULL, null=True, verbose_name=_("الاعلانات")
     )
     user = models.ForeignKey(RequestHederInfo,
                              related_name="userViewAdcence",
@@ -271,25 +272,25 @@ class ViewAdcence(models.Model):
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = "مشاهدات الاعلانات"
-        verbose_name_plural = "مشاهدات الاعلانات"
+        verbose_name = _("مشاهدات الاعلانات")
+        verbose_name_plural = _("مشاهدات الاعلانات")
 
 
 class ViewAdsenceFooter(models.Model):
 
     Date_Added = models.DateTimeField(
-        auto_now_add=True, null=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, null=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, null=True, verbose_name="تاريخ التعديل"
+        auto_now=True, null=True, verbose_name=_("تاريخ التعديل")
     )
     # Date_Update = models.DateTimeField(
-    #     auto_now=True, verbose_name="تاريخ التعديل")
+    #     auto_now=True, verbose_name=_("تاريخ التعديل"))
     # Date_Added = models.DateTimeField(
     #     auto_now_add=True, verbose_name="تاريخ الاضافة")
     adsencefooter = models.ForeignKey(
         AdsenceFooter, on_delete=models.SET_NULL,
-        null=True, verbose_name="الاعلانات في الأسفل"
+        null=True, verbose_name=_("الاعلانات في الأسفل")
     )
     user = models.ForeignKey(RequestHederInfo,
                              related_name="userViewAdsenceFooter",
@@ -311,25 +312,25 @@ class ViewAdsenceFooter(models.Model):
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = "مشاهدات الاعلانات في الاسفل"
-        verbose_name_plural = "مشاهدات الاعلانات في الاسفل"
+        verbose_name = _("مشاهدات الاعلانات في الاسفل")
+        verbose_name_plural = _("مشاهدات الاعلانات في الاسفل")
 
 
 class PressAdsenceFooter(models.Model):
 
     Date_Added = models.DateTimeField(
-        auto_now_add=True, null=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, null=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, null=True, verbose_name="تاريخ التعديل"
+        auto_now=True, null=True, verbose_name=_("تاريخ التعديل")
     )
     # Date_Update = models.DateTimeField(
-    #     auto_now=True, verbose_name="تاريخ التعديل")
+    #     auto_now=True, verbose_name=_("تاريخ التعديل"))
     # Date_Added = models.DateTimeField(
     #     auto_now_add=True, verbose_name="تاريخ الاضافة")
     adsencefooter = models.ForeignKey(
         AdsenceFooter, on_delete=models.SET_NULL,
-        null=True, verbose_name="الاعلانات في الأسفل"
+        null=True, verbose_name=_("الاعلانات في الأسفل")
     )
 
     # device = models.ForeignKey(Device,
@@ -347,31 +348,31 @@ class PressAdsenceFooter(models.Model):
         max_length=1000,
         null=True,
         blank=True,
-        verbose_name="الرابط"
+        verbose_name=_("الرابط")
     )
 
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = "الضغط على الاعلانات في الاسفل"
-        verbose_name_plural = "الضغط على الاعلانات في الاسفل"
+        verbose_name = _("الضغط على الاعلانات في الاسفل")
+        verbose_name_plural = _("الضغط على الاعلانات في الاسفل")
 
 
 class ViewAdsenceHeader(models.Model):
 
     Date_Added = models.DateTimeField(
-        auto_now_add=True, null=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, null=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, null=True, verbose_name="تاريخ التعديل"
+        auto_now=True, null=True, verbose_name=_("تاريخ التعديل")
     )
     # Date_Update = models.DateTimeField(
-    #     auto_now=True, verbose_name="تاريخ التعديل")
+    #     auto_now=True, verbose_name=_("تاريخ التعديل"))
     # Date_Added = models.DateTimeField(
     #     auto_now_add=True, verbose_name="تاريخ الاضافة")
     viewAdsenceHeader = models.ForeignKey(
         AdsenceHeder, on_delete=models.SET_NULL,
-        null=True, verbose_name="الاعلانات في الاعلى"
+        null=True, verbose_name=_("الاعلانات في الاعلى")
     )
 
     # device = models.ForeignKey(Device,
@@ -389,25 +390,25 @@ class ViewAdsenceHeader(models.Model):
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = "مشاهدات الاعلانات في الأعلى"
-        verbose_name_plural = "مشاهدات الاعلانات في الاعلى"
+        verbose_name = _("مشاهدات الاعلانات في الأعلى")
+        verbose_name_plural = _("مشاهدات الاعلانات في الاعلى")
 
 
 class PressAdsenceHeder(models.Model):
 
     Date_Added = models.DateTimeField(
-        auto_now_add=True, null=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, null=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, null=True, verbose_name="تاريخ التعديل"
+        auto_now=True, null=True, verbose_name=_("تاريخ التعديل")
     )
     # Date_Update = models.DateTimeField(
-    #     auto_now=True, verbose_name="تاريخ التعديل")
+    #     auto_now=True, verbose_name=_("تاريخ التعديل"))
     # Date_Added = models.DateTimeField(
     #     auto_now_add=True, verbose_name="تاريخ الاضافة")
     adsenceheder = models.ForeignKey(
         AdsenceHeder, on_delete=models.SET_NULL,
-        null=True, verbose_name="الاعلانات في الاعلى"
+        null=True, verbose_name=_("الاعلانات في الاعلى")
     )
 
     # users = models.ForeignKey(Users,
@@ -428,11 +429,11 @@ class PressAdsenceHeder(models.Model):
         max_length=1000,
         null=True,
         blank=True,
-        verbose_name="الرابط"
+        verbose_name=_("الرابط")
     )
 
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = "الضغط على الاعلانات في الاعلى"
-        verbose_name_plural = "الضغط على الاعلانات في الاعلى"
+        verbose_name = _("الضغط على الاعلانات في الاعلى")
+        verbose_name_plural = _("الضغط على الاعلانات في الاعلى")

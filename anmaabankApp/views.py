@@ -55,6 +55,18 @@ def getUrl(request):
 
     return request.build_absolute_uri()
 
+def islogin(request):
+    if request.session.has_key('userLoggedName') and request.session.has_key('userLoggedEmailId'):
+        return True
+    else:
+        return False
+
+def login_out_toggle(request):
+    if islogin(request):
+        return "userLogout"
+    else:
+        return "login"
+    
 
 def set_test_cookie(request, render, key_cookies):
     render.set_cookie("sessionid", key_cookies,
@@ -360,6 +372,7 @@ def indexed(request, tag='', lang = "ar"):
     #     return redirect(revers_fun)
     statistic = Statistics.objects.all()
     context = {
+        "switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
         'form': form,
         'FormOurNewsletter': formOurNewsletter,
         'SectionPageHome': SectionPageHomeQuerySet,
@@ -404,11 +417,15 @@ def indexed(request, tag='', lang = "ar"):
     return render(request, 'index.html', context)
 
 
+
+
+
 def about(request,lang="ar"):
     if lang is None or lang not in("ar","en"):
         lang = 'ar'
     statistic = Statistics.objects.all()
     context = {
+        "switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
         "title": "عن بنك الانماء",
         "titel": "عن بنك الانماء",
         "url": getUrl(request=request)
@@ -480,6 +497,7 @@ def add_data(request, name_model, name_form, name_template, revers_fun, titel):
             messages.error(request, 'خطأ')
             return redirect('index')
     context = {
+        "switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
         'data': data,
         'form': form,
         'title': titel,
@@ -505,6 +523,7 @@ def portfolio_details(request, id):
         portfolio=idImagepr)
 
     context = {
+        "switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
         'dataImagesPortfolio': dataImagesPortfolio,
         'DataPortfolioImages': DataPortfolioImages,
         "title": "معرض اعمال البنك",
@@ -534,6 +553,7 @@ def post(request):
         portfolio=idImagepr)
 
     context = {
+        "switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
         'dataImagesPortfolio': dataImagesPortfolio,
         'DataPortfolioImages': DataPortfolioImages,
         "title": "معرض اعمال البنك",

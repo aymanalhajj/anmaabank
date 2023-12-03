@@ -3,6 +3,7 @@
 from six import python_2_unicode_compatible
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 # from .managers import CurrencyManager
 
@@ -24,8 +25,8 @@ class ExchangeRate(models.Model):
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = "اسعار الصرف "
-        verbose_name_plural = " اسعار الصرف "
+        verbose_name = _("اسعار الصرف")
+        verbose_name_plural = _("اسعار الصرف")
 
     # city = models.CharField(max_length=100,choices=CITY_CHOICES,)
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, Group
 from tinymce.models import HTMLField
 # from tinymce import models as tinymce_models
@@ -7,42 +8,42 @@ from tinymce.models import HTMLField
 
 class FrequentlyAskedQuestions(models.Model):
     question = models.CharField(
-        max_length=250, verbose_name="السؤال"
+        max_length=250, verbose_name=_("السؤال")
     )
 
     answer = HTMLField(
-        max_length=100000, default=" ", null=True, verbose_name="الأجابة")
+        max_length=100000, default=" ", null=True, verbose_name=_("الأجابة"))
     # image = models.ImageField(
-    # upload_to="Image/Teams/%Y/%m/%d/", blank=True, verbose_name=" إختيار صورة", null=True,
+    # upload_to="Image/Teams/%Y/%m/%d/", blank=True, verbose_name=_(" إختيار صورة"), null=True,
     # )
     created_by = models.ForeignKey(User, blank=True, editable=False,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
     # content = HTMLField(blank=True, null=True, verbose_name="المحتوى كود")
 
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     deleted_at = models.DateTimeField(  null=True, 
                                         blank=True, 
                                         editable=False,
-                                        verbose_name="تاريخ الحذف "
+                                        verbose_name=_("تاريخ الحذف ")
     )
     deleted_by = models.ForeignKey(User, blank=True, related_name='frequently_deleted_by',
-                                        verbose_name=" تم الحذف  بواسطة ", 
+                                        verbose_name=_(" تم الحذف  بواسطة "), 
                                         editable=False, 
                                    null=True, on_delete=models.SET_NULL,)
-    created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name="تاريخ الأنشاء ")
+    created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(   null=True,  
                                         editable=False,
                                         blank=True, 
                                         auto_now=True, 
-                                        verbose_name="تاريخ اخر تعديل "
+                                        verbose_name=_("تاريخ اخر تعديل ")
     )
     edited_by = models.ForeignKey(  User, 
                                     blank=True,
                                     editable=False,
-                                    verbose_name=" تم التعديل  بواسطة ", 
+                                    verbose_name=_(" تم التعديل  بواسطة "), 
                                     related_name='frequently_edited_by',
                                     null=True, 
                                     on_delete=models.SET_NULL,
@@ -50,32 +51,32 @@ class FrequentlyAskedQuestions(models.Model):
     is_hidden = models.BooleanField(
         default=False,
         help_text=" سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        verbose_name=_("مخفي")
         )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ", 
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
         )
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     sort_no = models.IntegerField(
-        null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+        null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
     )
     short_note = models.CharField(
         max_length=200,
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
 
-        verbose_name="ملاحظة قصيرة إن وجد (مخفي لاتعرض بالموقع)")
+        verbose_name=_("ملاحظة قصيرة إن وجد (مخفي لاتعرض بالموقع)"))
 
     def __str__(self):
         return self.question
  # is_hidden = models.BooleanField(default=True,
     #                                 editable=True,
-    #                                 verbose_name="مخفي")
+    #                                 verbose_name=_("مخفي"))
 
     def save(self, *args, **kwargs):
         if self.sort_no is None:
@@ -103,5 +104,5 @@ class FrequentlyAskedQuestions(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "أسئلة شائعه عنا"
-        verbose_name_plural = "أسئلة شائعه عنا"
+        verbose_name = _("أسئلة شائعه عنا")
+        verbose_name_plural = _("أسئلة شائعه عنا")

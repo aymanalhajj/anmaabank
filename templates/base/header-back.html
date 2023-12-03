@@ -1,16 +1,50 @@
 
 <div style="z-index: 10;position: absolute; top: 5px;left: 20%;">
-  <a href="/{{static_content.lang}}/login" style="display: block;height: 35px; background: var(--primary);padding: 3px 10px;;width: fit-content;
+  <a href="/{{static_content.lang}}/{{login_out_toggle}}" style="display: block;height: 35px; background: var(--primary);padding: 3px 10px;;width: fit-content;
   text-align: center; border-radius: 5px;color: white;  font-weight: bold; line-height: 25px;">
-  {{static_content.login}}
+  {% if login_out_toggle == 'login' %}
+    {{static_content.login}}
+  {% else %}
+    {{static_content.logout}}
+  {% endif %}
 </a>
 </div>
 
-<div style="z-index: 10;position: absolute;top: 5px;; right: 20%;">
-  <a href="/{{static_content.switch_lang}}" style="display: block;height: 35px; background: var(--primary);padding: 3px 10px;;width: fit-content;
+<div style="z-index: 10;position: absolute; top: 5px;left: 10%;">
+  <a href="/{{static_content.lang}}/jobs/" style="display: block;height: 35px; background: var(--primary);padding: 3px 10px;;width: fit-content;
   text-align: center; border-radius: 5px;color: white;  font-weight: bold; line-height: 25px;">
-  {{static_content.switch_language}}
+  {{static_content.available_jobs}}
 </a>
+</div>
+
+
+
+<div style="z-index: 10;position: absolute;top: 5px;; right: 20%;text-align: center;">
+  <a href="{{switch_lang_url}}" style="
+    text-align: center;
+    display: block;
+    height: 35px; 
+    background: var(--primary);
+    padding: 3px 10px;
+    width: fit-content;
+    text-align: center; 
+    border-radius: 5px;
+    color: white;  
+    font-weight: bold; 
+    line-height: 15px;">
+    <div style="display: flex;margin-top: 5px;">
+      <span style="margin: 0px 5px;"> {{static_content.switch_language}}</span>
+ 
+      <svg  width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 19C14.9706 19 19 14.9706 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M6.39995 1.8999H7.29995C5.54495 7.1559 5.54495 12.8439 7.29995 18.0999H6.39995" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M12.7 1.8999C14.455 7.1559 14.455 12.8439 12.7 18.0999" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M1.90002 13.6V12.7C7.15602 14.455 12.844 14.455 18.1 12.7V13.6" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M1.90002 7.30014C7.15602 5.54514 12.844 5.54514 18.1 7.30014" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+ 
+    </div>
+  </a>
 </div>
 
 <div style="width: 100%; height: 10px;background-color: var(--accent);">

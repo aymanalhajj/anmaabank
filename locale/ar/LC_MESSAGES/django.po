@@ -1,0 +1,1687 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-03 05:24+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\Awards\models.py:25 .\OurMarch\models.py:31 .\OurVision\models.py:30
+msgid "تفاصيل رؤية الشركة"
+msgstr ""
+
+#: .\Awards\models.py:28 .\FrequentlyAskedQuestions\models.py:24
+#: .\OurMarch\models.py:37 .\OurMission\models.py:34
+#: .\OurNewsletter\models.py:59 .\OurNewsletter\models.py:114
+#: .\OurVision\models.py:37 .\OurVision\models.py:177 .\OurVision\models.py:390
+#: .\OurVision\models.py:493 .\Partners\models.py:57
+#: .\Testimonials\models.py:180 .\adsense\models.py:35 .\adsense\models.py:150
+#: .\anmaabankApp\models.py:27 .\anmaabankApp\models.py:170
+#: .\anmaabankApp\models.py:190 .\anmaabankApp\models.py:218
+#: .\blogapp\models.py:40 .\blogapp\models.py:99 .\blogapp\models.py:206
+#: .\clients\models.py:50 .\navbarapp\models.py:236 .\navbarapp\models.py:422
+#: .\portfolioapp\models.py:21 .\portfolioapp\models.py:70
+#: .\portfolioapp\models.py:115 .\sectionpage\models.py:56
+#: .\servicesapp\models.py:33 .\servicesapp\models.py:204
+#: .\servicesapp\models.py:438 .\servicesapp\models.py:644
+#: .\settingapp\models.py:224 .\teams\models.py:110
+msgid "تاريخ التعديل "
+msgstr ""
+
+#: .\Awards\models.py:30 .\FrequentlyAskedQuestions\models.py:26
+#: .\OurMarch\models.py:39 .\OurMission\models.py:36
+#: .\OurNewsletter\models.py:61 .\OurNewsletter\models.py:116
+#: .\OurVision\models.py:39 .\OurVision\models.py:179 .\OurVision\models.py:392
+#: .\OurVision\models.py:495 .\Partners\models.py:59
+#: .\Testimonials\models.py:182 .\adsense\models.py:37 .\adsense\models.py:152
+#: .\anmaabankApp\models.py:29 .\anmaabankApp\models.py:172
+#: .\anmaabankApp\models.py:192 .\anmaabankApp\models.py:220
+#: .\blogapp\models.py:42 .\blogapp\models.py:101 .\blogapp\models.py:208
+#: .\clients\models.py:52 .\navbarapp\models.py:238 .\navbarapp\models.py:424
+#: .\portfolioapp\models.py:23 .\portfolioapp\models.py:72
+#: .\portfolioapp\models.py:117 .\sectionpage\models.py:58
+#: .\servicesapp\models.py:35 .\servicesapp\models.py:206
+#: .\servicesapp\models.py:440 .\servicesapp\models.py:646
+#: .\settingapp\models.py:226 .\teams\models.py:112
+msgid "تاريخ الأضافة "
+msgstr ""
+
+#: .\Awards\models.py:34 .\OurVision\models.py:43 .\Testimonials\models.py:116
+msgid " سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده"
+msgstr ""
+
+#: .\Awards\models.py:35 .\FrequentlyAskedQuestions\models.py:54
+#: .\OurMarch\models.py:44 .\OurMission\models.py:41 .\OurVision\models.py:44
+#: .\OurVision\models.py:184 .\OurVision\models.py:331
+#: .\OurVision\models.py:499 .\Partners\models.py:32
+#: .\Testimonials\models.py:117 .\clients\models.py:25
+#: .\navbarapp\models.py:211 .\navbarapp\models.py:397
+#: .\sectionpage\models.py:103 .\sectionpage\models.py:220
+#: .\teams\models.py:143
+msgid "مخفي"
+msgstr ""
+
+#: .\Awards\models.py:40 .\FrequentlyAskedQuestions\models.py:59
+#: .\OurMarch\models.py:49 .\OurMission\models.py:46 .\OurVision\models.py:49
+#: .\OurVision\models.py:189 .\OurVision\models.py:336
+#: .\OurVision\models.py:504 .\Partners\models.py:37
+#: .\Testimonials\models.py:122 .\clients\models.py:30
+#: .\navbarapp\models.py:216 .\navbarapp\models.py:402
+#: .\sectionpage\models.py:108 .\sectionpage\models.py:225
+#: .\servicesapp\models.py:25 .\servicesapp\models.py:224
+#: .\servicesapp\models.py:447 .\settingapp\models.py:358 .\teams\models.py:148
+msgid "محذوف "
+msgstr ""
+
+#: .\Awards\models.py:47 .\FrequentlyAskedQuestions\models.py:30
+#: .\OurMarch\models.py:56 .\OurMission\models.py:53 .\OurVision\models.py:56
+#: .\OurVision\models.py:196 .\OurVision\models.py:341
+#: .\OurVision\models.py:450 .\Partners\models.py:63
+#: .\Testimonials\models.py:186 .\clients\models.py:56
+#: .\navbarapp\models.py:242 .\navbarapp\models.py:428
+#: .\sectionpage\models.py:115 .\sectionpage\models.py:232
+#: .\servicesapp\models.py:41 .\servicesapp\models.py:236
+#: .\servicesapp\models.py:459 .\settingapp\models.py:365 .\teams\models.py:116
+msgid "تاريخ الحذف "
+msgstr ""
+
+#: .\Awards\models.py:53 .\FrequentlyAskedQuestions\models.py:33
+#: .\OurMarch\models.py:75 .\OurMission\models.py:73 .\OurVision\models.py:61
+#: .\OurVision\models.py:201 .\OurVision\models.py:346
+#: .\OurVision\models.py:455 .\Partners\models.py:67
+#: .\Testimonials\models.py:205 .\clients\models.py:60
+#: .\navbarapp\models.py:246 .\navbarapp\models.py:432
+#: .\sectionpage\models.py:121 .\sectionpage\models.py:238
+#: .\servicesapp\models.py:46 .\servicesapp\models.py:241
+#: .\servicesapp\models.py:464 .\settingapp\models.py:370 .\teams\models.py:135
+msgid " تم الحذف  بواسطة "
+msgstr ""
+
+#: .\Awards\models.py:58 .\FrequentlyAskedQuestions\models.py:36
+#: .\OurMarch\models.py:59 .\OurMission\models.py:57 .\OurVision\models.py:72
+#: .\OurVision\models.py:212 .\OurVision\models.py:357
+#: .\OurVision\models.py:466 .\Partners\models.py:72
+#: .\Testimonials\models.py:189 .\branches\models.py:290 .\clients\models.py:64
+#: .\navbarapp\models.py:250 .\navbarapp\models.py:436
+#: .\sectionpage\models.py:126 .\sectionpage\models.py:243
+#: .\servicesapp\models.py:65 .\servicesapp\models.py:260
+#: .\servicesapp\models.py:483 .\settingapp\models.py:389 .\teams\models.py:119
+msgid "تاريخ الأنشاء "
+msgstr ""
+
+#: .\Awards\models.py:63 .\FrequentlyAskedQuestions\models.py:41
+#: .\OurMarch\models.py:64 .\OurMission\models.py:62 .\OurVision\models.py:76
+#: .\OurVision\models.py:216 .\OurVision\models.py:361
+#: .\OurVision\models.py:470 .\Partners\models.py:77
+#: .\Testimonials\models.py:194 .\branches\models.py:294 .\clients\models.py:69
+#: .\navbarapp\models.py:255 .\navbarapp\models.py:441
+#: .\sectionpage\models.py:131 .\sectionpage\models.py:248
+#: .\servicesapp\models.py:69 .\servicesapp\models.py:264
+#: .\servicesapp\models.py:487 .\settingapp\models.py:393 .\teams\models.py:124
+msgid "تاريخ اخر تعديل "
+msgstr ""
+
+#: .\Awards\models.py:68 .\FrequentlyAskedQuestions\models.py:46
+#: .\OurMarch\models.py:69 .\OurMission\models.py:67 .\OurVision\models.py:81
+#: .\OurVision\models.py:221 .\OurVision\models.py:366
+#: .\OurVision\models.py:475 .\Partners\models.py:82
+#: .\Testimonials\models.py:199 .\branches\models.py:303 .\clients\models.py:74
+#: .\navbarapp\models.py:260 .\navbarapp\models.py:446
+#: .\sectionpage\models.py:136 .\sectionpage\models.py:253
+#: .\servicesapp\models.py:59 .\servicesapp\models.py:254
+#: .\servicesapp\models.py:477 .\settingapp\models.py:383 .\teams\models.py:129
+msgid " تم التعديل  بواسطة "
+msgstr ""
+
+#: .\Awards\models.py:74 .\FrequentlyAskedQuestions\models.py:20
+#: .\OurMarch\models.py:27 .\OurMission\models.py:24 .\OurVision\models.py:70
+#: .\OurVision\models.py:210 .\OurVision\models.py:355
+#: .\OurVision\models.py:464 .\Partners\models.py:54
+#: .\Testimonials\models.py:125 .\anmaabankApp\models.py:21
+#: .\blogapp\models.py:38 .\blogapp\models.py:73 .\blogapp\models.py:180
+#: .\branches\models.py:299 .\clients\models.py:47 .\navbarapp\models.py:233
+#: .\navbarapp\models.py:419 .\sectionpage\models.py:142
+#: .\sectionpage\models.py:259 .\servicesapp\models.py:22
+#: .\servicesapp\models.py:55 .\servicesapp\models.py:202
+#: .\servicesapp\models.py:220 .\servicesapp\models.py:250
+#: .\servicesapp\models.py:389 .\servicesapp\models.py:473
+#: .\settingapp\models.py:379 .\teams\models.py:107
+msgid "تم الأنشاء بواسطة "
+msgstr ""
+
+#: .\Awards\models.py:84 .\FrequentlyAskedQuestions\models.py:71
+#: .\OurMarch\models.py:88 .\OurMission\models.py:85 .\OurVision\models.py:95
+#: .\OurVision\models.py:380 .\OurVision\models.py:489 .\Partners\models.py:97
+#: .\Testimonials\models.py:218 .\clients\models.py:89
+#: .\navbarapp\models.py:275 .\navbarapp\models.py:461
+#: .\sectionpage\models.py:152 .\sectionpage\models.py:269
+#: .\servicesapp\models.py:81 .\servicesapp\models.py:276
+#: .\servicesapp\models.py:499 .\settingapp\models.py:405 .\teams\models.py:161
+msgid " اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"
+msgstr ""
+
+#: .\Awards\models.py:85 .\OurMarch\models.py:89 .\OurMission\models.py:86
+#: .\OurVision\models.py:96 .\OurVision\models.py:236 .\OurVision\models.py:381
+#: .\OurVision\models.py:490 .\sectionpage\models.py:153
+#: .\sectionpage\models.py:270 .\servicesapp\models.py:82
+#: .\servicesapp\models.py:277 .\servicesapp\models.py:500
+#: .\settingapp\models.py:406
+msgid "ملاحظة قصيرة"
+msgstr ""
+
+#: .\FrequentlyAskedQuestions\models.py:11
+msgid "السؤال"
+msgstr ""
+
+#: .\FrequentlyAskedQuestions\models.py:15
+msgid "الأجابة"
+msgstr ""
+
+#: .\FrequentlyAskedQuestions\models.py:64 .\Partners\models.py:42
+#: .\Partners\models.py:90 .\clients\models.py:35 .\clients\models.py:82
+#: .\navbarapp\models.py:221 .\navbarapp\models.py:268
+#: .\navbarapp\models.py:407 .\navbarapp\models.py:454 .\teams\models.py:153
+msgid "رقم الترتيب (يرتب بالموقع حسب الرقم)"
+msgstr ""
+
+#: .\FrequentlyAskedQuestions\models.py:73 .\Partners\models.py:99
+#: .\clients\models.py:91 .\navbarapp\models.py:277 .\navbarapp\models.py:463
+msgid "ملاحظة قصيرة إن وجد (مخفي لاتعرض بالموقع)"
+msgstr ""
+
+#: .\FrequentlyAskedQuestions\models.py:107
+#: .\FrequentlyAskedQuestions\models.py:108
+msgid "أسئلة شائعه عنا"
+msgstr ""
+
+#: .\OurMarch\models.py:33 .\OurMission\models.py:30 .\OurVision\models.py:33
+#: .\OurVision\models.py:386 .\OurVision\models.py:444 .\blogapp\models.py:131
+#: .\sectionpage\models.py:63 .\sectionpage\models.py:201
+#: .\servicesapp\models.py:199 .\servicesapp\models.py:327
+#: .\teams\models.py:104
+msgid " إختيار صورة"
+msgstr ""
+
+#: .\OurMarch\models.py:122 .\OurMarch\models.py:123
+msgid "مسيرتنــــا"
+msgstr ""
+
+#: .\OurNewsletter\models.py:19 .\country_regions\models.py:104
+#: .\servicesapp\models.py:605
+msgid "الدولة"
+msgstr ""
+
+#: .\OurNewsletter\models.py:25 .\servicesapp\models.py:611
+#: .\settingapp\models.py:160
+msgid "رقم تلفون الواتساب"
+msgstr ""
+
+#: .\OurNewsletter\models.py:29 .\servicesapp\models.py:615
+msgid "رقم التلفون "
+msgstr ""
+
+#: .\OurNewsletter\models.py:38 .\servicesapp\models.py:624
+msgid "إسمك"
+msgstr ""
+
+#: .\OurNewsletter\models.py:50 .\OurNewsletter\models.py:84
+msgid "البريد الألكتروني"
+msgstr ""
+
+#: .\OurNewsletter\models.py:56 .\servicesapp\models.py:641
+msgid "الرساله"
+msgstr ""
+
+#: .\OurNewsletter\models.py:68
+msgid "اتصل بناء "
+msgstr ""
+
+#: .\OurNewsletter\models.py:69
+msgid "اتصل بناء"
+msgstr ""
+
+#: .\OurNewsletter\models.py:90
+msgid "البريد الألكتروني موجود من سابق"
+msgstr ""
+
+#: .\OurNewsletter\models.py:123 .\OurNewsletter\models.py:124
+msgid "مشتركين في اخر الاخبار"
+msgstr ""
+
+#: .\OurVision\models.py:25 .\OurVision\models.py:165
+msgid "عنوان القسم"
+msgstr ""
+
+#: .\OurVision\models.py:152 .\OurVision\models.py:153
+msgid "رؤيتنــــا"
+msgstr ""
+
+#: .\OurVision\models.py:170 .\blogapp\models.py:168 .\career\models.py:29
+#: .\sectionpage\models.py:50
+msgid "تفاصيل"
+msgstr ""
+
+#: .\OurVision\models.py:173 .\portfolioapp\models.py:88
+#: .\portfolioapp\models.py:121
+msgid "إختيار صورة"
+msgstr ""
+
+#: .\OurVision\models.py:235
+msgid "اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"
+msgstr ""
+
+#: .\OurVision\models.py:292 .\OurVision\models.py:293
+msgid "الـــغـــايــات"
+msgstr ""
+
+#: .\OurVision\models.py:321 .\OurVision\models.py:433
+#: .\anmaabankApp\models.py:24 .\branches\models.py:44
+#: .\navbarapp\models.py:135 .\servicesapp\models.py:121
+msgid "العنوان"
+msgstr ""
+
+#: .\OurVision\models.py:384 .\OurVision\models.py:442
+#: .\portfolioapp\models.py:65 .\sectionpage\models.py:204
+#: .\servicesapp\models.py:173
+msgid "التفاصيل"
+msgstr ""
+
+#: .\OurVision\models.py:427 .\OurVision\models.py:428
+msgid "عنا"
+msgstr ""
+
+#: .\OurVision\models.py:540 .\OurVision\models.py:541
+msgid "الرسالة"
+msgstr ""
+
+#: .\Partners\models.py:23 .\clients\models.py:16
+msgid "رقم التلفون ان وجد"
+msgstr ""
+
+#: .\Partners\models.py:26 .\clients\models.py:19
+msgid "صورة الشعار "
+msgstr ""
+
+#: .\Partners\models.py:31
+msgid " سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده"
+msgstr ""
+
+#: .\Partners\models.py:47 .\adsense\models.py:188 .\adsense\models.py:243
+#: .\adsense\models.py:282 .\adsense\models.py:322 .\adsense\models.py:364
+#: .\adsense\models.py:400 .\blogapp\models.py:135 .\clients\models.py:40
+#: .\navbarapp\models.py:226 .\navbarapp\models.py:412
+#: .\portfolioapp\models.py:92 .\portfolioapp\models.py:126
+#: .\sectionpage\models.py:207 .\servicesapp\models.py:331
+#: .\servicesapp\models.py:574
+msgid "تاريخ الأضافة"
+msgstr ""
+
+#: .\Partners\models.py:50 .\adsense\models.py:191 .\adsense\models.py:246
+#: .\adsense\models.py:285 .\adsense\models.py:325 .\adsense\models.py:367
+#: .\adsense\models.py:403 .\blogapp\models.py:138 .\clients\models.py:43
+#: .\country_regions\models.py:42 .\navbarapp\models.py:229
+#: .\navbarapp\models.py:415 .\portfolioapp\models.py:95
+#: .\portfolioapp\models.py:129 .\sectionpage\models.py:210
+#: .\servicesapp\models.py:334 .\servicesapp\models.py:577
+msgid "تاريخ التعديل"
+msgstr ""
+
+#: .\Partners\models.py:104 .\Partners\models.py:105
+msgid "الشركاء"
+msgstr ""
+
+#: .\Testimonials\models.py:40
+#, python-format
+msgid "“%(value)s”  رابط انستجرام  فقط "
+msgstr ""
+
+#: .\Testimonials\models.py:54
+#, python-format
+msgid "“%(value)s”  رابط تويتر  فقط "
+msgstr ""
+
+#: .\Testimonials\models.py:68
+#, python-format
+msgid "“%(value)s”  رابط لينكد فقط "
+msgstr ""
+
+#: .\Testimonials\models.py:84
+msgid "الأسم الكامل (سيتم عرضها بالموقع)"
+msgstr ""
+
+#: .\Testimonials\models.py:90
+msgid " الصفة او المهنة "
+msgstr ""
+
+#: .\Testimonials\models.py:103
+msgid " رقم تقييم العميل للشركة   "
+msgstr ""
+
+#: .\Testimonials\models.py:106
+msgid "الشهادة او التوصيات او الرأْي (سيتم عرضها بالموقع)"
+msgstr ""
+
+#: .\Testimonials\models.py:121 .\servicesapp\models.py:24
+#: .\settingapp\models.py:357
+msgid ""
+"سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  "
+msgstr ""
+
+#: .\Testimonials\models.py:131
+msgid "رابط حساب الفيسبوك (إن وجد - اختياري - لن يتم عرضه في الموقع ) "
+msgstr ""
+
+#: .\Testimonials\models.py:140
+msgid "رابط تويتر  فقط"
+msgstr ""
+
+#: .\Testimonials\models.py:143 .\Testimonials\models.py:151
+#: .\Testimonials\models.py:169
+msgid "(إن وجد - اختياري - لن يتم عرضه في الموقع )"
+msgstr ""
+
+#: .\Testimonials\models.py:144
+msgid "رابط حساب تويتر "
+msgstr ""
+
+#: .\Testimonials\models.py:155
+msgid "رابط انستجرا م  فقط "
+msgstr ""
+
+#: .\Testimonials\models.py:158
+msgid "رابط حساب انستجرام "
+msgstr ""
+
+#: .\Testimonials\models.py:165
+msgid "رابط لنكدإن  فقط "
+msgstr ""
+
+#: .\Testimonials\models.py:171
+msgid "رابط حساب لنكدإن "
+msgstr ""
+
+#: .\Testimonials\models.py:210 .\sectionpage\models.py:144
+#: .\sectionpage\models.py:261
+msgid "رقم الترتيب "
+msgstr ""
+
+#: .\Testimonials\models.py:211
+msgid "(  اختياري - يتم ترتيب ظهور الأراء على حسب الرقم هذا ان وجد)"
+msgstr ""
+
+#: .\Testimonials\models.py:220
+msgid "ملاحظة قصيرة (إن وجد - لن يتم عرضه في الموقع )"
+msgstr ""
+
+#: .\adsense\models.py:11 .\adsense\models.py:87 .\adsense\models.py:171
+msgid "العنوان بالعربي"
+msgstr ""
+
+#: .\adsense\models.py:15 .\adsense\models.py:91 .\adsense\models.py:175
+msgid "العنوان بالانجليزي"
+msgstr ""
+
+#: .\adsense\models.py:20
+msgid "الوصف بالعربي"
+msgstr ""
+
+#: .\adsense\models.py:24
+msgid "الوصف بالانجليزي"
+msgstr ""
+
+#: .\adsense\models.py:31 .\adsense\models.py:106
+msgid "صورة الاعلان"
+msgstr ""
+
+#: .\adsense\models.py:40 .\adsense\models.py:155
+msgid "تاريخ أنتهاء النشر "
+msgstr ""
+
+#: .\adsense\models.py:51 .\adsense\models.py:115
+msgid "الخدمات"
+msgstr ""
+
+#: .\adsense\models.py:59 .\adsense\models.py:123 .\servicesapp\models.py:632
+msgid "خدمات التطبيقات"
+msgstr ""
+
+#: .\adsense\models.py:73 .\adsense\models.py:146 .\adsense\models.py:227
+#: .\adsense\models.py:351 .\adsense\models.py:432
+msgid "الرابط"
+msgstr ""
+
+#: .\adsense\models.py:79
+msgid "الأعلان في الصفحة الرئيسية "
+msgstr ""
+
+#: .\adsense\models.py:80
+msgid "صور إعلان متحرك في الصفحة الرئيسية "
+msgstr ""
+
+#: .\adsense\models.py:95 .\adsense\models.py:179
+msgid "  الوصف عربي"
+msgstr ""
+
+#: .\adsense\models.py:100 .\adsense\models.py:184
+msgid "  الوصف انجليزي"
+msgstr ""
+
+#: .\adsense\models.py:164
+msgid "الأعلان في الاسف "
+msgstr ""
+
+#: .\adsense\models.py:165
+msgid "الأعلانات في الاسف "
+msgstr ""
+
+#: .\adsense\models.py:213
+msgid "المنتج"
+msgstr ""
+
+#: .\adsense\models.py:233 .\adsense\models.py:234
+msgid "الأعلانات"
+msgstr ""
+
+#: .\adsense\models.py:239
+msgid "رقم معرف الجوال"
+msgstr ""
+
+#: .\adsense\models.py:253
+msgid "الاعلانات"
+msgstr ""
+
+#: .\adsense\models.py:293 .\adsense\models.py:333
+msgid "الاعلانات في الأسفل"
+msgstr ""
+
+#: .\adsense\models.py:315 .\adsense\models.py:316
+msgid "مشاهدات الاعلانات في الاسفل"
+msgstr ""
+
+#: .\adsense\models.py:357 .\adsense\models.py:358
+msgid "الضغط على الاعلانات في الاسفل"
+msgstr ""
+
+#: .\adsense\models.py:375 .\adsense\models.py:411
+msgid "الاعلانات في الاعلى"
+msgstr ""
+
+#: .\adsense\models.py:393
+msgid "مشاهدات الاعلانات في الأعلى"
+msgstr ""
+
+#: .\adsense\models.py:394
+msgid "مشاهدات الاعلانات في الاعلى"
+msgstr ""
+
+#: .\adsense\models.py:438 .\adsense\models.py:439
+msgid "الضغط على الاعلانات في الاعلى"
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:41
+msgid "No password set."
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:49
+msgid "Invalid password format or unknown hashing algorithm."
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:91 .\anmaabankApp\forms_acount.py:390
+#: .\anmaabankApp\forms_acount.py:468
+msgid "The two password fields didn’t match."
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:94 .\anmaabankApp\forms_acount.py:172
+#: .\anmaabankApp\forms_acount.py:207 .\anmaabankApp\forms_acount.py:472
+msgid "Password"
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:100
+msgid "Password confirmation"
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:103 .\anmaabankApp\forms_acount.py:483
+msgid "Enter the same password as before, for verification."
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:174
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user’s "
+"password, but you can change the password using <a href=\"{}\">this form</a>."
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:214
+#, python-format
+msgid ""
+"Please enter a correct %(username)s and password. Note that both fields may "
+"be case-sensitive."
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:217
+msgid "This account is inactive."
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:284
+msgid "Email"
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:393
+msgid "New password"
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:399
+msgid "New password confirmation"
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:436
+msgid "Your old password was entered incorrectly. Please enter it again."
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:440
+msgid "Old password"
+msgstr ""
+
+#: .\anmaabankApp\forms_acount.py:480
+msgid "Password (again)"
+msgstr ""
+
+#: .\anmaabankApp\models.py:18
+msgid "الرقم"
+msgstr ""
+
+#: .\anmaabankApp\models.py:36 .\anmaabankApp\models.py:37
+msgid "نقاط تواجدنا"
+msgstr ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:70
+#, python-format
+msgid "%(value)s الف"
+msgid_plural "%(value)s الف"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:73
+#, python-format
+msgid "%(value)s million"
+msgid_plural "%(value)s million"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:74
+#, python-format
+msgid "%(value)s billion"
+msgid_plural "%(value)s billion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:75
+#, python-format
+msgid "%(value)s trillion"
+msgid_plural "%(value)s trillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:79
+#, python-format
+msgid "%(value)s quadrillion"
+msgid_plural "%(value)s quadrillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:85
+#, python-format
+msgid "%(value)s quintillion"
+msgid_plural "%(value)s quintillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:90
+#, python-format
+msgid "%(value)s sextillion"
+msgid_plural "%(value)s sextillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:95
+#, python-format
+msgid "%(value)s septillion"
+msgid_plural "%(value)s septillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:98
+#, python-format
+msgid "%(value)s octillion"
+msgid_plural "%(value)s octillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:99
+#, python-format
+msgid "%(value)s nonillion"
+msgid_plural "%(value)s nonillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:100
+#, python-format
+msgid "%(value)s decillion"
+msgid_plural "%(value)s decillion"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\templatetags\poll_extras.py:101
+#, python-format
+msgid "%(value)s googol"
+msgid_plural "%(value)s googol"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\anmaabankApp\viewaccount.py:178
+msgid "Logged out"
+msgstr ""
+
+#: .\anmaabankApp\viewaccount.py:237
+#: .\templates\registration\password_reset_complete.html:7
+#: .\templates\registration\password_reset_done.html:7
+#: .\templates\registration\password_reset_form.html:8
+msgid "Password reset"
+msgstr ""
+
+#: .\anmaabankApp\viewaccount.py:264
+msgid "Password reset sent"
+msgstr ""
+
+#: .\anmaabankApp\viewaccount.py:274
+msgid "Enter new password"
+msgstr ""
+
+#: .\anmaabankApp\viewaccount.py:346
+msgid "Password reset unsuccessful"
+msgstr ""
+
+#: .\anmaabankApp\viewaccount.py:355
+msgid "Password reset complete"
+msgstr ""
+
+#: .\anmaabankApp\viewaccount.py:367
+#: .\templates\registration\password_change_done.html:14
+#: .\templates\registration\password_change_form.html:15
+msgid "Password change"
+msgstr ""
+
+#: .\anmaabankApp\viewaccount.py:390
+msgid "Password change successful"
+msgstr ""
+
+#: .\anmaabank\settings.py:660
+msgid "Arabic"
+msgstr ""
+
+#: .\anmaabank\settings.py:661
+msgid "English"
+msgstr ""
+
+#: .\blogapp\models.py:12
+msgid "اخبار البنك"
+msgstr ""
+
+#: .\blogapp\models.py:13
+msgid "الفعاليات"
+msgstr ""
+
+#: .\blogapp\models.py:14
+msgid "المدونة"
+msgstr ""
+
+#: .\blogapp\models.py:19
+msgid "سياسة خصوصية"
+msgstr ""
+
+#: .\blogapp\models.py:20
+msgid "مكافحة غسل الأموال"
+msgstr ""
+
+#: .\blogapp\models.py:21
+msgid "اخرى"
+msgstr ""
+
+#: .\blogapp\models.py:30 .\sectionpage\models.py:45
+msgid "عنوان القسم  "
+msgstr ""
+
+#: .\blogapp\models.py:55
+msgid "عنوان الخبر او المقالة"
+msgstr ""
+
+#: .\blogapp\models.py:65
+msgid " إختيار صورة المدونة"
+msgstr ""
+
+#: .\blogapp\models.py:88
+msgid "نوع المقال"
+msgstr ""
+
+#: .\blogapp\models.py:90
+msgid "الصنف"
+msgstr ""
+
+#: .\blogapp\models.py:96 .\blogapp\models.py:203
+msgid "تاريخ النشر "
+msgstr ""
+
+#: .\blogapp\models.py:107
+msgid "المقال او المحتوى"
+msgstr ""
+
+#: .\blogapp\models.py:118 .\blogapp\models.py:119
+msgid "المقالات و آخر الأخبار"
+msgstr ""
+
+#: .\blogapp\models.py:141
+msgid " المقال"
+msgstr ""
+
+#: .\blogapp\models.py:144
+msgid "صور المدونة البنك  "
+msgstr ""
+
+#: .\blogapp\models.py:145
+msgid "صور المدونة البنك"
+msgstr ""
+
+#: .\blogapp\models.py:155
+msgid "عنوان السياسة "
+msgstr ""
+
+#: .\blogapp\models.py:172
+msgid " إختيار صورة السياسة"
+msgstr ""
+
+#: .\blogapp\models.py:195
+msgid "نوع السياسة"
+msgstr ""
+
+#: .\branches\models.py:47
+msgid "الشارع"
+msgstr ""
+
+#: .\branches\models.py:51
+msgid "المدينة"
+msgstr ""
+
+#: .\branches\models.py:55
+msgid "Post/Zip-code"
+msgstr ""
+
+#: .\branches\models.py:60
+msgid "رابط الموقع على خرائط جوجل"
+msgstr ""
+
+#: .\branches\models.py:63
+msgid " خط العرض"
+msgstr ""
+
+#: .\branches\models.py:65
+msgid " خط الطول"
+msgstr ""
+
+#: .\branches\models.py:152
+msgid "فرع"
+msgstr ""
+
+#: .\branches\models.py:153
+msgid "صراف آلي"
+msgstr ""
+
+#: .\branches\models.py:154
+msgid "وكيل"
+msgstr ""
+
+#: .\branches\models.py:159
+msgid "24 ساعة"
+msgstr ""
+
+#: .\branches\models.py:160
+msgid "فترتين"
+msgstr ""
+
+#: .\branches\models.py:161
+msgid "فترة واحده"
+msgstr ""
+
+#: .\branches\models.py:169
+msgid "ابحث هنا"
+msgstr ""
+
+#: .\branches\models.py:171 .\branches\models.py:328
+msgid "نوع نقطة الخدمة"
+msgstr ""
+
+#: .\branches\models.py:174
+msgid "region - المدينة"
+msgstr ""
+
+#: .\branches\models.py:183
+msgid "اسم الفرع"
+msgstr ""
+
+#: .\branches\models.py:185
+msgid " العنوان 1"
+msgstr ""
+
+#: .\branches\models.py:259 .\branches\models.py:262 .\branches\models.py:264
+#: .\branches\models.py:267 .\branches\models.py:269
+msgid "اوقات الدوام"
+msgstr ""
+
+#: .\clients\models.py:96 .\clients\models.py:97
+msgid "العملاء"
+msgstr ""
+
+#: .\content_library\models.py:52
+msgid "عنوان الفيديو"
+msgstr ""
+
+#: .\content_library\models.py:53
+msgid "مصدر الفيديو"
+msgstr ""
+
+#: .\content_library\models.py:54
+msgid "رابط الفيديو"
+msgstr ""
+
+#: .\content_library\models.py:55
+msgid "ملف الفيديو"
+msgstr ""
+
+#: .\content_library\models.py:56
+msgid "نوع الفيديو"
+msgstr ""
+
+#: .\content_library\models.py:77
+msgid "الفيديو"
+msgstr ""
+
+#: .\content_library\models.py:78
+msgid "مكتبة الفيديوهات"
+msgstr ""
+
+#: .\content_library\models.py:81
+msgid "اسم التقرير"
+msgstr ""
+
+#: .\content_library\models.py:82
+msgid "نوع التقرير"
+msgstr ""
+
+#: .\content_library\models.py:83
+msgid "صورة التقرير"
+msgstr ""
+
+#: .\content_library\models.py:84
+msgid "ملف التقرير"
+msgstr ""
+
+#: .\content_library\models.py:88
+msgid "التقرير"
+msgstr ""
+
+#: .\content_library\models.py:89
+msgid "التقارير"
+msgstr ""
+
+#: .\country_regions\models.py:13
+msgid "أوقيانوسيا"
+msgstr ""
+
+#: .\country_regions\models.py:14
+msgid "اوروبا"
+msgstr ""
+
+#: .\country_regions\models.py:15
+msgid "افريقيا"
+msgstr ""
+
+#: .\country_regions\models.py:16
+msgid "أمريكا الشمالية"
+msgstr ""
+
+#: .\country_regions\models.py:17
+msgid "القارة القطبية الجنوبية"
+msgstr ""
+
+#: .\country_regions\models.py:18
+msgid "أمريكا الجنوبية"
+msgstr ""
+
+#: .\country_regions\models.py:19
+msgid "اسيا"
+msgstr ""
+
+#: .\country_regions\models.py:28
+msgid "الاسم انجليزي"
+msgstr ""
+
+#: .\country_regions\models.py:30
+msgid "الاسم عربي"
+msgstr ""
+
+#: .\country_regions\models.py:33
+msgid "الاسم  أسكي"
+msgstr ""
+
+#: .\country_regions\models.py:36
+msgid "المعرف"
+msgstr ""
+
+#: .\country_regions\models.py:38
+msgid "أسماء بديلة"
+msgstr ""
+
+#: .\country_regions\models.py:40
+msgid "تاريخ الانشاء"
+msgstr ""
+
+#: .\country_regions\models.py:73
+msgid "القارة"
+msgstr ""
+
+#: .\country_regions\models.py:76
+msgid "مفتاح التلفون"
+msgstr ""
+
+#: .\country_regions\models.py:82
+msgid "الدول"
+msgstr ""
+
+#: .\country_regions\models.py:97
+msgid "اسم العرض عربي"
+msgstr ""
+
+#: .\country_regions\models.py:99
+msgid "اسم العرض انجليزي"
+msgstr ""
+
+#: .\country_regions\models.py:101
+msgid "رمز الاسم الجغرافي"
+msgstr ""
+
+#: .\country_regions\models.py:109 .\country_regions\models.py:110
+msgid "المحافظة/الولاية"
+msgstr ""
+
+#: .\country_regions\models.py:134 .\country_regions\models.py:135
+msgid "المديرية"
+msgstr ""
+
+#: .\country_regions\models.py:159 .\country_regions\models.py:160
+msgid "العزلة"
+msgstr ""
+
+#: .\currencies\models.py:17
+msgid " سعر البيع للدولار"
+msgstr ""
+
+#: .\currencies\models.py:18
+msgid " سعر الشراء للدولار"
+msgstr ""
+
+#: .\currencies\models.py:19
+msgid " سعر الشراء اماراتي"
+msgstr ""
+
+#: .\currencies\models.py:20
+msgid " سعر البيع اماراتي"
+msgstr ""
+
+#: .\currencies\models.py:21
+msgid " سعر الشراء سعودي"
+msgstr ""
+
+#: .\currencies\models.py:22
+msgid " سعر البيع سعودي"
+msgstr ""
+
+#: .\currencies\models.py:28 .\currencies\models.py:29
+msgid "اسعار الصرف"
+msgstr ""
+
+#: .\navbarapp\models.py:139
+msgid "جملة مختصرة معبرة تكتب تحت العنوان  "
+msgstr ""
+
+#: .\navbarapp\models.py:155 .\navbarapp\models.py:180
+msgid "مكان عرض القسم"
+msgstr ""
+
+#: .\navbarapp\models.py:183
+msgid "القسم الاساسي"
+msgstr ""
+
+#: .\navbarapp\models.py:185
+msgid "العمود"
+msgstr ""
+
+#: .\navbarapp\models.py:191 .\sectionpage\models.py:161
+#: .\sectionpage\models.py:162
+msgid "الاقسام والصفحات"
+msgstr ""
+
+#: .\navbarapp\models.py:193
+msgid "تطبيقات البنك"
+msgstr ""
+
+#: .\navbarapp\models.py:195
+msgid "الخدمة"
+msgstr ""
+
+#: .\navbarapp\models.py:197
+msgid "معرض اعمال"
+msgstr ""
+
+#: .\navbarapp\models.py:282 .\navbarapp\models.py:283
+msgid "العنوان في رأس الصفحة"
+msgstr ""
+
+#: .\navbarapp\models.py:382 .\portfolioapp\models.py:17
+msgid "اسم القسم"
+msgstr ""
+
+#: .\navbarapp\models.py:468 .\navbarapp\models.py:469
+msgid "العنوان الفرعي في رأس الصفحة"
+msgstr ""
+
+#: .\portfolioapp\models.py:42 .\sectionpage\models.py:215
+msgid "القسم"
+msgstr ""
+
+#: .\portfolioapp\models.py:45 .\sectionpage\models.py:42
+msgid "(إختياري) تم الأنشاء بواسطة "
+msgstr ""
+
+#: .\portfolioapp\models.py:52
+msgid "اسم العميل   (إختياري)"
+msgstr ""
+
+#: .\portfolioapp\models.py:55
+msgid "رقم  التلفون الأول   (إختياري)"
+msgstr ""
+
+#: .\portfolioapp\models.py:57
+msgid "رقم  التلفون الثاني   (إختياري)"
+msgstr ""
+
+#: .\portfolioapp\models.py:59
+msgid "رقم  التلفون واتس أب   (إختياري)"
+msgstr ""
+
+#: .\portfolioapp\models.py:61
+msgid "رقم  الثابت (إختياري)"
+msgstr ""
+
+#: .\portfolioapp\models.py:63
+msgid "رابط للخدمة ان وجد"
+msgstr ""
+
+#: .\portfolioapp\models.py:67
+msgid "عنوان العمل"
+msgstr ""
+
+#: .\portfolioapp\models.py:98
+msgid "المعرض"
+msgstr ""
+
+#: .\portfolioapp\models.py:112
+msgid "عنوان الصورة"
+msgstr ""
+
+#: .\portfolioapp\models.py:135 .\portfolioapp\models.py:136
+msgid "معرض الصور"
+msgstr ""
+
+#: .\sectionpage\models.py:47
+msgid "جملة قصيرة اسفل العنوان"
+msgstr ""
+
+#: .\sectionpage\models.py:70
+msgid "صفحة عرض القسم"
+msgstr ""
+
+#: .\sectionpage\models.py:87
+msgid "عدد الصفوف"
+msgstr ""
+
+#: .\sectionpage\models.py:89
+msgid "عدد الصفوف العناصر في عرض الشاشة"
+msgstr ""
+
+#: .\sectionpage\models.py:102 .\sectionpage\models.py:219
+msgid "سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده"
+msgstr ""
+
+#: .\sectionpage\models.py:145
+msgid " اختياري - يتم ترتيب ظهور الأراء على حسب الرقم هذا ان وجد"
+msgstr ""
+
+#: .\sectionpage\models.py:196
+msgid "عنوان الغاية"
+msgstr ""
+
+#: .\sectionpage\models.py:262
+msgid "اختياري - يتم ترتيب ظهور الأراء على حسب الرقم هذا ان وجد"
+msgstr ""
+
+#: .\servicesapp\models.py:20 .\servicesapp\models.py:170
+msgid "وصف مختصر جملة واحده فقط"
+msgstr ""
+
+#: .\servicesapp\models.py:29 .\servicesapp\models.py:228
+#: .\servicesapp\models.py:451
+msgid ""
+"سيتم اخفاء هذا التطبيق  من العرض بالموقع بحال تم تحديده وسيعتبر بانه مخفي "
+"مؤقتاً  "
+msgstr ""
+
+#: .\servicesapp\models.py:30 .\servicesapp\models.py:229
+#: .\servicesapp\models.py:452
+msgid "مخفي "
+msgstr ""
+
+#: .\servicesapp\models.py:131
+msgid "نوع الخدمة"
+msgstr ""
+
+#: .\servicesapp\models.py:132
+msgid "مثال : خدمات الشركات او خدمات الأفراد او خدمات المنظمات"
+msgstr ""
+
+#: .\servicesapp\models.py:176
+msgid "اسم الحدث (النقرة)"
+msgstr ""
+
+#: .\servicesapp\models.py:180
+msgid "عنوان البوتون المراد النقر  فيها مثال : احجز الان او استفسر اكثر"
+msgstr ""
+
+#: .\servicesapp\models.py:185
+msgid "رابط الحجز او استفسار عن الخدمة (اختياري)"
+msgstr ""
+
+#: .\servicesapp\models.py:191
+msgid "رقم تلفون الواتساب للحجز او استفسار عن الخدمة (اختياري)"
+msgstr ""
+
+#: .\servicesapp\models.py:195
+msgid "رقم تلفون اتصال للحجز او استفسار عن الخدمة (اختياري)"
+msgstr ""
+
+#: .\servicesapp\models.py:337 .\servicesapp\models.py:637
+msgid " الخدمة"
+msgstr ""
+
+#: .\servicesapp\models.py:340
+msgid "صور خدمات البنك  "
+msgstr ""
+
+#: .\servicesapp\models.py:341
+msgid "صور خدمات البنك"
+msgstr ""
+
+#: .\servicesapp\models.py:351 .\servicesapp\models.py:363
+msgid "اسم التطبيق"
+msgstr ""
+
+#: .\servicesapp\models.py:369
+msgid " ايقون شعار التطبيق صورة مصغر "
+msgstr ""
+
+#: .\servicesapp\models.py:373
+msgid " صورة شاشة التطبيق"
+msgstr ""
+
+#: .\servicesapp\models.py:377
+msgid " صورة باركود تحميل التطبيق"
+msgstr ""
+
+#: .\servicesapp\models.py:398
+msgid "نوع التطبيق"
+msgstr ""
+
+#: .\servicesapp\models.py:409
+msgid "رابط تطبيق على جوجل ابلاي "
+msgstr ""
+
+#: .\servicesapp\models.py:417
+msgid "رابط تطبيق على اب استور "
+msgstr ""
+
+#: .\servicesapp\models.py:425
+msgid "رابط تطبيق تحميل desketop"
+msgstr ""
+
+#: .\servicesapp\models.py:433
+msgid "رابط website"
+msgstr ""
+
+#: .\servicesapp\models.py:446
+msgid ""
+"سيتم اخفاء هذا التطبيق من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم "
+"حذفه  "
+msgstr ""
+
+#: .\servicesapp\models.py:571
+msgid "اسم الميزة"
+msgstr ""
+
+#: .\servicesapp\models.py:581
+msgid "التطبيق"
+msgstr ""
+
+#: .\servicesapp\models.py:584 .\servicesapp\models.py:585
+msgid "مميزات التطبيق"
+msgstr ""
+
+#: .\servicesapp\models.py:619
+msgid "  البريد الألكتروني"
+msgstr ""
+
+#: .\settingapp\models.py:75
+msgid " جميع الحقوق محفوظة © لـ بنك الإنماء للتمويل الأصغر الإسلامي 2023"
+msgstr ""
+
+#: .\settingapp\models.py:80
+msgid "بنك الإنماء"
+msgstr ""
+
+#: .\settingapp\models.py:82
+msgid "اسم website مختصر"
+msgstr ""
+
+#: .\settingapp\models.py:90
+msgid " بنك الإنماء للتمويل الأصغر الإسلامي "
+msgstr ""
+
+#: .\settingapp\models.py:92
+msgid "اسم website"
+msgstr ""
+
+#: .\settingapp\models.py:102 .\teams\models.py:51
+msgid "رابط حساب الفيسبوك إن وجد "
+msgstr ""
+
+#: .\settingapp\models.py:111
+msgid "رابط تلجرام إن وجد "
+msgstr ""
+
+#: .\settingapp\models.py:121 .\teams\models.py:59
+msgid "رابط حساب تويتر او منصة اكس إن وجد "
+msgstr ""
+
+#: .\settingapp\models.py:131 .\teams\models.py:69
+msgid "رابط حساب انستجرام إن وجد "
+msgstr ""
+
+#: .\settingapp\models.py:141 .\teams\models.py:79
+msgid "رابط حساب لنكدإن  إن وجد "
+msgstr ""
+
+#: .\settingapp\models.py:150 .\teams\models.py:89
+msgid "رابط قناة اليوتيوب "
+msgstr ""
+
+#: .\settingapp\models.py:168
+msgid "هاتف 1"
+msgstr ""
+
+#: .\settingapp\models.py:174
+msgid "هاتف 2"
+msgstr ""
+
+#: .\settingapp\models.py:180
+msgid "فاكس"
+msgstr ""
+
+#: .\settingapp\models.py:186
+msgid "الرقم المجاني"
+msgstr ""
+
+#: .\settingapp\models.py:193
+msgid "البريد الإلكتروني"
+msgstr ""
+
+#: .\settingapp\models.py:199
+msgid "الصندوق البريدي"
+msgstr ""
+
+#: .\settingapp\models.py:235 .\settingapp\models.py:240
+#: .\settingapp\models.py:245 .\settingapp\models.py:250
+#: .\settingapp\models.py:255 .\settingapp\models.py:260
+#: .\settingapp\models.py:265 .\settingapp\models.py:270
+#: .\settingapp\models.py:275 .\settingapp\models.py:280
+#: .\settingapp\models.py:285 .\settingapp\models.py:290
+#: .\settingapp\models.py:295 .\settingapp\models.py:300
+#: .\settingapp\models.py:306 .\settingapp\models.py:311
+#: .\settingapp\models.py:316 .\settingapp\models.py:321
+#: .\settingapp\models.py:326 .\settingapp\models.py:331
+#: .\settingapp\models.py:336 .\settingapp\models.py:341
+#: .\settingapp\models.py:346
+msgid " سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"
+msgstr ""
+
+#: .\settingapp\models.py:236
+msgid "اخفاء قسم الفروع"
+msgstr ""
+
+#: .\settingapp\models.py:241
+msgid "اخفاء قسم اتصل بنا"
+msgstr ""
+
+#: .\settingapp\models.py:246
+msgid "اخفاء قسم نبذه عنا"
+msgstr ""
+
+#: .\settingapp\models.py:251
+msgid "اخفاء action  "
+msgstr ""
+
+#: .\settingapp\models.py:256
+msgid "اخفاء قسم  العملاء"
+msgstr ""
+
+#: .\settingapp\models.py:261
+msgid "اخفاء قسم معرض الصور"
+msgstr ""
+
+#: .\settingapp\models.py:266
+msgid "اخفاء قسم فريق العمل"
+msgstr ""
+
+#: .\settingapp\models.py:271
+msgid "اخفاء قسم شركائنا"
+msgstr ""
+
+#: .\settingapp\models.py:276
+msgid "اخفاء قسم اشترك باخر الاخبار"
+msgstr ""
+
+#: .\settingapp\models.py:281
+msgid "اخفاء قسم معرض الــصــور"
+msgstr ""
+
+#: .\settingapp\models.py:286
+msgid "اخفاء قسم مسيرتنــــا"
+msgstr ""
+
+#: .\settingapp\models.py:291
+msgid "اخفاء قسم الاقسام والصفحات"
+msgstr ""
+
+#: .\settingapp\models.py:296
+msgid "اخفاء قسم الاقسام والصفحات من الشاشة الرئسية فقط"
+msgstr ""
+
+#: .\settingapp\models.py:301
+msgid "اخفاء قسم مهمتنــــا"
+msgstr ""
+
+#: .\settingapp\models.py:307
+msgid "اخفاء قسم تطبيقات البنك"
+msgstr ""
+
+#: .\settingapp\models.py:312
+msgid "اخفاء قسم الاعلانات المتحركة في اعلا الصفحه"
+msgstr ""
+
+#: .\settingapp\models.py:317
+msgid "اخفاء قسم اخر الاخبار في الشاشة الرئيسية "
+msgstr ""
+
+#: .\settingapp\models.py:322
+msgid "اخفاء  اسفل الصفحة 'footer' بشكل كامل  "
+msgstr ""
+
+#: .\settingapp\models.py:327
+msgid "اخفاء قسم الأسئلة الشائعة"
+msgstr ""
+
+#: .\settingapp\models.py:332
+msgid "اخفاء اسعار العملات "
+msgstr ""
+
+#: .\settingapp\models.py:337
+msgid "اخفاء قسم الشعار اعلا اسفل الصفحة "
+msgstr ""
+
+#: .\settingapp\models.py:342
+msgid "اخفاء قسم معرض الصور "
+msgstr ""
+
+#: .\settingapp\models.py:347
+msgid "اخفاء قسم خدمات "
+msgstr ""
+
+#: .\teams\models.py:40
+msgid "الأسم الكامل"
+msgstr ""
+
+#: .\teams\models.py:45
+msgid "العمل"
+msgstr ""
+
+#: .\teams\models.py:102
+msgid "كلمة إن وجد"
+msgstr ""
+
+#: .\teams\models.py:163
+msgid "ملاحظة قصيرة إن وجد"
+msgstr ""
+
+#: .\templates\registration\auth\user\add_form.html:6
+msgid ""
+"First, enter a username and password. Then, you’ll be able to edit more user "
+"options."
+msgstr ""
+
+#: .\templates\registration\auth\user\add_form.html:8
+msgid "Enter a username and password."
+msgstr ""
+
+#: .\templates\registration\auth\user\change_password.html:10
+#: .\templates\registration\base.html:76
+#: .\templates\registration\logged_out.html:4
+#: .\templates\registration\password_change_done.html:13
+#: .\templates\registration\password_change_form.html:14
+#: .\templates\registration\password_reset_complete.html:6
+#: .\templates\registration\password_reset_confirm.html:7
+#: .\templates\registration\password_reset_done.html:6
+#: .\templates\registration\password_reset_form.html:7
+msgid "Home"
+msgstr ""
+
+#: .\templates\registration\auth\user\change_password.html:14
+#: .\templates\registration\auth\user\change_password.html:52
+#: .\templates\registration\base.html:57
+#: .\templates\registration\password_change_done.html:4
+#: .\templates\registration\password_change_form.html:5
+msgid "Change password"
+msgstr ""
+
+#: .\templates\registration\auth\user\change_password.html:25
+#: .\templates\registration\login.html:23
+#: .\templates\registration\password_change_form.html:25
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\templates\registration\auth\user\change_password.html:29
+#, python-format
+msgid "Enter a new password for the user <strong>%(username)s</strong>."
+msgstr ""
+
+#: .\templates\registration\base.html:28
+msgid "Skip to main content"
+msgstr ""
+
+#: .\templates\registration\base.html:43
+msgid "Welcome,"
+msgstr ""
+
+#: .\templates\registration\base.html:48
+msgid "View site"
+msgstr ""
+
+#: .\templates\registration\base.html:53
+#: .\templates\registration\password_change_done.html:4
+#: .\templates\registration\password_change_form.html:5
+msgid "Documentation"
+msgstr ""
+
+#: .\templates\registration\base.html:61
+#: .\templates\registration\password_change_done.html:7
+#: .\templates\registration\password_change_form.html:8
+msgid "Log out"
+msgstr ""
+
+#: .\templates\registration\base.html:73
+msgid "Breadcrumbs"
+msgstr ""
+
+#: .\templates\registration\base_site.html:3
+msgid "Django site admin"
+msgstr ""
+
+#: .\templates\registration\base_site.html:6
+msgid "Django administration"
+msgstr ""
+
+#: .\templates\registration\logged_out.html:10
+msgid "Thanks for spending some quality time with the web site today."
+msgstr ""
+
+#: .\templates\registration\logged_out.html:12
+msgid "Log in again"
+msgstr ""
+
+#: .\templates\registration\login.html:39
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
+
+#: .\templates\registration\login.html:59
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: .\templates\registration\login.html:63
+#: .\templates\registration\password_reset_complete.html:15
+msgid "Log in"
+msgstr ""
+
+#: .\templates\registration\password_change_done.html:19
+msgid "Your password was changed."
+msgstr ""
+
+#: .\templates\registration\password_change_form.html:30
+msgid ""
+"Please enter your old password, for security’s sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+
+#: .\templates\registration\password_change_form.html:58
+#: .\templates\registration\password_reset_confirm.html:31
+msgid "Change my password"
+msgstr ""
+
+#: .\templates\registration\password_reset_complete.html:13
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:8
+msgid "Password reset confirmation"
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:16
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:23
+msgid "New password:"
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:28
+msgid "Confirm password:"
+msgstr ""
+
+#: .\templates\registration\password_reset_confirm.html:37
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+
+#: .\templates\registration\password_reset_done.html:13
+msgid ""
+"We’ve emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+
+#: .\templates\registration\password_reset_done.html:15
+msgid ""
+"If you don’t receive an email, please make sure you’ve entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:8
+msgid "Your username, in case you’ve forgotten:"
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: .\templates\registration\password_reset_form.html:14
+msgid ""
+"Forgotten your password? Enter your email address below, and we’ll email "
+"instructions for setting a new one."
+msgstr ""
+
+#: .\templates\registration\password_reset_form.html:20
+msgid "Email address:"
+msgstr ""
+
+#: .\templates\registration\password_reset_form.html:23
+msgid "Reset my password"
+msgstr ""

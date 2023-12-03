@@ -73,6 +73,7 @@
     /* --main: var(--primary); */
     --color-default: #444;
     --color-primary: #fff;
+    --accent: #DBB24F;
     --arrow-bg: #a6c8e642;
     --arrow-icon: url(../img/alsahm-down.svg);
     --color-secondary: #f85a40;
@@ -81,7 +82,6 @@
     --primary-light-bg: #c5e4ff;
 
     --secondary: #5e9cd3;
-    --accent: #DBB24F;
     --blue: #0b198f;
     --input-border-color: #ced4da;
     --input-background-color: #ebf3fb;
@@ -4375,7 +4375,7 @@ main {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 50%;
+    width: 90%;
     transform: translate(-50%, -50%);
     z-index: 2
 }

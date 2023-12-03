@@ -1,13 +1,9 @@
 {% load static %}
 {% block ads-swiper %}
 {% if AdsenceHeder and setting and not setting.is_hidden_adsence_header %}
-
-
-
 <section id="services-home" class="services-section-home banar" style="order: 1; padding: 0px;" >
-  
-
-<div class="services-section-container" style="border: 0px rgb(18, 14, 14) solid; ">
+  <img style="position: absolute;bottom: -10px;left: 50px;;z-index: 100;" width="150px" height="150px" src="/static/assets/img/two-arrows.png" />
+<div class="services-section-container" style="border: 0px rgb(18, 14, 14) solid;margin-bottom: 20px; ">
   <div class="containerr" style="border: rgb(81, 0, 255) 0px solid; padding: 0px;margin: 0px; ">
     <div  style="border: 0px red solid; " class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden hero-slider slider-services-js">
       <div class="swiper-wrapper"    >
@@ -19,10 +15,10 @@
       </div>
       <div class="hero-slider-buttons slider-buttons" style="border: 0px red solid;">
         <div class="hero-prev">
-          <img src="../../static/assets/img/arrow-blue-right.png" width="30px" height="60px"/>
+          <img src="/static/assets/img/arrow-blue-right.png" width="30px" height="60px"/>
         </div>
         <div class="hero-next">
-          <img src="../../static/assets/img/arrow-blue-left.png" width="30px" height="60px"/>
+          <img src="/static/assets/img/arrow-blue-left.png" width="30px" height="60px"/>
         </div>
       </div>
     </div>

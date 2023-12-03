@@ -23,6 +23,7 @@
   {% endblock topheadersection %}
 
 {% block custom-menu-navbar %}
+<!--
 <li><a href="{% url "home-jop" %}">الرئيسية</a></li>
 <li><a href="{% url "about" %}">عن البنك</a></li>
 <li><a href="{% url "strategy_bank" %}">تعليمات التقديم</a></li>
@@ -51,6 +52,7 @@
   {% else %}
       <li><a href="{% url "userLogout" %}">تسجيل الخروج</a></li>
   {% endif %}
+-->
 
 
 {% endblock custom-menu-navbar %}
@@ -103,11 +105,11 @@
        <article class="entry">             
                   <div class="w3-center w3-light-grey w3-padding-16 " style="display: none;">
                     <div class="w3-bar w3-light-grey">
-                      <a href="{% url 'jobsoffered' %}" class="w3-bar-item w3-button">الوظائف المقدم فيها</a>
-                      <a class="w3-bar-item w3-button" href="{% url 'show_cv' %}">عرض السيرة الذاتية</a>
-                      <a href="{% url 'cvedit' %}" class="w3-bar-item w3-button">السيرة الذاتية</a>
+                      <a href="/{{static_content.lang}}/jobs/jobsoffered/" class="w3-bar-item w3-button">الوظائف المقدم فيها</a>
+                      <a class="w3-bar-item w3-button" href="/{{static_content.lang}}/jobs/show_cv/">عرض السيرة الذاتية</a>
+                      <a href="/{{static_content.lang}}/jobs/cvedit/" class="w3-bar-item w3-button">السيرة الذاتية</a>
                       {% if user.is_active and user.is_staff %}
-                      <a href="{% url "home-jop-manage-admin"%}" class="w3-bar-item w3-button">
+                      <a href="/{{static_content.lang}}/jobs/admin/" class="w3-bar-item w3-button">
                         ادارة المقدمين على الوظائف
                       </a>
                       {% endif %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-30 22:31+0300\n"
+"POT-Creation-Date: 2023-12-03 05:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,112 +19,112 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: .\apps.py:7
+#: .\loan_app\apps.py:7
 #, fuzzy
 #| msgid "طلبات التمويل"
 msgid "اعداد طلبات التمويل"
 msgstr "طلبات التمويل"
 
-#: .\models.py:8
+#: .\loan_app\models.py:9
 msgid "اسم نوع النشاط"
 msgstr "اسم نوع النشاط"
 
-#: .\models.py:9
+#: .\loan_app\models.py:10
 msgid "وصف مختصر لنوع النشاط"
 msgstr "وصف مختصر لنوع النشاط"
 
-#: .\models.py:16 .\models.py:17 .\models.py:44
+#: .\loan_app\models.py:17 .\loan_app\models.py:18 .\loan_app\models.py:45
 msgid "نوع النشاط"
 msgstr "نوع النشاط"
 
-#: .\models.py:21
+#: .\loan_app\models.py:22
 msgid "اسم نوع الضمانه"
 msgstr "اسم نوع الضمانه"
 
-#: .\models.py:22
+#: .\loan_app\models.py:23
 msgid "وصف مختصر لنوع الضمانة"
 msgstr "وصف مختصر لنوع الضمانة"
 
-#: .\models.py:29
+#: .\loan_app\models.py:30
 msgid "نوع  الضمانة"
 msgstr "نوع  الضمانة"
 
-#: .\models.py:30
+#: .\loan_app\models.py:31
 msgid "نوع الضمانات"
 msgstr "نوع الضمانات"
 
-#: .\models.py:33
+#: .\loan_app\models.py:34
 msgid "client name"
 msgstr "client name"
 
-#: .\models.py:34
+#: .\loan_app\models.py:35
 msgid "رقم الجوال"
 msgstr "رقم الجوال"
 
-#: .\models.py:35
+#: .\loan_app\models.py:36
 msgid "المدينة"
 msgstr "المدينة"
 
-#: .\models.py:36
+#: .\loan_app\models.py:37
 msgid "الحي/الشارع"
 msgstr "الحي/الشارع"
 
-#: .\models.py:37
+#: .\loan_app\models.py:38
 msgid "أقرب معلم بارز"
 msgstr "أقرب معلم بارز"
 
-#: .\models.py:38
+#: .\loan_app\models.py:39
 msgid "عمر المشروع(تاريخ التأسيس)"
 msgstr "عمر المشروع(تاريخ التأسيس)"
 
-#: .\models.py:39
+#: .\loan_app\models.py:40
 msgid "رأس مال المشروع حالياً"
 msgstr "رأس مال المشروع حالياً"
 
-#: .\models.py:40
+#: .\loan_app\models.py:41
 msgid "غرض التمويل"
 msgstr "غرض التمويل"
 
-#: .\models.py:41
+#: .\loan_app\models.py:42
 msgid "مبلغ التمويل المطلوب"
 msgstr "مبلغ التمويل المطلوب"
 
-#: .\models.py:42
+#: .\loan_app\models.py:43
 msgid "مدة التمويل بالأشهر"
 msgstr "مدة التمويل بالأشهر"
 
-#: .\models.py:43
+#: .\loan_app\models.py:44
 msgid "القسط الشهري"
 msgstr "القسط الشهري"
 
-#: .\models.py:45
+#: .\loan_app\models.py:46
 msgid "نوع الضمانة"
 msgstr "نوع الضمانة"
 
-#: .\models.py:46
+#: .\loan_app\models.py:47
 msgid "المستخدم"
 msgstr "المستخدم"
 
-#: .\models.py:49
+#: .\loan_app\models.py:50
 msgid "طلب التمويل"
 msgstr "طلب التمويل"
 
-#: .\models.py:50
+#: .\loan_app\models.py:51
 msgid "طلبات التمويل"
 msgstr "طلبات التمويل"
 
-#: .\views.py:48
+#: .\loan_app\views.py:66
 #, fuzzy
 #| msgid "طلب التمويل"
 msgid "تقديم طلب  تمويل"
 msgstr "طلب التمويل"
 
-#: .\views.py:60
+#: .\loan_app\views.py:78
 #, fuzzy
 #| msgid "مدة التمويل بالأشهر"
 msgid "تم ارسال طلب التمويل بنجاح"
 msgstr "مدة التمويل بالأشهر"
 
-#: .\views.py:64
+#: .\loan_app\views.py:82
 msgid "حدث خطأ، نرجو التأكد من البيانات واعادة المحاولة."
 msgstr ""

@@ -29,7 +29,7 @@
                 <a href="/{{static_content.lang}}/jobs/jobsoffered" class="w3-bar-item w3-button">الوظائف المقدم فيها</a>
                 <a class="w3-bar-item w3-button" href="/{{static_content.lang}}/jobs/show_cv">عرض السيرة الذاتية</a>
                 {% if user.is_active and user.is_staff %}
-                <a href="{% url "home-jop-manage-admin"%}" class="w3-bar-item w3-button">
+                <a href="/{{static_content.lang}}/jobs/admin/" class="w3-bar-item w3-button">
                     ادارة المقدمين على الوظائف
                 </a>
                 {% endif %}

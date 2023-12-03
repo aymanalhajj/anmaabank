@@ -1,5 +1,6 @@
 from django.db import models
-from django.db import models
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, Group
 import datetime
 from tinymce.models import HTMLField
@@ -26,7 +27,7 @@ CATEGORU_Policies = (
 
 class CategoryBlog(models.Model):
     name = models.CharField(
-        max_length=250, verbose_name="عنوان القسم  "
+        max_length=250, verbose_name=_("عنوان القسم  ")
     )
     # logo = models.ImageField(
     #     upload_to="Image/CategoryBlog/%Y/%m/%d/", blank=True,
@@ -34,24 +35,24 @@ class CategoryBlog(models.Model):
     # )
     created_by = models.ForeignKey(User, blank=True, editable=False,
                                    null=True, on_delete=models.SET_NULL,
-                                   verbose_name="تم الأنشاء بواسطة ")
+                                   verbose_name=_("تم الأنشاء بواسطة "))
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 
     def __str__(self):
         return self.name
 
     class Meta:
         managed = True
-        verbose_name_plural = " قسم المقالات و آخر الأخبار  "
-        verbose_name = " قسم المقالات و آخر الأخبار  "
+        verbose_name_plural = _("قسم المقالات و آخر الأخبار")
+        verbose_name = _("قسم المقالات و آخر الأخبار")
 
 
 class Blogs(models.Model):
     titel = models.CharField(
-        max_length=70, verbose_name="عنوان الخبر او المقالة"
+        max_length=70, verbose_name=_("عنوان الخبر او المقالة")
     )
     # Locations = models.ManyToManyField(
     #     Location_Country,
@@ -61,7 +62,7 @@ class Blogs(models.Model):
 
     image = models.ImageField(
         upload_to="Image/Blog/%Y/%m/%d/",
-        verbose_name=" إختيار صورة المدونة", null=True,
+        verbose_name=_(" إختيار صورة المدونة"), null=True,
     )
     # balance = MoneyField(max_digits=14, blank=True,
     #  null=True, decimal_places=2, default_currency=usd,
@@ -69,7 +70,7 @@ class Blogs(models.Model):
     #  )
 
     created_by = models.ForeignKey(User, blank=True, editable=False,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
 
     # airline = models.CharField(
     #     max_length=3,
@@ -86,24 +87,24 @@ class Blogs(models.Model):
     category = models.CharField(verbose_name=_(
         "نوع المقال"), null=True, max_length=100, choices=CATEGORU,)
     category_blog = models.ForeignKey(
-        CategoryBlog, on_delete=models.SET_NULL, blank=True, null=True, verbose_name="الصنف",
+        CategoryBlog, on_delete=models.SET_NULL, blank=True, null=True, verbose_name=_("الصنف"),
         related_name="category_blog"
 
     )
     date_post = models.DateField(default=datetime.datetime.now,
                                  # auto_now_add=True,
-                                 blank=True, null=True, verbose_name="تاريخ النشر ")
+                                 blank=True, null=True, verbose_name=_("تاريخ النشر "))
 
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     detial_ar = HTMLField(
         # blank=True,
         null=True,
         # max_length=1000000000,
         # default="",
-        verbose_name="المقال او المحتوى"
+        verbose_name=_("المقال او المحتوى")
     )
 
     def __str__(self):
@@ -114,8 +115,8 @@ class Blogs(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "  المقالات و آخر الأخبار  "
-        verbose_name_plural = "  المقالات و آخر الأخبار  "
+        verbose_name = _("المقالات و آخر الأخبار")
+        verbose_name_plural = _("المقالات و آخر الأخبار")
 
     def get_absolute_url(self):
         # return reverse_lazy('service-single', kwargs={'pk': self.pk})
@@ -127,21 +128,21 @@ class ImagesBlogs(models.Model):
         # upload_to=portfolio_file_name,
 
         upload_to="Image/ImagesBlogs/%Y/%m/%d/",
-        blank=True, verbose_name=" إختيار صورة", null=True,
+        blank=True, verbose_name=_(" إختيار صورة"), null=True,
     )
 
     date_added = models.DateTimeField(
-        auto_now_add=True, null=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, null=True, verbose_name=_("تاريخ الأضافة")
     )
     date_update = models.DateTimeField(
-        auto_now=True, null=True, verbose_name="تاريخ التعديل"
+        auto_now=True, null=True, verbose_name=_("تاريخ التعديل")
     )
     blog = models.ForeignKey(
-        Blogs, on_delete=models.SET_NULL, null=True, verbose_name=" المقال")
+        Blogs, on_delete=models.SET_NULL, null=True, verbose_name=_(" المقال"))
 
     class Meta:
-        verbose_name = "صور المدونة البنك  "
-        verbose_name_plural = "صور المدونة البنك"
+        verbose_name = _("صور المدونة البنك  ")
+        verbose_name_plural = _("صور المدونة البنك")
 
     def __str__(self):
         return "this image {0}  {1} for blog    {2}   ".format(
@@ -151,7 +152,7 @@ class ImagesBlogs(models.Model):
 
 class Policies(models.Model):
     titel = models.CharField(
-        max_length=70, verbose_name="عنوان السياسة "
+        max_length=70, verbose_name=_("عنوان السياسة ")
     )
     # Locations = models.ManyToManyField(
     #     Location_Country,
@@ -164,11 +165,11 @@ class Policies(models.Model):
         null=True,
         max_length=1000000000,
         default="",
-        verbose_name="تفاصيل"
+        verbose_name=_("تفاصيل")
     )
     image = models.ImageField(
         upload_to="Image/Blog/%Y/%m/%d/",
-        verbose_name=" إختيار صورة السياسة", null=True,
+        verbose_name=_(" إختيار صورة السياسة"), null=True,
     )
     # balance = MoneyField(max_digits=14, blank=True,
     #  null=True, decimal_places=2, default_currency=usd,
@@ -176,7 +177,7 @@ class Policies(models.Model):
     #  )
 
     created_by = models.ForeignKey(User, blank=True, editable=False,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
 
     # airline = models.CharField(
     #     max_length=3,
@@ -199,12 +200,12 @@ class Policies(models.Model):
     # )
     date_post = models.DateField(default=datetime.datetime.now,
                                  # auto_now_add=True,
-                                 blank=True, null=True, verbose_name="تاريخ النشر ")
+                                 blank=True, null=True, verbose_name=_("تاريخ النشر "))
 
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 
     def __str__(self):
         return self.titel
@@ -214,8 +215,8 @@ class Policies(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = " السياسات "
-        verbose_name_plural = "  السياسات "
+        verbose_name = _("السياسات")
+        verbose_name_plural = _("السياسات")
 
     def get_absolute_url(self):
         # return reverse_lazy('service-single', kwargs={'pk': self.pk})

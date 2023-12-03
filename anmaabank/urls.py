@@ -10,8 +10,14 @@ from django.urls import path, include, re_path
 # from django.conf.urls import
 from django.conf.urls.static import static
 from django.conf import settings
-from jopapp.viewsaccount import register, ProfileRegistration, userSignin, userLogout
+from jopapp.viewsaccount import register, ProfileRegistration, login, userLogout
 from django.views.generic.base import TemplateView  # import TemplateView
+
+from jopapp.viewcv import Baseinfo
+
+from jopapp.viewcv import *
+from jopapp.views import *
+
 urlpatterns = []
 
 urlpatterns += static(settings.MEDIA_URL,
@@ -26,10 +32,6 @@ handler400 = 'anmaabankApp.views.page_not_found'
 handler403 = 'anmaabankApp.views.page_not_found'
 handler404 = 'anmaabankApp.views.page_not_found'
 handler500 = 'anmaabankApp.views.page_not_found'
-from jopapp.viewcv import Baseinfo
-
-from jopapp.viewcv import *
-from jopapp.views import *
 urlpatterns += [
     # path('admin-web/', admin.site.urls),
     # url(r'^admin/', include(admin.site.urls)),  # Here's the typo
@@ -37,15 +39,17 @@ urlpatterns += [
     # re_path(r'(?P<lang>\bar\b|\ben\b)', include('anmaabankApp.urls')),
     path('', include('anmaabankApp.urls')),
     path('admin', include('AdminApp.urls')),
-    re_path(r"^(?P<lang>\bar\b|\ben\b)/login/$", userSignin, name='login-user'),
-    path("login/", userSignin, name='login-user'),
-    path("userLogout/login/", userSignin, name='userLogout-user'),
+    re_path(r"^(?P<lang>\bar\b|\ben\b)/login/$", login, name='login-user'),
+    path("login/", login, name='login-user'),
+    path("userLogout/login/", login, name='userLogout-user'),
     path("userLogout/", userLogout, name='userLogout'),
+    re_path(r"^(?P<lang>\bar\b|\ben\b)/userLogout$", userLogout, name='userLogout'),
     re_path(r"^(?P<lang>\bar\b|\ben\b)/createaccoute$", ProfileRegistration.as_view(), name='createaccoute-user'),
     # path("createaccoute/", ProfileRegistration.as_view(), name='createaccoute-user'),
     path("createaccoute/", ProfileRegistration.as_view(), name='createaccounte'),
     # re_path(r"^(?P<lang>\bar\b|\ben\b)/jobs/$", include('jopapp.urls'), name="job-app"),
-    path(r"^(?P<lang>\bar\b|\ben\b)/jobs$", vacancies.as_view(), name='home-jop'),
+     re_path(r"^(?P<lang>\bar\b|\ben\b)/jobs/admin/$", customadmin.as_view(), name='home-jop-manage-admin'),
+    re_path(r"^(?P<lang>\bar\b|\ben\b)/jobs/$", vacancies.as_view(), name='home-jop'),
     re_path(r"^(?P<lang>\bar\b|\ben\b)/jobs/baseinfo/$", Baseinfo.as_view(), name="baseinfo"),
     re_path(r"^(?P<lang>\bar\b|\ben\b)/jobs/education/$", educationView.as_view(), name='education'),
     re_path(r"^(?P<lang>\bar\b|\ben\b)/jobs/education/deleteeducation/<int:id>$",         DeleteEducation, name='deleteeducation'),
@@ -82,7 +86,7 @@ urlpatterns += [
     re_path(r"^(?P<lang>\bar\b|\ben\b)/jobs/forgetpassword/$", send_message_email.as_view(), name="forgetpassword"),
     re_path(r"^(?P<lang>\bar\b|\ben\b)/jobs/passswordrest/$", PasswordResetView.as_view(), name="passswordrest"),
     re_path(r"^(?P<lang>\bar\b|\ben\b)/jobs/passwordchange/$", Changepassword.as_view(), name="passwordchange"),
-    re_path("jobs/", include('jopapp.urls'), name="job-app"),
+    # re_path("jobs/", include('jopapp.urls'), name="job-app"),
     path("select2/", include("django_select2.urls")),
     path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),

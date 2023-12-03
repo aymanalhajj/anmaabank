@@ -360,6 +360,7 @@ class PasswordResetForm(forms.Form):
         for user in self.get_users(email):
             user_email = getattr(user, email_field_name)
             context = {
+                "switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
                 "email": user_email,
                 "domain": domain,
                 "site_name": site_name,

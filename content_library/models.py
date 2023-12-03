@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from urllib.parse import urlparse,parse_qs
 
 # Create your models here.
@@ -48,11 +49,11 @@ def video_id(value):
     return None
 
 class Video(models.Model):
-    title = models.CharField(max_length = 200,                                  verbose_name="عنوان الفيديو")
-    source_type = models.CharField(max_length = 200,choices = VIDEO_SOURCES, verbose_name="مصدر الفيديو")
-    url = models.URLField(max_length = 200,                                     verbose_name="رابط الفيديو")
-    filename = models.FileField(max_length = 200,                                   verbose_name="ملف الفيديو")
-    mime_type = models.CharField(max_length = 200,                                   verbose_name="نوع الفيديو")
+    title = models.CharField(max_length = 200,                                  verbose_name=_("عنوان الفيديو"))
+    source_type = models.CharField(max_length = 200,choices = VIDEO_SOURCES, verbose_name=_("مصدر الفيديو"))
+    url = models.URLField(max_length = 200,                                     verbose_name=_("رابط الفيديو"))
+    filename = models.FileField(max_length = 200,                                   verbose_name=_("ملف الفيديو"))
+    mime_type = models.CharField(max_length = 200,                                   verbose_name=_("نوع الفيديو"))
     def save(self, *args, **kwargs):
         if self.filename and self.filename.file:
             try: 
@@ -73,16 +74,16 @@ class Video(models.Model):
         super().save(*args, **kwargs)
     class Meta:
         managed = True
-        verbose_name = "الفيديو"
-        verbose_name_plural = "مكتبة الفيديوهات"
+        verbose_name = _("الفيديو")
+        verbose_name_plural = _("مكتبة الفيديوهات")
 
 class Report(models.Model):
-    title = models.CharField(max_length = 200,                                  verbose_name="اسم التقرير")
-    report_type = models.CharField(max_length = 200,choices = REPORT_TYPE  ,    verbose_name="نوع التقرير")
-    thumbnail_name = models.FileField(max_length = 200,                         verbose_name="صورة التقرير")
-    filename = models.FileField(max_length = 200,                               verbose_name="ملف التقرير")
+    title = models.CharField(max_length = 200,                                  verbose_name=_("اسم التقرير"))
+    report_type = models.CharField(max_length = 200,choices = REPORT_TYPE  ,    verbose_name=_("نوع التقرير"))
+    thumbnail_name = models.FileField(max_length = 200,                         verbose_name=_("صورة التقرير"))
+    filename = models.FileField(max_length = 200,                               verbose_name=_("ملف التقرير"))
 
     class Meta:
         managed = True
-        verbose_name = "التقرير"
-        verbose_name_plural = "التقارير"
+        verbose_name = _("التقرير")
+        verbose_name_plural = _("التقارير")

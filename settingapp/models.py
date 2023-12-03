@@ -1,7 +1,9 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from distutils.command.upload import upload
 import numbers
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, Group
 import datetime
 from tinymce.models import HTMLField
@@ -16,6 +18,7 @@ from functools import wraps
 # from colorfield.fields import ColorField
 from django.core.validators import FileExtensionValidator
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.db.models.signals import post_delete, post_save, pre_save
 from django.dispatch import receiver
 from django.utils.encoding import force_str
@@ -69,14 +72,14 @@ class SettingModel(models.Model):
         #     max_length=10000000,
         max_length=300,
         null=True,
-        default=" جميع الحقوق محفوظة © لـ بنك الإنماء للتمويل الأصغر الإسلامي 2023",
+        default=_(" جميع الحقوق محفوظة © لـ بنك الإنماء للتمويل الأصغر الإسلامي 2023"),
     )
     name_website_short = models.CharField(
         max_length=20,
         null=True, blank=True,
-        default="بنك الإنماء",
+        default=_("بنك الإنماء"),
 
-        verbose_name="اسم website مختصر",
+        verbose_name=_("اسم website مختصر"),
         # help_text="https://youtube.com",
         # validators=[validate_hostname('youtube.com', 'www.youtube.com')]
     )
@@ -84,9 +87,9 @@ class SettingModel(models.Model):
         # max_length=10000000,
         max_length=50,
         null=True, blank=True,
-        default=" بنك الإنماء للتمويل الأصغر الإسلامي ",
+        default=_(" بنك الإنماء للتمويل الأصغر الإسلامي "),
 
-        verbose_name="اسم website",
+        verbose_name=_("اسم website"),
         # help_text="https://youtube.com",
         # validators=[validate_hostname('youtube.com', 'www.youtube.com')]
     )
@@ -96,7 +99,7 @@ class SettingModel(models.Model):
         blank=True,
         # default="",
 
-        verbose_name="رابط حساب الفيسبوك إن وجد ",
+        verbose_name=_("رابط حساب الفيسبوك إن وجد "),
         help_text="https://facebook.com",
         validators=[validate_hostname('facebook.com', 'www.facebook.com')]
     )
@@ -105,7 +108,7 @@ class SettingModel(models.Model):
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="رابط تلجرام إن وجد ",
+        verbose_name=_("رابط تلجرام إن وجد "),
         help_text="https://t.me/",
         validators=[validate_hostname(
             't.me', 'www.t.me', 'telegram.com', 'www.telegram.com')]
@@ -115,7 +118,7 @@ class SettingModel(models.Model):
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="رابط حساب تويتر او منصة اكس إن وجد ",
+        verbose_name=_("رابط حساب تويتر او منصة اكس إن وجد "),
         help_text="https://twitter.com",
         validators=[validate_hostname('twitter.com', 'www.twitter.com',
                                       'x.com', 'www.x.com'
@@ -125,7 +128,7 @@ class SettingModel(models.Model):
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="رابط حساب انستجرام إن وجد ",
+        verbose_name=_("رابط حساب انستجرام إن وجد "),
         help_text="https://instagram.com",
         validators=[validate_hostname('instagram.com', 'www.instagram.com',
 
@@ -135,7 +138,7 @@ class SettingModel(models.Model):
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="رابط حساب لنكدإن  إن وجد ",
+        verbose_name=_("رابط حساب لنكدإن  إن وجد "),
         validators=[validate_hostname('linkedin.com', 'www.linkedin.com',
 
                                       )]
@@ -144,7 +147,7 @@ class SettingModel(models.Model):
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="رابط قناة اليوتيوب ",
+        verbose_name=_("رابط قناة اليوتيوب "),
         help_text="https://youtube.com",
         validators=[validate_hostname('youtube.com', 'www.youtube.com',
 
@@ -154,7 +157,7 @@ class SettingModel(models.Model):
         max_length=20,
         null=True, blank=True,
         help_text="https://api.whatsapp.com/send/?phone=phone_number_whatsapp",
-        verbose_name="رقم تلفون الواتساب"
+        verbose_name=_("رقم تلفون الواتساب")
     )
     phone_1 = PhoneNumberField(
         # max_length=250,
@@ -162,38 +165,38 @@ class SettingModel(models.Model):
         blank=True,
         # default="",
 
-        verbose_name="هاتف 1"
+        verbose_name=_("هاتف 1")
     )
     phone_2 = PhoneNumberField(
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="هاتف 2"
+        verbose_name=_("هاتف 2")
     )
     fax = models.CharField(
         max_length=250,
         null=True,
         blank=True,
-        verbose_name="فاكس"
+        verbose_name=_("فاكس")
     )
     free_phone_numbar = models.CharField(
         max_length=250,
         null=True,
         blank=True,
-        verbose_name="الرقم المجاني"
+        verbose_name=_("الرقم المجاني")
     )
 
     emile = models.EmailField(
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="البريد الإلكتروني"
+        verbose_name=_("البريد الإلكتروني")
     )
     mail_box = models.PositiveSmallIntegerField(
         # max_length=250,
         null=True,
         blank=True,
-        verbose_name="الصندوق البريدي"
+        verbose_name=_("الصندوق البريدي")
     )
 
     # twitter = models.URLField(
@@ -218,9 +221,9 @@ class SettingModel(models.Model):
     #     # max_length=10000000,
     #      default=" ", null=True, blank=True, verbose_name="رابط صفحة  الفيسبوك")
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 
     # is_hidden_adsenceHeder = models.BooleanField(
     #     default=False,
@@ -229,119 +232,119 @@ class SettingModel(models.Model):
     # )
     is_hidden_branche = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم الفروع"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم الفروع")
     )
     is_hidden_contact = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم اتصل بنا"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم اتصل بنا")
     )
     is_hidden_about = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم نبذه عنا"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم نبذه عنا")
     )
     is_hidden_button_action = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء action  "
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء action  ")
     )
     is_hidden_client = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم  العملاء"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم  العملاء")
     )
     is_hidden_galary = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم معرض الصور"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم معرض الصور")
     )
     is_hidden_teams = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم فريق العمل"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم فريق العمل")
     )
     is_hidden_partner = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم شركائنا"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم شركائنا")
     )
     is_hidden_ournewsletter = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم اشترك باخر الاخبار"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم اشترك باخر الاخبار")
     )
     is_hidden_imagesportfolionodetils = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم معرض الــصــور"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم معرض الــصــور")
     )
     is_hidden_ourmarch = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم مسيرتنــــا"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم مسيرتنــــا")
     )
     is_hidden_sectio_page_all = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم الاقسام والصفحات"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم الاقسام والصفحات")
     )
     is_hidden_sectio_page_in_home_only = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم الاقسام والصفحات من الشاشة الرئسية فقط"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم الاقسام والصفحات من الشاشة الرئسية فقط")
     )
     is_hidden_ourmission = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم مهمتنــــا"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم مهمتنــــا")
     )
 
     is_hidden_bank_applications = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم تطبيقات البنك"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم تطبيقات البنك")
     )
     is_hidden_adsence_header = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم الاعلانات المتحركة في اعلا الصفحه"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم الاعلانات المتحركة في اعلا الصفحه")
     )
     is_hidden_last_news = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم اخر الاخبار في الشاشة الرئيسية "
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم اخر الاخبار في الشاشة الرئيسية ")
     )
     is_hidden_footer = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء  اسفل الصفحة 'footer' بشكل كامل  "
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء  اسفل الصفحة 'footer' بشكل كامل  ")
     )
     is_hidden_faq = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم الأسئلة الشائعة"
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم الأسئلة الشائعة")
     )
     is_hidden_currencies = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء اسعار العملات "
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء اسعار العملات ")
     )
     is_hidden_logo_ainmation = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم الشعار اعلا اسفل الصفحة "
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم الشعار اعلا اسفل الصفحة ")
     )
     is_hidden_images_portfolio_no_detils = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم معرض الصور "
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم معرض الصور ")
     )
     is_hidden_services = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده",
-        verbose_name="اخفاء قسم خدمات "
+        help_text=_(" سيتم اخفاء هذا القسم  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("اخفاء قسم خدمات ")
     )
     # is_hidden_services_person = models.BooleanField(
     #     default=False,
@@ -351,20 +354,20 @@ class SettingModel(models.Model):
 
     is_deleted = models.BooleanField(
         default=False,
-        help_text="سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
-        verbose_name="محذوف "
+        help_text=_("سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  "),
+        verbose_name=_("محذوف ")
     )
     # created_by = models.ForeignKey(User, blank=True, editable=False,
-    #                                null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+    #                                null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
     deleted_at = models.DateTimeField(null=True,
                                       blank=True,
                                       editable=False,
-                                      verbose_name="تاريخ الحذف "
+                                      verbose_name=_("تاريخ الحذف ")
                                       )
-    # created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name="تاريخ الأنشاء ")
+    # created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name=_("تاريخ الأنشاء "))
 
     deleted_by = models.ForeignKey(User, blank=True,
-                                   verbose_name=" تم الحذف  بواسطة ",
+                                   verbose_name=_(" تم الحذف  بواسطة "),
                                    editable=False,
                                    related_name='setting_model_deleted_by',
                                    null=True,
@@ -373,21 +376,21 @@ class SettingModel(models.Model):
     created_by = models.ForeignKey(User, blank=True, editable=False, related_name='setting_model_created_by',
                                    null=True,
                                    on_delete=models.SET_NULL,
-                                   verbose_name="تم الأنشاء بواسطة ")
+                                   verbose_name=_("تم الأنشاء بواسطة "))
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='setting_model_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
                                   )
     created_at = models.DateTimeField(
-        null=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
 
     # sort_no = models.IntegerField(
@@ -399,8 +402,8 @@ class SettingModel(models.Model):
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
-        verbose_name="ملاحظة قصيرة"
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
+        verbose_name=_("ملاحظة قصيرة")
     )
     objects = SettingModelQuerySet.as_manager()
 
@@ -430,12 +433,12 @@ class SettingModel(models.Model):
         self.save()
 
     def __str__(self):
-        return "الاعــــدادات"
+        return _("الاعــــدادات")
 
     class Meta:
         managed = True
-        verbose_name = "الاعــــدادات"
-        verbose_name_plural = "الاعـــدادات"
+        verbose_name = _("الاعــــدادات")
+        verbose_name_plural = _("الاعـــدادات")
 
 
 @receiver(post_save, sender=SettingModel)

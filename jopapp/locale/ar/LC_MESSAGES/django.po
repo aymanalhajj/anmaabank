@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-30 05:09+0300\n"
+"POT-Creation-Date: 2023-12-03 05:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,721 +19,725 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: .\form.py:529
+#: .\jopapp\form.py:529
 msgid "Email"
 msgstr ""
 
-#: .\models.py:361
+#: .\jopapp\models.py:363
 msgid "اسم المستخدم"
 msgstr ""
 
-#: .\models.py:363
+#: .\jopapp\models.py:365
 msgid "الاسم الكامل"
 msgstr ""
 
-#: .\models.py:365 .\models.py:657
+#: .\jopapp\models.py:367 .\jopapp\models.py:659
 msgid "البريد الإلكتروني"
 msgstr "البريد الإلكتروني"
 
-#: .\models.py:366 .\models.py:658
+#: .\jopapp\models.py:368 .\jopapp\models.py:660
 msgid "كلمة السر"
 msgstr ""
 
-#: .\models.py:368 .\models.py:660
+#: .\jopapp\models.py:370 .\jopapp\models.py:662
 msgid "تأكيد كلمة السر"
 msgstr ""
 
-#: .\models.py:370 .\models.py:637 .\models.py:1291 .\models.py:1484
+#: .\jopapp\models.py:372 .\jopapp\models.py:639 .\jopapp\models.py:1293
+#: .\jopapp\models.py:1486
 msgid "الجنس"
 msgstr ""
 
-#: .\models.py:377 .\models.py:1117 .\models.py:1172
+#: .\jopapp\models.py:379 .\jopapp\models.py:1119 .\jopapp\models.py:1174
 msgid "المحافظة"
 msgstr ""
 
-#: .\models.py:381
+#: .\jopapp\models.py:383
 msgid "المدينة"
 msgstr ""
 
-#: .\models.py:382 .\models.py:904 .\models.py:957
+#: .\jopapp\models.py:384 .\jopapp\models.py:906 .\jopapp\models.py:959
 msgid "العنوان"
 msgstr ""
 
-#: .\models.py:384
+#: .\jopapp\models.py:386
 msgid "القرية/الحي"
 msgstr ""
 
-#: .\models.py:385
+#: .\jopapp\models.py:387
 msgid "رقم البطاقة"
 msgstr ""
 
-#: .\models.py:387
+#: .\jopapp\models.py:389
 msgid "تاريخ الإصدار"
 msgstr ""
 
-#: .\models.py:389
+#: .\jopapp\models.py:391
 msgid "مكان الإصدار"
 msgstr ""
 
-#: .\models.py:391 .\models.py:1240 .\models.py:1256
+#: .\jopapp\models.py:393 .\jopapp\models.py:1242 .\jopapp\models.py:1258
 msgid "تاريخ الميلاد"
 msgstr ""
 
-#: .\models.py:393
+#: .\jopapp\models.py:395
 msgid "محل الميلاد"
 msgstr ""
 
-#: .\models.py:395 .\models.py:1355
+#: .\jopapp\models.py:397 .\jopapp\models.py:1357
 msgid "الحالة الاجتماعية"
 msgstr ""
 
-#: .\models.py:397
+#: .\jopapp\models.py:399
 msgid "عدد من تعولهم"
 msgstr ""
 
-#: .\models.py:399
+#: .\jopapp\models.py:401
 msgid "العنوان الحالي"
 msgstr ""
 
-#: .\models.py:401
+#: .\jopapp\models.py:403
 msgid "عنوان السكن الدائم"
 msgstr ""
 
-#: .\models.py:403
+#: .\jopapp\models.py:405
 msgid "رقم الموبايل"
 msgstr ""
 
-#: .\models.py:405
+#: .\jopapp\models.py:407
 msgid "رقم الواتساب"
 msgstr ""
 
-#: .\models.py:407
+#: .\jopapp\models.py:409
 msgid "صفحتك على الفيسبوك"
 msgstr ""
 
-#: .\models.py:409
+#: .\jopapp\models.py:411
 msgid "صفحتك على منصة x تويتر سابقاً"
 msgstr ""
 
-#: .\models.py:411
+#: .\jopapp\models.py:413
 msgid "صفحتك على الإنستجرام"
 msgstr ""
 
-#: .\models.py:413 .\models.py:502 .\models.py:829 .\models.py:849
-#: .\models.py:883 .\models.py:923 .\models.py:941 .\models.py:1076
+#: .\jopapp\models.py:415 .\jopapp\models.py:504 .\jopapp\models.py:831
+#: .\jopapp\models.py:851 .\jopapp\models.py:885 .\jopapp\models.py:925
+#: .\jopapp\models.py:943 .\jopapp\models.py:1078
 msgid "تاريخ الإنشاء"
 msgstr ""
 
-#: .\models.py:419
+#: .\jopapp\models.py:421
 msgid "ملف السيرة الذاتية / pdf or png or jpg or doc or docx  "
 msgstr ""
 
-#: .\models.py:420 .\models.py:771 .\models.py:1042
+#: .\jopapp\models.py:422 .\jopapp\models.py:773 .\jopapp\models.py:1044
 msgid ""
 " نوع الملف pdf او png او jpg او doc او docx فقط والحجم لا يزيد 10 ميجا  "
 msgstr ""
 
-#: .\models.py:457
+#: .\jopapp\models.py:459
 msgid "الجلسة"
 msgstr ""
 
-#: .\models.py:465 .\models.py:466
+#: .\jopapp\models.py:467 .\jopapp\models.py:468
 msgid " الحسابات  "
 msgstr ""
 
-#: .\models.py:512 .\models.py:789
+#: .\jopapp\models.py:514 .\jopapp\models.py:791
 msgid "تاريخ الإنشاء:"
 msgstr ""
 
-#: .\models.py:515 .\models.py:711 .\models.py:792 .\models.py:827
-#: .\models.py:847 .\models.py:881 .\models.py:921 .\models.py:939
-#: .\models.py:961 .\models.py:1079 .\models.py:1095 .\models.py:1152
-#: .\models.py:1226 .\models.py:1409
+#: .\jopapp\models.py:517 .\jopapp\models.py:713 .\jopapp\models.py:794
+#: .\jopapp\models.py:829 .\jopapp\models.py:849 .\jopapp\models.py:883
+#: .\jopapp\models.py:923 .\jopapp\models.py:941 .\jopapp\models.py:963
+#: .\jopapp\models.py:1081 .\jopapp\models.py:1097 .\jopapp\models.py:1154
+#: .\jopapp\models.py:1228 .\jopapp\models.py:1411
 msgid "المستخدم"
 msgstr ""
 
-#: .\models.py:521 .\models.py:522
+#: .\jopapp\models.py:523 .\jopapp\models.py:524
 msgid " التحقق من الايميل  "
 msgstr ""
 
-#: .\models.py:572 .\models.py:936
+#: .\jopapp\models.py:574 .\jopapp\models.py:938
 msgid "اسم المجال"
 msgstr ""
 
-#: .\models.py:574
+#: .\jopapp\models.py:576
 msgid "نوع المجال"
 msgstr ""
 
-#: .\models.py:575
+#: .\jopapp\models.py:577
 msgid "الوصف"
 msgstr ""
 
-#: .\models.py:579 .\models.py:699
+#: .\jopapp\models.py:581 .\jopapp\models.py:701
 msgid "تاريخ الأنشاء "
 msgstr ""
 
-#: .\models.py:583 .\models.py:703
+#: .\jopapp\models.py:585 .\jopapp\models.py:705
 msgid "تاريخ الأضافة"
 msgstr ""
 
-#: .\models.py:586 .\models.py:706
+#: .\jopapp\models.py:588 .\jopapp\models.py:708
 msgid "تاريخ التعديل"
 msgstr ""
 
-#: .\models.py:589 .\models.py:1480
+#: .\jopapp\models.py:591 .\jopapp\models.py:711 .\jopapp\models.py:1482
 msgid "تاريخ التعديل "
 msgstr ""
 
-#: .\models.py:595
+#: .\jopapp\models.py:597
 msgid "مهام الوظيفة"
 msgstr ""
 
-#: .\models.py:602
+#: .\jopapp\models.py:604
 msgid "شروط الوظيفة"
 msgstr ""
 
-#: .\models.py:609
+#: .\jopapp\models.py:611
 msgid " الوظيفة  "
 msgstr ""
 
-#: .\models.py:610
+#: .\jopapp\models.py:612
 msgid "الوظائف  "
 msgstr ""
 
-#: .\models.py:623
+#: .\jopapp\models.py:625
 msgid "ابحث هنا"
 msgstr ""
 
-#: .\models.py:623
+#: .\jopapp\models.py:625
 msgid "عنوان الوظيفة  او التخصص او اسم المقدم للوظيفة"
 msgstr ""
 
-#: .\models.py:627 .\models.py:715
+#: .\jopapp\models.py:629 .\jopapp\models.py:717
 msgid "الوظيفة"
 msgstr ""
 
-#: .\models.py:630 .\models.py:754
+#: .\jopapp\models.py:632 .\jopapp\models.py:756
 msgid "التخصص:"
 msgstr ""
 
-#: .\models.py:646
+#: .\jopapp\models.py:648
 msgid "بيانات  شبه مكتملة"
 msgstr ""
 
-#: .\models.py:666
+#: .\jopapp\models.py:668
 msgid "تذكرني"
 msgstr ""
 
-#: .\models.py:674
+#: .\jopapp\models.py:676
 msgid "الموافقة على سياسة الخصوصية"
 msgstr ""
 
-#: .\models.py:693
+#: .\jopapp\models.py:695
 msgid "رسالة الطلب"
 msgstr ""
 
-#: .\models.py:694
+#: .\jopapp\models.py:696
 msgid "يجب أن لا تقل رسالة طلب العمل عن 1250 حرف "
 msgstr ""
 
-#: .\models.py:697
+#: .\jopapp\models.py:699
 msgid "كيف عرفت عنا"
 msgstr ""
 
-#: .\models.py:719
+#: .\jopapp\models.py:721
 msgid " طلب تقديم للوظيفة  "
 msgstr ""
 
-#: .\models.py:720
+#: .\jopapp\models.py:722
 msgid " طلبات التقديم للوظائف  "
 msgstr ""
 
-#: .\models.py:730
+#: .\jopapp\models.py:732
 msgid "الرقم"
 msgstr ""
 
-#: .\models.py:732
+#: .\jopapp\models.py:734
 msgid "اسم المؤسسة التعليمية:"
 msgstr ""
 
-#: .\models.py:739 .\models.py:872
+#: .\jopapp\models.py:741 .\jopapp\models.py:874
 msgid "البلد"
 msgstr ""
 
-#: .\models.py:752
+#: .\jopapp\models.py:754
 msgid "المستوى التعليمي:"
 msgstr ""
 
-#: .\models.py:757
+#: .\jopapp\models.py:759
 msgid "يتم تعبئة هذا الحقل في حال لم يتوفر التخصص في القائمة السابقة"
 msgstr ""
 
-#: .\models.py:758 .\models.py:1382
+#: .\jopapp\models.py:760 .\jopapp\models.py:1384
 msgid "تخصص أخر :"
 msgstr ""
 
-#: .\models.py:760
+#: .\jopapp\models.py:762
 msgid "المعدل:"
 msgstr ""
 
-#: .\models.py:761
+#: .\jopapp\models.py:763
 msgid "من تاريخ:"
 msgstr ""
 
-#: .\models.py:762
+#: .\jopapp\models.py:764
 msgid "إلى تاريخ:"
 msgstr ""
 
-#: .\models.py:770
+#: .\jopapp\models.py:772
 msgid "الشهادة/ pdf or png or jpg or doc or docx  "
 msgstr ""
 
-#: .\models.py:802
+#: .\jopapp\models.py:804
 msgid " المؤهل "
 msgstr ""
 
-#: .\models.py:803
+#: .\jopapp\models.py:805
 msgid "الموهلات "
 msgstr ""
 
-#: .\models.py:811 .\models.py:1386
+#: .\jopapp\models.py:813 .\jopapp\models.py:1388
 msgid "اللغة"
 msgstr ""
 
-#: .\models.py:813 .\models.py:1388
+#: .\jopapp\models.py:815 .\jopapp\models.py:1390
 msgid "يتم تعبئة هذا الحقل في حال لم يتوفر اللغة في القائمة السابقة"
 msgstr ""
 
-#: .\models.py:814 .\models.py:1389
+#: .\jopapp\models.py:816 .\jopapp\models.py:1391
 msgid "اللغة أخر :"
 msgstr ""
 
-#: .\models.py:820
+#: .\jopapp\models.py:822
 msgid "مهارة القراءة"
 msgstr ""
 
-#: .\models.py:822
+#: .\jopapp\models.py:824
 msgid "مهارة الكتابة"
 msgstr ""
 
-#: .\models.py:824
+#: .\jopapp\models.py:826
 msgid "مهارة الحديث"
 msgstr ""
 
-#: .\models.py:837
+#: .\jopapp\models.py:839
 msgid "مهاراة اللغة "
 msgstr ""
 
-#: .\models.py:838
+#: .\jopapp\models.py:840
 msgid "مهارات اللغة "
 msgstr ""
 
-#: .\models.py:842
+#: .\jopapp\models.py:844
 msgid "المهارة"
 msgstr ""
 
-#: .\models.py:844
+#: .\jopapp\models.py:846
 msgid "مستوى المهارة"
 msgstr ""
 
-#: .\models.py:857
+#: .\jopapp\models.py:859
 msgid "مهارات الحاسوب "
 msgstr ""
 
-#: .\models.py:858
+#: .\jopapp\models.py:860
 msgid "مهاراة الحاسوب "
 msgstr ""
 
-#: .\models.py:863
+#: .\jopapp\models.py:865
 msgid "اسم المؤسسة التعليمية"
 msgstr ""
 
-#: .\models.py:865
+#: .\jopapp\models.py:867
 msgid "اسم الدورة التعليمية"
 msgstr ""
 
-#: .\models.py:876 .\models.py:898
+#: .\jopapp\models.py:878 .\jopapp\models.py:900
 msgid "تاريخ البداية"
 msgstr ""
 
-#: .\models.py:877 .\models.py:899
+#: .\jopapp\models.py:879 .\jopapp\models.py:901
 msgid "تاريخ الانتهاء"
 msgstr ""
 
-#: .\models.py:891
+#: .\jopapp\models.py:893
 msgid " الدورات التدربية "
 msgstr ""
 
-#: .\models.py:892
+#: .\jopapp\models.py:894
 msgid "الدورات التدريبية "
 msgstr ""
 
-#: .\models.py:897
+#: .\jopapp\models.py:899
 msgid "اسم الشركة/المؤسسة"
 msgstr ""
 
-#: .\models.py:901
+#: .\jopapp\models.py:903
 msgid "اسم المتجر/المكان"
 msgstr ""
 
-#: .\models.py:903
+#: .\jopapp\models.py:905
 msgid "اسم صاحب المحل"
 msgstr ""
 
-#: .\models.py:905 .\models.py:958
+#: .\jopapp\models.py:907 .\jopapp\models.py:960
 msgid "رقم الهاتف"
 msgstr ""
 
-#: .\models.py:906
+#: .\jopapp\models.py:908
 msgid "المهام"
 msgstr ""
 
-#: .\models.py:908
+#: .\jopapp\models.py:910
 msgid "المسمى الوظيفة (بداية)"
 msgstr ""
 
-#: .\models.py:910
+#: .\jopapp\models.py:912
 msgid "اسم الوظيفة (نهاية)"
 msgstr ""
 
-#: .\models.py:912
+#: .\jopapp\models.py:914
 msgid "الراتب (بداية)"
 msgstr ""
 
-#: .\models.py:914
+#: .\jopapp\models.py:916
 msgid "الراتب (نهاية)"
 msgstr ""
 
-#: .\models.py:916
+#: .\jopapp\models.py:918
 msgid "ساعات العمل"
 msgstr ""
 
-#: .\models.py:918
+#: .\jopapp\models.py:920
 msgid "سبب مغادرة الوظيفة"
 msgstr ""
 
-#: .\models.py:931
+#: .\jopapp\models.py:933
 msgid "الخبرة "
 msgstr ""
 
-#: .\models.py:932
+#: .\jopapp\models.py:934
 msgid "الخبرات  "
 msgstr ""
 
-#: .\models.py:949
+#: .\jopapp\models.py:951
 msgid " مجال العمل  "
 msgstr ""
 
-#: .\models.py:950
+#: .\jopapp\models.py:952
 msgid " مجالات العمل  "
 msgstr ""
 
-#: .\models.py:954
+#: .\jopapp\models.py:956
 msgid "اسم الشخص"
 msgstr ""
 
-#: .\models.py:955
+#: .\jopapp\models.py:957
 msgid "صلة القرابة"
 msgstr ""
 
-#: .\models.py:956
+#: .\jopapp\models.py:958
 msgid "جهة العمل"
 msgstr ""
 
-#: .\models.py:970
+#: .\jopapp\models.py:972
 msgid " المعرف  "
 msgstr ""
 
-#: .\models.py:971
+#: .\jopapp\models.py:973
 msgid "  المعرفين  "
 msgstr ""
 
-#: .\models.py:977
+#: .\jopapp\models.py:979
 msgid "هل تعمل في البنك"
 msgstr ""
 
-#: .\models.py:979
+#: .\jopapp\models.py:981
 msgid "هل تريد استقبال بريد إلكتروني من البنك "
 msgstr ""
 
-#: .\models.py:981
+#: .\jopapp\models.py:983
 msgid "هل لديك ملف في الخدمة المدنية"
 msgstr ""
 
-#: .\models.py:983
+#: .\jopapp\models.py:985
 msgid "كيفية إنفاق راتبك"
 msgstr ""
 
-#: .\models.py:985
+#: .\jopapp\models.py:987
 msgid "هل تمتلك تأشيرة للسفر"
 msgstr ""
 
-#: .\models.py:987
+#: .\jopapp\models.py:989
 msgid "هل تسافر"
 msgstr ""
 
-#: .\models.py:989
+#: .\jopapp\models.py:991
 msgid "هل تعمل حاليًا"
 msgstr ""
 
-#: .\models.py:991
+#: .\jopapp\models.py:993
 msgid "رقم هاتف جهة العمل الحالية"
 msgstr ""
 
-#: .\models.py:993
+#: .\jopapp\models.py:995
 msgid "عنوان جهة العمل الحالية"
 msgstr ""
 
-#: .\models.py:996
+#: .\jopapp\models.py:998
 msgid "هل تدرس حاليًا"
 msgstr ""
 
-#: .\models.py:998
+#: .\jopapp\models.py:1000
 msgid "هل تعمل ليلاً"
 msgstr ""
 
-#: .\models.py:1000
+#: .\jopapp\models.py:1002
 msgid "تاريخ بدء العمل"
 msgstr ""
 
-#: .\models.py:1002
+#: .\jopapp\models.py:1004
 msgid "أدنى راتب تقبله"
 msgstr ""
 
-#: .\models.py:1004 .\models.py:1023 .\models.py:1027 .\models.py:1029
-#: .\models.py:1031 .\models.py:1033
+#: .\jopapp\models.py:1006 .\jopapp\models.py:1025 .\jopapp\models.py:1029
+#: .\jopapp\models.py:1031 .\jopapp\models.py:1033 .\jopapp\models.py:1035
 msgid "معا السبب ان توفر"
 msgstr ""
 
-#: .\models.py:1004
+#: .\jopapp\models.py:1006
 msgid "مشاكل صحية"
 msgstr ""
 
-#: .\models.py:1005
+#: .\jopapp\models.py:1007
 msgid "الهوايات"
 msgstr ""
 
-#: .\models.py:1007
+#: .\jopapp\models.py:1009
 msgid "اسم أقرب شخص"
 msgstr ""
 
-#: .\models.py:1009
+#: .\jopapp\models.py:1011
 msgid "رقم هاتف الشخص الأقرب"
 msgstr ""
 
-#: .\models.py:1011
+#: .\jopapp\models.py:1013
 msgid "علاقتك بالشخص الأقرب"
 msgstr ""
 
-#: .\models.py:1013
+#: .\jopapp\models.py:1015
 msgid "عنوان الشخص الأقرب"
 msgstr ""
 
-#: .\models.py:1015
+#: .\jopapp\models.py:1017
 msgid "اسم قريتك أو مدينتك"
 msgstr ""
 
-#: .\models.py:1017
+#: .\jopapp\models.py:1019
 msgid "رقم هاتف قائمة العدالة بقريتك أو مدينتك"
 msgstr ""
 
-#: .\models.py:1019
+#: .\jopapp\models.py:1021
 msgid "عنوان قائمة العدالة بقريتك أو مدينتك"
 msgstr ""
 
-#: .\models.py:1021
+#: .\jopapp\models.py:1023
 msgid "هل تدير عمل خاص"
 msgstr ""
 
-#: .\models.py:1023
+#: .\jopapp\models.py:1025
 msgid "هل أنت جاهز للعمل"
 msgstr ""
 
-#: .\models.py:1025
+#: .\jopapp\models.py:1027
 msgid "هل تفضل وظيفة حكومية"
 msgstr ""
 
-#: .\models.py:1027
+#: .\jopapp\models.py:1029
 msgid "مصدر دخلك المالي"
 msgstr ""
 
-#: .\models.py:1029
+#: .\jopapp\models.py:1031
 msgid "مهارة اللغة الإنجليزية"
 msgstr ""
 
-#: .\models.py:1031
+#: .\jopapp\models.py:1033
 msgid "هل تعاني من أمراض"
 msgstr ""
 
-#: .\models.py:1033
+#: .\jopapp\models.py:1035
 msgid "شهادة التخرج"
 msgstr ""
 
-#: .\models.py:1041
+#: .\jopapp\models.py:1043
 msgid "شهادة التخرج ان توفرت/ pdf or png or jpg or doc or docx  "
 msgstr ""
 
-#: .\models.py:1087 .\models.py:1088
+#: .\jopapp\models.py:1089 .\jopapp\models.py:1090
 msgid " البيانات العامة  "
 msgstr ""
 
-#: .\models.py:1105 .\models.py:1162 .\models.py:1444
+#: .\jopapp\models.py:1107 .\jopapp\models.py:1164 .\jopapp\models.py:1446
 msgid "الدولة"
 msgstr ""
 
-#: .\models.py:1106
+#: .\jopapp\models.py:1108
 msgid "اختار دولة"
 msgstr ""
 
-#: .\models.py:1118
+#: .\jopapp\models.py:1120
 msgid "اختار المحافظة"
 msgstr ""
 
-#: .\models.py:1128 .\models.py:1180
+#: .\jopapp\models.py:1130 .\jopapp\models.py:1182
 msgid "المديرية"
 msgstr ""
 
-#: .\models.py:1129
+#: .\jopapp\models.py:1131
 msgid "اختار المديرية"
 msgstr ""
 
-#: .\models.py:1139 .\models.py:1188
+#: .\jopapp\models.py:1141 .\jopapp\models.py:1190
 msgid "العزلة"
 msgstr ""
 
-#: .\models.py:1140
+#: .\jopapp\models.py:1142
 msgid "اختار العزلة"
 msgstr ""
 
-#: .\models.py:1146 .\models.py:1147 .\models.py:1217 .\models.py:1218
-#: .\models.py:1396 .\models.py:1397 .\models.py:1491 .\models.py:1492
+#: .\jopapp\models.py:1148 .\jopapp\models.py:1149 .\jopapp\models.py:1219
+#: .\jopapp\models.py:1220 .\jopapp\models.py:1398 .\jopapp\models.py:1399
+#: .\jopapp\models.py:1493 .\jopapp\models.py:1494
 msgid "طلب فتح حساب"
 msgstr ""
 
-#: .\models.py:1146 .\models.py:1147
+#: .\jopapp\models.py:1148 .\jopapp\models.py:1149
 msgid " - بيانات الميلاد "
 msgstr ""
 
-#: .\models.py:1194
+#: .\jopapp\models.py:1196
 msgid "الشارع"
 msgstr ""
 
-#: .\models.py:1200
+#: .\jopapp\models.py:1202
 msgid "اقرب فرع لبنك الإنماء من محل اقامتك"
 msgstr ""
 
-#: .\models.py:1206
+#: .\jopapp\models.py:1208
 msgid "اقرب معلم بارز من محل اقامتك"
 msgstr ""
 
-#: .\models.py:1212
+#: .\jopapp\models.py:1214
 msgid "نوع السكن"
 msgstr ""
 
-#: .\models.py:1217 .\models.py:1218
+#: .\jopapp\models.py:1219 .\jopapp\models.py:1220
 msgid " - بيانات العنوان "
 msgstr ""
 
-#: .\models.py:1232
+#: .\jopapp\models.py:1234
 msgid "الاسم الرباعي حسب البطاقة الشخصية"
 msgstr ""
 
-#: .\models.py:1248
+#: .\jopapp\models.py:1250
 msgid "رقم الهوية الشخصية"
 msgstr ""
 
-#: .\models.py:1264
+#: .\jopapp\models.py:1266
 msgid "تاريخ اصدار الهوية"
 msgstr ""
 
-#: .\models.py:1272
+#: .\jopapp\models.py:1274
 msgid "تاريخ انتهاء الهوية"
 msgstr ""
 
-#: .\models.py:1278
+#: .\jopapp\models.py:1280
 msgid "صورة البطاقة الآمامية"
 msgstr ""
 
-#: .\models.py:1284
+#: .\jopapp\models.py:1286
 msgid "صورة البطاقة الخلفية"
 msgstr ""
 
-#: .\models.py:1296 .\models.py:1300
+#: .\jopapp\models.py:1298 .\jopapp\models.py:1302
 msgid "هل لديك الجنسية الامريكية"
 msgstr ""
 
-#: .\models.py:1313
+#: .\jopapp\models.py:1315
 msgid "هل لديك جنسية اخرى ؟"
 msgstr ""
 
-#: .\models.py:1324
+#: .\jopapp\models.py:1326
 msgid "الجنسية"
 msgstr ""
 
-#: .\models.py:1340
+#: .\jopapp\models.py:1342
 msgid "جنسية اخرى"
 msgstr ""
 
-#: .\models.py:1370
+#: .\jopapp\models.py:1372
 msgid "المستوى التعلمي"
 msgstr ""
 
-#: .\models.py:1377
+#: .\jopapp\models.py:1379
 msgid "التخصص"
 msgstr ""
 
-#: .\models.py:1396 .\models.py:1397
+#: .\jopapp\models.py:1398 .\jopapp\models.py:1399
 msgid " - بيانات البطاقة الشخصية "
 msgstr ""
 
-#: .\models.py:1450
+#: .\jopapp\models.py:1452
 msgid "رقم تلفون الواتساب"
 msgstr ""
 
-#: .\models.py:1454
+#: .\jopapp\models.py:1456
 msgid "رقم التلفون"
 msgstr ""
 
-#: .\models.py:1458
+#: .\jopapp\models.py:1460
 msgid "البريد الألكتروني"
 msgstr "البريد الإلكتروني"
 
-#: .\models.py:1477
+#: .\jopapp\models.py:1479
 msgid "ادخل ملاحظة"
 msgstr ""
 
-#: .\models.py:1482
+#: .\jopapp\models.py:1484
 msgid "تاريخ الأضافة "
 msgstr ""
 
-#: .\models.py:1491 .\models.py:1492
+#: .\jopapp\models.py:1493 .\jopapp\models.py:1494
 msgid " - بيانات عامة"
 msgstr ""
 
-#: .\viewsaccount.py:200
+#: .\jopapp\viewsaccount.py:218
 msgid "مستخدم جديد"
 msgstr ""
 
-#: .\viewsaccount.py:317
+#: .\jopapp\viewsaccount.py:334
 msgid "تسجيل الدخول"
 msgstr ""
 
-#: .\viewsaccount.py:366 .\viewsaccount.py:367 .\viewsaccount.py:498
-#: .\viewsaccount.py:499
+#: .\jopapp\viewsaccount.py:386 .\jopapp\viewsaccount.py:387
+#: .\jopapp\viewsaccount.py:518 .\jopapp\viewsaccount.py:519
 msgid "تقديم طلب فتح حساب - بيانات عامة"
 msgstr ""
 
-#: .\viewsaccount.py:366 .\viewsaccount.py:367 .\viewsaccount.py:498
-#: .\viewsaccount.py:499
+#: .\jopapp\viewsaccount.py:386 .\jopapp\viewsaccount.py:387
+#: .\jopapp\viewsaccount.py:518 .\jopapp\viewsaccount.py:519
 msgid "تقديم طلب فتح حساب - بيانات الميلاد"
 msgstr ""
 
-#: .\viewsaccount.py:366 .\viewsaccount.py:367 .\viewsaccount.py:498
-#: .\viewsaccount.py:499
+#: .\jopapp\viewsaccount.py:386 .\jopapp\viewsaccount.py:387
+#: .\jopapp\viewsaccount.py:518 .\jopapp\viewsaccount.py:519
 msgid "تقديم طلب فتح حساب - عنوان السكن والاقامة "
 msgstr ""
 
-#: .\viewsaccount.py:366 .\viewsaccount.py:367 .\viewsaccount.py:498
-#: .\viewsaccount.py:499
+#: .\jopapp\viewsaccount.py:386 .\jopapp\viewsaccount.py:387
+#: .\jopapp\viewsaccount.py:518 .\jopapp\viewsaccount.py:519
 msgid "تقديم طلب فتح حساب - بيانات الهوية الشخصية "
 msgstr ""

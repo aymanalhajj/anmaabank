@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
 from django.contrib.auth.models import User, Group
 from phonenumber_field.modelfields import PhoneNumberField
@@ -15,77 +16,77 @@ from portfolioapp.models import Portfolio
 #         max_length=100, blank=True,null=True, verbose_name="جملة مختصرة معبرة تكتب تحت العنوان  "
 #     )
 #     # Date_Update = models.DateTimeField(
-#     #     auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+#     #     auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
 #     # Date_Added = models.DateTimeField(
-#     #     auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+#     #     auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 #     is_hidden = models.BooleanField(
 #         default=False,
 #         help_text=" سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده",
-#         verbose_name="مخفي"
+#         verbose_name=_("مخفي")
 #         )
 #     is_deleted = models.BooleanField(
 #         default=False,
 #         help_text="سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ", 
-#         verbose_name="محذوف "
+#         verbose_name=_("محذوف ")
 #         )
-#     # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+#     # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
 #     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
 #     sort_no = models.IntegerField(
-#         null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+#         null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
 #     )
-#     # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+#     # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
 #     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
 #     Date_Added = models.DateTimeField(
-#         auto_now_add=True, verbose_name="تاريخ الأضافة"
+#         auto_now_add=True, verbose_name=_("تاريخ الأضافة")
 #     )
 #     Date_Update = models.DateTimeField(
-#         auto_now=True, verbose_name="تاريخ التعديل"
+#         auto_now=True, verbose_name=_("تاريخ التعديل")
 #     )
 
 #     created_by = models.ForeignKey(User, blank=True, editable=False,
-#                                    null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+#                                    null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
 
 #     Date_Update = models.DateTimeField(
-#         auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+#         auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
 #     Date_Added = models.DateTimeField(
-#         auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+#         auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 #     deleted_at = models.DateTimeField(  null=True, 
 #                                         blank=True, 
 #                                         editable=False,
-#                                         verbose_name="تاريخ الحذف "
+#                                         verbose_name=_("تاريخ الحذف ")
 #     )
 #     deleted_by = models.ForeignKey(User, related_name='Navbars_deleted_by',
     
-#                                         verbose_name=" تم الحذف  بواسطة ", 
+#                                         verbose_name=_(" تم الحذف  بواسطة "), 
 #                                         editable=False, 
                                         
 #                                    null=True, on_delete=models.SET_NULL,)
-#     created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name="تاريخ الأنشاء ")
+#     created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name=_("تاريخ الأنشاء "))
 #     edited_at = models.DateTimeField(   null=True,  
 #                                         editable=False,
 #                                         blank=True, 
 #                                         auto_now=True, 
-#                                         verbose_name="تاريخ اخر تعديل "
+#                                         verbose_name=_("تاريخ اخر تعديل ")
 #     )
 #     edited_by = models.ForeignKey(  User, 
 #                                     blank=True,
 #                                     editable=False,
-#                                     verbose_name=" تم التعديل  بواسطة ", 
+#                                     verbose_name=_(" تم التعديل  بواسطة "), 
 #                                     related_name='Navbars_edited_by',
 #                                     null=True, 
 #                                     on_delete=models.SET_NULL,
 #     )
-#     # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+#     # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
 #     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
 #     sort_no = models.IntegerField(
-#         null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+#         null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
 #     )
 #     short_note = models.CharField(
 #         max_length=200,
 #         null=True,
 #         default=" ",
 #         blank=True,
-#         help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
+#         help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
 
 #         verbose_name="ملاحظة قصيرة إن وجد (مخفي لاتعرض بالموقع)")
 
@@ -131,11 +132,11 @@ from portfolioapp.models import Portfolio
 class Navbars(models.Model):
     url = models.CharField("URL", max_length=100, db_index=True)
     titel= models.CharField(
-        max_length=50,null=True,unique=True, verbose_name="العنوان"
+        max_length=50,null=True,unique=True, verbose_name=_("العنوان")
     )
 
     dicript= models.CharField(
-        max_length=100, blank=True,null=True, verbose_name="جملة مختصرة معبرة تكتب تحت العنوان  "
+        max_length=100, blank=True,null=True, verbose_name=_("جملة مختصرة معبرة تكتب تحت العنوان  ")
     )
     # display_at = models.BooleanField(
     #     default=False,
@@ -151,7 +152,7 @@ class Navbars(models.Model):
             ),
         # default="الرئيسية",
         null=True,
-        verbose_name="مكان عرض القسم",
+        verbose_name=_("مكان عرض القسم"),
         # blank=True
     )
     
@@ -176,24 +177,24 @@ class Navbars(models.Model):
             ),
         # default="الرئيسية",
         null=True,
-        verbose_name="مكان عرض القسم",
+        verbose_name=_("مكان عرض القسم"),
         # blank=True
     )
-    parent = models.ForeignKey('self',related_name="Navbars_parent",null=True,on_delete=models.SET_NULL,blank=True, verbose_name="القسم الاساسي")
+    parent = models.ForeignKey('self',related_name="Navbars_parent",null=True,on_delete=models.SET_NULL,blank=True, verbose_name=_("القسم الاساسي"))
     column_navbar = models.ForeignKey("ColumnNavbars",blank=True,related_name="column_navbar_chield",
-                                   null=True, on_delete=models.SET_NULL, verbose_name="العمود")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("العمود"))
     # Locations = models.ManyToManyField(
     # parent = models.ForeignKey(Navbars, related_name='parent_secondary_navbar',
     
     #                           null=True, on_delete=models.SET_NULL, verbose_name="القسم الاساسي")
     our_advantages = models.ForeignKey(ouradv, blank=True,unique=True,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="الاقسام والصفحات")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("الاقسام والصفحات"))
     bank_application = models.ForeignKey(BankApplications, blank=True,unique=True,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تطبيقات البنك")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تطبيقات البنك"))
     service = models.ForeignKey(Services, blank=True,unique=True,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="الخدمة")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("الخدمة"))
     portfolio = models.ForeignKey(Portfolio, blank=True,unique=True,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="معرض اعمال")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("معرض اعمال"))
     # Portfolio 
     # dicript= models.CharField(
     # dicript= models.CharField(
@@ -201,85 +202,85 @@ class Navbars(models.Model):
     #     max_length=100, blank=True,null=True, verbose_name="جملة مختصرة معبرة تكتب تحت العنوان  "
     # )
     # Date_Update = models.DateTimeField(
-    #     auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+    #     auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     # Date_Added = models.DateTimeField(
-    #     auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+    #     auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     is_hidden = models.BooleanField(
         default=False,
         help_text=" سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        verbose_name=_("مخفي")
         )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ", 
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
         )
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     sort_no = models.IntegerField(
-        null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+        null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
     )
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     Date_Added = models.DateTimeField(
-        auto_now_add=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, verbose_name="تاريخ التعديل"
+        auto_now=True, verbose_name=_("تاريخ التعديل")
     )
 
     created_by = models.ForeignKey(User, blank=True, editable=False,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
 
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     deleted_at = models.DateTimeField(  null=True, 
                                         blank=True, 
                                         editable=False,
-                                        verbose_name="تاريخ الحذف "
+                                        verbose_name=_("تاريخ الحذف ")
     )
     deleted_by = models.ForeignKey(User, related_name='SecondaryNavbars_deleted_by',
     
-                                        verbose_name=" تم الحذف  بواسطة ", 
+                                        verbose_name=_(" تم الحذف  بواسطة "), 
                                         editable=False, 
                                         
                                    null=True, on_delete=models.SET_NULL,)
-    created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name="تاريخ الأنشاء ")
+    created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(   null=True,  
                                         editable=False,
                                         blank=True, 
                                         auto_now=True, 
-                                        verbose_name="تاريخ اخر تعديل "
+                                        verbose_name=_("تاريخ اخر تعديل ")
     )
     edited_by = models.ForeignKey(  User, 
                                     blank=True,
                                     editable=False,
-                                    verbose_name=" تم التعديل  بواسطة ", 
+                                    verbose_name=_(" تم التعديل  بواسطة "), 
                                     related_name='SecondaryNavbars_edited_by',
                                     null=True, 
                                     on_delete=models.SET_NULL,
     )
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     sort_no = models.IntegerField(
-        null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+        null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
     )
     short_note = models.CharField(
         max_length=200,
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
 
-        verbose_name="ملاحظة قصيرة إن وجد (مخفي لاتعرض بالموقع)")
+        verbose_name=_("ملاحظة قصيرة إن وجد (مخفي لاتعرض بالموقع)"))
 
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = " العنوان في رأس الصفحة"
-        verbose_name_plural = " العنوان في رأس الصفحة"
+        verbose_name = _("العنوان في رأس الصفحة")
+        verbose_name_plural = _("العنوان في رأس الصفحة")
         ordering = ['sort_no']
 
     def clean(self):
@@ -378,7 +379,7 @@ class ColumnNavbars(models.Model):
     
     titel= models.CharField(
         null=True,unique=True,
-        max_length=50,  verbose_name=" اسم القسم  "
+        max_length=50,  verbose_name=_("اسم القسم")
     )
     # parent = models.ForeignKey(SecondaryNavbars, related_name='Row_secondary_navbar',
     #                                null=True, on_delete=models.SET_NULL, verbose_name="القسم الاساسي")
@@ -387,85 +388,85 @@ class ColumnNavbars(models.Model):
     #     max_length=100, blank=True,null=True, verbose_name="جملة مختصرة معبرة تكتب تحت العنوان  "
     # )
     # Date_Update = models.DateTimeField(
-    #     auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+    #     auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     # Date_Added = models.DateTimeField(
-    #     auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+    #     auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     is_hidden = models.BooleanField(
         default=False,
         help_text=" سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        verbose_name=_("مخفي")
         )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ", 
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
         )
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     sort_no = models.IntegerField(
-        null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+        null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
     )
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     Date_Added = models.DateTimeField(
-        auto_now_add=True, verbose_name="تاريخ الأضافة"
+        auto_now_add=True, verbose_name=_("تاريخ الأضافة")
     )
     Date_Update = models.DateTimeField(
-        auto_now=True, verbose_name="تاريخ التعديل"
+        auto_now=True, verbose_name=_("تاريخ التعديل")
     )
 
     created_by = models.ForeignKey(User, blank=True, editable=False,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
 
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     deleted_at = models.DateTimeField(  null=True, 
                                         blank=True, 
                                         editable=False,
-                                        verbose_name="تاريخ الحذف "
+                                        verbose_name=_("تاريخ الحذف ")
     )
     deleted_by = models.ForeignKey(User, related_name='RowNavbars_deleted_by',
     
-                                        verbose_name=" تم الحذف  بواسطة ", 
+                                        verbose_name=_(" تم الحذف  بواسطة "), 
                                         editable=False, 
                                         
                                    null=True, on_delete=models.SET_NULL,)
-    created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name="تاريخ الأنشاء ")
+    created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(   null=True,  
                                         editable=False,
                                         blank=True, 
                                         auto_now=True, 
-                                        verbose_name="تاريخ اخر تعديل "
+                                        verbose_name=_("تاريخ اخر تعديل ")
     )
     edited_by = models.ForeignKey(  User, 
                                     blank=True,
                                     editable=False,
-                                    verbose_name=" تم التعديل  بواسطة ", 
+                                    verbose_name=_(" تم التعديل  بواسطة "), 
                                     related_name='RowNavbars_edited_by',
                                     null=True, 
                                     on_delete=models.SET_NULL,
     )
-    # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+    # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
     sort_no = models.IntegerField(
-        null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+        null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
     )
     short_note = models.CharField(
         max_length=200,
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
 
-        verbose_name="ملاحظة قصيرة إن وجد (مخفي لاتعرض بالموقع)")
+        verbose_name=_("ملاحظة قصيرة إن وجد (مخفي لاتعرض بالموقع)"))
 
     class Meta:
         db_table = ""
         managed = True
-        verbose_name = " العنوان الثنوي في رأس الصفحة"
-        verbose_name_plural =" العنوان الثنوي في رأس الصفحة"
+        verbose_name = _("العنوان الفرعي في رأس الصفحة")
+        verbose_name_plural = _("العنوان الفرعي في رأس الصفحة")
         ordering = ['sort_no']
 
     def save(self, *args, **kwargs):
@@ -512,77 +513,77 @@ class ColumnNavbars(models.Model):
 #     #     max_length=100, blank=True,null=True, verbose_name="جملة مختصرة معبرة تكتب تحت العنوان  "
 #     # )
 #     # Date_Update = models.DateTimeField(
-#     #     auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+#     #     auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
 #     # Date_Added = models.DateTimeField(
-#     #     auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+#     #     auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 #     is_hidden = models.BooleanField(
 #         default=False,
 #         help_text=" سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده",
-#         verbose_name="مخفي"
+#         verbose_name=_("مخفي")
 #         )
 #     is_deleted = models.BooleanField(
 #         default=False,
 #         help_text="سيتم اخفاء هذا من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ", 
-#         verbose_name="محذوف "
+#         verbose_name=_("محذوف ")
 #         )
-#     # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+#     # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
 #     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
 #     sort_no = models.IntegerField(
-#         null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+#         null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
 #     )
-#     # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+#     # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
 #     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
 #     Date_Added = models.DateTimeField(
-#         auto_now_add=True, verbose_name="تاريخ الأضافة"
+#         auto_now_add=True, verbose_name=_("تاريخ الأضافة")
 #     )
 #     Date_Update = models.DateTimeField(
-#         auto_now=True, verbose_name="تاريخ التعديل"
+#         auto_now=True, verbose_name=_("تاريخ التعديل")
 #     )
 
 #     created_by = models.ForeignKey(User, blank=True, editable=False,
-#                                    null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+#                                    null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
 
 #     Date_Update = models.DateTimeField(
-#         auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+#         auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
 #     Date_Added = models.DateTimeField(
-#         auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+#         auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 #     deleted_at = models.DateTimeField(  null=True, 
 #                                         blank=True, 
 #                                         editable=False,
-#                                         verbose_name="تاريخ الحذف "
+#                                         verbose_name=_("تاريخ الحذف ")
 #     )
 #     deleted_by = models.ForeignKey(User, related_name='SyntexNavbars_deleted_by',
     
-#                                         verbose_name=" تم الحذف  بواسطة ", 
+#                                         verbose_name=_(" تم الحذف  بواسطة "), 
 #                                         editable=False, 
                                         
 #                                    null=True, on_delete=models.SET_NULL,)
-#     created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name="تاريخ الأنشاء ")
+#     created_at = models.DateTimeField(null=True,    auto_now_add=True, editable=False,blank=True, verbose_name=_("تاريخ الأنشاء "))
 #     edited_at = models.DateTimeField(   null=True,  
 #                                         editable=False,
 #                                         blank=True, 
 #                                         auto_now=True, 
-#                                         verbose_name="تاريخ اخر تعديل "
+#                                         verbose_name=_("تاريخ اخر تعديل ")
 #     )
 #     edited_by = models.ForeignKey(  User, 
 #                                     blank=True,
 #                                     editable=False,
-#                                     verbose_name=" تم التعديل  بواسطة ", 
+#                                     verbose_name=_(" تم التعديل  بواسطة "), 
 #                                     related_name='SyntexNavbars_edited_by',
 #                                     null=True, 
 #                                     on_delete=models.SET_NULL,
 #     )
-#     # is_hidden = models.BooleanField(default=False, verbose_name="مخفي")
+#     # is_hidden = models.BooleanField(default=False, verbose_name=_("مخفي"))
 #     # is_deleted = models.BooleanField(default=False, verbose_name="محذوف")
 #     sort_no = models.IntegerField(
-#         null=True, editable=True, blank=True, verbose_name="رقم الترتيب (يرتب بالموقع حسب الرقم)"
+#         null=True, editable=True, blank=True, verbose_name=_("رقم الترتيب (يرتب بالموقع حسب الرقم)")
 #     )
 #     short_note = models.CharField(
 #         max_length=200,
 #         null=True,
 #         default=" ",
 #         blank=True,
-#         help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
+#         help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
 
 #         verbose_name="ملاحظة قصيرة إن وجد (مخفي لاتعرض بالموقع)")
 

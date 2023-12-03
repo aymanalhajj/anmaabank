@@ -4,6 +4,24 @@ from django.db.models import Q
 # Create your views here.
 
 
+def login_out_toggle(request):
+    if islogin(request):
+        return "userLogout"
+    else:
+        return "login"
+    
+
+def getSwitchLangUrl(request):
+    if request is None:
+        raise Exception("request is None")
+    url = request.build_absolute_uri()
+    if '/ar' in url:
+        url = url.replace('/ar','/en')
+    elif 'en' in url:
+        url = url.replace('/en','/ar')
+    return url
+
+
 def NavbarsQuerySetOld():
     # current_datetime = datetime.datetime.now().date()
     # print(current_datetime)

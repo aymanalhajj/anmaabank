@@ -1,8 +1,11 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from distutils.command.upload import upload
 import numbers
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, Group
 import datetime
 from tinymce.models import HTMLField
@@ -19,56 +22,56 @@ class Awards(models.Model):
     #                                null=True, on_delete=models.SET_NULL, verbose_name="اسم العمود")
     detial_ar = HTMLField(
         max_length=10000000,
-        default=" ", null=True, blank=True, verbose_name="تفاصيل رؤية الشركة")
+        default=" ", null=True, blank=True, verbose_name=_("تفاصيل رؤية الشركة"))
 
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 
     is_hidden = models.BooleanField(
         default=False,
-        help_text=" سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده",
-        verbose_name="مخفي"
+        help_text=_(" سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده"),
+        verbose_name=_("مخفي")
     )
     is_deleted = models.BooleanField(
         default=False,
         help_text="سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
-        verbose_name="محذوف "
+        verbose_name=_("محذوف ")
     )
     # created_by = models.ForeignKey(User, blank=True, editable=False,
-    #    null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+    #    null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
     deleted_at = models.DateTimeField(null=True,
                                       blank=True,
                                       editable=False,
-                                      verbose_name="تاريخ الحذف "
+                                      verbose_name=_("تاريخ الحذف ")
                                       )
     deleted_by = models.ForeignKey(User,
                                    related_name='awards_deleted_by',
 
                                    blank=True,
-                                   verbose_name=" تم الحذف  بواسطة ",
+                                   verbose_name=_(" تم الحذف  بواسطة "),
                                    null=True,
                                    editable=False,
                                    on_delete=models.SET_NULL,)
     created_at = models.DateTimeField(
-        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name="تاريخ الأنشاء ")
+        null=True,    auto_now_add=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
     edited_at = models.DateTimeField(null=True,
                                      editable=False,
                                      blank=True,
                                      auto_now=True,
-                                     verbose_name="تاريخ اخر تعديل "
+                                     verbose_name=_("تاريخ اخر تعديل ")
                                      )
     edited_by = models.ForeignKey(User,
                                   blank=True,
                                   editable=False,
-                                  verbose_name=" تم التعديل  بواسطة ",
+                                  verbose_name=_(" تم التعديل  بواسطة "),
                                   related_name='awards_edited_by',
                                   null=True,
                                   on_delete=models.SET_NULL,
                                   )
     created_by = models.ForeignKey(User, blank=True, editable=False, related_name='awards_created_by',
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
     # sort_no = models.IntegerField(
     #     null=True, editable=True, blank=True, verbose_name="رقم الترتيب ",
     #     help_text=" اختياري - يتم ترتيب ظهور الأراء على حسب الرقم هذا ان وجد"
@@ -78,8 +81,8 @@ class Awards(models.Model):
         null=True,
         default=" ",
         blank=True,
-        help_text=" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً",
-        verbose_name="ملاحظة قصيرة"
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
+        verbose_name=_("ملاحظة قصيرة")
     )
 
     def save(self, *args, **kwargs):

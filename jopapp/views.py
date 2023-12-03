@@ -23,9 +23,30 @@ from .viewsaccount import contextDate
 from django.shortcuts import redirect, render, get_object_or_404
 
 
+
+def login_out_toggle(request):
+    if islogin(request):
+        return "userLogout"
+    else:
+        return "login"
+    
+
+def getSwitchLangUrl(request):
+    if request is None:
+        raise Exception("request is None")
+    url = request.build_absolute_uri()
+    if '/ar' in url:
+        url = url.replace('/ar','/en')
+    elif 'en' in url:
+        url = url.replace('/en','/ar')
+    return url
+
 class index(View):
 
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         try:
             user_id = request.session.get('userLoggedUserId')
             user = Register.objects.get(id=user_id) if user_id else None
@@ -78,19 +99,12 @@ class vacancies(View):
             user = Register.objects.get(id=user_id) if user_id else None
         except Register.DoesNotExist:
             user = None
-        #
-        #
-        #
-        #
-        #
-        #
-
         if request.user.is_superuser:
-            return render(request, 'jop/vacancies.html', contextDate(url_name="vacancies", request=request, jobs=jobs,
+            return render(request, 'jop/vacancies.html', contextDate(lang = lang , url_name="vacancies", request=request, jobs=jobs,
                                                                      title="الوظائف الشاغرة"
                                                                      ))
         else:
-            return render(request, 'jop/vacancies.html', contextDate(url_name="vacancies", request=request, jobs=jobs,
+            return render(request, 'jop/vacancies.html', contextDate(lang = lang , url_name="vacancies", request=request, jobs=jobs,
                                                                      title="الوظائف الشاغرة"
                                                                      ))
         # context["jobs"] = jobs
@@ -175,7 +189,10 @@ class customadmin(View, ):
                                                                      ))
         # context["jobs"] = jobs
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         # form = SerchModelForm()
 
         form = SerchModelForm(request.POST, request.FILES)
@@ -429,7 +446,10 @@ def detail(request, id):
                                                                 title="تفاصيل الوظيفة"))
 
 
-def message_bank(request):
+def message_bank(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     try:
         user_id = request.session.get('userLoggedUserId')
         user = Register.objects.get(id=user_id) if user_id else None
@@ -446,7 +466,10 @@ def message_bank(request):
                                                                 title="رسالة البنك"))
 
 
-def puocedures_job(request):
+def puocedures_job(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     try:
         user_id = request.session.get('userLoggedUserId')
         user = Register.objects.get(id=user_id) if user_id else None
@@ -462,7 +485,10 @@ def puocedures_job(request):
                                                                   title="إجراءات التوظيف في بنك الانماء"))
 
 
-def purpose_bank(request):
+def purpose_bank(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     try:
         user_id = request.session.get('userLoggedUserId')
         user = Register.objects.get(id=user_id) if user_id else None
@@ -474,7 +500,10 @@ def purpose_bank(request):
                                                                 title="مواصلة تبوء موقع ريادي في العمل البنكي يحقق عائد جيد للمساهمين والمودعين عن طريق"))
 
 
-def strategy_bank(request):
+def strategy_bank(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     try:
         user_id = request.session.get('userLoggedUserId')
         user = Register.objects.get(id=user_id) if user_id else None
@@ -485,7 +514,10 @@ def strategy_bank(request):
                                                                  title="  بيان إستراتيجية بنك الانماء"))
 
 
-def what_gion_bank(request):
+def what_gion_bank(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     try:
         user_id = request.session.get('userLoggedUserId')
         user = Register.objects.get(id=user_id) if user_id else None
@@ -495,7 +527,10 @@ def what_gion_bank(request):
                                                                   title="لماذا تنضم إلى فريق العمل في بنك الانماء للتمويل  الإسلامي"))
 
 
-def valuesprinciples(request):
+def valuesprinciples(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     try:
         user_id = request.session.get('userLoggedUserId')
         user = Register.objects.get(id=user_id) if user_id else None
@@ -505,7 +540,10 @@ def valuesprinciples(request):
                                                                      title="القيم والمبادئ"))
 
 
-def ruicbank(request):
+def ruicbank(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     try:
         user_id = request.session.get('userLoggedUserId')
         user = Register.objects.get(id=user_id) if user_id else None
@@ -514,7 +552,10 @@ def ruicbank(request):
     return render(request, 'jop/ruic_bank.html', contextDate(request=request))
 
 
-def introcationjob(request):
+def introcationjob(request, lang = "ar"):
+    if lang is None or lang not in("ar","en"):
+        lang = 'ar'
+    translation.activate(lang)
     try:
         user_id = request.session.get('userLoggedUserId')
         user = Register.objects.get(id=user_id) if user_id else None
@@ -534,11 +575,17 @@ def send_email_with_template(subject, recipient_list, template_name, context):
 
 
 class send_message_email(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         form = MyPasswordResetForm()
         return render(request, 'jop/forgetpassword.html', contextDate(request=request, form=form,))
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         form = MyPasswordResetForm(request.POST, request.FILES)
         if form.is_valid():
             email = request.POST["email"]
@@ -555,7 +602,7 @@ class send_message_email(View):
                 try:
                     subject = 'Your Subject'
                     template_name = 'jop/email_template.html'
-                    context = {
+                    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
                         'username': 'John Doe', 'verification_link': 'http://127.0.0.1:8000/passswordrest/'}
                     html_message = render_to_string(
                         'jop/email_template.html', {'context': context})
@@ -603,11 +650,17 @@ class send_message_email(View):
 
 
 class PasswordResetView(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
 
         return render(request, 'jop/password-reset.html')
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if 'btnresetpass' in request.POST:
             user_email = request.session.get('emailrest')
             if user_email:
@@ -634,14 +687,20 @@ class PasswordResetView(View):
 
 
 class Changepassword(View):
-    def get(self, request):
+    def get(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if islogin(request) == False:
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
 
             return render(request, 'jop/passwordchange.html')
 
-    def post(self, request):
+    def post(self, request, lang = "ar"):
+        if lang is None or lang not in("ar","en"):
+            lang = 'ar'
+        translation.activate(lang)
         if 'changepassword' in request.POST:
             user_email = request.session.get('userLoggedEmailId')
             print(user_email)

@@ -1,6 +1,7 @@
 from distutils.command.upload import upload
 import numbers
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, Group
 import datetime
 from tinymce.models import HTMLField
@@ -14,26 +15,26 @@ from django.utils.translation import gettext_lazy as _
 
 class Statistics(models.Model):
     number = models.PositiveSmallIntegerField(
-        verbose_name="الرقم"
+        verbose_name=_("الرقم")
     )
     created_by = models.ForeignKey(User, blank=True, editable=False,
-                                   null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+                                   null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
 
     titel = models.CharField(
-        max_length=20, null=True, verbose_name="العنوان")
+        max_length=20, null=True, verbose_name=_("العنوان"))
 
     Date_Update = models.DateTimeField(
-        auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 
     def __str__(self):
         return self.titel
 
     class Meta:
         managed = True
-        verbose_name = "نقاط تواجدنا"
-        verbose_name_plural = "نقاط تواجدنا"
+        verbose_name = _("نقاط تواجدنا")
+        verbose_name_plural = _("نقاط تواجدنا")
 
     def get_absolute_url(self):
         # return reverse_lazy('service-single', kwargs={'pk': self.pk})
@@ -42,22 +43,22 @@ class Statistics(models.Model):
 
 # class OurVision(models.Model):
 #     # titel = models.CharField(
-#     # max_length=250, verbose_name="العنوان"
+#     # max_length=250, verbose_name=_("العنوان")
 #     # )
 #     created_by = models.ForeignKey(User, blank=True, editable=False,
-#                                    null=True, on_delete=models.SET_NULL, verbose_name="تم الأنشاء بواسطة ")
+#                                    null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))
 
 #     detial_ar = HTMLField(
 #         max_length=100000, default=" ", null=True, blank=True, verbose_name="تفاصيل رؤية الشركة")
 
 #     # image = models.ImageField(
-#     # upload_to="Image/About/%Y/%m/%d/", blank=True, verbose_name=" إختيار صورة", null=True,
-#     # verbose_name=" إختيار صورة"
+#     # upload_to="Image/About/%Y/%m/%d/", blank=True, verbose_name=_(" إختيار صورة"), null=True,
+#     # verbose_name=_(" إختيار صورة")
 #     # )
 #     Date_Update = models.DateTimeField(
-#         auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+#         auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
 #     Date_Added = models.DateTimeField(
-#         auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+#         auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 
 #     def __str__(self):
 #         return self.detial_ar
@@ -70,7 +71,7 @@ class Statistics(models.Model):
 
 class IpInfo(models.Model):
     status = models.CharField(
-        max_length=50, null=True, verbose_name=" status ", blank=True, editable=False
+        max_length=50, null=True, verbose_name="status", blank=True, editable=False
     )
     cookie = HTMLField(
         max_length=100000, default=" ", null=True, blank=True, editable=False)
@@ -166,9 +167,9 @@ class IpInfo(models.Model):
     )
 
     Date_Update = models.DateTimeField(
-        auto_now=True, null=True, blank=True, verbose_name="تاريخ التعديل ", editable=False)
+        auto_now=True, null=True, blank=True, verbose_name=_("تاريخ التعديل "), editable=False)
     Date_Added = models.DateTimeField(
-        auto_now_add=True, null=True, blank=True, verbose_name="تاريخ الأضافة ", editable=False)
+        auto_now_add=True, null=True, blank=True, verbose_name=_("تاريخ الأضافة "), editable=False)
     # netowrkinfo = models.ForeignKey(
     #     NetowrkInfo, on_delete=models.SET_NULL, null=True)
 
@@ -186,9 +187,9 @@ class RequestHederInfo(models.Model):
     cookie = HTMLField(
         max_length=100000, default=" ", null=True, )
     Date_Update = models.DateTimeField(
-        auto_now=True, null=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, null=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, null=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, null=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     latitude = models.FloatField(
         default=0.0, null=True, verbose_name=" latitude خط العرض")
     longitude = models.FloatField(
@@ -214,9 +215,9 @@ class RequestMetaAndGet(models.Model):
     cookie = HTMLField(
         max_length=100000, default=" ", null=True, )
     Date_Update = models.DateTimeField(
-        auto_now=True, null=True, blank=True, verbose_name="تاريخ التعديل ")
+        auto_now=True, null=True, blank=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(
-        auto_now_add=True, null=True, blank=True, verbose_name="تاريخ الأضافة ")
+        auto_now_add=True, null=True, blank=True, verbose_name=_("تاريخ الأضافة "))
     # latitude = models.FloatField(
     # default=0.0, null=True, verbose_name=" latitude خط العرض")
     # longitude = models.FloatField(
@@ -299,9 +300,9 @@ class RequestMetaAndGet(models.Model):
 #         max_length=250, default=" ", null=True, verbose_name="عنوان العمل  ")
 #     #image = models.ManyToManyField()
 #     Date_Update = models.DateTimeField(
-#         auto_now=True, blank=True, verbose_name="تاريخ التعديل ")
+#         auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
 #     Date_Added = models.DateTimeField(
-#         auto_now_add=True, blank=True, verbose_name="تاريخ الأضافة ")
+#         auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
 
 #     def __str__(self):
 #         return self.titel

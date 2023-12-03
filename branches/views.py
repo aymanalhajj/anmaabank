@@ -8,6 +8,24 @@ from .form import SerchModelForm
 from django.db.models import Q
 from settingapp.views import static_content
 
+
+
+def login_out_toggle(request):
+    if islogin(request):
+        return "userLogout"
+    else:
+        return "login"
+    
+
+def getSwitchLangUrl(request):
+    if request is None:
+        raise Exception("request is None")
+    url = request.build_absolute_uri()
+    if '/ar' in url:
+        url = url.replace('/ar','/en')
+    elif 'en' in url:
+        url = url.replace('/en','/ar')
+    return url
 from country_regions.models import Region
 
 
@@ -38,7 +56,7 @@ def service_points(request, id=None, lang = "ar"):
     # saveInfoIp(request, 'service-single.html')
     form = SerchModelForm()
 
-    context = {
+    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
         # 'data': data,
         'form': form,
         # "imagesservice": images_services,
