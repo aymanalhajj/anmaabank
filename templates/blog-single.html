@@ -11,7 +11,13 @@
           <li><a  style="color: var(--primary);" href="/">{{static_content.main}}</a></li>
           {% if application and setting and not setting.is_hidden_bank_applications %}
             <li>{{static_content.applications}}</li>
-            <li>{{application.titel|safe}}</li>
+            <li>
+              {% if static_content.lang == "ar" %}
+                                {{application.titel|safe}}
+                            {% else %}
+                                {{application.titel_en|safe}}
+                            {% endif %}
+              </li>
           {% elif section_page %}
             <li>{{static_content.section}}</li>
             <li>{{section_page.titel|safe}}</li>

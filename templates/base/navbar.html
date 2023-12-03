@@ -46,7 +46,12 @@
                                     alt="service icon"></div>
 
                             {% endif %}
-                            <span>{{application.titel}}</span>
+                            <span>
+                                {% if static_content.lang == "ar" %}
+                                {{application.titel|safe}}
+                            {% else %}
+                                {{application.titel_en|safe}}
+                            {% endif %}</span>
                         </a>
                     </li>
                     {% endfor %}

@@ -49,11 +49,25 @@ from currencies.views import getCurancy
 
 from settingapp.views import static_content
 
+
+def getSwitchLangUrl(request):
+    if request is None:
+        raise Exception("request is None")
+    url = request.build_absolute_uri()
+    if '/ar' in url:
+        url = url.replace('/ar','/en')
+    elif '/en' in url:
+        url = url.replace('/en','/ar')
+    else:
+        url = url+'ar'
+    return url
+
 def getUrl(request):
     if request is None:
         raise Exception("request is None")
 
     return request.build_absolute_uri()
+
 
 def islogin(request):
     if request.session.has_key('userLoggedName') and request.session.has_key('userLoggedEmailId'):

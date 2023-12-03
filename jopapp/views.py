@@ -24,6 +24,12 @@ from django.shortcuts import redirect, render, get_object_or_404
 
 
 
+def islogin(request):
+    if request.session.has_key('userLoggedName') and request.session.has_key('userLoggedEmailId'):
+        return True
+    else:
+        return False
+
 def login_out_toggle(request):
     if islogin(request):
         return "userLogout"

@@ -2,16 +2,19 @@
 {% block app %}
 {% if application and setting and not setting.is_hidden_bank_applications   %}
 
-{% with "../../static/assets/img/feature-arrow-"|add:static_content.lang|add:".png" as icon_src %}
+{% with "/static/assets/img/feature-arrow-"|add:static_content.lang|add:".png" as icon_src %}
 
 <section id="apps" class="application-show" >
     <div class="containerr" >
         <header class="section-header">
             <h2>
-                تطبيقات البنك
-                {% if title %}
-                - {{ title }}
-                {% endif %}
+                
+                {{static_content.bank_applications}} - 
+                {% if static_content.lang == "ar" %}
+                                {{application.detial_ar|safe}}
+                            {% else %}
+                                {{application.detial_en|safe}}
+                            {% endif %}
             </h2>
         </header>
         <div class="apps-section-container"  >
@@ -53,10 +56,18 @@
 
                     <div class="app-info">
                         <h5 class="app-name" >
-                            {{application.name|safe}}
+                            {% if static_content.lang == "ar" %}
+                                {{application.name|safe}}
+                            {% else %}
+                                {{application.name_en|safe}}
+                            {% endif %}
                         </h5>
                         <p class="app-description" style="color: var(--accent); font-weight: bold; font-size: 20px;">
-                            {{application.detial_ar|safe}}
+                            {% if static_content.lang == "ar" %}
+                                {{application.detial_ar|safe}}
+                            {% else %}
+                                {{application.detial_en|safe}}
+                            {% endif %}
                         </p>
 
                         {% if application.future_applications.all|length > 0 %}
@@ -82,7 +93,11 @@
                                 <li style="margin-inline-start: 32px;">
                                     <img src="{{icon_src}}"  width="12px" height="24px" />
                                     <span style=" color: var(--primary); font-weight: bold; padding: 0;">
+                                        {% if static_content.lang == "ar" %}
                                         {{future.name|safe}}
+                                        {% else %}
+                                        {{future.name_en|safe}}
+                                        {% endif %}
                                     </span>
                                 </li>
                                 {% endfor %}

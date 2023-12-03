@@ -16,6 +16,12 @@ from settingapp.views import static_content
 
 
 
+def islogin(request):
+    if request.session.has_key('userLoggedName') and request.session.has_key('userLoggedEmailId'):
+        return True
+    else:
+        return False
+
 def login_out_toggle(request):
     if islogin(request):
         return "userLogout"

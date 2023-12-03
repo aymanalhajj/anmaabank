@@ -350,6 +350,9 @@ class BankApplications(models.Model):
     titel = models.CharField(
         max_length=50, verbose_name=_("اسم التطبيق")
     )
+    titel_en = models.CharField(
+        max_length=50, verbose_name=_("اسم التطبيق انجليزي")
+    )
     # navbar = models.ForeignKey(Navbars,
     #                                null=True, on_delete=models.SET_NULL, verbose_name="القسم الاساسي")
     # secondary_navbar = models.ForeignKey(SecondaryNavbars, blank=True,
@@ -361,6 +364,9 @@ class BankApplications(models.Model):
     # )
     detial_ar = models.CharField(
         max_length=250, null=True, blank=True, verbose_name=_("اسم التطبيق")
+    )
+    detial_en = models.CharField(
+        max_length=250, null=True, blank=True, verbose_name=_("اسم التطبيق انجليزي")
     )
     # detial_ar = HTMLField(
     #  null=True,blank=True, verbose_name="تفاصيل التطبيق")
@@ -569,6 +575,9 @@ class FutureApplications(models.Model):
 
     name = models.CharField(
         null=True, max_length=30, verbose_name=_("اسم الميزة")
+    )
+    name_en = models.CharField(
+        null=True, max_length=30, verbose_name=_("اسم الميزة انجليزي")
     )
     date_added = models.DateTimeField(
         auto_now_add=True, null=True, verbose_name=_("تاريخ الأضافة")
