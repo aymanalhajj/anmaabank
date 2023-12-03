@@ -3,7 +3,7 @@
 
   {% block footeralinma %}
     {% if  setting and not setting.is_hidden_footer %}
-      <footer class="footer" style="padding: 0px;padding-top: 10px;"  dir="{{static_content.direction}}">
+      <footer id="footer" class="footer" style="padding: 0px;padding-top: 10px;"  dir="{{static_content.direction}}">
         <img src="/static/assets/img/yemen-places-arrows.png"  class="footer-bk"
           style="{% if static_content.lang == "ar" %} left: 0px; {% else %} right: 0px;{% endif %}
             position: absolute;

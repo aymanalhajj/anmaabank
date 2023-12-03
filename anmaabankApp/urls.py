@@ -85,6 +85,7 @@ urlpatterns = [
     path('#testimonials', views.index_section, name='testimonials'),
     path('#currencies', views.index_section, name='currencies'),
     path('#apps', views.index_section, name='apps'),
+    path('#footer', views.index_section, name='footer'),
     path('#services-home', views.index_section, name='services-home'),
     path('index/<str:tag>', views.index_section, name='index-section'),
 #     path('about', views.about, name='about-page'),
