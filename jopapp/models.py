@@ -1145,8 +1145,8 @@ class BirthData(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = _("طلب فتح حساب") + _(" - بيانات الميلاد ")
-        verbose_name_plural = _("طلب فتح حساب") + _(" - بيانات الميلاد ")
+        verbose_name = _("طلب فتح حساب - بيانات الميلاد ")
+        verbose_name_plural = _("طلب فتح حساب - بيانات الميلاد ")
 
 
 class AddressLocation(models.Model):
@@ -1216,8 +1216,8 @@ class AddressLocation(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = _("طلب فتح حساب")+_(" - بيانات العنوان ")
-        verbose_name_plural = _("طلب فتح حساب") + _(" - بيانات العنوان ")
+        verbose_name = _("طلب فتح حساب - بيانات العنوان ")
+        verbose_name_plural = _("طلب فتح حساب - بيانات العنوان ")
 
 
 class IdentificationCard (models.Model):
@@ -1395,8 +1395,8 @@ class IdentificationCard (models.Model):
 
     class Meta:
         managed = True
-        verbose_name = _("طلب فتح حساب") + _(" - بيانات البطاقة الشخصية ")
-        verbose_name_plural = _("طلب فتح حساب")+ _( " - بيانات البطاقة الشخصية ")
+        verbose_name = _("طلب فتح حساب - بيانات البطاقة الشخصية ")
+        verbose_name_plural = _("طلب فتح حساب - بيانات البطاقة الشخصية ")
 
 from django.utils.translation import gettext_lazy as _
 class RequestToOpenAccount(models.Model):
@@ -1490,5 +1490,5 @@ class RequestToOpenAccount(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = _("طلب فتح حساب") + _(" - بيانات عامة")
-        verbose_name_plural = _("طلب فتح حساب") + _(" - بيانات عامة")
+        verbose_name = _("طلب فتح حساب - بيانات عامة")
+        verbose_name_plural = _("طلب فتح حساب - بيانات عامة")

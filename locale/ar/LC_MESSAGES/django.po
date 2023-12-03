@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 05:24+0300\n"
+"POT-Creation-Date: 2023-12-03 20:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\Awards\apps.py:8
+msgid "الجوائــــــز "
+msgstr ""
 
 #: .\Awards\models.py:25 .\OurMarch\models.py:31 .\OurVision\models.py:30
 msgid "تفاصيل رؤية الشركة"
@@ -182,6 +186,10 @@ msgstr ""
 msgid "ملاحظة قصيرة"
 msgstr ""
 
+#: .\FrequentlyAskedQuestions\apps.py:8
+msgid "الأسئلة الشائعة"
+msgstr ""
+
 #: .\FrequentlyAskedQuestions\models.py:11
 msgid "السؤال"
 msgstr ""
@@ -207,6 +215,10 @@ msgstr ""
 msgid "أسئلة شائعه عنا"
 msgstr ""
 
+#: .\OurMarch\apps.py:7 .\OurMarch\models.py:122 .\OurMarch\models.py:123
+msgid "مسيرتنــــا"
+msgstr ""
+
 #: .\OurMarch\models.py:33 .\OurMission\models.py:30 .\OurVision\models.py:33
 #: .\OurVision\models.py:386 .\OurVision\models.py:444 .\blogapp\models.py:131
 #: .\sectionpage\models.py:63 .\sectionpage\models.py:201
@@ -215,8 +227,8 @@ msgstr ""
 msgid " إختيار صورة"
 msgstr ""
 
-#: .\OurMarch\models.py:122 .\OurMarch\models.py:123
-msgid "مسيرتنــــا"
+#: .\OurMission\apps.py:7 .\OurMission\models.py:119 .\OurMission\models.py:120
+msgid "مهمتنــــا"
 msgstr ""
 
 #: .\OurNewsletter\models.py:19 .\country_regions\models.py:104
@@ -261,6 +273,10 @@ msgstr ""
 msgid "مشتركين في اخر الاخبار"
 msgstr ""
 
+#: .\OurVision\apps.py:8 .\OurVision\models.py:427 .\OurVision\models.py:428
+msgid "عنا"
+msgstr ""
+
 #: .\OurVision\models.py:25 .\OurVision\models.py:165
 msgid "عنوان القسم"
 msgstr ""
@@ -299,12 +315,12 @@ msgstr ""
 msgid "التفاصيل"
 msgstr ""
 
-#: .\OurVision\models.py:427 .\OurVision\models.py:428
-msgid "عنا"
-msgstr ""
-
 #: .\OurVision\models.py:540 .\OurVision\models.py:541
 msgid "الرسالة"
+msgstr ""
+
+#: .\Partners\apps.py:8
+msgid " الشركاء "
 msgstr ""
 
 #: .\Partners\models.py:23 .\clients\models.py:16
@@ -341,6 +357,11 @@ msgstr ""
 
 #: .\Partners\models.py:104 .\Partners\models.py:105
 msgid "الشركاء"
+msgstr ""
+
+#: .\Testimonials\apps.py:8 .\Testimonials\models.py:254
+#: .\Testimonials\models.py:255
+msgid "آراء العملاء"
 msgstr ""
 
 #: .\Testimonials\models.py:40
@@ -426,6 +447,10 @@ msgstr ""
 msgid "ملاحظة قصيرة (إن وجد - لن يتم عرضه في الموقع )"
 msgstr ""
 
+#: .\adsense\apps.py:9
+msgid "الاعلانات المتحركة"
+msgstr ""
+
 #: .\adsense\models.py:11 .\adsense\models.py:87 .\adsense\models.py:171
 msgid "العنوان بالعربي"
 msgstr ""
@@ -450,7 +475,7 @@ msgstr ""
 msgid "تاريخ أنتهاء النشر "
 msgstr ""
 
-#: .\adsense\models.py:51 .\adsense\models.py:115
+#: .\adsense\models.py:51 .\adsense\models.py:115 .\servicesapp\models.py:308
 msgid "الخدمات"
 msgstr ""
 
@@ -503,6 +528,10 @@ msgstr ""
 msgid "الاعلانات"
 msgstr ""
 
+#: .\adsense\models.py:275 .\adsense\models.py:276
+msgid "مشاهدات الاعلانات"
+msgstr ""
+
 #: .\adsense\models.py:293 .\adsense\models.py:333
 msgid "الاعلانات في الأسفل"
 msgstr ""
@@ -529,6 +558,10 @@ msgstr ""
 
 #: .\adsense\models.py:438 .\adsense\models.py:439
 msgid "الضغط على الاعلانات في الاعلى"
+msgstr ""
+
+#: .\anmaabankApp\apps.py:8
+msgid "الــــرئــيــســيــة "
 msgstr ""
 
 #: .\anmaabankApp\forms_acount.py:41
@@ -604,6 +637,18 @@ msgstr ""
 
 #: .\anmaabankApp\models.py:36 .\anmaabankApp\models.py:37
 msgid "نقاط تواجدنا"
+msgstr ""
+
+#: .\anmaabankApp\models.py:181 .\anmaabankApp\models.py:182
+msgid "معلومات IP"
+msgstr ""
+
+#: .\anmaabankApp\models.py:208 .\anmaabankApp\models.py:209
+msgid "معلومات ريكوست الهيدر"
+msgstr ""
+
+#: .\anmaabankApp\models.py:272 .\anmaabankApp\models.py:273
+msgid "معلومات ريكوست الميتا"
 msgstr ""
 
 #: .\anmaabankApp\templatetags\poll_extras.py:70
@@ -735,6 +780,10 @@ msgstr ""
 msgid "English"
 msgstr ""
 
+#: .\blogapp\apps.py:8
+msgid "الـــمدونــــة "
+msgstr ""
+
 #: .\blogapp\models.py:12
 msgid "اخبار البنك"
 msgstr ""
@@ -761,6 +810,10 @@ msgstr ""
 
 #: .\blogapp\models.py:30 .\sectionpage\models.py:45
 msgid "عنوان القسم  "
+msgstr ""
+
+#: .\blogapp\models.py:49 .\blogapp\models.py:50
+msgid "قسم المقالات و آخر الأخبار"
 msgstr ""
 
 #: .\blogapp\models.py:55
@@ -815,6 +868,14 @@ msgstr ""
 msgid "نوع السياسة"
 msgstr ""
 
+#: .\blogapp\models.py:218 .\blogapp\models.py:219
+msgid "السياسات"
+msgstr ""
+
+#: .\branches\apps.py:8
+msgid "الفروع"
+msgstr ""
+
 #: .\branches\models.py:47
 msgid "الشارع"
 msgstr ""
@@ -837,6 +898,14 @@ msgstr ""
 
 #: .\branches\models.py:65
 msgid " خط الطول"
+msgstr ""
+
+#: .\branches\models.py:116
+msgid "عنوان فروع"
+msgstr ""
+
+#: .\branches\models.py:117
+msgid "عناوين الفروع"
 msgstr ""
 
 #: .\branches\models.py:152
@@ -888,8 +957,24 @@ msgstr ""
 msgid "اوقات الدوام"
 msgstr ""
 
+#: .\branches\models.py:347
+msgid "الفروع و نقاط الخدمة"
+msgstr ""
+
+#: .\branches\models.py:348
+msgid "نقاط الخدمة ,الفرع"
+msgstr ""
+
+#: .\clients\apps.py:8
+msgid "العملاء "
+msgstr ""
+
 #: .\clients\models.py:96 .\clients\models.py:97
 msgid "العملاء"
+msgstr ""
+
+#: .\content_library\apps.py:8
+msgid "التقارير والفيديوهات"
 msgstr ""
 
 #: .\content_library\models.py:52
@@ -942,6 +1027,10 @@ msgstr ""
 
 #: .\content_library\models.py:89
 msgid "التقارير"
+msgstr ""
+
+#: .\country_regions\apps.py:8
+msgid "الدول / المناطق"
 msgstr ""
 
 #: .\country_regions\models.py:13
@@ -1032,6 +1121,10 @@ msgstr ""
 msgid "العزلة"
 msgstr ""
 
+#: .\currencies\apps.py:8
+msgid "الـعـمــلات واســعــار الـــصــرف"
+msgstr ""
+
 #: .\currencies\models.py:17
 msgid " سعر البيع للدولار"
 msgstr ""
@@ -1076,16 +1169,17 @@ msgstr ""
 msgid "العمود"
 msgstr ""
 
-#: .\navbarapp\models.py:191 .\sectionpage\models.py:161
-#: .\sectionpage\models.py:162
+#: .\navbarapp\models.py:191 .\sectionpage\apps.py:8
+#: .\sectionpage\models.py:161 .\sectionpage\models.py:162
 msgid "الاقسام والصفحات"
 msgstr ""
 
-#: .\navbarapp\models.py:193
+#: .\navbarapp\models.py:193 .\servicesapp\models.py:560
+#: .\servicesapp\models.py:561
 msgid "تطبيقات البنك"
 msgstr ""
 
-#: .\navbarapp\models.py:195
+#: .\navbarapp\models.py:195 .\servicesapp\models.py:307
 msgid "الخدمة"
 msgstr ""
 
@@ -1103,6 +1197,18 @@ msgstr ""
 
 #: .\navbarapp\models.py:468 .\navbarapp\models.py:469
 msgid "العنوان الفرعي في رأس الصفحة"
+msgstr ""
+
+#: .\portfolioapp\apps.py:8
+msgid " معرض الصور  "
+msgstr ""
+
+#: .\portfolioapp\models.py:30
+msgid "اقسام معرض الأعمال  "
+msgstr ""
+
+#: .\portfolioapp\models.py:31
+msgid "قسم معرض الأعمال"
 msgstr ""
 
 #: .\portfolioapp\models.py:42 .\sectionpage\models.py:215
@@ -1141,8 +1247,24 @@ msgstr ""
 msgid "عنوان العمل"
 msgstr ""
 
+#: .\portfolioapp\models.py:79
+msgid "معرض الأعمال"
+msgstr ""
+
+#: .\portfolioapp\models.py:80
+msgid "معرض الأعمال الشركة معا كتابة التفاصيل"
+msgstr ""
+
 #: .\portfolioapp\models.py:98
 msgid "المعرض"
+msgstr ""
+
+#: .\portfolioapp\models.py:101
+msgid "صور معرض اعمال الشركة  "
+msgstr ""
+
+#: .\portfolioapp\models.py:102
+msgid "صور اعمال الشركة مع التفاصيل  "
 msgstr ""
 
 #: .\portfolioapp\models.py:112
@@ -1185,6 +1307,14 @@ msgstr ""
 msgid "اختياري - يتم ترتيب ظهور الأراء على حسب الرقم هذا ان وجد"
 msgstr ""
 
+#: .\sectionpage\models.py:278 .\sectionpage\models.py:279
+msgid "محتوى فرعي للقسم"
+msgstr ""
+
+#: .\servicesapp\apps.py:8
+msgid "الخدمات  وتطبيقات البنك"
+msgstr ""
+
 #: .\servicesapp\models.py:20 .\servicesapp\models.py:170
 msgid "وصف مختصر جملة واحده فقط"
 msgstr ""
@@ -1201,6 +1331,7 @@ msgstr ""
 msgid "مخفي "
 msgstr ""
 
+#: .\servicesapp\models.py:115 .\servicesapp\models.py:116
 #: .\servicesapp\models.py:131
 msgid "نوع الخدمة"
 msgstr ""
@@ -1297,6 +1428,18 @@ msgstr ""
 
 #: .\servicesapp\models.py:619
 msgid "  البريد الألكتروني"
+msgstr ""
+
+#: .\servicesapp\models.py:653
+msgid " حجوزات الخدمات "
+msgstr ""
+
+#: .\servicesapp\models.py:654
+msgid "حجوزات الخدمات  "
+msgstr ""
+
+#: .\settingapp\apps.py:8
+msgid "اعدادات الموقع"
 msgstr ""
 
 #: .\settingapp\models.py:75
@@ -1472,6 +1615,18 @@ msgstr ""
 
 #: .\settingapp\models.py:347
 msgid "اخفاء قسم خدمات "
+msgstr ""
+
+#: .\settingapp\models.py:436 .\settingapp\models.py:440
+msgid "الاعــــدادات"
+msgstr ""
+
+#: .\settingapp\models.py:441
+msgid "الاعـــدادات"
+msgstr ""
+
+#: .\teams\apps.py:8 .\teams\models.py:197 .\teams\models.py:198
+msgid "فريق العمل"
 msgstr ""
 
 #: .\teams\models.py:40

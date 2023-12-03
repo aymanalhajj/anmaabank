@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 05:24+0300\n"
+"POT-Creation-Date: 2023-12-03 20:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\jopapp\apps.py:7
+msgid "الــوظــائف والــطــلــبــات"
+msgstr ""
 
 #: .\jopapp\form.py:529
 msgid "Email"
@@ -608,14 +612,8 @@ msgstr ""
 msgid "اختار العزلة"
 msgstr ""
 
-#: .\jopapp\models.py:1148 .\jopapp\models.py:1149 .\jopapp\models.py:1219
-#: .\jopapp\models.py:1220 .\jopapp\models.py:1398 .\jopapp\models.py:1399
-#: .\jopapp\models.py:1493 .\jopapp\models.py:1494
-msgid "طلب فتح حساب"
-msgstr ""
-
 #: .\jopapp\models.py:1148 .\jopapp\models.py:1149
-msgid " - بيانات الميلاد "
+msgid "طلب فتح حساب - بيانات الميلاد "
 msgstr ""
 
 #: .\jopapp\models.py:1196
@@ -635,7 +633,7 @@ msgid "نوع السكن"
 msgstr ""
 
 #: .\jopapp\models.py:1219 .\jopapp\models.py:1220
-msgid " - بيانات العنوان "
+msgid "طلب فتح حساب - بيانات العنوان "
 msgstr ""
 
 #: .\jopapp\models.py:1234
@@ -687,7 +685,7 @@ msgid "التخصص"
 msgstr ""
 
 #: .\jopapp\models.py:1398 .\jopapp\models.py:1399
-msgid " - بيانات البطاقة الشخصية "
+msgid "طلب فتح حساب - بيانات البطاقة الشخصية "
 msgstr ""
 
 #: .\jopapp\models.py:1452
@@ -711,7 +709,7 @@ msgid "تاريخ الأضافة "
 msgstr ""
 
 #: .\jopapp\models.py:1493 .\jopapp\models.py:1494
-msgid " - بيانات عامة"
+msgid "طلب فتح حساب - بيانات عامة"
 msgstr ""
 
 #: .\jopapp\viewsaccount.py:218

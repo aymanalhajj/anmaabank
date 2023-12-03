@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 18:55+0300\n"
+"POT-Creation-Date: 2023-12-03 20:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,8 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\Awards\apps.py:8
-#, fuzzy
-#| msgid "مسيرتنــــا"
 msgid "الجوائــــــز "
 msgstr "Our March"
 
@@ -187,6 +184,10 @@ msgstr "Optional - only if you have note to work on it in the future"
 msgid "ملاحظة قصيرة"
 msgstr "Short Note"
 
+#: .\FrequentlyAskedQuestions\apps.py:8
+msgid "الأسئلة الشائعة"
+msgstr "FAQ"
+
 #: .\FrequentlyAskedQuestions\models.py:11
 msgid "السؤال"
 msgstr "The Question"
@@ -225,8 +226,6 @@ msgid " إختيار صورة"
 msgstr "Choose Image"
 
 #: .\OurMission\apps.py:7 .\OurMission\models.py:119 .\OurMission\models.py:120
-#, fuzzy
-#| msgid "مسيرتنــــا"
 msgid "مهمتنــــا"
 msgstr "Our March"
 
@@ -319,8 +318,6 @@ msgid "الرسالة"
 msgstr "The Message"
 
 #: .\Partners\apps.py:8
-#, fuzzy
-#| msgid "الشركاء"
 msgid " الشركاء "
 msgstr "Partners"
 
@@ -362,10 +359,8 @@ msgstr "Partners"
 
 #: .\Testimonials\apps.py:8 .\Testimonials\models.py:254
 #: .\Testimonials\models.py:255
-#, fuzzy
-#| msgid "العملاء"
 msgid "آراء العملاء"
-msgstr "Clients"
+msgstr "Clients Review"
 
 #: .\Testimonials\models.py:40
 #, python-format
@@ -451,8 +446,6 @@ msgid "ملاحظة قصيرة (إن وجد - لن يتم عرضه في المو
 msgstr "Short Note"
 
 #: .\adsense\apps.py:9
-#, fuzzy
-#| msgid "الاعلانات في الأسفل"
 msgid "الاعلانات المتحركة"
 msgstr "Advertisements at Bottom"
 
@@ -534,8 +527,6 @@ msgid "الاعلانات"
 msgstr "Advertisements"
 
 #: .\adsense\models.py:275 .\adsense\models.py:276
-#, fuzzy
-#| msgid "مشاهدات الاعلانات في الاسفل"
 msgid "مشاهدات الاعلانات"
 msgstr "Advertisements View At the Bottom"
 
@@ -568,10 +559,8 @@ msgid "الضغط على الاعلانات في الاعلى"
 msgstr "Advertisements View at Top"
 
 #: .\anmaabankApp\apps.py:8
-#, fuzzy
-#| msgid "الـــغـــايــات"
 msgid "الــــرئــيــســيــة "
-msgstr "Purposes"
+msgstr "Home"
 
 #: .\anmaabankApp\forms_acount.py:41
 msgid "No password set."
@@ -651,6 +640,18 @@ msgstr "Number"
 #: .\anmaabankApp\models.py:36 .\anmaabankApp\models.py:37
 msgid "نقاط تواجدنا"
 msgstr "Service Points"
+
+#: .\anmaabankApp\models.py:181 .\anmaabankApp\models.py:182
+msgid "معلومات IP"
+msgstr "Ip Information"
+
+#: .\anmaabankApp\models.py:208 .\anmaabankApp\models.py:209
+msgid "معلومات ريكوست الهيدر"
+msgstr "Request Header Information"
+
+#: .\anmaabankApp\models.py:272 .\anmaabankApp\models.py:273
+msgid "معلومات ريكوست الميتا"
+msgstr "Request Meta Information"
 
 #: .\anmaabankApp\templatetags\poll_extras.py:70
 #, python-format
@@ -782,10 +783,8 @@ msgid "English"
 msgstr "English"
 
 #: .\blogapp\apps.py:8
-#, fuzzy
-#| msgid "الـــغـــايــات"
 msgid "الـــمدونــــة "
-msgstr "Purposes"
+msgstr "Blog"
 
 #: .\blogapp\models.py:12
 msgid "اخبار البنك"
@@ -816,8 +815,6 @@ msgid "عنوان القسم  "
 msgstr "Section Title"
 
 #: .\blogapp\models.py:49 .\blogapp\models.py:50
-#, fuzzy
-#| msgid "المقالات و آخر الأخبار"
 msgid "قسم المقالات و آخر الأخبار"
 msgstr "Articles and last News"
 
@@ -874,14 +871,10 @@ msgid "نوع السياسة"
 msgstr "Policy Type"
 
 #: .\blogapp\models.py:218 .\blogapp\models.py:219
-#, fuzzy
-#| msgid "نوع السياسة"
 msgid "السياسات"
 msgstr "Policy Type"
 
 #: .\branches\apps.py:8
-#, fuzzy
-#| msgid "اسم الفرع"
 msgid "الفروع"
 msgstr "Branch Name"
 
@@ -910,14 +903,10 @@ msgid " خط الطول"
 msgstr "Longitude"
 
 #: .\branches\models.py:116
-#, fuzzy
-#| msgid "عنوان الصورة"
 msgid "عنوان فروع"
 msgstr "Image Title"
 
 #: .\branches\models.py:117
-#, fuzzy
-#| msgid "عنوان الفيديو"
 msgid "عناوين الفروع"
 msgstr "Video Title"
 
@@ -971,26 +960,24 @@ msgid "اوقات الدوام"
 msgstr "Work Hours"
 
 #: .\branches\models.py:347
-#, fuzzy
-#| msgid "نوع نقطة الخدمة"
 msgid "الفروع و نقاط الخدمة"
 msgstr "Service Point Type"
 
 #: .\branches\models.py:348
-#, fuzzy
-#| msgid "رابط للخدمة ان وجد"
 msgid "نقاط الخدمة ,الفرع"
 msgstr "Service Link - Optional"
 
 #: .\clients\apps.py:8
-#, fuzzy
-#| msgid "العملاء"
 msgid "العملاء "
 msgstr "Clients"
 
 #: .\clients\models.py:96 .\clients\models.py:97
 msgid "العملاء"
 msgstr "Clients"
+
+#: .\content_library\apps.py:8
+msgid "التقارير والفيديوهات"
+msgstr "Video Library"
 
 #: .\content_library\models.py:52
 msgid "عنوان الفيديو"
@@ -1045,8 +1032,6 @@ msgid "التقارير"
 msgstr "Reports"
 
 #: .\country_regions\apps.py:8
-#, fuzzy
-#| msgid "الرقم المجاني"
 msgid "الدول / المناطق"
 msgstr "Free Number"
 
@@ -1139,8 +1124,6 @@ msgid "العزلة"
 msgstr "Region"
 
 #: .\currencies\apps.py:8
-#, fuzzy
-#| msgid "اخفاء قسم معرض الــصــور"
 msgid "الـعـمــلات واســعــار الـــصــرف"
 msgstr "Hide Image Gallary"
 
@@ -1219,20 +1202,14 @@ msgid "العنوان الفرعي في رأس الصفحة"
 msgstr "Secondary Title at the Top"
 
 #: .\portfolioapp\apps.py:8
-#, fuzzy
-#| msgid "معرض الصور"
 msgid " معرض الصور  "
 msgstr "Image Gallary"
 
 #: .\portfolioapp\models.py:30
-#, fuzzy
-#| msgid "رقم معرف الجوال"
 msgid "اقسام معرض الأعمال  "
 msgstr "Mobile Id"
 
 #: .\portfolioapp\models.py:31
-#, fuzzy
-#| msgid "معرض اعمال"
 msgid "قسم معرض الأعمال"
 msgstr "Works Gallary"
 
@@ -1273,8 +1250,6 @@ msgid "عنوان العمل"
 msgstr "Work Title"
 
 #: .\portfolioapp\models.py:79
-#, fuzzy
-#| msgid "معرض اعمال"
 msgid "معرض الأعمال"
 msgstr "Works Gallary"
 
@@ -1287,14 +1262,10 @@ msgid "المعرض"
 msgstr "Gallary"
 
 #: .\portfolioapp\models.py:101
-#, fuzzy
-#| msgid "صور خدمات البنك  "
 msgid "صور معرض اعمال الشركة  "
 msgstr "Bank Services Images"
 
 #: .\portfolioapp\models.py:102
-#, fuzzy
-#| msgid "صور إعلان متحرك في الصفحة الرئيسية "
 msgid "صور اعمال الشركة مع التفاصيل  "
 msgstr "Advertisement Image at Home Page"
 
@@ -1339,14 +1310,10 @@ msgid "اختياري - يتم ترتيب ظهور الأراء على حسب ا
 msgstr "Optional - Order in the Pgae"
 
 #: .\sectionpage\models.py:278 .\sectionpage\models.py:279
-#, fuzzy
-#| msgid "مكان عرض القسم"
 msgid "محتوى فرعي للقسم"
 msgstr "Section Show Place"
 
 #: .\servicesapp\apps.py:8
-#, fuzzy
-#| msgid "اخفاء قسم تطبيقات البنك"
 msgid "الخدمات  وتطبيقات البنك"
 msgstr "Hide Bank Applications Section"
 
@@ -1466,20 +1433,16 @@ msgid "  البريد الألكتروني"
 msgstr "Email"
 
 #: .\servicesapp\models.py:653
-#, fuzzy
-#| msgid "اخفاء قسم خدمات "
 msgid " حجوزات الخدمات "
 msgstr "Hide Services Section"
 
 #: .\servicesapp\models.py:654
-#, fuzzy
-#| msgid "اخفاء قسم خدمات "
 msgid "حجوزات الخدمات  "
 msgstr "Hide Services Section"
 
 #: .\settingapp\apps.py:8
 msgid "اعدادات الموقع"
-msgstr ""
+msgstr "Site Settings"
 
 #: .\settingapp\models.py:75
 msgid " جميع الحقوق محفوظة © لـ بنك الإنماء للتمويل الأصغر الإسلامي 2023"
@@ -1657,16 +1620,16 @@ msgid "اخفاء قسم خدمات "
 msgstr "Hide Services Section"
 
 #: .\settingapp\models.py:436 .\settingapp\models.py:440
-#, fuzzy
-#| msgid "الاعلانات"
 msgid "الاعــــدادات"
 msgstr "Advertisements"
 
 #: .\settingapp\models.py:441
-#, fuzzy
-#| msgid "الاعلانات"
 msgid "الاعـــدادات"
 msgstr "Advertisements"
+
+#: .\teams\apps.py:8 .\teams\models.py:197 .\teams\models.py:198
+msgid "فريق العمل"
+msgstr "Work Team"
 
 #: .\teams\models.py:40
 msgid "الأسم الكامل"
@@ -1683,12 +1646,6 @@ msgstr "Message - Optional"
 #: .\teams\models.py:163
 msgid "ملاحظة قصيرة إن وجد"
 msgstr ""
-
-#: .\teams\models.py:197 .\teams\models.py:198
-#, fuzzy
-#| msgid "عنوان العمل"
-msgid "فريق العمل"
-msgstr "Work Title"
 
 #: .\templates\registration\auth\user\add_form.html:6
 msgid ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 18:55+0300\n"
+"POT-Creation-Date: 2023-12-03 20:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: .\jopapp\apps.py:7
 msgid "الــوظــائف والــطــلــبــات"
-msgstr ""
+msgstr "Jobs and Applications"
 
 #: .\jopapp\form.py:529
 msgid "Email"
@@ -611,15 +611,9 @@ msgstr "region"
 msgid "اختار العزلة"
 msgstr "working hours"
 
-#: .\jopapp\models.py:1148 .\jopapp\models.py:1149 .\jopapp\models.py:1219
-#: .\jopapp\models.py:1220 .\jopapp\models.py:1398 .\jopapp\models.py:1399
-#: .\jopapp\models.py:1493 .\jopapp\models.py:1494
-msgid "طلب فتح حساب"
-msgstr "open account request"
-
 #: .\jopapp\models.py:1148 .\jopapp\models.py:1149
-msgid " - بيانات الميلاد "
-msgstr "birthdate"
+msgid "طلب فتح حساب - بيانات الميلاد "
+msgstr "open account request - birth Info"
 
 #: .\jopapp\models.py:1196
 msgid "الشارع"
@@ -638,8 +632,8 @@ msgid "نوع السكن"
 msgstr "domain type"
 
 #: .\jopapp\models.py:1219 .\jopapp\models.py:1220
-msgid " - بيانات العنوان "
-msgstr "address"
+msgid "طلب فتح حساب - بيانات العنوان "
+msgstr "open account request - Living Address Info"
 
 #: .\jopapp\models.py:1234
 msgid "الاسم الرباعي حسب البطاقة الشخصية"
@@ -690,8 +684,8 @@ msgid "التخصص"
 msgstr "speciality"
 
 #: .\jopapp\models.py:1398 .\jopapp\models.py:1399
-msgid " - بيانات البطاقة الشخصية "
-msgstr "Identity card information"
+msgid "طلب فتح حساب - بيانات البطاقة الشخصية "
+msgstr "open account request - Personal Identity Info"
 
 #: .\jopapp\models.py:1452
 msgid "رقم تلفون الواتساب"
@@ -714,8 +708,8 @@ msgid "تاريخ الأضافة "
 msgstr "start date"
 
 #: .\jopapp\models.py:1493 .\jopapp\models.py:1494
-msgid " - بيانات عامة"
-msgstr "general information"
+msgid "طلب فتح حساب - بيانات عامة"
+msgstr "open account request - General Info"
 
 #: .\jopapp\viewsaccount.py:218
 msgid "مستخدم جديد"
@@ -728,29 +722,43 @@ msgstr "Login"
 #: .\jopapp\viewsaccount.py:386 .\jopapp\viewsaccount.py:387
 #: .\jopapp\viewsaccount.py:518 .\jopapp\viewsaccount.py:519
 msgid "تقديم طلب فتح حساب - بيانات عامة"
-msgstr ""
+msgstr "open account request - General Info"
 
 #: .\jopapp\viewsaccount.py:386 .\jopapp\viewsaccount.py:387
 #: .\jopapp\viewsaccount.py:518 .\jopapp\viewsaccount.py:519
-#, fuzzy
-#| msgid " - بيانات الميلاد "
 msgid "تقديم طلب فتح حساب - بيانات الميلاد"
-msgstr "birthdate"
+msgstr "open account request - birth Info"
 
 #: .\jopapp\viewsaccount.py:386 .\jopapp\viewsaccount.py:387
 #: .\jopapp\viewsaccount.py:518 .\jopapp\viewsaccount.py:519
 msgid "تقديم طلب فتح حساب - عنوان السكن والاقامة "
-msgstr ""
+msgstr "open account request - Living Address"
 
 #: .\jopapp\viewsaccount.py:386 .\jopapp\viewsaccount.py:387
 #: .\jopapp\viewsaccount.py:518 .\jopapp\viewsaccount.py:519
-#, fuzzy
-#| msgid "الاسم الرباعي حسب البطاقة الشخصية"
 msgid "تقديم طلب فتح حساب - بيانات الهوية الشخصية "
-msgstr "agree on privacy policy"
+msgstr "open account request - Personal Identity Info"
 
 #, fuzzy
-#~| msgid "طلب فتح حساب"
+#~| msgid "تقديم طلب فتح حساب - بيانات الهوية الشخصية "
+#~ msgid "طلب فتح حساب - بيانات البطاقة الشخصية"
+#~ msgstr "open account request - Personal Identity Info"
+
+#~ msgid "طلب فتح حساب"
+#~ msgstr "open account request"
+
+#~ msgid " - بيانات الميلاد "
+#~ msgstr "birthdate"
+
+#~ msgid " - بيانات العنوان "
+#~ msgstr "address"
+
+#~ msgid " - بيانات البطاقة الشخصية "
+#~ msgstr "Identity card information"
+
+#~ msgid " - بيانات عامة"
+#~ msgstr "general information"
+
 #~ msgid "انشاء حساب"
 #~ msgstr "open account request"
 

@@ -178,8 +178,8 @@ class IpInfo(models.Model):
 
     class Meta:
         managed = True
-        verbose_name = "معلومات IP"
-        verbose_name_plural = "معلومات IP"
+        verbose_name = _("معلومات IP")
+        verbose_name_plural = _("معلومات IP")
 
 
 class RequestHederInfo(models.Model):
@@ -205,8 +205,8 @@ class RequestHederInfo(models.Model):
     class Meta:
         ordering = ('Date_Update',)
         managed = True
-        verbose_name = "معلومات ريكوست الهيدر"
-        verbose_name_plural = "معلومات ريكوست الهيدر"
+        verbose_name = _("معلومات ريكوست الهيدر")
+        verbose_name_plural = _("معلومات ريكوست الهيدر")
 
 
 class RequestMetaAndGet(models.Model):
@@ -269,8 +269,8 @@ class RequestMetaAndGet(models.Model):
     class Meta:
         ordering = ('Date_Update',)
         managed = True
-        verbose_name = "معلومات ريكوست الميتا"
-        verbose_name_plural = "معلومات ريكوست الميتا"
+        verbose_name = _("معلومات ريكوست الميتا")
+        verbose_name_plural = _("معلومات ريكوست الميتا")
 
 # IYE = 'IYE'
 # FXX = 'FXX'
