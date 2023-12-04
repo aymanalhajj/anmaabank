@@ -38,6 +38,7 @@ urlpatterns += i18n_patterns(
     path('admin/', include('AdminApp.urls')),
 )
 urlpatterns += [
+    path('i18n/', include('django.conf.urls.i18n')),
     # path('admin-web/', admin.site.urls),
     # url(r'^admin/', include(admin.site.urls)),  # Here's the typo
     # path(settings.STATIC_URL, include('jopapp.urls'), name="job-app"),
