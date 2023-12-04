@@ -29,6 +29,10 @@ class CategoryBlog(models.Model):
     name = models.CharField(
         max_length=250, verbose_name=_("عنوان القسم  ")
     )
+    
+    name_en = models.CharField(
+        max_length=250, verbose_name=_("عنوان القسم بالانجليزي")
+    )
     # logo = models.ImageField(
     #     upload_to="Image/CategoryBlog/%Y/%m/%d/", blank=True,
     #     verbose_name="", null=True,
@@ -54,6 +58,11 @@ class Blogs(models.Model):
     titel = models.CharField(
         max_length=70, verbose_name=_("عنوان الخبر او المقالة")
     )
+    titel_en = models.CharField(
+        max_length=70, verbose_name=_("عنوان الخبر او المقالة بالانجليزي")
+    )
+
+    
     # Locations = models.ManyToManyField(
     #     Location_Country,
     #     #through='LocationContry',
@@ -106,6 +115,13 @@ class Blogs(models.Model):
         # default="",
         verbose_name=_("المقال او المحتوى")
     )
+    detial_en = HTMLField(
+        # blank=True,
+        null=True,
+        # max_length=1000000000,
+        # default="",
+        verbose_name=_("المقال او المحتوى بالانجليزي")
+    )
 
     def __str__(self):
         return self.titel
@@ -154,11 +170,6 @@ class Policies(models.Model):
     titel = models.CharField(
         max_length=70, verbose_name=_("عنوان السياسة ")
     )
-    # Locations = models.ManyToManyField(
-    #     Location_Country,
-    #     #through='LocationContry',
-    #    # through_fields=('favorite', 'user'),
-    # )
 
     detial_ar = HTMLField(
         # blank=True,
@@ -167,6 +178,23 @@ class Policies(models.Model):
         default="",
         verbose_name=_("تفاصيل")
     )
+    titel_en = models.CharField(
+        max_length=70, verbose_name=_("عنوان السياسة بالانجليزي")
+    )
+
+    detial_en = HTMLField(
+        # blank=True,
+        null=True,
+        max_length=1000000000,
+        default="",
+        verbose_name=_("تفاصيل بالانجليزي")
+    )
+    
+    # Locations = models.ManyToManyField(
+    #     Location_Country,
+    #     #through='LocationContry',
+    #    # through_fields=('favorite', 'user'),
+    # )
     image = models.ImageField(
         upload_to="Image/Blog/%Y/%m/%d/",
         verbose_name=_(" إختيار صورة السياسة"), null=True,

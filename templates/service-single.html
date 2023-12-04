@@ -9,18 +9,36 @@
         <ol dir="{{static_content.direction}}">
           <li><a  style="color: var(--primary);" href="/{{static_content.lang}}">{{static_content.main}}</a></li>
           <li>{{static_content.services}}</li>
-          <li>{{services.titel}}</li>
+          <li>
+            {% if static_content.lang == "ar" %}
+            {{services.titel}}
+        {% else %}
+            {{services.titel_en}}
+        {% endif %}</li>
 
         </ol>
       </div>
     </section>
     {% if services %}
       <div class="container">
-        <section id="services-details" class="services-details blog">
+        <section id="services-details" class="services-details blog"  style="text-align: start;" dir="{{static_content.direction}}">
           <div class="container" >
             <header class="section-header">
-              <h2>{{services.titel}}</h2>
-              <p>{{services.short_detial}}</p>
+              <h2>
+                {% if static_content.lang == "ar" %}
+                                {{services.titel}}
+                            {% else %}
+                                {{services.titel_en}}
+                            {% endif %}
+              </h2>
+              <p>
+                
+                {% if static_content.lang == "ar" %}
+                                {{services.short_detial}}
+                            {% else %}
+                                {{services.short_detial_en}}
+                            {% endif %}
+                          </p>
             </header>
             <div id="services-detail" class="column gy-4">
               <div class="col-lg-12">
@@ -93,7 +111,12 @@
                     </div>
                   </div>
                   <div class="services-description">
-                    {{services.detial_ar|safe }}
+                    
+                {% if static_content.lang == "ar" %}
+                    {{services.detial_ar|safe}}
+                {% else %}
+                    {{services.detial_en|safe}}
+                {% endif %}
                   </div>
                 </div>
               </div>
@@ -115,7 +138,7 @@
                 <header class="section-header">
                   <p>{{static_content.ask_or_request_for_service}}</p>
                 </header>
-                <form method="POST" name="ContactForm" class="php-email-form needs-validation"  validate >
+                <form method="POST" name="ContactForm" class="php-email-form needs-validation"  validate  style="text-align: start;" dir="{{static_content.direction}}" >
                   {% csrf_token %} 
                   <div class="row gy-4 align-item-center align-self-center align-content-center">
                     

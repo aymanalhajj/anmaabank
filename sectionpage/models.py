@@ -43,11 +43,23 @@ class SectionPage(models.Model):
 
     titel = models.CharField(
         max_length=250, null=True, verbose_name=_("عنوان القسم  "))
+    
     short_titel = models.CharField(
         max_length=250, null=True, default="",  blank=True, verbose_name=_("جملة قصيرة اسفل العنوان"))
 
     detial_ar = HTMLField(
         null=True,  blank=True, verbose_name=_("تفاصيل"),
+        default="",
+    )
+    
+    titel_en = models.CharField(
+        max_length=250, null=True, verbose_name=_("عنوان القسم بالانجليزي"))
+    
+    short_titel_en = models.CharField(
+        max_length=250, null=True, default="",  blank=True, verbose_name=_("جملة قصيرة اسفل العنوان بالانجليزي"))
+
+    detial_en = HTMLField(
+        null=True,  blank=True, verbose_name=_("تفاصيل بالانجليزي"),
         default="",
     )
 

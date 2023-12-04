@@ -21,19 +21,27 @@
                   <li><a  style="color: var(--primary);" href="/">{{static_content.main}}</a></li>
                   <li>
                     {% if titel   %}
-                      {{ titel }}
+                      {% if static_content.lang == "ar" %}
+                          {{titel}}
+                      {% else %}
+                          {{titel_en}}
+                      {% endif %}
                     {% endif  %}
                   </li>      
                 </ol>
                 <h1  >
                   {% if titel %}
-                    {{titel}}
+                    {% if static_content.lang == "ar" %}
+                        {{titel}}
+                    {% else %}
+                        {{titel_en}}
+                    {% endif %}
                   {% endif  %}
                 </h1>
               </div>
             </section>
           </div>
-          <div class="p-body" style="order: 5;margin: 10px;border-radius: 10px;box-shadow: 0px 0px 10px gray;">
+          <div class="p-body" style="order: 5;margin: 10px;border-radius: 10px;box-shadow: 0px 0px 10px gray;text-align: start;" dir="{{static_content.direction}}">
             <div class="container">
               <div class="page-body-container">
               <div class="list-news">

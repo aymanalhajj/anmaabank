@@ -16,6 +16,8 @@ class Partners(models.Model):
     #    null=True, on_delete=models.SET_NULL, verbose_name="اسم العمود")
     # users = models.OneToOneField('Users')
     full_name = models.CharField(max_length=30,  null=True,)
+    full_name_en = models.CharField(max_length=30,  null=True,)
+    
     # last_name = models.CharField(max_length=60,blank=True,)
     # ci = models.CharField(max_length=9)
     # birth_date = models.DateField(null=True, blank=True)

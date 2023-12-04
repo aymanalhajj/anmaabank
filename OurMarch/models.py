@@ -29,6 +29,10 @@ class OurMarch(models.Model):
     detial_ar = HTMLField(
         max_length=10000000,
         default=" ", null=True, blank=True, verbose_name=_("تفاصيل رؤية الشركة"))
+
+    detial_en = HTMLField(
+        max_length=10000000,
+        default=" ", null=True, blank=True, verbose_name=_("تفاصيل رؤية الشركة بالانجليزي"))
     image = models.ImageField(
         upload_to="Image/OurMarch/%Y/%m/%d/",  verbose_name=_(" إختيار صورة"), null=True,
         # verbose_name=_(" إختيار صورة")

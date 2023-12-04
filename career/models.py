@@ -28,6 +28,14 @@ class Job(models.Model):
         default="",
         verbose_name=_("تفاصيل")
     )
+    # title_en = models.CharField(max_length=255)
+    # detial_en = HTMLField(
+    #     # blank=True,
+    #     null=True,
+    #     # max_length=1000000000,
+    #     default="",
+    #     verbose_name=_("تفاصيل")
+    # )
     company = models.CharField(max_length=200)
     location = models.CharField(max_length=255)
     description = models.TextField()

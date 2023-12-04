@@ -162,14 +162,14 @@ static_content= {
         "emarat_derham":"درهم إماراتي",
         "amarican_dollar":"دولار أمريكي",
         "saudi_rial":"ريال سعودي",
-        "available_jobs":" الوظائف الشاغرة",
+        "available_jobs":"وظائف",
         
 
     }
     ,
     "en":
     {
-        "available_jobs":"Available Jobs",
+        "available_jobs":"Jobs",
         "saudi_rial":"Saudi Rial",
         "emarat_derham":"Emarat Derham",
         "amarican_dollar":"Amarican Dollar",

@@ -13,6 +13,16 @@ from django.utils import timezone
 # from navbarapp.models import Navbars,SecondaryNavbars,ColumnNavbars
 
 
+desketop = 'desketop'
+mobile = 'mobile'
+website = 'website'
+
+TYPE_CHOICES = (
+    (desketop, 'تطبيق سطح المكتب'),
+    (mobile, 'تطبيق جوال'),
+    (website, 'موقع الكتروني ')
+)
+
 class CategoriesServices(models.Model):
 
     name = models.CharField(max_length=20, null=True,verbose_name="اسم نوع الخدمة", unique=True)
@@ -114,8 +124,6 @@ class CategoriesServices(models.Model):
         managed = True
         verbose_name = _("نوع الخدمة")
         verbose_name_plural = _("نوع الخدمة")
-
-
 class Services(models.Model):
     titel = models.CharField(
         max_length=100, verbose_name=_("العنوان")
@@ -171,6 +179,9 @@ class Services(models.Model):
     )
     detial_ar = HTMLField(
         max_length=100000, default=" ", null=True, verbose_name=_("التفاصيل"))
+
+    detial_en = HTMLField(
+        max_length=100000, default=" ", null=True, verbose_name=_("التفاصيل بالانجليزي"))
 
     name_action = models.CharField(
         max_length=250, verbose_name=_("اسم الحدث (النقرة)"),
@@ -306,19 +317,6 @@ class Services(models.Model):
         managed = True
         verbose_name = _("الخدمة")
         verbose_name_plural =_( "الخدمات")
-
-
-desketop = 'desketop'
-mobile = 'mobile'
-website = 'website'
-
-TYPE_CHOICES = (
-    (desketop, 'تطبيق سطح المكتب'),
-    (mobile, 'تطبيق جوال'),
-    (website, 'موقع الكتروني ')
-)
-
-
 class ImagesServices(models.Model):
     image = models.ImageField(
         # upload_to=portfolio_file_name,
@@ -344,7 +342,6 @@ class ImagesServices(models.Model):
         return "this image {0}  {1} for service    {2}   ".format(
             self.id,  self.image, self.service.titel
         )
-
 
 class BankApplications(models.Model):
     titel = models.CharField(
@@ -570,7 +567,6 @@ class BankApplications(models.Model):
         # return reverse_lazy('service-single', kwargs={'pk': self.pk})
         return reverse('application-single',  kwargs={'id': self.pk})
 
-
 class FutureApplications(models.Model):
 
     name = models.CharField(
@@ -595,7 +591,6 @@ class FutureApplications(models.Model):
 
     def __str__(self):
         return self.name
-
 
 class ServiceRequests(models.Model):
 

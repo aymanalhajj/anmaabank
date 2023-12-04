@@ -13,6 +13,15 @@ class FrequentlyAskedQuestions(models.Model):
 
     answer = HTMLField(
         max_length=100000, default=" ", null=True, verbose_name=_("الأجابة"))
+    
+    question_en = models.CharField(
+        max_length=250, verbose_name=_("السؤال بالانجليزي")
+    )
+
+    answer_en = HTMLField(
+        max_length=100000, default=" ", null=True, verbose_name=_("الأجابة بالانجليزي"))
+    
+    
     # image = models.ImageField(
     # upload_to="Image/Teams/%Y/%m/%d/", blank=True, verbose_name=_(" إختيار صورة"), null=True,
     # )

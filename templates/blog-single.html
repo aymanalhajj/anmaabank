@@ -20,10 +20,22 @@
               </li>
           {% elif section_page %}
             <li>{{static_content.section}}</li>
-            <li>{{section_page.titel|safe}}</li>
+            <li>
+                          {% if static_content.lang == "ar" %}
+                                {{section_page.titel|safe}}
+                            {% else %}
+                                {{section_page.titel_en|safe}}
+                            {% endif %}
+                          </li>
           {% elif news %}
-            <li>{{news.category}}</li>
-            <li>{{news.titel|safe}}</li>
+            <!--<li>{{news.category}}</li>-->
+            <li>
+                      {% if static_content.lang == "ar" %}
+                          {{news.titel|safe}}
+                      {% else %}
+                          {{news.titel_en|safe}}
+                      {% endif %}
+          </li>
           {% elif privace %}
             <li>{{static_content.privacy_policy}}</li>
           {% elif policie %}
@@ -40,19 +52,25 @@
           <h2>{{OurAdvantage.titel|safe}}</h2>
         {% endif %}
         {% if news %}
-          <h2>{{news.titel}}</h2>
+          <h2>
+            {% if static_content.lang == "ar" %}
+                          {{news.titel|safe}}
+                      {% else %}
+                          {{news.titel_en|safe}}
+                      {% endif %}
+            </h2>
         {% endif %}
         {% if privace %}
-          <h2>سياسة الخصوصية</h2>
+          <h2>{{static_content.privacy_policy}}</h2>
         {% elif policie %}
-          <h2>السياسات</h2>
+          <h2>{{static_content.policies}}</h2>
         {% endif %}
       </div>
     </section>
   {% endblock %}
   {% block content_body %}
     {% if policie %}
-      <article class="entry">
+      <article class="entry" style="text-align: start;"  dir="{{static_content.direction}}">
         <div class="container">
           <div class="page-cover">
             {% if policie.image %}
@@ -60,7 +78,11 @@
             {% endif %}
           </div>
           <h2 class="entry-title">
-            {{policie.titel}}
+            {% if static_content.lang == "ar" %}
+                          {{policie.titel}}
+                      {% else %}
+                          {{policie.titel_en}}
+                      {% endif %}
           </h2>
           <div class="entry-meta">
             <ul>
@@ -71,7 +93,12 @@
           </div>
           <div class="entry-content">
             <p>
-              {{policie.detial_ar|safe}}
+              
+              {% if static_content.lang == "ar" %}
+                  {{policie.detial_ar|safe}}
+              {% else %}
+                  {{policie.detial_en|safe}}
+              {% endif %}
             </p>
           </div>
         </div>

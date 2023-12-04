@@ -1,5 +1,3 @@
-
-
 {% load static %}
 {% block about %}
 
@@ -14,7 +12,7 @@
   {% if abouts and setting and not setting.is_hidden_about   %}
 
   <div class="about-page">
-  <section id="about" class="about about-us">
+  <section id="about" class="about about-us" style="text-align: start;" dir="{{static_content.direction}}">
     <div class="container" >
       <div class="">
 
@@ -23,16 +21,16 @@
         <div
           class="flex-column justify-content-center">
           <div class="content">
-            {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
+            <h2>
+              {% if static_content.lang == "ar" %}
+                {{abouts.titel}}
+              {% else %}
+                  {{abouts.titel_en}}
+              {% endif %}
 
-            <h2>{{abouts.titel}}</h2>
+            </h2>
             <div
             class="align-items-center">
-            {% comment %} <img
-              src="{{abouts.image.url}}"
-              class="img-fluid"
-              alt="{{ abouts.titel }}"
-            /> {% endcomment %}
     
             <div class="image-wrapper"><div class="image">
               <img src="{{abouts.image.url}}" alt="{{ abouts.detial_ar }}">
@@ -40,10 +38,16 @@
             </div>
           </div>
           </div>
-            {% comment %} <p>{{ abouts.detial_ar|safe }}</p> {% endcomment %}
             <div class="description-wrapper">
                 <div class="description"></div>
-                  <p>{{ abouts.detial_ar|safe }}</p>
+                  <p>
+                    {% if static_content.lang == "ar" %}
+                      {{abouts.detial_ar|safe}}
+                    {% else %}
+                        {{abouts.detial_en|safe}}
+                    {% endif %}
+
+                  </p>
                 </div>
               <div> 
           </div>
@@ -61,24 +65,24 @@
     
   {% if Massegeabout and setting and not setting.is_hidden_about   %}
 
-  <section id="Massegeabout" class="about">
+  <section id="Massegeabout" class="about" style="text-align: start;" dir="{{static_content.direction}}">
     <div class="container" >
       <div class="">
        
 
         <div
           class=" d-flex flex-column justify-content-center ">
-          {% comment %} <img
-            src="{{abouts.image.url}}"
-            class="img-fluid"
-            alt="{{ abouts.titel }}"
-          /> {% endcomment %}
           <div class="content">
 
-          <h2>{{Massegeabout.titel}}</h2>
+          <h2>
+            {% if static_content.lang == "ar" %}
+              {{Massegeabout.titel}}
+            {% else %}
+                {{Massegeabout.titel_en}}
+            {% endif %}
+          </h2>
           <div
           class=" align-items-center">
-            {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
             <div class="image-wrapper"><div class="image">
               <img src="{{Massegeabout.image.url}}" alt="{{ Massegeabout.titel }}">
               <div class="bg"></div>
@@ -86,10 +90,16 @@
             
         </div>
       </div>
-          {% comment %} <p>{{ Massegeabout.detial_ar|safe }}</p> {% endcomment %}
               <div class="description-wrapper">
                 <div class="description"></div>
-                  <p>{{ Massegeabout.detial_ar|safe }}</p>
+                  <p>
+                    
+                    {% if static_content.lang == "ar" %}
+                      {{Massegeabout.detial_ar|safe}}
+                    {% else %}
+                        {{Massegeabout.detial_en|safe}}
+                    {% endif %}
+                  </p>
                 </div>
               <div> 
         
@@ -105,13 +115,9 @@
   {% endif %}
 
   {% if ourvision and setting and not setting.is_hidden_about   %}
-  <section id="about" class="about mission">
+  <section id="about" class="about mission" style="text-align: start;" dir="{{static_content.direction}}">
     <div class="container" >
       <header class="section-header">
-        {% comment %} <h2>رؤيتنا</h2> {% endcomment %}
-                {% comment %} <p>رؤيتنــــا</p> {% endcomment %}
-
-        {% comment %} <p>تواصل معنا عبر الاتصال او الايميل او عبر احد مواقع تواصلنا الإجتماعي واحصل على عرض سعر للتصميم الذي تريده</p> {% endcomment %}
       </header>
       <div class="">
         <div
@@ -119,16 +125,15 @@
          
 
           <div class="content vision">
-            {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
-            {% comment %} <h2>رؤيتنــــا</h2> {% endcomment %}
-            <h2>{{ourvision.titel}}</h2>
+            <h2>
+              {% if static_content.lang == "ar" %}
+                  {{ourvision.titel|safe}}
+              {% else %}
+                  {{ourvision.titel_en|safe}}
+              {% endif %}
+            </h2>
             <div
             class=" align-items-center">
-            {% comment %} <img
-              src="{{abouts.image.url}}"
-              class="img-fluid"
-              alt="{{ abouts.titel }}"
-            /> {% endcomment %}
             {% if ourvision.image %}
             <div class="image-wrapper"><div class="image">
               <img src="{{ourvision.image.url}}" alt="رؤية البنك">
@@ -139,10 +144,13 @@
             {% endif %}
   
           </div>
-            {% comment %} <p>{{ ourvision.detial_ar|safe }}</p> {% endcomment %}
             <div class="description-wrapper">
-                <div class="description"></div>
-                {{ ourvision.detial_ar|safe }}
+                <div class="description"></div>                
+                {% if static_content.lang == "ar" %}
+                  {{ourvision.detial_ar|safe}}
+                {% else %}
+                    {{ourvision.detial_en|safe}}
+                {% endif %}
                 </div>
               <div> 
           </div>
@@ -156,37 +164,29 @@
 
   {% if ourmission and setting and not setting.is_hidden_about   %}
 
-  <section id="ourmission" class="about mission ">
+  <section id="ourmission" class="about mission " style="text-align: start;" dir="{{static_content.direction}}">
     <div class="container" >
       <div class="">
       
-      {% comment %} </div> {% endcomment %}
-
         <div
           class="flex-column justify-content-center ">
-          {% comment %} <img
-            src="{{abouts.image.url}}"
-            class="img-fluid"
-            alt="{{ abouts.titel }}"
-          /> {% endcomment %}
           <div class="content">
 
             <h2>مهمتنــــا</h2>
             <div
             class="align-items-center">
-              {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
-              {% comment %} <div class="image-wrapper"><div class="image">
-                <img src="{{Massegeabout.image.url}}" alt="{{ Massegeabout.detial_ar }}">
-                <div class="bg"></div>
-              </div> {% endcomment %}
                  
           {% if ourmission.image %}
           <div class="image-wrapper"><div class="image"><img src="{{ourmission.image.url}}" alt="الرؤية"><div class="bg"></div></div></div>
           {% endif  %}
-          
-                {% comment %} <p>{{ ourmission.detial_ar|safe }}</p> {% endcomment %}
           </div>
-            <p>{{ ourmission.detial_ar|safe }}</p>
+            <p>
+              {% if static_content.lang == "ar" %}
+                {{ ourmission.detial_ar|safe}}
+              {% else %}
+                  {{ ourmission.detial_en|safe}}
+              {% endif %}
+            </p>
           </div>
         
         </div>
@@ -200,7 +200,7 @@
 
   {% if ourmarch and setting and not setting.is_hidden_about   %}
 
-  <section id="about" class="about">
+  <section id="about" class="about" style="text-align: start;" dir="{{static_content.direction}}">
     <div class="container" >
      
       <div class="">
@@ -209,16 +209,13 @@
         <div
           class=" d-flex flex-column justify-content-center">
           <div class="content">
-            {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
-            <h2>مسيرتنا</h2>
+            <h2>مسيرتنا
+
+
+            </h2>
 
             <div
             class=" align-items-center">
-            {% comment %} <img
-              src="{{abouts.image.url}}"
-              class="img-fluid"
-              alt="{{ abouts.titel }}"
-            /> {% endcomment %}
             {% if ourmarch.image %}
             <div class="image-wrapper"><div class="image">
               <img src="{{ourmarch.image.url}}" alt="{{ ourmarch.detial_ar }}">
@@ -228,11 +225,15 @@
             {% endif %}
   
           </div>
-            {% comment %} <h2>{{ourmarch.titel}}</h2> {% endcomment %}
-            {% comment %} <p>{{ ourmarch.detial_ar|safe }}</p> {% endcomment %}
             <div class="description-wrapper">
                 <div class="description"></div>
-                  <p>{{ ourmarch.detial_ar|safe }}</p>
+                  <p>
+                    {% if static_content.lang == "ar" %}
+                      {{ ourmarch.detial_ar|safe}}
+                    {% else %}
+                        {{ ourmarch.detial_en|safe}}
+                    {% endif %}
+                  </p>
                 </div>
               <div>
           </div>
@@ -249,7 +250,7 @@
     {% endblock OurVision %} {% endcomment %}
     {% if objective and setting and not setting.is_hidden_about   %}
 
-    <section id="about" class="about goals values">
+    <section id="about" class="about goals values" style="text-align: start;" dir="{{static_content.direction}}">
       <div class="container" >
        
         <div class="">
@@ -258,15 +259,18 @@
   
           <div
             class=" align-items-center">
-            {% comment %} <img
-              src="{{abouts.image.url}}"
-              class="img-fluid"
-              alt="{{ abouts.titel }}"
-            /> {% endcomment %}
            
             <div class="content">
-              {% comment %} <h3>حول بنك الإنماء</h3> {% endcomment %}
-              <h2>الغايات</h2>
+              <h2>
+                
+                
+              {% if static_content.lang == "ar" %}
+              {{objective.titel}}
+            {% else %}
+                {{objective.titel_en}}
+            {% endif %}
+            
+            </h2>
               <div
               class=" d-flex flex-column justify-content-center">
               {% if objective.image %}
@@ -278,16 +282,20 @@
             </div>
           </div>
               {% endif %}
-              {% comment %} <h2>{{ourmarch.titel}}</h2> {% endcomment %}
 
               <div class="description-wrapper">
                 <div class="description"></div>
-                  <p>{{ objective.detial_ar|safe }}</p>
+                  <p>                    
+                    {% if static_content.lang == "ar" %}
+                      {{ objective.detial_ar|safe}}
+                    {% else %}
+                        {{ objective.detial_en|safe}}
+                    {% endif %}
+                  </p>
               </div>
               <div>
               
             </div>
-          {% comment %} </div> {% endcomment %}
           </div>
         </div>
       </div>

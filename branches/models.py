@@ -181,9 +181,12 @@ class Branches(models.Model):
     # )
     name = models.CharField(verbose_name=_(
         "اسم الفرع"), null=True, max_length=64,)
+    name_en = models.CharField(verbose_name=_(
+        "اسم الفرع بالانجليزي"), null=True, max_length=64,)
     address1 = models.ForeignKey(
         Address, null=True, on_delete=models.SET_NULL, verbose_name=_(" العنوان 1"), related_name="branches_address1"
     )
+    
     # address2 = models.ForeignKey(
     #     Address, null=True, on_delete=models.SET_NULL,verbose_name= _(" العنوان 2"), blank=True,related_name="branches_address2"
     # )

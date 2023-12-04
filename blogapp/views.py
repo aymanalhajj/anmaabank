@@ -14,6 +14,7 @@ from OurNewsletter.forms import *
 from OurNewsletter.views import *
 from settingapp.views import static_content
 
+from django.utils import translation
 
 
 def islogin(request):
@@ -170,7 +171,11 @@ class BlogsListView(generic.ListView):
         context['page'] = int(self.request.GET.get('page', 1))
         
         lang = self.kwargs['lang']
+        
+        translation.activate(lang)
         context["static_content"] = static_content[lang]
+        context["switch_lang_url"] = getSwitchLangUrl(self.request)
+        context["login_out_toggle"]= login_out_toggle(self.request)
         context['some_data'] = 'This is just some data'
 
         if self.request.method == 'POST':
@@ -295,7 +300,11 @@ class NewsListView(generic.ListView):
         
         context['page'] = int(self.request.GET.get('page', 1))
         lang = self.kwargs['lang']
+        
+        translation.activate(lang)
         context["static_content"] = static_content[lang]
+        context["switch_lang_url"] = getSwitchLangUrl(self.request)
+        context["login_out_toggle"]= login_out_toggle(self.request)
         context['page'] = int(self.request.GET.get('page', 1))
         if self.request.method == 'POST':
             SaveContact(self.request, "blog.html", context)
@@ -421,7 +430,11 @@ class EventListView(generic.ListView):
         # if self.request.method == 'POST':
         #     return SaveContact(request,"blog.html",context)
         lang = self.kwargs['lang']
+        
+        translation.activate(lang)
         context["static_content"] = static_content[lang]
+        context["switch_lang_url"] = getSwitchLangUrl(self.request)
+        context["login_out_toggle"]= login_out_toggle(self.request)
         context['some_data'] = 'This is just some data'
         return context
 
@@ -476,6 +489,7 @@ def BlogSingleListView(request, id, lang = "ar"):
     context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
 
     }
+    print(getSwitchLangUrl(request))
     # if request.method == 'POST':
     #     return SaveContact(request,"blog.html",context)
     # Call the base implementation first to get the context
@@ -543,6 +557,8 @@ def BlogSingleListView(request, id, lang = "ar"):
     # context['page'] = intrequest.GET.get('page', 1))
 
     context["static_content"] = static_content[lang]
+    context["switch_lang_url"] = getSwitchLangUrl(request)
+    context["login_out_toggle"]= login_out_toggle(request)
     context['some_data'] = 'This is just some data'
     # return context
 
@@ -570,7 +586,9 @@ def PrivacyPoliciesSingleListView(request, lang = "ar"):
         lang = 'ar'
 
     from django.db.models import Count, Case, When
-    context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
+    context = {
+        "switch_lang_url": getSwitchLangUrl(request),
+               "login_out_toggle": login_out_toggle(request),
 
     }
     # if request.method == 'POST':
@@ -640,6 +658,8 @@ def PrivacyPoliciesSingleListView(request, lang = "ar"):
     # context['page'] = intrequest.GET.get('page', 1))
 
     context["static_content"] = static_content[lang]
+    context["switch_lang_url"] = getSwitchLangUrl(request)
+    context["login_out_toggle"]= login_out_toggle(request)
     context['some_data'] = 'This is just some data'
     # return context
 
@@ -737,6 +757,8 @@ def AntiMoneyLaunderingSingleListView(request, lang = "ar"):
     # context['page'] = intrequest.GET.get('page', 1))
 
     context["static_content"] = static_content[lang]
+    context["switch_lang_url"] = getSwitchLangUrl(request)
+    context["login_out_toggle"]= login_out_toggle(request)
     context['some_data'] = 'This is just some data'
    
     # return context

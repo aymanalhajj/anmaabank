@@ -32,13 +32,18 @@ handler400 = 'anmaabankApp.views.page_not_found'
 handler403 = 'anmaabankApp.views.page_not_found'
 handler404 = 'anmaabankApp.views.page_not_found'
 handler500 = 'anmaabankApp.views.page_not_found'
+from django.conf.urls.i18n import i18n_patterns
+
+urlpatterns += i18n_patterns(
+    path('admin/', include('AdminApp.urls')),
+)
 urlpatterns += [
     # path('admin-web/', admin.site.urls),
     # url(r'^admin/', include(admin.site.urls)),  # Here's the typo
     # path(settings.STATIC_URL, include('jopapp.urls'), name="job-app"),
     # re_path(r'(?P<lang>\bar\b|\ben\b)', include('anmaabankApp.urls')),
     path('', include('anmaabankApp.urls')),
-    path('admin', include('AdminApp.urls')),
+    # path('admin', include('AdminApp.urls')),
     re_path(r"^(?P<lang>\bar\b|\ben\b)/login/$", login, name='login-user'),
     path("login/", login, name='login-user'),
     path("userLogout/login/", login, name='userLogout-user'),

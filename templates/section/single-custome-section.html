@@ -14,16 +14,27 @@
 {% endif %} {% endcomment %}
 <!-- ======= Counts section_page ======= -->
     {% comment %} <section_page id="features" class="counts"> {% endcomment %}
-<section id="features" class="counts ourvision services">
+<section id="features" class="counts ourvision services"  style="text-align: start;" dir="{{static_content.direction}}">
 
       <div class="container">
-        {% comment %} <p>{{ abouts.detial_ar }}</p> {% endcomment %}
             <header class="section-header">
               {% if section_page.titel %}
-              <h2>{{section_page.titel}}</h2>
+              <h2>
+                {% if static_content.lang == "ar" %}
+                    {{section_page.titel|safe}}
+                {% else %}
+                    {{section_page.titel_en|safe}}
+                {% endif %}
+              </h2>
               {% endif %}
               {% if section_page.short_titel %}
-              <p>{{section_page.short_titel}}</p>
+              <p>
+                {% if static_content.lang == "ar" %}
+                    {{section_page.short_titel}}
+                {% else %}
+                    {{section_page.short_titel_en}}
+                {% endif %}
+              </p>
               {% endif %}
             </header>
           <div class="content">
@@ -37,7 +48,11 @@
             {% if section_page.detial_ar %}
             <div class="content">
               <p>
-                {{section_page.detial_ar|safe}}
+                {% if static_content.lang == "ar" %}
+                    {{section_page.detial_ar}}
+                {% else %}
+                    {{section_page.detial_en}}
+                {% endif %}
               </p>
             </div>
             {% endif %}
@@ -51,7 +66,6 @@
        
           <div class="col-lg-3 col-md-6 text-center text-lg-start ">
             <div class="count-box text-center">
-              {% comment %} <i class="bi bi-flag-fill"></i> {% endcomment %}
               {% if property.image %}
                
                 <img src="{{property.image.url}}"        
@@ -70,10 +84,6 @@
                 {% if property.detial_ar %}
                 <p  class="padding-bottom-top-ten" >{{property.detial_ar|safe}}</p>
                 {% endif %}
-                {% comment %} <h2>الريــــادة</h2> {% endcomment %}
-                {% comment %} <p>من أفضل وكالات السفر والسياحة على مستوى اليمن لعام 2020 - 2021 - 2022 - 2023</p> {% endcomment %}
-                {% comment %} <span data-purecounter-start="0" data-purecounter-end="{{statistic.number}}" data-purecounter-duration="1" class="purecounter"></span> {% endcomment %}
-                {% comment %} <p>{{statistic.titel}}</p> {% endcomment %}
               </div>
             </div>
           </div>
@@ -156,11 +166,6 @@
                 
               </div>
               {% endif %}
-              {% comment %} <img
-                src="{{services.image.url}}"
-                class="img-fluid img-service"
-                alt="{{services.titel}}"
-              /> {% endcomment %}
               {% if property.titel %}
 
               <h3>{{property.titel}}</h3>

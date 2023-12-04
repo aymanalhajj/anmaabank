@@ -47,7 +47,7 @@
 
                             {% endif %}
                             <span>
-                                {% if static_content.lang == "ar" %}
+                            {% if static_content.lang == "ar" %}
                                 {{application.titel|safe}}
                             {% else %}
                                 {{application.titel_en|safe}}
@@ -70,9 +70,6 @@
                     {{static_content.pages_and_sections}}
 
                 </span>
-
-                {% comment %}<i class="bi bi-chevron-down">{% endcomment %}</i></a>
-
             <ul class="sub-header-container">
                 <div class="sub-header-description">
                     <h5>
@@ -97,7 +94,13 @@
                                 alt="service icon"></div>
 
                         {% endif %}
-                        <span>{{section.titel}}</span>
+                        <span>
+                            {% if static_content.lang == "ar" %}
+                                {{section.titel}}
+                            {% else %}
+                                {{section.titel_en}}
+                            {% endif %}
+                        </span>
                     </a></li>
                 {% endfor %}
         </li>

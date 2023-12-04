@@ -29,6 +29,14 @@ class OurVision(models.Model):
         # max_length=10000000,
         default=" ", null=True, blank=True, verbose_name=_("تفاصيل رؤية الشركة"))
 
+    titel_en = models.CharField(
+        max_length=250, verbose_name=_("عنوان القسم بالانجليزي"),
+        null=True,
+    )
+    detial_en = HTMLField(
+        # max_length=10000000,
+        default=" ", null=True, blank=True, verbose_name=_("تفاصيل رؤية الشركة بالانجليزي"))
+
     image = models.ImageField(
         upload_to="Image/OurVision/%Y/%m/%d/", verbose_name=_(" إختيار صورة"), null=True,
         # verbose_name=_(" إختيار صورة")
@@ -167,7 +175,15 @@ class Objectives(models.Model):
     )
     detial_ar = HTMLField(
         # max_length=10000000,
-        default=" ", null=True, blank=True, verbose_name=_("تفاصيل"))
+        default=" ", null=True, blank=True, verbose_name=_("تفاصيل بالانجليزي"))
+    
+    titel_en = models.CharField(
+        max_length=250, verbose_name=_("عنوان القسم"),
+        null=True,
+    )
+    detial_en = HTMLField(
+        # max_length=10000000,
+        default=" ", null=True, blank=True, verbose_name=_("تفاصيل بالانجليزي"))
 
     image = models.ImageField(
         upload_to="Image/OurVision/%Y/%m/%d/", verbose_name=_("إختيار صورة"), null=True,
@@ -320,6 +336,9 @@ class About(models.Model):
     titel = models.CharField(
         max_length=250, verbose_name=_("العنوان")
     )
+    titel_en = models.CharField(
+        max_length=250, verbose_name=_("العنوان بالانجليزي")
+    )
     # Locations = models.ManyToManyField(
     #     Location_Country,
     #     #through='LocationContry',
@@ -382,6 +401,9 @@ class About(models.Model):
     )
     detial_ar = HTMLField(
         max_length=100000, default=" ", null=True,  verbose_name=_("التفاصيل"))
+    
+    detial_en = HTMLField(
+        max_length=100000, default=" ", null=True,  verbose_name=_("التفاصيل بالانجليزي"))
     image = models.ImageField(
         upload_to="Image/About/%Y/%m/%d/",  verbose_name=_(" إختيار صورة"), null=True,
         # verbose_name=_(" إختيار صورة")
