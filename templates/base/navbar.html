@@ -8,15 +8,15 @@
 <div style=" margin-top: 37px;" class="container-fluid container-xl d-flex align-items-center justify-content-center" dir="{{static_content.direction}}">
     <nav id="navbar" class="navbar align-items-center justify-content-center">
 
-        <ul id="navbar-main" class="backcolorwhite"  >
-
-            <li >
-                <a style=" height: 32px;" class="nav-link scrollto" href="/{{static_content.lang}}"><span> {{static_content.main}} </span></a>
-            </li>
+        <ul id="navbar-main" class="backcolorwhite"  style="font-family: AbdoMaster;padding-right: 5px;">
 
             <li>
+                <a style=" height: 32px;" class="nav-link scrollto" href="/{{static_content.lang}}"><span style="font-family: AbdoMaster;font-size: 10pt;"> {{static_content.main}} </span></a>
+            </li>
 
-                <a style=" height: 32px;" class="nav-link scrollto" href="/{{static_content.lang}}/about"><span>{{static_content.about}}</span></a>
+            <li style="margin-left: -10px;">
+
+                <a style=" height: 32px;" class="nav-link scrollto" href="/{{static_content.lang}}/about"><span style="font-family: AbdoMaster;font-size: 10pt;">{{static_content.about}}</span></a>
             </li>
 
 
@@ -26,61 +26,51 @@
 
             {% if navbar.bank_applications %}
 
-            <li class="dropdown">
+            <li style="margin-left: -10px;" class="dropdown">
 
-                <a style=" height: 32px;" href="#">
+                    <a style=" height: 32px;" href="#">
 
-                    <span>{{static_content.bank_applications}}</span></i></a>
-                <ul class="sub-header-container">
-                    <div class="sub-header-description">
-                        <h5>{{static_content.bank_applications}}</h5>
-                    </div>
-                    {% for application in navbar.bank_applications %}
-                    <li><a href="/{{static_content.lang}}/application/{{application.id}}">
-                            {% if application.logo_image %}
-                            <div class="icon-container">
-                                <img src="{{application.logo_image.url}}" alt="service icon">
-                            </div>
-                            {% else%}
-                            <div class="icon-container"><img src="{% static 'assets/img/logo-only.png'  %}"
-                                    alt="service icon"></div>
+                        <span style="font-family: AbdoMaster;font-size: 10pt;">{{static_content.bank_applications}}</span>
+                    </a>
+                    <ul class="sub-header-container">
+                        {% for application in navbar.bank_applications %}
+                        <li>
+                            <a href="/{{static_content.lang}}/application/{{application.id}}">
+                                {% if application.logo_image %}
+                                <div class="icon-container">
+                                    <img src="{{application.logo_image.url}}" alt="service icon">
+                                </div>
+                                {% else%}
+                                <div class="icon-container"><img src="{% static 'assets/img/logo-only.png'  %}"
+                                        alt="service icon"></div>
 
-                            {% endif %}
-                            <span>
-                            {% if static_content.lang == "ar" %}
-                                {{application.titel|safe}}
-                            {% else %}
-                                {{application.titel_en|safe}}
-                            {% endif %}</span>
-                        </a>
-                    </li>
-                    {% endfor %}
-            </li>
+                                {% endif %}
+                                <span  style="font-family: AbdoMaster;font-size: 10pt;">
+                                {% if static_content.lang == "ar" %}
+                                    {{application.titel|safe}}
+                                {% else %}
+                                    {{application.titel_en|safe}}
+                                {% endif %}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
 
-        </ul>
-        {% endif %}
+            {% endif %}
         {% if navbar.section %}
 
-        <li class="dropdown" >
+        <li style="margin-left: -10px;"  class="dropdown" >
 
             <a style=" height: 32px;" href="#">
 
-                <span>
+                <span style="font-family: AbdoMaster;font-size: 10pt;">
 
                     {{static_content.pages_and_sections}}
 
                 </span>
+            </a>
             <ul class="sub-header-container">
-                <div class="sub-header-description">
-                    <h5>
-                        {{static_content.pages_and_sections}}
-                        
-                    </h5>
-                    <p>
-                        {{static_content.service_title3}}
-                    </p>
-                </div>
-
                 {% for section in navbar.section %}
 
 
@@ -94,7 +84,7 @@
                                 alt="service icon"></div>
 
                         {% endif %}
-                        <span>
+                        <span style="font-family: AbdoMaster;font-size: 10pt;">
                             {% if static_content.lang == "ar" %}
                                 {{section.titel}}
                             {% else %}
@@ -103,18 +93,18 @@
                         </span>
                     </a></li>
                 {% endfor %}
+            </ul>
         </li>
 
-        </ul>
         {% endif %}
 
         {% if navbar.servicess and navbar.categories_services %}
             {% for categories_service in navbar.categories_services %}
 
-            <li class="dropdown">
+            <li style="margin-left: -10px;" class="dropdown">
 
                 <a style=" height: 32px;" href="#">
-                    <span>
+                    <span style="font-family: AbdoMaster;font-size: 10pt;">
                         {% if static_content.lang == "ar" %}
                         {{categories_service.name}}
                         {% else %}
@@ -124,20 +114,6 @@
                 </i></a>
 
                 <ul class="sub-header-container">
-                    <div class="sub-header-description">
-                        <h5>
-                            {% if static_content.lang == "ar" %}
-                            {{categories_service.name}}
-                            {% else %}
-                            {{categories_service.name_en}}
-                            {% endif %}
-                        </h5>
-                        {% if categories_service.description %}
-                        <p>
-                            {{categories_service.description}}
-                        </p>
-                        {% endif %}
-                    </div>
                     {% if navbar.servicess %}
                         {% for service in navbar.servicess|in_categories_services:categories_service %}
                             <li><a href="/{{static_content.lang}}/service/{{service.id}}">
@@ -152,7 +128,7 @@
                                         <img src="{% static 'assets/img/logo-only.png'  %}" alt="logo  Alinma ">
                                     </div>
                                     {% endif %}
-                                    <span>
+                                    <span style="font-family: AbdoMaster;font-size: 10pt;">
                                         {% if static_content.lang == "ar" %}
                                             {{service.titel}}
                                         {% else %}
@@ -172,178 +148,7 @@
 
         {% endif %}
 
-        {% comment %} {% if navbar.servicess %}
-        {% for service in navbar.servicess|in_type_services:"1" %}
-        {% if forloop.first %}
-        <li class="dropdown">
 
-            <a style=" height: 32px;" href="#">
-
-                <span>{{static_content.individual_services}}
-                </span>
-
-                <i class="bi bi-chevron-down"></i></a>
-
-            <ul class="sub-header-container">
-                <div class="sub-header-description">
-                    <h5>
-
-                        {{static_content.individual_services}}
-
-                    </h5>
-                    <p>
-
-                        {{static_content.service_title2}}
-
-
-                    </p>
-                </div>
-
-                {% for service in navbar.servicess|in_type_services:"1" %}
-
-
-                <li><a href="/{{static_content.lang}}/service/{{service.id}}">
-                        {% if service.image %}
-                        <div class="icon-container">
-                            <img src="{{service.image.url}}" alt="service icon">
-                        </div>
-                        {% else%}
-                        <div class="icon-container"><img src="{% static 'assets/img/logo-only.png'  %}"
-                                alt="service icon"></div>
-
-                        {% endif %}
-                        <span>{{service.titel}}</span>
-                    </a>
-                </li>
-
-
-                {% endfor %}
-
-            </ul>
-
-        </li>
-
-        {% endif %}
-
-        {% endfor %} {% endcomment %}
-
-
-        {% comment %} {% for service in navbar.servicess|in_type_services:"2" %}
-        {% if forloop.first %}
-        <li class="dropdown">
-
-            <a style=" height: 32px;" href="#">
-
-                <span>
-                    {{static_content.organization_services}}
-                </span>
-
-                <i class="bi bi-chevron-down"></i></a>
-
-            <ul class="sub-header-container">
-                <div class="sub-header-description">
-                    <h5>
-
-                        {{static_content.organization_services}}
-
-
-                    </h5>
-                    <p>
-
-
-
-
-                    </p>
-                </div>
-
-                {% for service in navbar.servicess|in_type_services:"2" %}
-
-
-                <li><a href="/{{static_content.lang}}/service/{{service.id}}">
-                        {% if service.image %}
-                        <div class="icon-container">
-                            <img src="{{service.image.url}}" alt="service icon">
-                        </div>
-                        {% else%}
-                        <div class="icon-container"><img src="{% static 'assets/img/logo-only.png'  %}"
-                                alt="service icon"></div>
-
-                        {% endif %}
-                        <span>{{service.titel}}</span>
-                    </a>
-                </li>
-
-
-                {% endfor %}
-
-            </ul>
-
-        </li>
-
-        {% endif %}
-
-        {% endfor %} {% endcomment %}
-
-
-
-
-        {% comment %} {% for service in navbar.servicess|in_type_services:"3" %}
-        {% if forloop.first %}
-        <li class="dropdown">
-
-            <a style=" height: 32px;" href="#">
-
-                <span>
-                    {{static_content.company_services}}
-
-                </span>
-
-                <i class="bi bi-chevron-down"></i></a>
-
-            <ul class="sub-header-container">
-                <div class="sub-header-description">
-                    <h5>
-
-                        {{static_content.company_services}}
-
-
-
-                    </h5>
-                    <p>
-
-
-
-
-                    </p>
-                </div>
-
-                {% for service in navbar.servicess|in_type_services:"3" %}
-
-
-                <li><a href="/{{static_content.lang}}/service/{{service.id}}">
-                        {% if service.image %}
-                        <div class="icon-container">
-                            <img src="{{service.image.url}}" alt="service icon">
-                        </div>
-                        {% else%}
-                        <div class="icon-container"><img src="{% static 'assets/img/logo-only.png'  %}"
-                                alt="service icon"></div>
-
-                        {% endif %}
-                        <span>{{service.titel}}</span>
-                    </a>
-                </li>
-
-
-                {% endfor %}
-
-            </ul>
-
-            </li>
-
-            {% endif %}
-
-            {% endfor %} {% endcomment %}
 
             {% comment %} {% endif %} {% endcomment %}
 
@@ -355,26 +160,28 @@
                     </li>
                     <li class="nav-item-mobile">
                         <a href="/{{static_content.lang}}/createaccoute" class="">
-                            {% comment %} <a href="#/map"> {% endcomment %}
-
                                 <span>{{static_content.register}}</span>
                             </a>
                     </li>
                     {% endif %}
-               <li>
-                    <a style="background-color: var(--accent); height: 32px;" class="getstarted scrollto" href="/{{static_content.lang}}/open-account">
+                     
+            <li style="margin-left: -10px;">
 
-                        <span style="display: inline-block;
-                        font-size: 18px;
-                        font-weight: bold;
-                        font-family: HacenTunisiaBoldRegular;">
+                <a style=" height: 32px;" class="nav-link scrollto" href="/{{static_content.lang}}/about"><span style="font-family: AbdoMaster;font-size: 10pt;">    {{static_content.available_jobs}}</span></a>
+            </li>
 
-                            {{static_content.request_open_account}}
-                        </span>
-
-                    </a>
-                </li>
-
+            <li style="margin-left: 8px;">
+                        <a style="background-color: var(--accent); height: 32px;border-radius: 5px;padding: 5px;" class="nav-link  scrollto" href="/{{static_content.lang}}/open-account">
+    
+                            <span style="display: inline-block;
+                            font-family: AbdoMaster;font-size: 10pt;">
+    
+                                {{static_content.request_open_account}}
+                            </span>
+    
+                        </a>
+                    </li>
+                   
             {% block custom-menu-navbar %}
 
             {% endblock custom-menu-navbar %}

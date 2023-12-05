@@ -201,6 +201,7 @@ new Swiper(".slider-videos", {
 
 new Swiper(".slider-services", {
   speed: 500,
+  effect: "coverflow",
   autoplay: {
     delay: 5000,
     disableOnInteraction: false,
@@ -212,7 +213,7 @@ new Swiper(".slider-services", {
   centeredSlides: true,
   coverflowEffect: {
     rotate: 0,
-    depth: 500,
+    depth: 1000,
     modifier: 1,
     slideShadows: true
   },

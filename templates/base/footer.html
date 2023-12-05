@@ -21,11 +21,11 @@
           </div>
           <div class="">
             {% if FormOurNewsletter and setting and not setting.is_hidden_ournewsletter %}
-              <div class="">
+              <div class="" style="margin-bottom: 40px;">
                 <div class="footer-newsletter" style="border: red 0px solid;padding: 0px;background: none;font-family: HacenTunisiaBoldRegular;">
                   <div class="containers" >
                     <div  class="row justify-content-center">
-                      <div  class="col-lg-12 text-center ">{{static_content.stay_in_touch}}
+                      <div  style="font-family: AbdoMaster;font-size: 10pt;"  class="col-lg-12 text-center ">{{static_content.stay_in_touch}}
                           <h4 style="font-size: 18px;">
                           </h4> 
                           <p style="font-size: 16px;">
@@ -54,11 +54,11 @@
                           {% csrf_token %} 
                           {% for field in FormOurNewsletter %}
                             <div class="column-md-12">
-                              <input type="email" placeholder="{{static_content.email_address}}"  style="height: 32px;border: none;background: none; margin-right: 10px;"  />
+                              <input type="email" placeholder="{{static_content.email_address}}"   style="font-family: AbdoMaster;font-size: 10pt;height: 32px;border: none;background: none; margin-right: 10px;"  />
                               <small class="text-danger">{{field.errors | striptags}}</small> 
                             </div>
                           {% endfor %}
-                          <input type="submit" value="{{static_content.subscribe}}" style="margin: 0px;">
+                          <input  type="submit" value="{{static_content.subscribe}}"  style="font-family: AbdoMaster;font-size: 10pt;margin: 0px;">
                         </form>
                       </div>
                     </div>
@@ -67,86 +67,86 @@
               </div>
             {% endif %}
           </div>
-          <div class="footer-top" style="border: red 0px solid;margin: 0px; padding: 0px;">
+          <div   class="footer-top" style="border: red 0px solid;margin: 0px; padding: 0px;margin-right: 42px;">
             <div class="containers" style="border: red 0px solid;margin: 0px;">
               <div class="row gy-3  " style="border: red 0px solid;margin: 0px;">
                 <div class="footer-col footer-links" style="margin: 20px; text-align: start;">
-                  <h4>{{static_content.pages}}</h4>
+                  <h4 style="font-family: AbdoMaster;font-size: 10pt;">{{static_content.pages}}</h4>
                   <br>
                   <ul style="border: red 0px solid; ">
                     {% if   setting and not setting.is_hidden_about  %}
-                    <li style="border: red 0px solid; padding: 0px;margin: 0px;">
-                      <a style="border: red 0px solid; " class="has-sub-header" href="/{{static_content.lang}}/about">{{static_content.about}}</a>
+                    <li >
+                      <a style="font-family: AbdoMaster;font-size: 10pt; " class="has-sub-header" href="/{{static_content.lang}}/about">{{static_content.about}}</a>
                     </li>
                     {% endif %}
                     {% if   setting and not setting.is_hidden_contact  %}
                     <li>
-                      <a class="has-sub-header" href="/{{static_content.lang}}">{{static_content.board}}</a>
+                      <a  style="font-family: AbdoMaster;font-size: 10pt;" class="has-sub-header" href="/{{static_content.lang}}">{{static_content.board}}</a>
                     </li>
                     {% endif %}
                     <li>
-                      <a href="/{{static_content.lang}}/service_points">{{static_content.our_service_points}}</a>
+                      <a  style="font-family: AbdoMaster;font-size: 10pt;" href="/{{static_content.lang}}/service_points">{{static_content.our_service_points}}</a>
                     </li>
                   </ul>
                 </div>
 
                 <div class="footer-col footer-links" style=" margin: 20px;text-align: start;">
-                  <h4>{{static_content.agencies}}</h4>
+                  <h4  style="font-family: AbdoMaster;font-size: 10pt;">{{static_content.agencies}}</h4>
                   <br>
 
-                  <ul>
+                  <ul >
                     {% if   setting and not setting.is_hidden_about  %}
                     <li>
-                      <a class="has-sub-header" href="/#about">{{static_content.account_points}}</a>
+                      <a  style="font-family: AbdoMaster;font-size: 10pt;" class="has-sub-header" href="/#about">{{static_content.account_points}}</a>
                     </li>
                     {% endif %}
                     {% if   setting and not setting.is_hidden_contact  %}
                     <li>
-                      <a class="has-sub-header" href="/#contact">{{static_content.inma_faori}}</a>
+                      <a style="font-family: AbdoMaster;font-size: 10pt;" class="has-sub-header" href="/#contact">{{static_content.inma_faori}}</a>
                     </li>
                     {% endif %}
                     {% if   setting and not setting.is_hidden_currencies  %}
                     <li>
-                      <a class="has-sub-header" href="/#currencies">{{static_content.inma_jawal}}</a>
+                      <a  style="font-family: AbdoMaster;font-size: 10pt;" class="has-sub-header" href="/#currencies">{{static_content.inma_jawal}}</a>
                     </li>
                     {% endif %}
                   </ul>
                 </div>
                
                 <div class="footer-col footer-links" style="text-align: start; margin: 20px;">
-                  <h4>{{static_content.reports}}</h4>
+                  <h4  style="font-family: AbdoMaster;font-size: 10pt;">{{static_content.reports}}</h4>
                   <br>
 
                   <ul>
                     {% if   setting and not setting.is_hidden_about  %}
                     <li>
-                      <a class="has-sub-header" href="/{{static_content.lang}}/report-list/yearly">{{static_content.yearly_reports}}</a>
+                      <a style="font-family: AbdoMaster;font-size: 10pt;" class="has-sub-header" href="/{{static_content.lang}}/report-list/yearly">{{static_content.yearly_reports}}</a>
                     </li>
                     {% endif %}
                     {% if   setting and not setting.is_hidden_contact  %}
                     <li>
-                      <a class="has-sub-header" href="/{{static_content.lang}}/report-list/finance">{{static_content.financial_reports}}</a>
+                      <a style="font-family: AbdoMaster;font-size: 10pt;" class="has-sub-header" href="/{{static_content.lang}}/report-list/finance">{{static_content.financial_reports}}</a>
                     </li>
                     {% endif %}
                     {% if   setting and not setting.is_hidden_contact  %}
                     <li>
-                      <a class="has-sub-header" href="/{{static_content.lang}}/video-list">{{static_content.video_library}}</a>
+                      <a style="font-family: AbdoMaster;font-size: 10pt;" class="has-sub-header" href="/{{static_content.lang}}/video-list">{{static_content.video_library}}</a>
                     </li>
                     {% endif %}
                   </ul>
                 </div>
                 <div class="footer-col footer-links" style="border: red 0px solid; margin: 20px;">
-                  <h4>{{static_content.news_center}}</h4>
+                  <h4 style="font-family: AbdoMaster;font-size: 10pt;">{{static_content.news_center}}</h4>
                   <br>
                   <ul>
                     <li>
-                      <a href="/{{static_content.lang}}/news">{{static_content.bank_news}}</a>
+                      <a style="font-family: AbdoMaster;font-size: 10pt;" href="/{{static_content.lang}}/news">{{static_content.bank_news}}</a>
                     </li>
                     <li>
-                      <a href="/{{static_content.lang}}/events">{{static_content.events}}</a>
+                      <a style="font-family: AbdoMaster;font-size: 10pt;" href="/{{static_content.lang}}/events">{{static_content.events}}</a>
                     </li>
                     <li>
-                      <a href="/{{static_content.lang}}/blogs">{{static_content.blog}}</a>
+                      <a style="font-family: AbdoMaster;font-size: 10pt;" href="/{{static_content.lang}}/blogs">{{static_content.blog}}</a>
                     </li>
                   </ul>
                 </div>              
@@ -159,14 +159,14 @@
                       {% endif %}
                     >
                     {% if setting.phone_1 or setting.phone_2 or setting.fax or setting.emile or setting.emile or setting.mail_box or setting.facebook or setting.twitter or setting.instagram %}
-                        <h4 style="margin-bottom: 20px;"> {{static_content.contact_us}}</h4>
+                        <h4 style="font-family: AbdoMaster;font-size: 10pt;margin-bottom: 20px;"> {{static_content.contact_us}}</h4>
                     {% else %}
                     {% endif %}
                     <ul>
                       {% if setting and setting.phone_1 %}
                       <li>
 
-                        <a style="margin-right: 10px" target="_blank" href="tel:{{setting.phone_1}}" class="phone">
+                        <a  style="font-family: AbdoMaster;font-size: 10pt;margin-right: 10px" target="_blank" href="tel:{{setting.phone_1}}" class="phone">
 
                           {{static_content.phone_1}} : <span dir="ltr">{{setting.phone_1}}</span></a>
 
@@ -175,7 +175,7 @@
 
                       {% if setting and setting.phone_2 %}
                       <li style="margin-top: 10px;">
-                        <a target="_blank" href="tel:{{setting.phone_2}}" class="phone">{{static_content.phone_2}} : <span
+                        <a style="font-family: AbdoMaster;font-size: 10pt;" target="_blank" href="tel:{{setting.phone_2}}" class="phone">{{static_content.phone_2}} : <span
                             dir="ltr">{{setting.phone_2}}</span></a>
                       </li> {% endif %}
 
@@ -183,7 +183,7 @@
                       {% if setting and setting.fax %}
                       <li>
 
-                        <a style="margin-right: 10px" target="_blank" href="tel:{{setting.fax}}" class="phone">
+                        <a  style="font-family: AbdoMaster;font-size: 10pt;margin-right: 10px" target="_blank" href="tel:{{setting.fax}}" class="phone">
 
                           {{static_content.fax}} : <span dir="ltr">{{setting.fax}}</span></a>
 
@@ -193,7 +193,7 @@
 
                       <li>
 
-                        <a style="margin-right: 10px" target="_blank" href="mailto:{{setting.emile}}" class="emile">
+                        <a  style="font-family: AbdoMaster;font-size: 10pt;margin-right: 10px" target="_blank" href="mailto:{{setting.emile}}" class="emile">
                           
                           {{static_content.email_address}} : <span dir="ltr">{{setting.emile}}</span></a>
 
@@ -205,7 +205,7 @@
 
                       <li style="text-transform: lowercase;">
 
-                        <a style="margin-right: 10px;text-transform: lowercase;" target="_blank" href="tel:{{setting.mail_box}}" class="phone">
+                        <a  style="font-family: AbdoMaster;font-size: 10pt;"margin-right: 10px;text-transform: lowercase;" target="_blank" href="tel:{{setting.mail_box}}" class="phone">
                           
                           {{static_content.mail_box}} : <span dir="ltr" style="text-transform: lowercase;">{{setting.mail_box}}</span></a>
 
@@ -213,7 +213,7 @@
                       {% endif %}
                       {% if setting and setting.free_phone_numbar %}
                       <li>
-                        <a style="margin-right: 10px" target="_blank" href="tel:{{setting.free_phone_numbar}}" class="phone">
+                        <a  style="font-family: AbdoMaster;font-size: 10pt;"margin-right: 10px" target="_blank" href="tel:{{setting.free_phone_numbar}}" class="phone">
                           
                           {{static_content.free_number}} : <span dir="ltr">{{setting.free_phone_numbar}}</span></a>
 
@@ -224,36 +224,103 @@
                       
                       {% if  setting and setting.youtube   %}
                         <a target="_blank" href="{{setting.youtube}}" >
-                        <i class="bi bi-youtube"> </i></a>
+                          <svg xmlns="http://www.w3.org/2000/svg"
+                          width="21.334" height="15" viewBox="0 0 21.334 15">
+                          <path id="Path_4339" data-name="Path 4339"
+                            d="M21.471-12.653a2.68,2.68,0,0,0-1.886-1.9C17.921-15,11.25-15,11.25-15s-6.671,0-8.335.449a2.681,2.681,0,0,0-1.886,1.9A28.12,28.12,0,0,0,.583-7.485a28.12,28.12,0,0,0,.446,5.168A2.641,2.641,0,0,0,2.915-.449C4.579,0,11.25,0,11.25,0s6.671,0,8.335-.449a2.641,2.641,0,0,0,1.886-1.868,28.12,28.12,0,0,0,.446-5.168A28.12,28.12,0,0,0,21.471-12.653Zm-12.4,8.34v-6.344l5.576,3.172Z"
+                            transform="translate(-0.583 15)"  fill="white" ></path>
+                        </svg>
+                        </a>
                       {% endif %}
                       
                       {% if  setting and setting.telegram   %}
                           <a target="_blank" href="{{setting.telegram}}">
-                          <i class="bi bi-telegram"> </i></a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" enable-background="new 0 0 32 32" viewBox="0 0 32 32"
+                              id="telegram">
+                              <path fill="white" d="M12.408,28.188c-0.865,0-0.717-0.327-1.016-1.148l-2.54-8.362L28.408,7.076L12.408,28.188z">
+                              </path>
+                              <path fill="white" d="M12.408,28.188c0.667,0,0.962-0.305,1.333-0.667l3.556-3.458l-4.436-2.674L12.408,28.188z">
+                              </path>
+                              <path fill="white" d="M12.861,21.391l10.747,7.94c1.228,0.676,2.111,0.326,2.417-1.139L30.4,7.577
+                                                                c0.448-1.796-0.684-2.61-1.858-2.078L2.854,15.405c-1.754,0.703-1.742,1.682-0.32,2.117l6.592,2.058l15.261-9.628
+                                                                c0.721-0.437,1.382-0.202,0.84,0.28L12.861,21.391z"></path>
+                              <path fill="white" d="M24.687,30.163c-0.402,0-0.843-0.132-1.32-0.395l-10.803-7.976c-0.121-0.089-0.195-0.228-0.203-0.378
+                                                                c-0.007-0.15,0.053-0.295,0.165-0.396L25.322,9.503c0.205-0.185,0.521-0.169,0.706,0.037c0.185,0.205,0.168,0.521-0.037,0.706
+                                                                l-12.34,11.106l10.254,7.576c0.271,0.145,0.729,0.329,1.055,0.178c0.332-0.152,0.496-0.637,0.576-1.017l4.375-20.617
+                                                                c0.17-0.681,0.088-1.229-0.215-1.481c-0.231-0.192-0.575-0.206-0.947-0.038L3.033,15.871C2.244,16.188,1.996,16.514,2,16.622
+                                                                c0.003,0.071,0.173,0.267,0.68,0.422l6.375,1.99l6.999-4.416c0.234-0.146,0.542-0.077,0.689,0.156
+                                                                c0.147,0.233,0.078,0.542-0.156,0.689l-7.194,4.539C9.269,20.08,9.116,20.1,8.977,20.057l-6.592-2.058
+                                                                c-1.17-0.358-1.37-0.99-1.384-1.335c-0.02-0.473,0.253-1.157,1.667-1.723l25.695-9.908c0.697-0.318,1.445-0.25,1.974,0.191
+                                                                c0.613,0.511,0.813,1.413,0.549,2.474l-4.371,20.598c-0.184,0.878-0.566,1.457-1.137,1.719
+                                                                C25.163,30.114,24.933,30.163,24.687,30.163z"></path>
+                              <path fill="white" d="M24.687,30.163c-0.402,0-0.843-0.132-1.32-0.395l-6.72-4.959c-0.222-0.164-0.27-0.478-0.105-0.699
+                                                              c0.164-0.222,0.478-0.27,0.699-0.105l6.664,4.923c0.271,0.145,0.729,0.329,1.055,0.178c0.332-0.152,0.496-0.637,0.576-1.017
+                                                              l4.375-20.617c0.17-0.681,0.088-1.229-0.215-1.481c-0.231-0.192-0.575-0.206-0.947-0.038L3.033,15.871
+                                                              C2.244,16.188,1.996,16.514,2,16.622c0.003,0.071,0.173,0.267,0.68,0.422l6.594,2.058c0.158,0.049,0.281,0.174,0.33,0.332
+                                                              l2.267,7.461c0.061,0.167,0.108,0.333,0.149,0.477c0.032,0.114,0.072,0.256,0.099,0.298c-0.004-0.005,0.076,0.019,0.289,0.02
+                                                              c0.447,0,0.617-0.167,0.957-0.498l1.66-1.614c0.198-0.194,0.514-0.188,0.707,0.01c0.192,0.198,0.188,0.515-0.01,0.707L14.09,27.88
+                                                              c-0.402,0.393-0.828,0.809-1.682,0.809c-0.98,0-1.178-0.434-1.351-1.046c-0.035-0.124-0.075-0.267-0.135-0.432l-2.198-7.233
+                                                              l-6.339-1.979c-1.17-0.358-1.37-0.99-1.384-1.335c-0.02-0.473,0.253-1.157,1.667-1.723l25.695-9.908
+                                                              c0.697-0.318,1.445-0.25,1.974,0.191c0.613,0.511,0.813,1.413,0.549,2.474l-4.371,20.598c-0.184,0.878-0.566,1.457-1.137,1.719
+                                                              C25.163,30.114,24.933,30.163,24.687,30.163z"></path>
+                              <g>
+                                <path fill="white" d="M18.5,14c0,0.275-0.225,0.5-0.5,0.5l0,0c-0.275,0-0.5-0.225-0.5-0.5l0,0c0-0.275,0.225-0.5,0.5-0.5
+                                                                          l0,0C18.275,13.5,18.5,13.725,18.5,14L18.5,14z"></path>
+                              </g>
+                            </svg>
+                          </a>
                       {% endif %}
 
                       {% if  setting and setting.instagram   %}
-                        <a  target="_blank"   href="{{setting.instagram}}" >
-                        <i class="bi bi-instagram"> </i></a>
+                        <a   target="_blank"   href="{{setting.instagram}}" >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="17.51"
+                          height="17.506" viewBox="0 0 17.51 17.506">
+                          <path id="Path_4337" data-name="Path 4337"
+                            d="M8.754-11.992A4.481,4.481,0,0,0,4.266-7.5,4.481,4.481,0,0,0,8.754-3.016,4.481,4.481,0,0,0,13.242-7.5,4.481,4.481,0,0,0,8.754-11.992Zm0,7.406A2.923,2.923,0,0,1,5.836-7.5a2.921,2.921,0,0,1,2.918-2.918A2.921,2.921,0,0,1,11.672-7.5,2.923,2.923,0,0,1,8.754-4.586Zm5.719-7.59a1.047,1.047,0,0,0-1.047-1.047,1.047,1.047,0,0,0-1.047,1.047,1.044,1.044,0,0,0,1.047,1.047A1.044,1.044,0,0,0,14.473-12.176Zm2.973,1.063a5.181,5.181,0,0,0-1.414-3.668A5.215,5.215,0,0,0,12.363-16.2c-1.445-.082-5.777-.082-7.223,0a5.207,5.207,0,0,0-3.668,1.41A5.2,5.2,0,0,0,.059-11.117c-.082,1.445-.082,5.777,0,7.223A5.181,5.181,0,0,0,1.473-.227,5.221,5.221,0,0,0,5.141,1.188c1.445.082,5.777.082,7.223,0A5.181,5.181,0,0,0,16.031-.227a5.215,5.215,0,0,0,1.414-3.668C17.527-5.34,17.527-9.668,17.445-11.113Zm-1.867,8.77A2.954,2.954,0,0,1,13.914-.68c-1.152.457-3.887.352-5.16.352s-4.012.1-5.16-.352A2.954,2.954,0,0,1,1.93-2.344C1.473-3.5,1.578-6.23,1.578-7.5s-.1-4.012.352-5.16a2.954,2.954,0,0,1,1.664-1.664c1.152-.457,3.887-.352,5.16-.352s4.012-.1,5.16.352a2.954,2.954,0,0,1,1.664,1.664c.457,1.152.352,3.887.352,5.16S16.035-3.492,15.578-2.344Z"
+                            transform="translate(0.003 16.257)"  fill="white" ></path>
+                        </svg>
+                        
+                        
+                        </a>
                       {% endif %}
                       {% if setting and setting.twitter %}
-                        <a target="_blank" href="{{setting.twitter}}">
-                          <svg  width="18" height="16" viewBox="0 0 18 16" fill="None" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.7849 0.291016H16.4037L10.6823 6.83018L17.4131 15.7285H12.143L8.01522 10.3317L3.29214 15.7285H0.671723L6.79131 8.73414L0.334473 0.291016H5.73839L9.46951 5.22389L13.7849 0.291016ZM12.8658 14.161H14.3169L4.94989 1.77618H3.39268L12.8658 14.161Z" fill="#ffffff"></path>
-                          </svg>
+                        <a  target="_blank" href="{{setting.twitter}}">
+                          <svg width="18" height="16" viewBox="0 0 18 16"
+                              fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M13.7849 0.291016H16.4037L10.6823 6.83018L17.4131 15.7285H12.143L8.01522 10.3317L3.29214 15.7285H0.671723L6.79131 8.73414L0.334473 0.291016H5.73839L9.46951 5.22389L13.7849 0.291016ZM12.8658 14.161H14.3169L4.94989 1.77618H3.39268L12.8658 14.161Z"
+                                fill="white" ></path>
+                            </svg>
                         </a>
                       {% endif %}
                       {% if setting and setting.facebook %}
                         <a target="_blank" href="{{setting.facebook}}">
-                          <i class="bi bi-facebook"></i>
+                          <svg width="20" height="20" viewBox="0 0 20 20"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M19.903 10.0677C19.903 4.78016 15.6189 0.496094 10.3314 0.496094C5.04383 0.496094 0.759766 4.78016 0.759766 10.0677C0.759766 14.8535 4.23333 18.8288 8.82616 19.5235V12.8466H6.39466V10.0677H8.82616V7.98356C8.82616 5.59066 10.2542 4.23983 12.4155 4.23983C13.4962 4.23983 14.5768 4.4328 14.5768 4.4328V6.78711H13.3804C12.1839 6.78711 11.798 7.52042 11.798 8.29232V10.0677H14.4611L14.0365 12.8466H11.798V19.5235C16.3908 18.8288 19.903 14.8535 19.903 10.0677Z"
+                              fill="white" ></path>
+                          </svg>
+                      
                         </a>
                       {% endif %}
 
                       {% if  setting and setting.whatsapp   %}
                         <a  target="_blank" href="https://api.whatsapp.com/send/?phone={{setting.whatsapp}}" >
-                        <i class="bi bi-whatsapp"> </i>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="17.51"
+                          height="17.506" viewBox="0 0 17.51 17.506">
+                          <path fill="white" id="Path_4337" data-name="Path 4337"
+                            d="M8.754-11.992A4.481,4.481,0,0,0,4.266-7.5,4.481,4.481,0,0,0,8.754-3.016,4.481,4.481,0,0,0,13.242-7.5,4.481,4.481,0,0,0,8.754-11.992Zm0,7.406A2.923,2.923,0,0,1,5.836-7.5a2.921,2.921,0,0,1,2.918-2.918A2.921,2.921,0,0,1,11.672-7.5,2.923,2.923,0,0,1,8.754-4.586Zm5.719-7.59a1.047,1.047,0,0,0-1.047-1.047,1.047,1.047,
+                            0,0,0-1.047,1.047,1.044,1.044,0,0,0,1.047,1.047A1.044,1.044,0,0,0,14.473-12.176Zm2.973,1.063a5.181,5.181,0,0,0-1.414-3.668A5.215,5.215,0,0,0,12.363-16.2c-1.445-.082-5.777-.082-7.223,0a5.207,5.207,0,0,0-3.668,1.41A5.2,5.2,0,0,0,.059-11.117c-.082,1.445-.082,5.777,0,7.223A5.181,5.181,0,0,0,1.473-.227,5.221,5.221,0,0,0,
+                            5.141,1.188c1.445.082,5.777.082,7.223,0A5.181,5.181,0,0,0,16.031-.227a5.215,5.215,0,0,0,1.414-3.668C17.527-5.34,17.527-9.668,17.445-11.113Zm-1.867,8.77A2.954,2.954,0,0,
+                            1,13.914-.68c-1.152.457-3.887.352-5.16.352s-4.012.1-5.16-.352A2.954,2.954,0,0,1,1.93-2.344C1.473-3.5,1.578-6.23,1.578-7.5s-.1-4.012.352-5.16a2.954,2.954,0,0,1,1.664-1.664c1.152-.457,3.887-.352,5.16-.352s4.012-.1,5.16.352a2.954,2.954,0,0,1,1.664,1.664c.457,1.152.352,3.887.352,5.16S16.035-3.492,15.578-2.344Z"
+                            transform="translate(0.003 16.257)"></path>
+                        </svg>
+                        
                         </a>
                       {% endif %}
+                      
+                      
                     </div>
                   </div>
                 {% endif %}
@@ -262,8 +329,8 @@
           </div>
           <div style="border: red 0px solid; margin-bottom: 8px; padding: 0px;" class="list-links-footer">
             <ul class="links" style="margin:  0px;">
-              <li><a href="/{{static_content.lang}}/privacy-policy" class="">{{static_content.privacy_policy}}</a></li>
-              <li><a href="/{{static_content.lang}}/anti-money-laundering" class="router-link-active router-link-exact-active"
+              <li><a style="font-family: AbdoMaster;font-size: 10pt;" href="/{{static_content.lang}}/privacy-policy" class="">{{static_content.privacy_policy}}</a></li>
+              <li><a style="font-family: AbdoMaster;font-size: 10pt;" href="/{{static_content.lang}}/anti-money-laundering" class="router-link-active router-link-exact-active"
                   aria-current="page">{{static_content.money_washing}}</a></li>
             </ul>
           </div>

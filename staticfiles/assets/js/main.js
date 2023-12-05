@@ -138,7 +138,7 @@ const sliderservicesmobile = () => {
         },
         // "slides-per-view": "auto",
         // slidesPerView: "auto",
-        slidesPerView: "2",
+        slidesPerView: "5",
 
         navigation: {
             prevEl: ".services-prev",
@@ -166,7 +166,7 @@ const sliderservicesmobile = () => {
 
             // },
             320: {
-                slidesPerView: 3,
+                slidesPerView: 5,
                 spaceBetween: 40,
             },
             // 480: {
@@ -178,7 +178,7 @@ const sliderservicesmobile = () => {
             //   spaceBetween: 40,
             // },
             992: {
-                slidesPerView: 3,
+                slidesPerView: 5,
                 spaceBetween: 40,
             },
         },

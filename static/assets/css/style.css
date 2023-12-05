@@ -151,7 +151,8 @@ html {
 }
 
 body {
-    margin: 0
+    margin: 0;
+    font-family: sans-serif;
 }
 
 main {
@@ -565,7 +566,7 @@ html {
     scroll-behavior: smooth;
     height: 100%;
     position: relative;
-    font-family: AbdoMaster, sans-serif
+    font-family: AbdoMaster, sans-serif;
 }
 
 body {
@@ -10033,6 +10034,12 @@ swiper-slide img {
     src: url(../font/HacenTunisiaBoldRegular.ttf) format("ttf");
 }
 
+
+@font-face {
+    font-family: BankOffialFont;
+    src: url(../font/HacenTunisiaBoldRegular.ttf) format("ttf");
+}
+
 @font-face {
     font-family: AbdoMaster-Normal;
     src: url(../font/AbdoMaster-Normal.fde4fb51.woff) format("woff");
@@ -10042,7 +10049,7 @@ swiper-slide img {
 }
 
 body {
-    font-family: "AbdoMaster", "Open Sans", sans-serif, 'SpaceMono';
+    font-family: "AbdoMaster", ;
     color: #444444;
 
     cursor: default;
@@ -13012,9 +13019,8 @@ bdo {
 
 
 #counts {
-    background: url(../img/yemen-map.png) center no-repeat,
+    background: url(/static/assets/img/yemen-map.png) center no-repeat,
         url(../img/map-background.png) center no-repeat;
-        background-size: 100% 150%;
         background-size: cover;
 
 }
