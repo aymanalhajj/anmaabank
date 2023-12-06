@@ -35,7 +35,7 @@
                     <ul class="sub-header-container">
                         {% for application in navbar.bank_applications %}
                         <li>
-                            <a href="/{{static_content.lang}}/application/{{application.id}}">
+                            <a href="/{{static_content.lang}}/application/{{application.id}}"  dir="{{static_content.deirection}}" style="text-align: start;">
                                 {% if application.logo_image %}
                                 <div class="icon-container">
                                     <img src="{{application.logo_image.url}}" alt="service icon">
@@ -74,7 +74,7 @@
                 {% for section in navbar.section %}
 
 
-                <li><a href="/{{static_content.lang}}/section/{{section.id}}">
+                <li><a href="/{{static_content.lang}}/section/{{section.id}}"  dir="{{static_content.deirection}}" style="text-align: start;">
                         {% if section.image %}
                         <div class="icon-container">
                             <img src="{{section.image.url}}" alt="service icon">
@@ -116,7 +116,7 @@
                 <ul class="sub-header-container">
                     {% if navbar.servicess %}
                         {% for service in navbar.servicess|in_categories_services:categories_service %}
-                            <li><a href="/{{static_content.lang}}/service/{{service.id}}">
+                            <li><a href="/{{static_content.lang}}/service/{{service.id}}" dir="{{static_content.deirection}}" style="text-align: start;">
                                     {% if service.image %}
                                     <div class="icon-container">
                                         <img src="{{service.image.url}}" alt="service icon">

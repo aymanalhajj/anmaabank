@@ -771,7 +771,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'alinmabank',
         # 'USER': 'root',
-        'USER': 'djangouser',
+         'USER': 'djangouser',
         'PASSWORD': 'MYSQL@2030',
         'HOST':'127.0.0.1',
         'PORT':'3306',

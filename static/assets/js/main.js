@@ -224,7 +224,6 @@ new Swiper(".slider-services", {
     enabled: true,
     onlyInViewport: false,
   },
-  loop: true,
   slidesOffsetBefore: 0,
   navigation: {
     prevEl: ".services-prev",
@@ -245,28 +244,6 @@ new Swiper(".slider-services", {
       slidesPerView: 3,
       spaceBetween: 40,
     },
-    // 600: {
-    //   slidesPerView: 3,
-    //   spaceBetween: 0,
-    // },
-    // 800: {
-    //   slidesPerView: 3,
-    //   spaceBetween: 0,
-
-    // },
-    // 1200: {
-    //   slidesPerView: 3,
-    //   spaceBetween: 0,
-
-    // },
-    // 480: {
-    //   slidesPerView: 2,
-    //   spaceBetween: 40,
-    // },
-    // 640: {
-    //   slidesPerView: 3,
-    //   spaceBetween: 40,
-    // },
   },
   
 });
