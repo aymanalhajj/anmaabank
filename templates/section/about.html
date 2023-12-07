@@ -1,306 +1,292 @@
 {% load static %}
 {% block about %}
-
-
-        {% if abouts or Massegeabout or ourvision or ourmission or ourmarch or objective %}
-        {% else %}
-          {% include 'section/404.html' %}
-          {% block section-err-404 %}
-          {% endblock section-err-404 %}
-        {% endif %}
-  <!-- ======= About Section ======= -->
+  {% if abouts or Massegeabout or ourvision or ourmission or ourmarch or objective %}
+  {% else %}
+    {% include 'section/404.html' %}
+    {% block section-err-404 %}
+    {% endblock section-err-404 %}
+  {% endif %}
+    <!-- ======= About Section ======= -->
   {% if abouts and setting and not setting.is_hidden_about   %}
+    <div class="about-page">
+      <section id="about" class="about about-us" style="text-align: start;" dir="{{static_content.direction}}">
+        <div class="container" >
+          <div class="">
+            <div class="flex-column justify-content-center">
+              <div class="content">
+                <h2>
+                  {% if static_content.lang == "ar" %}
+                    {{abouts.titel}}
+                  {% else %}
+                      {{abouts.titel_en}}
+                  {% endif %}
 
-  <div class="about-page">
-  <section id="about" class="about about-us" style="text-align: start;" dir="{{static_content.direction}}">
-    <div class="container" >
-      <div class="">
-
-       
-
-        <div
-          class="flex-column justify-content-center">
-          <div class="content">
-            <h2>
-              {% if static_content.lang == "ar" %}
-                {{abouts.titel}}
-              {% else %}
-                  {{abouts.titel_en}}
-              {% endif %}
-
-            </h2>
-            <div
-            class="align-items-center">
-    
-            <div class="image-wrapper"><div class="image">
-              <img src="{{abouts.image.url}}" alt="{{ abouts.detial_ar }}">
-              <div class="bg"></div>
-            </div>
-          </div>
-          </div>
-            <div class="description-wrapper">
-                <div class="description"></div>
-                  <p>
-                    {% if static_content.lang == "ar" %}
+                </h2>
+                <div class="align-items-center">
+                  <div class="image-wrapper">
+                    <div class="image">
+                      <img src="{{abouts.image.url}}" alt="{{ abouts.detial_ar }}">
+                      <div class="bg"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="description-wrapper">
+                  <div class="description">
+                    <p>
+                      {% if static_content.lang == "ar" %}
                       {{abouts.detial_ar|safe}}
-                    {% else %}
-                        {{abouts.detial_en|safe}}
-                    {% endif %}
-
-                  </p>
+                      {% else %}
+                      {{abouts.detial_en|safe}}
+                      {% endif %}
+                    </p>
+                  </div>
                 </div>
-              <div> 
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+    </div>
+  {% endif %}
+  
 
+        
       
-      </div>
-    </div>
-  </section>
+    {% if Massegeabout and setting and not setting.is_hidden_about   %}
 
-               {% endif %}
- 
-
-       
-    
-  {% if Massegeabout and setting and not setting.is_hidden_about   %}
-
-  <section id="Massegeabout" class="about" style="text-align: start;" dir="{{static_content.direction}}">
-    <div class="container" >
-      <div class="">
-       
-
-        <div
-          class=" d-flex flex-column justify-content-center ">
-          <div class="content">
-
-          <h2>
-            {% if static_content.lang == "ar" %}
-              {{Massegeabout.titel}}
-            {% else %}
-                {{Massegeabout.titel_en}}
-            {% endif %}
-          </h2>
-          <div
-          class=" align-items-center">
-            <div class="image-wrapper"><div class="image">
-              <img src="{{Massegeabout.image.url}}" alt="{{ Massegeabout.titel }}">
-              <div class="bg"></div>
-            </div>
-            
-        </div>
-      </div>
-              <div class="description-wrapper">
-                <div class="description"></div>
-                  <p>
-                    
-                    {% if static_content.lang == "ar" %}
-                      {{Massegeabout.detial_ar|safe}}
-                    {% else %}
-                        {{Massegeabout.detial_en|safe}}
-                    {% endif %}
-                  </p>
-                </div>
-              <div> 
-        
-        </div>
-
-        
-        </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End About Section -->
-  {% endif %}
-
-  {% if ourvision and setting and not setting.is_hidden_about   %}
-  <section id="about" class="about mission" style="text-align: start;" dir="{{static_content.direction}}">
-    <div class="container" >
-      <header class="section-header">
-      </header>
-      <div class="">
-        <div
-          class=" d-flex flex-column justify-content-center">
-         
-
-          <div class="content vision">
-            <h2>
-              {% if static_content.lang == "ar" %}
-                  {{ourvision.titel|safe}}
-              {% else %}
-                  {{ourvision.titel_en|safe}}
-              {% endif %}
-            </h2>
-            <div
-            class=" align-items-center">
-            {% if ourvision.image %}
-            <div class="image-wrapper"><div class="image">
-              <img src="{{ourvision.image.url}}" alt="رؤية البنك">
-              <div class="bg"></div>
-            </div>
-  
-            </div>
-            {% endif %}
-  
-          </div>
-            <div class="description-wrapper">
-                <div class="description"></div>                
-                {% if static_content.lang == "ar" %}
-                  {{ourvision.detial_ar|safe}}
-                {% else %}
-                    {{ourvision.detial_en|safe}}
-                {% endif %}
-                </div>
-              <div> 
-          </div>
-        </div>
-
-       
-      </div>
-    </div>
-  </section>
-  {% endif %}
-
-  {% if ourmission and setting and not setting.is_hidden_about   %}
-
-  <section id="ourmission" class="about mission " style="text-align: start;" dir="{{static_content.direction}}">
-    <div class="container" >
-      <div class="">
-      
-        <div
-          class="flex-column justify-content-center ">
-          <div class="content">
-
-            <h2>مهمتنــــا</h2>
-            <div
-            class="align-items-center">
-                 
-          {% if ourmission.image %}
-          <div class="image-wrapper"><div class="image"><img src="{{ourmission.image.url}}" alt="الرؤية"><div class="bg"></div></div></div>
-          {% endif  %}
-          </div>
-            <p>
-              {% if static_content.lang == "ar" %}
-                {{ ourmission.detial_ar|safe}}
-              {% else %}
-                  {{ ourmission.detial_en|safe}}
-              {% endif %}
-            </p>
-          </div>
-        
-        </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End About Section -->
-  {% endif %}
-
-
-  {% if ourmarch and setting and not setting.is_hidden_about   %}
-
-  <section id="about" class="about" style="text-align: start;" dir="{{static_content.direction}}">
-    <div class="container" >
-     
-      <div class="">
-
-
-        <div
-          class=" d-flex flex-column justify-content-center">
-          <div class="content">
-            <h2>مسيرتنا
-
-
-            </h2>
-
-            <div
-            class=" align-items-center">
-            {% if ourmarch.image %}
-            <div class="image-wrapper"><div class="image">
-              <img src="{{ourmarch.image.url}}" alt="{{ ourmarch.detial_ar }}">
-              <div class="bg"></div>
-  
-            </div>
-            {% endif %}
-  
-          </div>
-            <div class="description-wrapper">
-                <div class="description"></div>
-                  <p>
-                    {% if static_content.lang == "ar" %}
-                      {{ ourmarch.detial_ar|safe}}
-                    {% else %}
-                        {{ ourmarch.detial_en|safe}}
-                    {% endif %}
-                  </p>
-                </div>
-              <div>
-          </div>
-        </div>
-
-       
-        </div>
-      </div>
-    </div>
-  </section>
-  {% endif %}
-    {% comment %} {% include 'section/our_vision.html' %}
-    {% block OurVision %}
-    {% endblock OurVision %} {% endcomment %}
-    {% if objective and setting and not setting.is_hidden_about   %}
-
-    <section id="about" class="about goals values" style="text-align: start;" dir="{{static_content.direction}}">
+    <section id="Massegeabout" class="about" style="text-align: start;" dir="{{static_content.direction}}">
       <div class="container" >
-       
         <div class="">
         
-            
-  
-          <div
-            class=" align-items-center">
-           
-            <div class="content">
-              <h2>
-                
-                
-              {% if static_content.lang == "ar" %}
-              {{objective.titel}}
-            {% else %}
-                {{objective.titel_en}}
-            {% endif %}
-            
-            </h2>
-              <div
-              class=" d-flex flex-column justify-content-center">
-              {% if objective.image %}
-              <div class="image-wrapper"><div class="image">
-                <img src="{{objective.image.url}}" alt="{{ objective.titel }}">
-                <div class="bg"></div>
-    
-              </div>
-            </div>
-          </div>
-              {% endif %}
 
-              <div class="description-wrapper">
-                <div class="description"></div>
-                  <p>                    
-                    {% if static_content.lang == "ar" %}
-                      {{ objective.detial_ar|safe}}
-                    {% else %}
-                        {{ objective.detial_en|safe}}
-                    {% endif %}
-                  </p>
+          <div
+            class=" d-flex flex-column justify-content-center ">
+            <div class="content">
+
+            <h2>
+              {% if static_content.lang == "ar" %}
+                {{Massegeabout.titel}}
+              {% else %}
+                  {{Massegeabout.titel_en}}
+              {% endif %}
+            </h2>
+            <div
+            class=" align-items-center">
+              <div class="image-wrapper"><div class="image">
+                <img src="{{Massegeabout.image.url}}" alt="{{ Massegeabout.titel }}">
+                <div class="bg"></div>
               </div>
-              <div>
               
-            </div>
+          </div>
+        </div>
+                <div class="description-wrapper">
+                  <div class="description"></div>
+                    <p>
+                      
+                      {% if static_content.lang == "ar" %}
+                        {{Massegeabout.detial_ar|safe}}
+                      {% else %}
+                          {{Massegeabout.detial_en|safe}}
+                      {% endif %}
+                    </p>
+                  </div>
+                <div> 
+          
+          </div>
+
+          
+          </div>
           </div>
         </div>
       </div>
     </section>
-    </div>
+    <!-- End About Section -->
     {% endif %}
+
+    {% if ourvision and setting and not setting.is_hidden_about   %}
+    <section id="about" class="about mission" style="text-align: start;" dir="{{static_content.direction}}">
+      <div class="container" >
+        <header class="section-header">
+        </header>
+        <div class="">
+          <div
+            class=" d-flex flex-column justify-content-center">
+          
+
+            <div class="content vision">
+              <h2>
+                {% if static_content.lang == "ar" %}
+                    {{ourvision.titel|safe}}
+                {% else %}
+                    {{ourvision.titel_en|safe}}
+                {% endif %}
+              </h2>
+              <div
+              class=" align-items-center">
+              {% if ourvision.image %}
+              <div class="image-wrapper"><div class="image">
+                <img src="{{ourvision.image.url}}" alt="رؤية البنك">
+                <div class="bg"></div>
+              </div>
+    
+              </div>
+              {% endif %}
+    
+            </div>
+              <div class="description-wrapper">
+                  <div class="description"></div>                
+                  {% if static_content.lang == "ar" %}
+                    {{ourvision.detial_ar|safe}}
+                  {% else %}
+                      {{ourvision.detial_en|safe}}
+                  {% endif %}
+                  </div>
+                <div> 
+            </div>
+          </div>
+
+        
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if ourmission and setting and not setting.is_hidden_about   %}
+
+    <section id="ourmission" class="about mission " style="text-align: start;" dir="{{static_content.direction}}">
+      <div class="container" >
+        <div class="">
+        
+          <div
+            class="flex-column justify-content-center ">
+            <div class="content">
+
+              <h2>مهمتنــــا</h2>
+              <div
+              class="align-items-center">
+                  
+            {% if ourmission.image %}
+            <div class="image-wrapper"><div class="image"><img src="{{ourmission.image.url}}" alt="الرؤية"><div class="bg"></div></div></div>
+            {% endif  %}
+            </div>
+              <p>
+                {% if static_content.lang == "ar" %}
+                  {{ ourmission.detial_ar|safe}}
+                {% else %}
+                    {{ ourmission.detial_en|safe}}
+                {% endif %}
+              </p>
+            </div>
+          
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End About Section -->
+    {% endif %}
+
+
+    {% if ourmarch and setting and not setting.is_hidden_about   %}
+
+    <section id="about" class="about" style="text-align: start;" dir="{{static_content.direction}}">
+      <div class="container" >
+      
+        <div class="">
+
+
+          <div
+            class=" d-flex flex-column justify-content-center">
+            <div class="content">
+              <h2>مسيرتنا
+
+
+              </h2>
+
+              <div
+              class=" align-items-center">
+              {% if ourmarch.image %}
+              <div class="image-wrapper"><div class="image">
+                <img src="{{ourmarch.image.url}}" alt="{{ ourmarch.detial_ar }}">
+                <div class="bg"></div>
+    
+              </div>
+              {% endif %}
+    
+            </div>
+              <div class="description-wrapper">
+                  <div class="description"></div>
+                    <p>
+                      {% if static_content.lang == "ar" %}
+                        {{ ourmarch.detial_ar|safe}}
+                      {% else %}
+                          {{ ourmarch.detial_en|safe}}
+                      {% endif %}
+                    </p>
+                  </div>
+                <div>
+            </div>
+          </div>
+
+        
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+      {% if objective and setting and not setting.is_hidden_about   %}
+
+      <section id="about" class="about goals values" style="text-align: start;" dir="{{static_content.direction}}">
+        <div class="container" >
+        
+          <div class="">
+          
+              
+    
+            <div
+              class=" align-items-center">
+            
+              <div class="content">
+                <h2>
+                  
+                  
+                {% if static_content.lang == "ar" %}
+                {{objective.titel}}
+              {% else %}
+                  {{objective.titel_en}}
+              {% endif %}
+              
+              </h2>
+                <div
+                class=" d-flex flex-column justify-content-center">
+                {% if objective.image %}
+                <div class="image-wrapper"><div class="image">
+                  <img src="{{objective.image.url}}" alt="{{ objective.titel }}">
+                  <div class="bg"></div>
+      
+                </div>
+              </div>
+            </div>
+                {% endif %}
+
+                <div class="description-wrapper">
+                  <div class="description"></div>
+                    <p>                    
+                      {% if static_content.lang == "ar" %}
+                        {{ objective.detial_ar|safe}}
+                      {% else %}
+                          {{ objective.detial_en|safe}}
+                      {% endif %}
+                    </p>
+                </div>
+                <div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      </div>
+      {% endif %}
 
 {% endblock about %}

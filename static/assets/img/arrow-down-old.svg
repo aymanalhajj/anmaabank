@@ -4,8 +4,7 @@
 	 viewBox="0 0 595.3 841.9" style="enable-background:new 0 0 595.3 841.9;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#E0B643;}
-	.st1{opacity:0.52;fill:#E0B643;}
 </style>
 <polygon class="st0" points="502.9,296.4 502.9,243.7 307.2,378.9 111.5,243.7 111.5,296.4 307.2,431.6 "/>
-<polygon class="st1" points="502.9,397.3 502.9,344.7 307.2,479.9 111.5,344.6 111.5,397.3 307.2,532.6 "/>
+<polygon class="st0" points="502.9,397.3 502.9,344.7 307.2,479.9 111.5,344.6 111.5,397.3 307.2,532.6 "/>
 </svg>

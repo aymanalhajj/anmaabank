@@ -1,0 +1,198 @@
+{% load static %}
+{% block about %}
+  {% if abouts or Massegeabout or ourvision or ourmission or ourmarch or objective %}
+  {% else %}
+    {% include 'section/404.html' %}
+    {% block section-err-404 %}
+    {% endblock section-err-404 %}
+  {% endif %}
+    <!-- ======= About Section ======= -->
+  {% if abouts and setting and not setting.is_hidden_about   %}
+    <div class="about-page">
+      <section id="about" class="about about-us" style="text-align: start;" dir="{{static_content.direction}}">
+        <div style="overflow: hidden;">
+            <div style="width: 17%; height: fit-content;float: right; color: var(--primary);font-weight: bolder;font-size: 16pt;">
+              <br><br>
+              <span>
+                <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
+                <span>
+                  نشـأة البنك 
+                </span>
+              </span>
+              <br><br><br><br><br>
+              <span>
+                <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
+                <span>
+                  القيم 
+                </span>
+              </span>
+              
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <span>
+                <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
+                <span>
+                  الرسالة 
+                </span>
+              </span>
+
+              
+              <br><br><br><br><br><br>
+              <span>
+                <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
+                <span>
+                  الرؤية      
+                </span>
+              </span>
+              <br><br><br><br><br>
+              <span>
+                <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
+                <span>
+                  الأهداف / الغايات      
+                </span>
+              </span>
+            </div>
+         
+          <div class="flex-column justify-content-center" style="float: right; width: 83%;">
+            <div class="content" >
+              <div class="description-wrapper" style="color: var(--primary);font-weight: bolder;font-size: 12pt;">
+                <span>
+                  <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                  <span>
+                    نشأة البنك :
+                  </span>
+                </span>
+                <p>
+                  نشأ بنك الإنماء للتمويل الأصغر عبر شركة مساهمة يمنية مقفلة تأسست وفقاً لأحكام القانون رقم (15) لسنة 2009م،
+                  بشأن بنوك التمويل الأصغر <br>وبناءً على قانون الشركات التجارية اليمني رقم (٢٢) لعام ١٩٩٧م بشأن الشركات
+                  التجارية وتعديلاته.
+                </p>
+                <br>
+                <span>
+                  <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                  <span>
+                    القيم :
+                  </span>
+                </span>
+                <p>
+                  <span style="color: var(--accent);">الالتزام بأحكام الشريعة الإسلامية:</span>
+                  التزام البنك بمبادئ الشريعة الإسلامية في تصميم وتقديم منتجات وخدماته المصرفية بمعايير مهنية عالية و بأحدث
+                  التقنيات في
+                  أداء الخدمة للعملاء.
+                </p>
+                <p>
+                  <span style="color: var(--accent);">الامتثال للقوانين المعمول بها:</span>
+                  يمتثل البنك بالقوانين والتشريعات المحلية والدولية التي تنظم قطاع الخدمات المالية. كما يتم الامتثال للمعايير
+                  القانونية
+                  والمالية والضريبية والمنظمات الرقابية ذات الصلة لضمان التشغيل القانوني والملتزم بالمعايير العالمية للمصرفية.
+                </p>
+                <p>
+                  <span style="color: var(--accent);">النزاهة الشفافية:</span>
+                  يتحلى البنك بالشفافية في تعاملاته المالية ويوفر معلومات دقيقة وواضحة للعملاء بشأن المنتجات والخدمات المالية
+                  التي
+                  يقدمها.
+                </p>
+                <p>
+                  <span style="color: var(--accent);">العدالة:</span>
+                  يتعامل البنك بعدالة ومساواة مع جميع العملاء، دون تمييز أو تفضيل بناءً على أي عوامل شخصية أو اجتماعية.
+                </p>
+                <p>
+                  <span style="color: var(--accent);">الأخلاق والأخلاقيات:</span>
+                  يتبنى البنك معايير أخلاقية عالية في أعماله، ويتجنب الممارسات غير المشروعة والتلاعب المالي.
+                </p>
+                <p>
+                  <span style="color: var(--accent);">المسؤولية الاجتماعية:</span>
+                  يساهم البنك في التنمية المستدامة ورفاهية المجتمعات التي يخدمها. فمسئوليتنا نحو مجتمعنا مسئولية تحدث أثر
+                  وبصمة إيجابية
+                  نحو تحقيق تنمية اجتماعية واقتصادية في بلدنا.
+                </p>
+                <p>
+                  <span style="color: var(--accent);">الثقة والأمان:</span>
+                  يوفر البنك بيئة آمنة وموثوقة للعملاء، ويحافظ على سرية المعلومات الشخصية والمالية.
+                </p>
+                <p>
+                  <span style="color: var(--accent);">الابتكار:</span>
+                  يحرص البنك على أن يكون مبتكرًا في تقديم منتجات وخدمات مالية جديدة ومبتكرة، وبتقنيات حديثة تلبي احتياجات
+                  العملاء
+                  وتتوافق مع المبادئ الإسلامية .
+                </p>
+                <span>
+                  <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                  <span>
+                    الرسالة:
+                  </span>
+                </span>
+                <p>
+                  توفير حلول مالية شاملة ومتوافقة مع الشرعية الإسلامية بأفضل التقنيات الرقمية لتمكين الأفراد والشركات من تحقيق
+                  أهدافهم
+                  المالية والمساهمة في التنمية المستدامة و خلق فرص عمل لتخفيف نسبة البطالة وصولاً الى الاعتماد على الذات
+                  لأفراد المجتمع.
+                  من خلال تقديم خدمات مصرفية وتمويلية عالية الجودة والشفافية.
+                </p>
+                <br>
+      
+                <span>
+                  <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                  <span>
+                    الرؤية:
+                  </span>
+                </span>
+                <p>
+                  أن نصبح البنك الرئيسي في تمويل الأفراد الطموحين والمشاريع الصغيرة والمتوسطة. نهدف إلى تقديم خدمات مالية
+                  شاملة ومبتكرة
+                  تلبي احتياجات عملائنا وتعزز نموهم وازدهارهم.
+                </p>
+                <br>
+                <span>
+                  <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                  <span>
+                    الأهداف / الغايات:
+                  </span>
+                </span>
+                <p>
+                  <span style="color: var(--accent);"> توفير خدمات تمويلية مبتكرة :</span>
+                  يهدف البنك إلى تقديم حلول تمويلية مبتكرة ومرنة للأفراد والشركات الصغيرة والمتوسطة، بما في ذلك التمويل الشخصي
+                  والتجاري والعقاري والاستثماري.
+                </p>
+      
+                <p>
+                  <span style="color: var(--accent);">تعزيز المساواة المالية :</span>
+                  يسعى البنك إلى تعزيز العدالة المالية وتوفير فرص متساوية للجميع للوصول إلى الخدمات المالية، مع التركيز على
+                  تمكين الفئات الأقل حظًا والمجتمعات المحرومة.
+                </p>
+      
+                <p>
+                  <span style="color: var(--accent);"> تعزيز التنمية المستدامة :</span>
+                  يهدف البنك إلى المساهمة في التنمية المستدامة للمجتمعات التي يخدمها، من خلال تمويل المشاريع البيئية
+                  والاستدامة والاستثمار في القطاعات ذات الأثر الاجتماعي الإيجابي.
+                </p>
+      
+                <p>
+                  <span style="color: var(--accent);">توفير خدمات مصرفية إلكترونية متقدمة :</span>
+                  يسعى البنك إلى تقديم خدمات مصرفية إلكترونية متطورة وآمنة، مثل الخدمات المصرفية عبر الإنترنت والتطبيقات
+                  المصرفية الذكية، والصراف الآلي لتسهيل وتحسين تجربة العملاء.
+                </p>
+      
+                <p>
+                  <span style="color: var(--accent);">تعزيز التوعية المالية :</span>
+                  يهدف البنك إلى تعزيز التوعية المالية للعملاء والمجتمع، من خلال تقديم برامج تعليمية ومواد توعوية حول الشرعية
+                  الإسلامية للتمويل والاستثمار وإدارة المال.
+                </p>
+      
+                <p>
+                  <span style="color: var(--accent);">تعزيز الثقافة المصرفية الإسلامية :</span>
+                  يسعى البنك إلى تعزيز الثقافة المصرفية الإسلامية وفهمها بين العملاء والمجتمع، من خلال توفير المعلومات
+                  والخدمات المصرفية التي تتوافق مع مبادئ الشرعية الإسلامية.
+                </p>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  {% endif %}
+  
+
+        
+
+{% endblock about %}
