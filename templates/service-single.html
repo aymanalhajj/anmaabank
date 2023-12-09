@@ -21,15 +21,28 @@
     </section>
     {% if services %}
       <div class="container">
-        <section id="services-details" class="services-details blog"  style="text-align: start;" dir="{{static_content.direction}}">
-          <div class="container" >
+        <section id="services-details" class="services-details blog"  style="text-align: start;padding-top: 0px;border-radius: 5px;" dir="{{static_content.direction}}">
+          <div class="containerr" style="margin: 0px;" >
             <header class="section-header">
+              <div style="position: absolute;margin: 3px;margin-top: 50px;">
+                <span>
+                  <img src="/static/assets/img/hor-rect.png" height="25" style="margin-bottom: 3px;" />
+                  <span style="color: white;font-size: 24pt;font-weight: bold;">
+                    {% if static_content.lang == "ar" %}
+                    {{services.titel}}
+                    {% else %}
+                    {{services.titel_en}}
+                    {% endif %}
+                  </span>
+                </span>
+              </div>
+              <img src="/static/assets/img/service-cover.png" />
               <h2>
                 {% if static_content.lang == "ar" %}
-                                {{services.titel}}
-                            {% else %}
-                                {{services.titel_en}}
-                            {% endif %}
+                {{services.titel}}
+                {% else %}
+                {{services.titel_en}}
+                {% endif %}
               </h2>
               <p>
                 
@@ -143,8 +156,8 @@
                   <div class="row gy-4 align-item-center align-self-center align-content-center">
                     
                     {% for field in form %}
-                    <div class="col-md-12">
-                      <div class="input-group mb-3">
+                    <div class="col-md-12" >
+                      <div class="input-group mb-2">
                         {{field|as_crispy_field}}
                       </div>  
                     
