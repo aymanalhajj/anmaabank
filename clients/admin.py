@@ -9,7 +9,7 @@ from .models import *
 # Register your models here.
 
 
-@admin.register(Clients)
+# @admin.register(Clients)
 class ClientsModelAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.created_by = request.user

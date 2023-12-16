@@ -317,7 +317,7 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 # TINYMCE_JS_URL = "https://anmaqbank.pythonanywhere.com/static/assets/tinymce/tinymce.min.js"
 # CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 #   <script src="" referrerpolicy="origin"></script>
-TINYMCE_JS_URL = "https://cdn.tiny.cloud/1/pxi8iu9cpmoaxzsbp1ph3bb14kjjxi9pegd9u6i0l8vdtckd/tinymce/6/tinymce.min.js"
+# TINYMCE_JS_URL = "https://cdn.tiny.cloud/1/pxi8iu9cpmoaxzsbp1ph3bb14kjjxi9pegd9u6i0l8vdtckd/tinymce/6/tinymce.min.js"
 # REFERRER_POLICY = "origin"
 # TINYMCE_JS_URL ="https://cdn.tiny.cloud/1/pxi8iu9cpmoaxzsbp1ph3bb14kjjxi9pegd9u6i0l8vdtckd/tinymce/6/plugins.min.js"
 # TINYMCE_JS_URL = os.path.join(BASE_DIR, "/static/asset/tinymce/tinymce.min.js")
@@ -481,14 +481,7 @@ TINYMCE_DEFAULT_CONFIG = {
           bullist numlist checklist outdent indent | removeformat | a11ycheck code table help
 
     ''',
-    # "",
-    # "selector": 'textarea #full-featured-non-premium',
-    "selector": "textarea",  # full-featured-non-premium',
-    # 'contextmenu': 'formats | link image',
-    # 'menubar': True,
-    # 'statusbar': True,
-    # 'height': 1000,
-    # 'width': 1000,
+    # "selector": "textarea",  
 
     "codesample_languages": [
         # {"text": 'HTML/XML', "value": 'markup'},

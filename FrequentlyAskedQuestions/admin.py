@@ -3,7 +3,7 @@ from .models import *
 # from liststyle import ListStyleAdminMixin
 # from liststyle import ListStyleAdminMixin
 # Register your models here.
-@admin.register(FrequentlyAskedQuestions)
+# @admin.register(FrequentlyAskedQuestions)
 class FrequentlyAskedQuestionsModelAdmin(admin.ModelAdmin):
     def get_row_css(self, obj, index):
             if obj.is_active_city:

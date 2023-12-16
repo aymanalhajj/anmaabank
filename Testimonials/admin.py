@@ -3,7 +3,7 @@ from .models import *
 # Register your models here.
 
 
-@admin.register(Testimonials)
+# @admin.register(Testimonials)
 class TestimonialsModelAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.created_by = request.user

@@ -8,7 +8,7 @@ class ImagesBlogsAdminStackedInline(admin.StackedInline):
     extra = 1
 
 
-@admin.register(CategoryBlog)
+# @admin.register(CategoryBlog)
 class CategoryBlogAdmin(admin.ModelAdmin):
     # inlines = [ImagesPortfolioAdmin]
     list_display = (
@@ -55,15 +55,9 @@ class BlogsAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
     autocomplete_fields = [
-        # 'typeProdactSecondary',
-        'category_blog',
+        # 'category_blog',
 
     ]
-    # autocomplete_fields = ['ComercialActivie']
-    # raw_id_fields = ["category"]
-    # list_per_page = sys.mai
-    # filter_vertical = ['TypeProdact']
-    # list_select_related = ['TypeProdact']
     exclude = ('Date_Added', 'Date_Update', 'created_by',)
     readonly_fields = ('Date_Added', 'Date_Update', "created_by",)
 

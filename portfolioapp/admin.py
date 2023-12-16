@@ -3,7 +3,7 @@ from .models import *
 # Register your models here.
 # admin.site.register(Category)
 
-admin.site.register(ImagesPortfolioNoDetils)
+# admin.site.register(ImagesPortfolioNoDetils)
     # @admin.register(ImagesPortfolioNoDetils)
 # class ImagesPortfolioNoDetilsAdmins(admin.ModelAdmin):
 #     pass

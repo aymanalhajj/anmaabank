@@ -12,7 +12,7 @@ from .models import *
 # Register your models here.
 
 
-@admin.register(Teams)
+# @admin.register(Teams)
 class TeamsModelAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.created_by = request.user

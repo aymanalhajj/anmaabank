@@ -190,6 +190,7 @@ class SettingModelAdmin(admin.ModelAdmin):
                 "fields": (
 
                     'footer',
+                    'footer_en',
                     'short_note',
 
                 ),

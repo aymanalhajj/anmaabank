@@ -163,12 +163,18 @@ static_content= {
         "amarican_dollar":"دولار أمريكي",
         "saudi_rial":"ريال سعودي",
         "available_jobs":"وظائف",
+        "values":"القيم",
+        "products":"المنتجات",
+        "objectives":"الأهداف / الغايات",
         
 
     }
     ,
     "en":
     {
+        "products":"Products",
+        "values":"Our Values",
+        "objectives":"Our Objectives",
         "available_jobs":"Jobs",
         "saudi_rial":"Saudi Rial",
         "emarat_derham":"Emarat Derham",

@@ -73,6 +73,14 @@ class SettingModel(models.Model):
         max_length=300,
         null=True,
         default=_(" جميع الحقوق محفوظة © لـ بنك الإنماء للتمويل الأصغر الإسلامي 2023"),
+                  verbose_name = "الحقوق عربي",
+    )
+    footer_en = models.CharField(
+        #     max_length=10000000,
+        max_length=300,
+        null=True,
+        default=_(" جميع الحقوق محفوظة © لـ بنك الإنماء للتمويل الأصغر الإسلامي 2023"),
+                  verbose_name = "الحقوق انجليزي",
     )
     name_website_short = models.CharField(
         max_length=20,
@@ -433,7 +441,7 @@ class SettingModel(models.Model):
         self.save()
 
     def __str__(self):
-        return _("الاعــــدادات")
+        return "الاعــــدادات"
 
     class Meta:
         managed = True

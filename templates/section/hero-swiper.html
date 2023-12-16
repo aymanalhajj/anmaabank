@@ -6,114 +6,96 @@
   <a href="#footer" class=" d-flex align-items-center justify-content-center">
     <img style="position: absolute;bottom: -20px;left: 45%;;z-index: 100;" width="180px" height="140px" src="/static/assets/img/arrow-down.svg" />
   </a>
-  
-
-
-<div class="services-section-container" style="border: 0px rgb(18, 14, 14) solid;margin-bottom: 30px; ">
-  <div class="containerr" style="border: rgb(81, 0, 255) 0px solid; padding: 0px;margin: 0px; ">
-    <div  style="border: 0px red solid; " class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden hero-slider slider-services-js">
-      <div class="swiper-wrapper"    >
-        {% for services in AdsenceHeder %}
-          <div class="swiper-slide" role="group" >
-            <img src="{{services.image.url}}" alt="" style="width: 100%;" />
+  <div class="services-section-container" style="border: 0px rgb(18, 14, 14) solid;margin-bottom: 30px; ">
+    <div class="containerr" style="border: rgb(81, 0, 255) 0px solid; padding: 0px;margin: 0px; ">
+      <div  style="border: 0px red solid; " class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden hero-slider slider-services-js">
+        <div class="swiper-wrapper"    >
+            <!-- {% for services in AdsenceHeder %}
+            <div class="swiper-slide" role="group" >
+              <img src="{{services.image.url}}" alt="" style="width: 100%;" class="slide-img" />
+            </div>
+            {% endfor %} -->
+            {% for services in AdsenceHeder %}
+              <div class="swiper-slide" role="group" 
+              {% if static_content.lang == "ar" %}
+                  style="height: 450pt;width: 100%;;background-image: url({{services.image.url}});background-size: cover;background-repeat: no-repeat;" 
+              
+                {% else %}
+                  style="height: 450pt;width: 100%;;background-image: url({{services.image_en.url}});background-size: cover;background-repeat: no-repeat;" 
+                {% endif %}
+              <!-- style="height: 450pt;width: 100%;;background-image: url({{services.image.url}});background-size: cover;background-repeat: no-repeat;" 
+               -->
+              
+              >
+                <span 
+                        {% if static_content.lang == "ar" %}
+                          style="position: absolute;top: 74pt;right: 3%;font-family: AbdoMaster;color: var(--primary);font-size: 40pt;font-weight: bold;"
+                        {% else %}
+                          style="position: absolute;top: 74pt;left: 3%;font-family: AbdoMaster;color: var(--primary);font-size: 40pt;font-weight: bold;"
+                        {% endif %}
+                >{{ static_content.products }}</span>
+                <span
+                
+                {% if static_content.lang == "ar" %}
+                  style="position: absolute;top: 200pt;right: 10%;height: 20pt;direction: rtl;"
+                {% else %}
+                  style="position: absolute;top: 200pt;left: 10%;height: 20pt;direction: ltr;"
+                {% endif %}
+                
+                >
+                  <img 
+                  src="/static/assets/img/title-icon.png"  width="45" height="18" />
+                  <span style="font-family: AbdoMaster;color: var(--primary);font-size: 20pt;font-weight: bold;">
+                    {% if static_content.lang == "ar" %}
+                      {{services.Tital_AR}}
+                    {% else %}
+                      {{services.Tital_EN}}
+                    {% endif %}
+                  </span>
+                </span>
+                <span
+                
+                {% if static_content.lang == "ar" %}
+                  style="direction: rtl;max-width: 470pt;position: absolute;top: 245pt;right: 10%;font-family: AbdoMaster;color: var(--accent);font-size: 14pt;font-weight: bold;"
+                {% else %}
+                  style="direction: ltr;max-width: 470pt;position: absolute;top: 245pt;left: 10%;font-family: AbdoMaster;color: var(--accent);font-size: 14pt;font-weight: bold;"
+                {% endif %}
+                
+                >
+                  <!-- يمكن للعملاء فتح حساب جاري إسلامي يتوافق مع مبادئ الشريعة الإسلامية يتيح للعملاء اجراء المعاملات المصرفية اليومية -->
+                  {% if static_content.lang == "ar" %}
+                    {{services.Description_AR}}
+                  {% else %}
+                  {{services.Description_EN}}
+                  {% endif %}
+                  
+                </span>
+              </div>
+            {% endfor %}
+            <!-- <div class="swiper-slide" role="group" style="height: 450pt;width: 100%;;background-image: url('/static/assets/img/whole-02.jpg');background-size: cover;background-repeat: no-repeat;" >
+              <span style="position: absolute;top: 74pt;right: 3%;font-family: AbdoMaster;color: var(--primary);font-size: 40pt;font-weight: bold;">المنتجات</span>
+              <span style="position: absolute;top: 200pt;right: 10%;height: 20pt;">
+                <img  src="/static/assets/img/title-icon.png"  width="45" height="18" />
+                <span style="font-family: AbdoMaster;color: var(--primary);font-size: 20pt;font-weight: bold;">حسابات جارية للأفراد</span>
+              </span>
+              <span style="max-width: 470pt;position: absolute;top: 245pt;right: 10%;font-family: AbdoMaster;color: var(--accent);font-size: 14pt;font-weight: bold;">
+                يمكن للعملاء فتح حساب جاري إسلامي يتوافق مع مبادئ الشريعة الإسلامية يتيح للعملاء اجراء المعاملات المصرفية اليومية
+              </span>
+            </div> -->
+        </div>
+        <div class="hero-slider-buttons slider-buttons" style="border: 0px red solid;width: 95%;">
+          <div class="hero-prev">
+            <img src="/static/assets/img/right-yellow-arrow.png" width="40px" height="80px"/>
           </div>
-          {% endfor %}
-      </div>
-      <div class="hero-slider-buttons slider-buttons" style="border: 0px red solid;">
-        <div class="hero-prev">
-          <img src="/static/assets/img/arrow-blue-right.svg" width="130px" height="160px"/>
-        </div>
-        <div class="hero-next">
-          <img src="/static/assets/img/arrow-blue-left.svg" width="130px" height="160px"/>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-{% comment %} 
-
-<section id="hero" class="ads-swiper d-flex align-items-center">
-  <div class="ads-swiper-container">
-      <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden hero-slider ">
-        <div class="swiper-wrapper align-items-center swiper swiper-fade swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl swiper-watch-progress hero-swiper "
-          aria-live="off" style="transition-duration: 0ms;">
-          {% for services in AdsenceHeder %}
-          <div class="swiper-slide" role="group" aria-label="1 / 2">
-            <img src="{{services.image.url}}" alt="" />
+          <div class="hero-next">
+            <img src="/static/assets/img/left-yellow-arrow.png" width="40px" height="80px"/>
           </div>
-          {% endfor %}
         </div>
       </div>
-
-    <div class="hero-slider-buttons">
-      <div class="slider-button hero-next">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1"
-          x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;"
-          xml:space="preserve">
-          <style type="text/css">
-            .st0 {
-              fill: #1D70B8;
-            }
-          </style>
-          <polygon class="st0" points="46.76,48.45 62.19,63.87 46.76,79.29 46.76,108.01 90.91,63.87 46.76,19.73 " />
-        </svg>
-      </div>
-      <div class="slider-button hero-prev ">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="0px" y="0px" viewBox="0 0 116.45 133.01" style="enable-background:new 0 0 116.45 133.01;"
-          xml:space="preserve">
-          <style type="text/css">
-            .st0 {
-              fill: #1D70B8;
-            }
-          </style>
-          <polygon class="st0" points="72.21,79.29 56.78,63.87 72.21,48.45 72.21,19.73 28.06,63.87 72.21,108.01 " />
-        </svg>
-      </div>
     </div>
-    <div
-      class=" hero-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination">
-    </div>
-
-  </div>
-  <span class="swiper-notification
-        
-        " aria-live="assertive" aria-atomic="true">
-  </span>
-  </div>
-  </div>
-  </div>
-  </div>
   </div>
 </section>
 
-
-<div class="elementor-element-c14b42c elementor-widget__width-initial elementor-absolute animated-slow hover-img-all e-transform e-transform elementor-widget elementor-widget-image animated slideInDown" data-id="c14b42c" data-element_type="widget" data-settings="" data-widget_type="image.default">
-  <div class="elementor-widget-container">
-
-    <img decoding="async" fetchpriority="high" width="200" height="200"
-       class="attachment-large size-large wp-image-1206" alt=""
-      srcset="
-       {% static 'assets/img/patern-ads-block.png'  %} 73w"
-      sizes="(max-width: 250px) 100vw, 250px">
-  </div>
-</div>
-{% endcomment %}
 {% endif %}
 
 {% endblock ads-swiper %}

@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import *
 
 
-@admin.register(RequestMetaAndGet,)
+# @admin.register(RequestMetaAndGet,)
 class RequestMetaAndGetAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         # if SettingModel.objects.all().count() > 0 :
@@ -81,7 +81,7 @@ class RequestMetaAndGetAdmin(admin.ModelAdmin):
         model = RequestMetaAndGet
 
 
-@admin.register(RequestHederInfo,)
+# @admin.register(RequestHederInfo,)
 class RequestHederInfoAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         # if SettingModel.objects.all().count() > 0 :
@@ -142,7 +142,7 @@ class RequestHederInfoAdmin(admin.ModelAdmin):
 # Register your models here.
 
 
-@admin.register(IpInfo,)
+# @admin.register(IpInfo,)
 class IpInfoAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         # if SettingModel.objects.all().count() > 0 :

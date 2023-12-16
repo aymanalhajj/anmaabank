@@ -31,6 +31,14 @@ class AdsenceHeder(models.Model):
         verbose_name=_("صورة الاعلان")
     )
 
+    image_en = models.ImageField(
+        null=True,
+        # blank=True,
+
+        upload_to="Image/Adsence/AdsenceHeder/%Y/%m/%d/%H/%M/%S",
+        verbose_name=_("صورة الاعلان انجليزي")
+    )
+
     Date_Update = models.DateTimeField(
         auto_now=True, verbose_name=_("تاريخ التعديل "))
     Date_Added = models.DateTimeField(

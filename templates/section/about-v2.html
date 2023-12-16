@@ -11,25 +11,40 @@
     <div class="about-page">
       <section id="about" class="about about-us" style="text-align: start;" dir="{{static_content.direction}}">
         <div style="overflow: hidden;">
-            <div style="width: 17%; height: fit-content;float: right; color: var(--primary);font-weight: bolder;font-size: 16pt;">
+            <div
+                    {% if static_content.lang == "ar" %}
+                      style="width: 17%; height: fit-content;float: right; color: var(--primary);font-weight: bolder;font-size: 16pt;"
+                    {% else %}
+                      style="width: 17%; height: fit-content;float: left; color: var(--primary);font-weight: bolder;font-size: 16pt;"
+                    {% endif %}
+            
+            >
               <span>
                 <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
                 <span>
-                  عن البنك 
+                  {{static_content.about}}
                 </span>
               </span>
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <span>
                 <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
                 <span>
-                  نشـأة البنك 
+                  {% if ourstartup and setting and not setting.is_hidden_about   %}
+                    {% if static_content.lang == "ar" %}
+                      {{ourstartup.title}}
+                    {% else %}
+                      {{ourstartup.title_en}}
+                    {% endif %}
+                  {% else %}
+                    نشـأة البنك 
+                  {% endif %}
                 </span>
               </span>
               <br><br><br><br><br>
               <span>
                 <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
                 <span>
-                  القيم 
+                  {{static_content.values}}
                 </span>
               </span>
               
@@ -37,7 +52,18 @@
               <span>
                 <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
                 <span>
-                  الرسالة 
+                  
+                  {% if Massegeabout and setting and not setting.is_hidden_about   %}
+                    {% if static_content.lang == "ar" %}
+                      {{Massegeabout.title}}
+                    {% else %}
+                      {{Massegeabout.title_en}}
+                    {% endif %}
+                  {% else %}
+                  الرسالة
+                  {% endif %}
+
+                   
                 </span>
               </span>
 
@@ -46,42 +72,92 @@
               <span>
                 <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
                 <span>
-                  الرؤية      
+                  
+                  {% if ourvision and setting and not setting.is_hidden_about   %}
+                    {% if static_content.lang == "ar" %}
+                      {{ourvision.titel}}
+                    {% else %}
+                      {{ourvision.titel_en}}
+                    {% endif %}
+                  {% else %}
+                  الرؤية
+                  {% endif %}
+                        
                 </span>
               </span>
               <br><br><br><br><br>
               <span>
                 <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
                 <span>
-                  الأهداف / الغايات      
+                  {{static_content.objectives}}
                 </span>
               </span>
             </div>
          
-          <div class="flex-column justify-content-center" style="float: right; width: 83%;">
+          <div class="flex-column justify-content-center"
+          
+          style="float: right; width: 83%;">
             <div class="content" style="overflow: hidden;" >
-              <img src="/static/assets/img/about-cover.png" width="70%" style="position: absolute;top: 20px;left: 6%;overflow: hidden;" />
+              <img src="/static/assets/img/about-cover.png" width="70%"
+                {% if static_content.lang == "ar" %}
+                  style="position: absolute;top: 20px;left: 6%;overflow: hidden;"
+                {% else %}
+                  style="position: absolute;top: 20px;right: 6%;overflow: hidden;"
+                {% endif %}
+               />
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <div class="description-wrapper" style="color: var(--primary);font-weight: bolder;font-size: 12pt;">
-                <span>
-                  <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                {% if ourstartup and setting and not setting.is_hidden_about   %}
                   <span>
-                    نشأة البنك :
+                    <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                    <span>
+                        {% if static_content.lang == "ar" %}
+                          {{ourstartup.title}}:
+                        {% else %}
+                          {{ourstartup.title_en}}:
+                        {% endif %}
+                      <!-- نشأة البنك : -->
+                    </span>
                   </span>
-                </span>
-                <p>
-                  نشأ بنك الإنماء للتمويل الأصغر عبر شركة مساهمة يمنية مقفلة تأسست وفقاً لأحكام القانون رقم (15) لسنة 2009م،
-                  بشأن بنوك التمويل الأصغر <br>وبناءً على قانون الشركات التجارية اليمني رقم (٢٢) لعام ١٩٩٧م بشأن الشركات
-                  التجارية وتعديلاته.
-                </p>
+                  <p>
+                    
+                    {% if static_content.lang == "ar" %}
+                        {{ ourstartup.detail_ar|safe}}
+                    {% else %}
+                        {{ ourstartup.detail_en|safe}}
+                    {% endif %}
+<!--                     
+                    نشأ بنك الإنماء للتمويل الأصغر عبر شركة مساهمة يمنية مقفلة تأسست وفقاً لأحكام القانون رقم (15) لسنة 2009م،
+                    بشأن بنوك التمويل الأصغر <br>وبناءً على قانون الشركات التجارية اليمني رقم (٢٢) لعام ١٩٩٧م بشأن الشركات
+                    التجارية وتعديلاته. -->
+                  </p>
+                {% endif %}
                 <br>
                 <span>
                   <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
                   <span>
-                    القيم :
+                    {{static_content.values}}:
                   </span>
                 </span>
-                <p>
+                {% if values and setting and not setting.is_hidden_about   %}
+                  {% for val in values.all %}
+                    <p>
+                      <span style="color: var(--accent);">
+                        {% if static_content.lang == "ar" %}
+                          {{val.title}}
+                        {% else %}
+                          {{val.title_en}}
+                        {% endif %}
+                      </span>
+                      {% if static_content.lang == "ar" %}
+                          {{ val.detail_ar|safe}}
+                      {% else %}
+                          {{ val.detail_en|safe}}
+                      {% endif %}
+                    </p>
+                  {% endfor %}
+                {% endif %}
+                <!-- <p>
                   <span style="color: var(--accent);">الالتزام بأحكام الشريعة الإسلامية:</span>
                   التزام البنك بمبادئ الشريعة الإسلامية في تصميم وتقديم منتجات وخدماته المصرفية بمعايير مهنية عالية و بأحدث
                   التقنيات في
@@ -122,41 +198,80 @@
                   يحرص البنك على أن يكون مبتكرًا في تقديم منتجات وخدمات مالية جديدة ومبتكرة، وبتقنيات حديثة تلبي احتياجات
                   العملاء
                   وتتوافق مع المبادئ الإسلامية .
-                </p>
-                <span>
-                  <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                </p> -->
+                {% if Massegeabout and setting and not setting.is_hidden_about   %}
                   <span>
-                    الرسالة:
+                    <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                    <span>
+                        {% if static_content.lang == "ar" %}
+                            {{Massegeabout.title|safe}}:
+                        {% else %}
+                            {{Massegeabout.title_en|safe}}:
+                        {% endif %}  
+                        <!-- الرسالة: -->
+                    </span>
                   </span>
-                </span>
-                <p>
-                  توفير حلول مالية شاملة ومتوافقة مع الشرعية الإسلامية بأفضل التقنيات الرقمية لتمكين الأفراد والشركات من تحقيق
-                  أهدافهم
-                  المالية والمساهمة في التنمية المستدامة و خلق فرص عمل لتخفيف نسبة البطالة وصولاً الى الاعتماد على الذات
-                  لأفراد المجتمع.
-                  من خلال تقديم خدمات مصرفية وتمويلية عالية الجودة والشفافية.
-                </p>
+                  <p>
+                    
+                    {% if static_content.lang == "ar" %}
+                        {{Massegeabout.detail_ar|safe}}
+                    {% else %}
+                        {{Massegeabout.detail_en|safe}}
+                    {% endif %}
+<!--                       
+                    توفير حلول مالية شاملة ومتوافقة مع الشرعية الإسلامية بأفضل التقنيات الرقمية لتمكين الأفراد والشركات من تحقيق
+                    أهدافهم
+                    المالية والمساهمة في التنمية المستدامة و خلق فرص عمل لتخفيف نسبة البطالة وصولاً الى الاعتماد على الذات
+                    لأفراد المجتمع.
+                    من خلال تقديم خدمات مصرفية وتمويلية عالية الجودة والشفافية. -->
+                  </p>
+                
+                {% endif %}
                 <br>
-      
-                <span>
-                  <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                {% if ourvision and setting and not setting.is_hidden_about   %}
                   <span>
-                    الرؤية:
+                    <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                    <span>
+                      {% if static_content.lang == "ar" %}
+                          {{ourvision.titel|safe}}:
+                      {% else %}
+                          {{ourvision.titel_en|safe}}:
+                      {% endif %}
+                    </span>
                   </span>
-                </span>
-                <p>
-                  أن نصبح البنك الرئيسي في تمويل الأفراد الطموحين والمشاريع الصغيرة والمتوسطة. نهدف إلى تقديم خدمات مالية
-                  شاملة ومبتكرة
-                  تلبي احتياجات عملائنا وتعزز نموهم وازدهارهم.
-                </p>
+                  <p>
+                    
+                    {% if static_content.lang == "ar" %}
+                        {{ourvision.detial_ar|safe}}
+                    {% else %}
+                        {{ourvision.detial_en|safe}}
+                    {% endif %}
+                  </p>
+                {% endif %}
                 <br>
                 <span>
                   <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
                   <span>
-                    الأهداف / الغايات:
+                    {{static_content.objectives}}:
                   </span>
                 </span>
-                <p>
+                {% if objective and setting and not setting.is_hidden_about   %}
+                  <p>
+                    <span style="color: var(--accent);">
+                      {% if static_content.lang == "ar" %}
+                        {{objective.titel}}
+                      {% else %}
+                        {{objective.titel_en}}
+                      {% endif %}
+                    </span>
+                    {% if static_content.lang == "ar" %}
+                        {{ objective.detial_ar|safe}}
+                    {% else %}
+                        {{ objective.detial_en|safe}}
+                    {% endif %}
+                  </p>
+                {% endif %}
+                <!-- <p>
                   <span style="color: var(--accent);"> توفير خدمات تمويلية مبتكرة :</span>
                   يهدف البنك إلى تقديم حلول تمويلية مبتكرة ومرنة للأفراد والشركات الصغيرة والمتوسطة، بما في ذلك التمويل الشخصي
                   والتجاري والعقاري والاستثماري.
@@ -190,7 +305,7 @@
                   <span style="color: var(--accent);">تعزيز الثقافة المصرفية الإسلامية :</span>
                   يسعى البنك إلى تعزيز الثقافة المصرفية الإسلامية وفهمها بين العملاء والمجتمع، من خلال توفير المعلومات
                   والخدمات المصرفية التي تتوافق مع مبادئ الشرعية الإسلامية.
-                </p>
+                </p> -->
                 <br>
               </div>
             </div>

@@ -446,16 +446,23 @@ def about(request,lang="ar"):
     }
     
     context["static_content"] = static_content[lang]
+
     context['abouts'] = AboutQuerySet()
     context['Massegeabout'] = MassegeAboutQuerySet()
     context['objective'] = ObjectivesQuerySet()
     context['ourvision'] = OurVisionQuerySet()
+    context['ourstartup'] = OurStartupQuerySet()
+    context['values'] = ValuesQuerySet()
+    print('values......................')
+
+
     context['ourmission'] = OurMissionQuerySet()
+    context['ourmarch'] = OurMarchQuerySet()
+    
     context["navbar"] = NavbarsQuerySet()
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()
     context['setting'] = SettingModelQuerySet()
     context['FormOurNewsletter'] = OurNewsletterForm()
-    context['ourmarch'] = OurMarchQuerySet()
     if request.method == 'POST':
         SaveContact(request, "about.html", context)
         return render(request, 'about.html', context)
