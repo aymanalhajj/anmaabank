@@ -148,6 +148,58 @@ new Swiper(".hero-slider", {
 
 
 
+new Swiper(".services-slider", {
+  speed: 500,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+    reverseDirection: true,
+
+  },
+  spaceBetween: 5,
+  grabCursor: false,
+  centeredSlides: true,
+  coverflowEffect: {
+    rotate: 0,
+    depth: 500,
+    modifier: 1,
+    slideShadows: true
+  },
+  lazy: true,
+  spaceBetween: 30,
+  freeMode: false,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false,
+  },
+  loop: true,
+  slidesOffsetBefore: 0,
+  navigation: {
+    prevEl: ".hero-prev",
+    nextEl: ".hero-next"
+  },
+  loop: true,
+  pagination: {
+    el: ".hero-pagination",
+    type: "bullets",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 40,
+    },
+    992: {
+      slidesPerView: 1,
+      spaceBetween: 40,
+    },
+  },
+  
+});
+
+
+
+
 new Swiper(".slider-videos", {
   speed: 500,
   autoplay: {
@@ -1239,15 +1291,38 @@ new Swiper(".slider-services-mobile", {
       type: "bullets",
       clickable: true,
     },
-
-    // clickable: true,
-    // },
     navigation: {
       nextEl: '.hero-next',
       prevEl: '.hero-prev ',
     },
 
   });
+
+  
+  new Swiper(".services-slider", {
+    speed: 400,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: true,
+    },
+    loop: true,
+
+    keyboard: {
+      enabled: true,
+    },
+    pagination: {
+      el: ".hero-pagination ",
+      type: "bullets",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.hero-next',
+      prevEl: '.hero-prev ',
+    },
+
+  });
+
+
   /**
    * Testimonials slider
    */

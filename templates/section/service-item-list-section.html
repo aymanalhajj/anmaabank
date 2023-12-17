@@ -4,7 +4,7 @@
 {% if ServiceItem and setting and not setting.is_hidden_services %}
 
 <section id="services-home" class="services-section-home" style="order: 1; border: red 0px solid; padding: 0px; margin-top: 100px;" >
-  <div class="container">
+  <!-- <div class="container">
     <div class="section-header section-heading text-center ">
 
 
@@ -21,8 +21,95 @@
       <p>{{static_content.service_title2}}</p>
       {% endif %}
     </div>
-  </div>
+  </div> -->
 
+  
+  <!-- <div class="services-section-container" >
+    <div class="container" style="border: red 0px solid solid;">  
+      <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden slider-services slider-services-js">
+        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(7580px, 0px, 0px);"> -->
+          <div class="services-section-container" style="border: 0px rgb(18, 14, 14) solid;margin-bottom: 30px; ">
+            <div class="containerr" style="border: 0 gray solid; border-top-width: 1px;padding: 0px;margin: 0px; ">
+              <div  class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden  services-slider slider-services-js">
+                <div class="swiper-wrapper"    >
+                {% for services in ServiceItem %}
+                    <div class="swiper-slide" role="group" 
+                      {% if static_content.lang == "ar" %}
+                        style="height: 450pt;width: 100%;;background-image: url({{services.image_ar.url}});background-size: cover;background-repeat: no-repeat;" 
+                      {% else %}
+                        style="height: 450pt;width: 100%;;background-image: url({{services.image_en.url}});background-size: cover;background-repeat: no-repeat;" 
+                      {% endif %}
+                    >
+                      <span 
+                              {% if static_content.lang == "ar" %}
+                                style="position: absolute;top: 74pt;right: 3%;font-family: AbdoMaster;color: var(--primary);font-size: 40pt;font-weight: bold;"
+                              {% else %}
+                                style="position: absolute;top: 74pt;left: 3%;font-family: AbdoMaster;color: var(--primary);font-size: 40pt;font-weight: bold;"
+                              {% endif %}
+                      >{{ static_content.products }}</span>
+                      
+                      <span
+                      
+                      {% if static_content.lang == "ar" %}
+                        style="position: absolute;top: 200pt;right: 10%;height: 20pt;direction: rtl;z-index: 100;"
+                      {% else %}
+                        style="position: absolute;top: 200pt;left: 10%;height: 20pt;direction: ltr;z-index: 100;"
+                      {% endif %}
+                      
+                      >
+                        <img 
+                        src="/static/assets/img/title-icon.png"  width="40" height="20"  />
+                     <a href="{{static_content.lang}}/service/{{services.id}}">
+
+                        <span style="font-family: AbdoMaster;color: var(--primary);font-size: 20pt;font-weight: bold;">
+                          {% if static_content.lang == "ar" %}
+                            {{services.titel}}
+                          {% else %}
+                            {{services.titel_en}}
+                          {% endif %}
+                        </span>
+                    </a>
+                      </span>
+                      <span
+                      
+                      {% if static_content.lang == "ar" %}
+                        style="direction: rtl;max-width: 470pt;position: absolute;top: 245pt;right: 10%;font-family: AbdoMaster;color: var(--accent);font-size: 14pt;font-weight: bold;"
+                      {% else %}
+                        style="direction: ltr;max-width: 470pt;position: absolute;top: 245pt;left: 10%;font-family: AbdoMaster;color: var(--accent);font-size: 14pt;font-weight: bold;"
+                      {% endif %}
+                      
+                      >
+                        <!-- يمكن للعملاء فتح حساب جاري إسلامي يتوافق مع مبادئ الشريعة الإسلامية يتيح للعملاء اجراء المعاملات المصرفية اليومية -->
+                        {% if static_content.lang == "ar" %}
+                          {{services.detial_ar}}
+                        {% else %}
+                          {{services.detial_en}}
+                        {% endif %}
+                        
+                      </span>
+                    
+                    </div>
+                  {% endfor %}
+                  
+                
+                
+              </div>
+              <div class="hero-slider-buttons slider-buttons" style="border: 0px red solid;width: 95%;">
+                <div class="hero-prev">
+                  <img src="/static/assets/img/right-yellow-arrow.png" width="40px" height="80px"/>
+                </div>
+                <div class="hero-next">
+                  <img src="/static/assets/img/left-yellow-arrow.png" width="40px" height="80px"/>
+                </div>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+      
+      </section>
+
+<!-- 
   <div class="services-section-container" >
     <div class="container" style="border: red 0px solid solid;">  
       <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden slider-services slider-services-js">
@@ -88,7 +175,7 @@
     </div>
   </div>
 
-</section>
+</section> -->
 {% comment %} </div> {% endcomment %}
 {% endif %}
 

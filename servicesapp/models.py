@@ -139,48 +139,13 @@ class Services(models.Model):
         verbose_name=_("نوع الخدمة"),
         help_text=_("مثال : خدمات الشركات او خدمات الأفراد او خدمات المنظمات")
     )
-    # navbar = models.ForeignKey(Navbars,
-    #                                null=True, on_delete=models.SET_NULL, verbose_name="القسم الاساسي")
-    # secondary_navbar = models.ForeignKey(SecondaryNavbars,
-    #                                null=True, on_delete=models.SET_NULL, verbose_name="القسم الثنوي")
-
-    # Locations = models.ManyToManyField(
-    #     Location_Country,
-    #     #through='LocationContry',
-    #    # through_fields=('favorite', 'user'),
-    # )
-    # type_services = models.CharField(
-    #     max_length=100,
-    #     choices=(
-    #             ("1", 'خدمات الأفراد'),
-    #             ("2", 'خدمات المنظمات'),
-    #             ("3", 'خدمات الشركات'),
-    #         # ("4", 'تطبيقات البنك'),
-
-    #         # ("5", 'التمويل الأصغر '),
-    #         # ("6", 'الاقسام'),
-    #         # ("none", ''),
-    #         # ("none", ''),
-    #         # ("none", ''),
-    #         # ("none", ''),
-    #         # ("none", ''),
-    #         # ("none", ''),
-    #         # ("none", ''),
-
-    #     ),
-    #     # default="الرئيسية",
-    #     null=True,
-    #     verbose_name="نوع الخدمة",
-    #     # blank=True
-    # )
-
     short_detial = models.CharField(
         max_length=100, null=True, verbose_name=_("وصف مختصر جملة واحده فقط")
     )
-    detial_ar = HTMLField(
+    detial_ar =  models.TextField(
         max_length=100000, default=" ", null=True, verbose_name=_("التفاصيل"))
 
-    detial_en = HTMLField(
+    detial_en =  models.TextField(
         max_length=100000, default=" ", null=True, verbose_name=_("التفاصيل بالانجليزي"))
 
     name_action = models.CharField(
@@ -206,8 +171,20 @@ class Services(models.Model):
         verbose_name=_("رقم تلفون اتصال للحجز او استفسار عن الخدمة (اختياري)")
     )
 
-    image = models.ImageField(
-        upload_to="Image/Service/%Y/%m/%d/", verbose_name=_(" إختيار صورة"), null=True,
+    image_ar = models.ImageField(
+        upload_to="Image/Service/%Y/%m/%d/", verbose_name=_("صورة الخدمة عربي"), null=True,
+    )
+    
+    image_en = models.ImageField(
+        upload_to="Image/Service/%Y/%m/%d/", verbose_name=_("صورة الخدمة انجليزي"), null=True,
+    )
+    
+    cover_image_ar = models.ImageField(
+        upload_to="Image/Service/%Y/%m/%d/", verbose_name=_("صورة الغلاف عربي"), null=True,
+    )
+    
+    cover_image_en = models.ImageField(
+        upload_to="Image/Service/%Y/%m/%d/", verbose_name=_("صورة الغلاف انجليزي"), null=True,
     )
     created_by = models.ForeignKey(User, blank=True, editable=False,
                                    null=True, on_delete=models.SET_NULL, verbose_name=_("تم الأنشاء بواسطة "))

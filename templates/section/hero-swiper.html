@@ -7,14 +7,15 @@
     <img style="position: absolute;bottom: -20px;left: 45%;;z-index: 100;" width="180px" height="140px" src="/static/assets/img/arrow-down.svg" />
   </a>
   <div class="services-section-container" style="border: 0px rgb(18, 14, 14) solid;margin-bottom: 30px; ">
-    <div class="containerr" style="border: rgb(81, 0, 255) 0px solid; padding: 0px;margin: 0px; ">
+    <div class="containerr" style="border: 0 gray solid; border-bottom-width: 1px; padding: 0px;margin: 0px; ">
       <div  style="border: 0px red solid; " class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-rtl  swiper-backface-hidden hero-slider slider-services-js">
         <div class="swiper-wrapper"    >
-            <!-- {% for services in AdsenceHeder %}
+            {% for services in AdsenceHeder %}
             <div class="swiper-slide" role="group" >
               <img src="{{services.image.url}}" alt="" style="width: 100%;" class="slide-img" />
             </div>
-            {% endfor %} -->
+            {% endfor %}
+            {% comment %}
             {% for services in AdsenceHeder %}
               <div class="swiper-slide" role="group" 
               {% if static_content.lang == "ar" %}
@@ -72,6 +73,8 @@
                 </span>
               </div>
             {% endfor %}
+            
+            {% endcomment %}
             <!-- <div class="swiper-slide" role="group" style="height: 450pt;width: 100%;;background-image: url('/static/assets/img/whole-02.jpg');background-size: cover;background-repeat: no-repeat;" >
               <span style="position: absolute;top: 74pt;right: 3%;font-family: AbdoMaster;color: var(--primary);font-size: 40pt;font-weight: bold;">المنتجات</span>
               <span style="position: absolute;top: 200pt;right: 10%;height: 20pt;">
@@ -85,11 +88,17 @@
         </div>
         <div class="hero-slider-buttons slider-buttons" style="border: 0px red solid;width: 95%;">
           <div class="hero-prev">
+            <img src="/static/assets/img/arrow-blue-right.svg" width="140px" height="180px"/>
+          </div>
+          <div class="hero-next">
+            <img src="/static/assets/img/arrow-blue-left.svg" width="140px" height="180px"/>
+          </div>
+          <!-- <div class="hero-prev">
             <img src="/static/assets/img/right-yellow-arrow.png" width="40px" height="80px"/>
           </div>
           <div class="hero-next">
             <img src="/static/assets/img/left-yellow-arrow.png" width="40px" height="80px"/>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

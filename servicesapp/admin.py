@@ -46,7 +46,7 @@ class ServicesAdmin(admin.ModelAdmin):
         'titel_en',
         'short_detial',
         # 'detial_ar',
-        'image',
+        'image_ar',
         'created_by',
 
         'Date_Update',
