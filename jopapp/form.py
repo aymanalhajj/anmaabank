@@ -1123,18 +1123,16 @@ class BirthDataForm(forms.ModelForm):
 
         widgets = {
             'cookie': forms.HiddenInput(),
-            'user': forms.HiddenInput(
-            ),
-            'objects': forms.HiddenInput(
-            ),
+            'user': forms.HiddenInput(),
+            'objects': forms.HiddenInput(),
+            'country': Select2Widget(attrs={'class': 'form-control'}),
+            'region': Select2Widget(attrs={'class': 'form-control'}),
+            'directorate': Select2Widget(attrs={'class': 'form-control'}),
+            'isolation': Select2Widget(attrs={'class': 'form-control'}),
             # "country":AuthorWidget,
             # "region":AuthorWidget
-            'country': Select2Widget(attrs={'class': 'form-control'}),
-            'isolation': Select2Widget(attrs={'class': 'form-control'}),
-            'directorate': Select2Widget(attrs={'class': 'form-control'}),
 
             # 'country_address': Select2Widget(attrs={'class': 'form-control'}),
-            'region': Select2Widget(attrs={'class': 'form-control'}),
 
             # 'isolation_address': Select2Widget(attrs={'class': 'form-control'}),
             # "directorate_address": Select2Widget(attrs={'class': 'form-control'}),
@@ -1156,7 +1154,6 @@ class BirthDataForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-
         super(BirthDataForm, self).__init__(*args, **kwargs)
         icons = getattr(self.Meta, 'icons', iconsdata())
 
@@ -1172,6 +1169,14 @@ class BirthDataForm(forms.ModelForm):
                     phone=967).first().id
             except Country.DoesNotExist:
                 print("Country NotExist")
+        
+        if Region.objects.filter(country = 498).order_by('id').exists():
+            try:
+                self.fields['region'].queryset = Region.objects.filter(country = 498).order_by('id')
+            except Country.DoesNotExist:
+                print("Country NotExist")
+        
+        
         # self.base_fields['cookie'].widget = forms.HiddenInput()
         # self.base_fields['service'].widget = forms.HiddenInput()
         # self.fields['country'].required = True

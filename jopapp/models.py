@@ -1091,56 +1091,32 @@ class GeneralData(models.Model):
 
 
 class BirthData(models.Model):
-    cookie = models.TextField(
-        max_length=10000000, editable=False, null=True, blank=True)
-    user = models.ForeignKey(Register, on_delete=models.SET_NULL,
-                             null=True, blank=True, verbose_name=_('المستخدم'))
-    # objects = UserManager()
-
+    cookie = models.TextField(max_length=10000000, editable=False, null=True, blank=True)
+    cookie = models.TextField(max_length=10000000, editable=False, null=True, blank=True)
+    user = models.ForeignKey(Register, on_delete=models.SET_NULL,  null=True, blank=True, verbose_name=_('المستخدم'))
     objects = UserManager()
+    
     country = models.ForeignKey(
-        Country,
-        null=True,
+        Country,null=True,on_delete=models.SET_NULL, verbose_name=_("الدولة"),help_text=_("اختار دولة"),
         # related_name="countr_RequestToOpenAccount",
-        on_delete=models.SET_NULL,
-        # blank=True,
-        verbose_name=_("الدولة"),
-        help_text=_("اختار دولة"),
+        # blank=True,  
     )
 
-    cookie = models.TextField(
-        max_length=10000000, editable=False, null=True, blank=True)
     region = models.ForeignKey(
-        Region,
-        null=True,
+        Region,  null=True, on_delete=models.SET_NULL,
+       verbose_name=_("المحافظة"),  help_text=_("اختار المحافظة"),
         # related_name="countr_RequestToOpenAccount",
-        on_delete=models.SET_NULL,
-        blank=True,
-        verbose_name=_("المحافظة"),
-        help_text=_("اختار المحافظة"),
-
     )
     directorate = models.ForeignKey(
-        Directorate,
-        null=True,
+        Directorate, null=True,on_delete=models.SET_NULL,
+        blank=True,verbose_name=_("المديرية"),help_text=_("اختار المديرية"),
         # related_name="countr_RequestToOpenAccount",
-        on_delete=models.SET_NULL,
-        blank=True,
         # blank=True,
-        verbose_name=_("المديرية"),
-        help_text=_("اختار المديرية"),
-
     )
-    isolation = models.ForeignKey(
-        Isolation,
-        null=True,
-        blank=True,
+    isolation = models.ForeignKey( Isolation, null=True, blank=True,
+        on_delete=models.SET_NULL,verbose_name=_("العزلة"),help_text=_("اختار العزلة"),
         # related_name="countr_RequestToOpenAccount",
-        on_delete=models.SET_NULL,
         # blank=True,
-        verbose_name=_("العزلة"),
-        help_text=_("اختار العزلة"),
-
     )
 
     class Meta:

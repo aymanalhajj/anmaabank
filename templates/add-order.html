@@ -77,6 +77,8 @@
                   </a>
                 </div>
               </div>
+
+              <!-- ///////////////////////////////////////////////////////// -->
               {% if address_location %}
               {% load i18n static %} {% load crispy_forms_tags %}
               <div class="col-lg-9" style="text-align: start;" dir="{{static_content.direction}}">
@@ -169,10 +171,10 @@
           {% endif %}
 
 
+              <!-- ///////////////////////////////////////////////////////// -->
           {% if forms %}
           {% load i18n static %} {% load crispy_forms_tags %}
-
-          <div class="col-lg-9"  dir="{{static_content.direction}}" style="text-align: start;">
+          <div class="col-lg-9" style="text-align: start;" dir="{{static_content.direction}}">
 
             {% comment %} <header class="section-header"> {% endcomment %}
               <h1 style="margin-bottom: 10px;">
@@ -199,7 +201,7 @@
               name="forms"
               class="php-email-form needs-validation align-item-center align-self-center align-content-center"
               validate
-              dir="ltr"
+              
             >
               {% csrf_token %} 
               <div class="row gy-4 align-item-center align-self-center align-content-center">
@@ -268,106 +270,100 @@
 
 
           {% if birth_data %}
-          {% load i18n static %} {% load crispy_forms_tags %}
-
-          <div class="col-lg-9" style="text-align: start;" dir="{{static_content.direction}}">
-
-              <h1 style="margin-bottom: 10px;">
-                {{static_content.birth_info}}
-                
-              </h1>
-            {% if messages %}
-            {% for message in messages %}
-            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-            <div class=" text-center  btn-success  ">
-                {{ message  }}</div>
-              {% else %}
-              <div class=" text-center  btn-danger">
-                {{ message  }}</div>
-              {% endif %}
-
-            {% endfor %}
-            {% endif %}
-
             {% load i18n static %} {% load crispy_forms_tags %}
-
-            <form
-              method="POST"
-              enctype='multipart/form-data'
-              name="forms"
-              class="php-email-form needs-validation align-item-center align-self-center align-content-center"
-              validate
-            >
-              {% csrf_token %} 
-              <div class="row gy-4 align-item-center align-self-center align-content-center">
-                
-                  {% for hidden in birth_data.hidden_fields %}
-                    <div class="col-md-12 ">    
-                      {{hidden|as_crispy_field}}
+            <div class="col-lg-9" style="text-align: start;" dir="{{static_content.direction}}">
+                <h1 style="margin-bottom: 10px;">
+                  {{static_content.birth_info}}
+                </h1>
+              {% if messages %}
+                {% for message in messages %}
+                  {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <div class=" text-center  btn-success  ">
+                        {{ message  }}
                     </div>
-                    {% endfor %}
-                
-                {% for field in birth_data.visible_fields %}
-                {% comment %} {% for field in birth_data %} {% endcomment %}
-
-                {% if  field.field.widget.input_type == 'radio' or   field.field.widget.input_type == 'file' %}
-                 <div class="col-md-12 ">
-                                          {{field.oreder_message.label_tag}}
-
-                                          {{field|as_crispy_field}}
-
-
-                    </div>
-                {% else %}
-               
-                 <div class="col-md-12 ">
-                    {{field.oreder_message.label_tag}}
-                      <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
-                        {% comment %}
-                        <div class="input-group-prepend with-label">
-                          
-              {% if static_content.lang == "ar" %}
-              <span class="input-group-text" id="basic-addon1">
-                  {% if field.field.icon %}
-                  <i class="{{field.field.icon}}"></i>
                   {% else %}
-                  <i class="bi bi-journal-code"></i>
-                  {% endif %}
-              </span>
-          {% endif %}
-                        </div>
-                        {% endcomment %}
-                    {{field|as_crispy_field}}
+                    <div class=" text-center  btn-danger">
+                      {{ message  }}
                     </div>
-                  <small class="text-danger">{{field.errors | striptags}}</small>
-
-                </div>
-                 {% endif %}
+                  {% endif %}
                 {% endfor %}
-                
-                  <div class="text-center">
-                    {% if messages %} {% for message in messages %} 
-                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-                    <div class="sent-message">{{ message }}</div>
+              {% endif %}
+              {% load i18n static %} {% load crispy_forms_tags %}
+              <form   method="POST" enctype='multipart/form-data' name="forms" 
+                class="php-email-form needs-validation align-item-center align-self-center align-content-center" validate
+              >
+                {% csrf_token %} 
+                <div class="row gy-4 align-item-center align-self-center align-content-center">
+                  
+                    {% for hidden in birth_data.hidden_fields %}
+                      <div class="col-md-12 ">    
+                        {{hidden|as_crispy_field}}
+                      </div>
+                      {% endfor %}
+                  
+                  {% for field in birth_data.visible_fields %}
+                    {% if  field.field.widget.input_type == 'radio' or   field.field.widget.input_type == 'file' %}
+                      <div class="col-md-12 ">
+                        {{field.oreder_message.label_tag}}
+                        {{field|as_crispy_field}}
+                      </div>
                     {% else %}
-                    <div class="error-message d-block">{{ message }}</div>
-                    {% endif %} {% endfor %} {% endif %}
-
-
+                      <div class="col-md-12 ">
+                        {{field.oreder_message.label_tag}}
+                          <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+                            {% comment %}
+                              <div class="input-group-prepend with-label">
+                                {% if static_content.lang == "ar" %}
+                                  <span class="input-group-text" id="basic-addon1">
+                                      {% if field.field.icon %}
+                                      <i class="{{field.field.icon}}"></i>
+                                      {% else %}
+                                      <i class="bi bi-journal-code"></i>
+                                      {% endif %}
+                                  </span>
+                                {% endif %}
+                              </div>
+                            {% endcomment %}
+                            {{field|as_crispy_field}}
+                            <!-- {{field}} -->
+                          </div>
+                        <small class="text-danger">{{field.errors | striptags}}</small>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                  
+            <script>
+              // country
+              $("#id_country").change(function () {
+                var countryId = $(this).val(); 
+            
+                $.ajax({ 
+                  url: '/ajax/load-regions/', 
+                  data: { 'country': countryId  },
+                  success: function (data) {
+                    $("#id_region").html(data); 
+                  }
+                });
+              });
+              console.log('BirthData')
+            </script>
+                  <div class="text-center">
+                    {% if messages %} 
+                      {% for message in messages %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                        <div class="sent-message">{{ message }}</div>
+                        {% else %}
+                        <div class="error-message d-block">{{ message }}</div>
+                        {% endif %} 
+                      {% endfor %} 
+                    {% endif %}
                   </div>
-
-                  {% comment %} <a href="{% url 'download-resume' %}"> {% endcomment %}
-                     <div class=" col-md-12">
+                  <div class=" col-md-12">
                     <button type="submit">{{static_content.save}}</button>
                   </div>
-                  {% comment %} </a> {% endcomment %}
                 </div>
-              </div>
-            </form>
-
-
-
-          </div>
+              </form>
+            </div>
           {% endif %}
 
 
@@ -396,21 +392,11 @@
             {% load i18n static %} {% load crispy_forms_tags %}
 
             <form
-              method="POST"
-              enctype='multipart/form-data'
-              name="forms"
-              class="php-email-form needs-validation align-item-center align-self-center align-content-center"
-              validate
+              method="POST" enctype='multipart/form-data' name="forms"
+              class="php-email-form needs-validation align-item-center align-self-center align-content-center" validate
             >
               {% csrf_token %} 
-              {% comment %} {% load widget_tweaks %} {% endcomment %}
-              {% comment %} {% csrf_token %} {% endcomment %}
-              {% comment %} {{ forms.as_p }} {% endcomment %}
               <div class="row gy-4 align-item-center align-self-center align-content-center">
-                
-                {% comment %} {{ birth_data.as_p }} {% endcomment %}
-                
-
                     {% for hidden in id_card.hidden_fields %}
                     <div class="col-md-12 ">    
                       {{hidden|as_crispy_field}}
@@ -420,41 +406,36 @@
                 {% for field in id_card.visible_fields %}
                
                {% if  field.field.widget.input_type == 'radio' or   field.field.widget.input_type == 'file'%}
-                     <div class="col-md-12 ">
-                                          {{field.oreder_message.label_tag}}
-
-                                          {{field|as_crispy_field}}
-
-
-                    </div>
-                    
-                {% else %}
-              <div class="col-md-12 ">
+                  <div class="col-md-12 ">
                     {{field.oreder_message.label_tag}}
-                      <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
-                        {% comment %}
-                        <div class="input-group-prepend with-label">
-                          
-              {% if static_content.lang == "ar" %}
-              <span class="input-group-text" id="basic-addon1">
-                  {% if field.field.icon %}
-                  <i class="{{field.field.icon}}"></i>
-                  {% else %}
-                  <i class="bi bi-journal-code"></i>
-                  {% endif %}
-              </span>
-          {% endif %}
-                        </div>
-                        {% endcomment %}
                     {{field|as_crispy_field}}
-                    </div>
-                  <small class="text-danger">{{field.errors | striptags}}</small>
+                  </div>
+                {% else %}
+                  <div class="col-md-12 ">
+                        {{field.oreder_message.label_tag}}
+                          <div class="input-group mb-3 {% if field.errors %}has-error{% endif %}">
+                            {% comment %}
+                              <div class="input-group-prepend with-label">
+                                  {% if static_content.lang == "ar" %}
+                                    <span class="input-group-text" id="basic-addon1">
+                                        {% if field.field.icon %}
+                                        <i class="{{field.field.icon}}"></i>
+                                        {% else %}
+                                        <i class="bi bi-journal-code"></i>
+                                        {% endif %}
+                                    </span>
+                                  {% endif %}
+                              </div>
+                            {% endcomment %}
+                            {{field|as_crispy_field}}
+                        </div>
+                      <small class="text-danger">{{field.errors | striptags}}</small>
 
-                {% comment %} </div> {% endcomment %}
-                </div>
+                      {% comment %} </div> {% endcomment %}
+                  </div>
                 {% endif %}
-                 
                 {% endfor %}
+                
                 
                   <div class="text-center">
 
@@ -470,7 +451,7 @@
                   </div>
 
                   {% comment %} <a href="{% url 'download-resume' %}"> {% endcomment %}
-                     <div class=" col-md-12">
+                  <div class=" col-md-12">
                     <button type="submit">{{static_content.save}}</button>
                   </div>
                   {% comment %} </a> {% endcomment %}

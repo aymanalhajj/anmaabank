@@ -37,7 +37,12 @@ from django.conf.urls.i18n import i18n_patterns
 urlpatterns += i18n_patterns(
     path('admin/', include('AdminApp.urls')),
 )
+
+from jopapp.viewsaccount import ajax_load_regions
+
+
 urlpatterns += [
+    path('ajax/load-regions/', ajax_load_regions, name='ajax_load_regions'),
     path('i18n/', include('django.conf.urls.i18n')),
     # path('admin-web/', admin.site.urls),
     # url(r'^admin/', include(admin.site.urls)),  # Here's the typo

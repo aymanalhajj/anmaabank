@@ -59,6 +59,33 @@
     font-display: swap
 }
 
+@media (min-width: 900px){
+    #top-logo img{
+        object-fit: contain;width: 420px;height: 120px;
+    }
+    .mobile-lang {
+        display: none;
+    }
+    
+    .desktop-lang {
+        display: inline;
+    }
+}
+
+
+@media (max-width: 900px){
+    #top-logo img{
+        object-fit: contain;width: 220px;height: 120px;
+    }
+    .mobile-lang {
+        display: inline;
+    }
+    
+    .desktop-lang {
+        display: none;
+    }
+}
+
 .footer-bk{
     position: absolute;
     bottom: -15px;

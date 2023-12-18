@@ -415,6 +415,8 @@ def RequestToOpenAccountView(request, page=0, lang = "ar"):
     context["ColumnNavbars"] = ColumnNavbarsQuerySet()
     context['setting'] = SettingModelQuerySet()
     context["static_content"] = static_content[lang]
+    print("lang")
+    print(lang)
     # formOurNewsletterForm = OurNewsletterForm(request.POST, request.FILES)
     if request.method == 'POST':
         # revers_fun = '/service/'+str(id)+'#services-detail'
@@ -516,7 +518,10 @@ def RequestToOpenAccountView(request, page=0, lang = "ar"):
         id_card = IdentificationCardForm(instance=Identification_Card_instance)
         get_page = int(request.GET.get('page', 1))
         print(get_page)
-        context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
+        context = {
+            "static_content": static_content[lang],
+            "switch_lang_url": getSwitchLangUrl(request),
+            "login_out_toggle": login_out_toggle(request),
 
             # 'birth_data':birthdata,
             # "address_location":addresslocation,
@@ -547,3 +552,11 @@ def RequestToOpenAccountView(request, page=0, lang = "ar"):
     # formOurNewsletter =
 
     return render(request, 'add-order.html', context)
+
+
+def ajax_load_regions(request):
+    country_id = request.GET.get('country')
+    regions = Region.objects.filter(country = country_id).order_by('id')
+    # regions = Region.objects.all()
+    return render(request, 'region_dropdown_list.html', {'regions': regions})
+
