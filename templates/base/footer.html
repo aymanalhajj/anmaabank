@@ -337,12 +337,13 @@
           <div class="copy-right row gy-2" style="background-color: var(--accent); color: white;z-index: -10;width: 100%;margin: 0px;">
             {% if setting and setting.footer %}
             <div class="col-lg-12  justify-content-center align-content-center copy-right-text">
-              {{setting.footer}}
+              {% if static_content.lang == "ar" %}
+                {{setting.footer}}
+              {% else %}
+              {{setting.footer_en}}
+              {% endif%}
             </div>
-            {% else %}
-            <div class="col-lg-12 col-12 justify-content-center align-content-center copy-right-text">
-              {{static_content.copy_rights}}
-            </div>
+            
             {% endif %}
           </div>
         </div>

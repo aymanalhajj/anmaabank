@@ -636,7 +636,7 @@ class MassegeAbout(models.Model):
         self.save()
 
     def __str__(self):
-        return self.detail_ar
+        return str(self.detail_ar)
 
     class Meta:
         managed = True
