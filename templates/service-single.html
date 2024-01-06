@@ -46,6 +46,19 @@
                   </span>
                 </span>
               </div>
+
+              <div style="position: absolute;margin: 55px;margin-top: 150px;max-width: 600px;">
+                <span>
+                  <span style="color: var(--accent);font-size: 14pt;">
+                    {% if static_content.lang == "ar" %}
+                      {{services.detial_ar}}
+                    {% else %}
+                      {{services.detial_en}}
+                    {% endif %}
+                  </span>
+                </span>
+              </div>
+
               {% if static_content.lang == "ar" %}
                 <img src="{{services.cover_image_ar.url}}" />
               {% else %}
@@ -54,9 +67,9 @@
               
               <h2>
                 {% if static_content.lang == "ar" %}
-                {{services.titel}}
+                  {{services.titel}}
                 {% else %}
-                {{services.titel_en}}
+                  {{services.titel_en}}
                 {% endif %}
                 
               </h2>

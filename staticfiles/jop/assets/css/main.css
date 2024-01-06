@@ -20,8 +20,38 @@
 /* Colors */
 :root {
   --color-default: #222222;
-  --color-primary: #166BB4;
+  --color-primary: #ffffff;
   --color-secondary: #f85a40;
+  --primary: #1f70b8;
+  --secondary: #345c7e;
+  --accent: #DBB24F;
+  --primary-fg: #fff;
+}
+
+
+table thead th {
+  /* padding: 0; */
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  /* display: block; */
+  cursor: pointer;
+  /* padding: 8px 10px; */
+  text-align: center;
+  /* width: 100%; */
+  /* height: 100%; */
+  font-size: 14px;
+  line-height: 24px;
+}
+
+thead th {
+  padding: 5px 10px;
+  line-height: normal;
+  text-transform: uppercase;
+  background: var(--primary);
+  /* border: var(--body-quiet-color); */
+  border: 1px solid var(--body-quiet-color);
+  /* background: var(--darkened-bg); */
 }
 
 /* Smooth scroll behavior */
@@ -38,12 +68,12 @@ body {
 }
 
 a {
-  color: var(--color-primary);
+  color: #ffffff;
   text-decoration: none;
 }
 
 a:hover {
-  color: #00b6a1;
+  color: #ffd23e;
   text-decoration: none;
 }
 
@@ -99,6 +129,62 @@ section {
   color: #6f6f6f;
 }
 
+/*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+.breadcrumbs .page-header {
+  padding: 60px 0 60px 0;
+  min-height: 20vh;
+  position: relative;
+  background-color: var(--color-primary);
+}
+
+.breadcrumbs .page-header h2 {
+  font-size: 56px;
+  font-weight: 500;
+  color: #166BB4;
+  font-family: var(--font-secondary);
+}
+
+.breadcrumbs .page-header p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.breadcrumbs nav {
+  background-color: #f6f6f6;
+  padding: 20px 0;
+}
+
+.breadcrumbs nav ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-default);
+}
+
+.breadcrumbs nav ol a {
+  color: var(--color-primary);
+  transition: 0.3s;
+}
+
+.breadcrumbs nav ol a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs nav ol li+li {
+  padding-left: 10px;
+}
+
+.breadcrumbs nav ol li+li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: var(--color-secondary);
+  content: "/";
+}
 
 /*--------------------------------------------------------------
 # Scroll top button
@@ -137,7 +223,7 @@ section {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
-#preloader {
+/* #preloader {
   position: fixed;
   inset: 0;
   z-index: 999999;
@@ -167,7 +253,7 @@ section {
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
@@ -216,7 +302,7 @@ section {
 }
 
 .topbar .contact-info i a:hover {
-  color: #fff;
+  color: #ffd620;
   text-decoration: underline;
 }
 
@@ -235,7 +321,7 @@ section {
   transition: all 0.5s;
   z-index: 997;
   height: 90px;
-  background-color: #fffffff5;;
+  background: rgba(5, 87, 158, 0.9);
 }
 
 .header.sticked {
@@ -257,7 +343,7 @@ section {
   margin: 0;
   font-weight: 600;
   letter-spacing: 0.8px;
-  color: #166BB4;
+  color: #ffffff;
   font-family: var(--font-primary);
 }
 
@@ -307,7 +393,7 @@ section {
     font-family: var(--font-secondary);
     font-size: 16px;
     font-weight: 600;
-    color: #166BB4;
+    color: #f0eee8;
     white-space: nowrap;
     transition: 0.3s;
     position: relative;
@@ -327,7 +413,7 @@ section {
     height: 2px;
     bottom: -6px;
     left: 0;
-    background-color: var(--color-secondary);
+    background-color: rgb(255, 210, 61);
     visibility: hidden;
     width: 0px;
     transition: all 0.3s ease-in-out 0s;
@@ -458,12 +544,12 @@ section {
     font-family: var(--font-primary);
     font-size: 15px;
     font-weight: 600;
-    color:#166BB4;
+    color: #166BB4;
     white-space: nowrap;
     transition: 0.3s;
   }
 
-  .navbar a i,
+  show .navbar a i,
   .navbar a:focus i {
     font-size: 12px;
     line-height: 0;
@@ -509,7 +595,7 @@ section {
   }
 
   .mobile-nav-show {
-    color: rgba(0, 0, 0, 0.6);
+    color: rgb(255, 255, 255);
     font-size: 28px;
     cursor: pointer;
     line-height: 0;
@@ -519,7 +605,7 @@ section {
   }
 
   .mobile-nav-hide {
-    color: #fff;
+    color: #000000;
     font-size: 32px;
     cursor: pointer;
     line-height: 0;
@@ -542,7 +628,7 @@ section {
     content: "";
     position: fixed;
     inset: 0;
-    background:#166BB4;
+    background: #166BB4;
     z-index: 9996;
   }
 }
@@ -882,7 +968,7 @@ section {
 
 .services .service-item {
   padding: 40px;
-  background: #fff;
+  background: rgba(6, 101, 183, 0.9);
   height: 100%;
   border-radius: 10px;
 }
@@ -895,7 +981,7 @@ section {
 }
 
 .services .service-item .icon i {
-  color: var(--color-default);
+  color: rgb(255, 214, 81);
   font-size: 56px;
   transition: ease-in-out 0.3s;
   z-index: 2;
@@ -907,7 +993,7 @@ section {
   content: "";
   height: 100%;
   width: 100%;
-  background: #eeeeee;
+  background: rgb(255, 214, 81);
   border-radius: 50px;
   z-index: 1;
   top: 10px;
@@ -940,7 +1026,7 @@ section {
 }
 
 .services .service-item:hover .icon:before {
-  background: #00b6a1;
+  background: #ffffff;
 }
 
 .services .service-item:hover h3 {
@@ -2503,9 +2589,9 @@ section {
 --------------------------------------------------------------*/
 .footer {
   font-size: 14px;
-  background-color: hsl(0, 0%, 100%);
+  background-color: #065fad;
   padding: 50px 0;
-color:#166BB4;
+  color: #ffffff;
 }
 
 .footer .footer-info .logo {
@@ -2538,16 +2624,16 @@ color:#166BB4;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(25, 11, 228, 0.2);
   font-size: 16px;
-  color: #166BB4;
+  color: #f8f9fa;
   margin-right: 10px;
   transition: 0.3s;
 }
 
 .footer .social-links a:hover {
   color: #DDB341;
-  border-color: #fff;
+  border-color: #ffa229;
 }
 
 .footer h4 {
@@ -2569,7 +2655,7 @@ color:#166BB4;
 
 .footer .footer-links ul i {
   padding-right: 2px;
-  color:#166BB4;
+  color: #166BB4;
   font-size: 12px;
   line-height: 0;
 }
@@ -2585,7 +2671,7 @@ color:#166BB4;
 }
 
 .footer .footer-links ul a {
-  color:#166BB4;
+  color: #fdee16;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
@@ -2615,26 +2701,3 @@ color:#166BB4;
 
 
 /* =================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

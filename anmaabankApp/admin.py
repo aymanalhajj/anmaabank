@@ -568,9 +568,9 @@ class StatisticsAdmin(admin.ModelAdmin):
 # @admin.register(ImagesPortfolio)
 # class ImagesPortfolioAdmins(admin.ModelAdmin):
 #     pass
-admin.site.headers = "بنك الإنماء"
-admin.site.site_header = "بنك الإنماء"
-admin.site.site_title = "بنك الإنماء"
-admin.site.index_title = "بنك الإنماء"
-admin.site.name = "بنك الإنماء"
-admin.site.su = "بنك الإنماء"
+# admin.site.headers = "بنك الإنماء"
+# admin.site.site_header = "بنك الإنماء"
+# admin.site.site_title = "بنك الإنماء"
+# admin.site.index_title = "بنك الإنماء"
+# admin.site.name = "بنك الإنماء"
+# admin.site.su = "بنك الإنماء"

@@ -545,8 +545,9 @@ class SignUpValidete(models.Model):
         super().save(*args, **kwargs)
         subject = 'Your Subject'
         template_name = 'jop/email_template.html'
-        context = {"switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
-            'verification_link': 'https://alinmabank.com/passswordrest/'+self.code}
+        context = {
+            # "switch_lang_url": getSwitchLangUrl(request),"login_out_toggle": login_out_toggle(request),
+            'verification_link': 'ar/jobs/passswordrest/'+self.code}
         html_message = render_to_string(
             'jop/email_template.html', {'context': context})
         recipient_list = [self.email]

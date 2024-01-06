@@ -1,6 +1,5 @@
 {% extends 'admin/base.html' %} 
 {% block extrahead %}
-{{ block.super }}
 <style>
   :root {
     --primary: #DBB24F;
@@ -11,8 +10,7 @@
 {% endblock %}
 {% load i18n %}
 {% block userlinks %}
-{{ block.super }}
-/ <form action="{% url 'set_language' %}" method="post" style="display:inline">{% csrf_token %}
+{{ block.super }}/<form action="{% url 'set_language' %}" method="post" style="display:inline">{% csrf_token %}
     <input name="next" type="hidden" value="{{ redirect_to }}">
     <select name="language" onchange="this.form.submit()">
         {% get_current_language as LANGUAGE_CODE %}

@@ -641,7 +641,7 @@ TINYMCE_DEFAULT_CONFIG = {
     # ]
 }
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 LOCALE_PATHS = [    
     os.path.join(BASE_DIR, "locale")

@@ -93,7 +93,7 @@ document.addEventListener('dal-init-function', function () {
             tokenSeparators: tokenSeparators,
             debug: true,
             containerCssClass: ':all:',
-            placeholder: $element.attr('data-placeholder') || '',
+            placeholder: $element.attr('data-placeholder') || 'ابحث هنا',
             language: $element.attr('data-autocomplete-light-language'),
             minimumInputLength: $element.attr('data-minimum-input-length') || 0,
             allowClear: !$element.is('[required]'),

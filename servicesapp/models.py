@@ -145,6 +145,12 @@ class Services(models.Model):
     detial_ar =  models.TextField(
         max_length=100000, default=" ", null=True, verbose_name=_("التفاصيل"))
 
+    description_ar =  models.TextField(
+        max_length=100000, default=" ", null=True, verbose_name=_("وصف مختصر للخدمة عربي"))
+
+    description_en =  models.TextField(
+        max_length=100000, default=" ", null=True, verbose_name=_("وصف مختصر للخدمة انجليزي"))
+
     detial_en =  models.TextField(
         max_length=100000, default=" ", null=True, verbose_name=_("التفاصيل بالانجليزي"))
 
