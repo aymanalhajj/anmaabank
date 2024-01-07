@@ -13,7 +13,7 @@ from django.utils.translation import gettext_lazy as _
 class ExchangeRate(models.Model):
 	# exchange_rate_id = models.AutoField(primary_key=True)
 	# name = models.CharField(max_length=100,choices=[("$", "دولار"), ("2", "سعودي"), ("3", "اماراتي")],)
-    
+    region = models.CharField(max_length = 200, verbose_name=_('المحافظة'),default = "عدن")
     sale_dolar = models.IntegerField(_(' سعر البيع للدولار'), null=True,)
     buy_dolar = models.IntegerField(_(' سعر الشراء للدولار'), null=True,)
     buy_emarat = models.IntegerField(_(' سعر الشراء اماراتي'), null=True,)

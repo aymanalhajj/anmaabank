@@ -164,6 +164,117 @@ class ValuesAdmin(admin.ModelAdmin):
 
 
 
+@admin.register(MassegeAbout,)
+class MassegeAboutAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        if MassegeAbout.objects.all().count() > 0 :
+            return ("add" in request.path or "change" in request.path)
+        else :
+            #  return ("add" in request.path)
+            return ("add")
+           # This will help you to disable delete functionaliyt
+    def has_delete_permission(self, request, obj=None):
+        return False
+    # def save_model(self, request, obj, form, change):
+    #     obj.created_by = request.user
+    #     if not change:
+    #         obj.created_by = request.user
+    #     else:
+    #         obj.deleted_by = request.user
+    #         obj.deleted_at = datetime.datetime.now()
+    # inlines = [ImagesPortfolioAdmin]
+    list_display = (
+        "id",
+        "title",
+        "image",
+        "Date_Update",
+        "Date_Added",
+
+
+    )
+    list_display_links = (
+        "id",
+        "title",
+        "image",
+        "Date_Update",
+        "Date_Added",
+
+
+    )
+    list_editable = ()
+    list_filter = (
+        "Date_Update",
+        "Date_Added"
+    )
+
+    search_fields = (
+        "id",
+        "title",
+        "detail_ar"
+        "image",
+        "Date_Update",
+        "Date_Added",
+    )
+
+    class Meta:
+        model = MassegeAbout
+
+@admin.register(OurStartup,)
+class OurStartupAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        if OurStartup.objects.all().count() > 0 :
+            return ("add" in request.path or "change" in request.path)
+        else :
+            #  return ("add" in request.path)
+            return ("add")
+           # This will help you to disable delete functionaliyt
+    def has_delete_permission(self, request, obj=None):
+        return False
+    # def save_model(self, request, obj, form, change):
+    #     obj.created_by = request.user
+    #     if not change:
+    #         obj.created_by = request.user
+    #     else:
+    #         obj.deleted_by = request.user
+    #         obj.deleted_at = datetime.datetime.now()
+    # inlines = [ImagesPortfolioAdmin]
+    list_display = (
+        "id",
+        "title",
+        "image",
+        "Date_Update",
+        "Date_Added",
+
+
+    )
+    list_display_links = (
+        "id",
+        "title",
+        "image",
+        "Date_Update",
+        "Date_Added",
+
+
+    )
+    list_editable = ()
+    list_filter = (
+        "Date_Update",
+        "Date_Added"
+    )
+
+    search_fields = (
+        "id",
+        "title",
+        "detail_ar"
+        "image",
+        "Date_Update",
+        "Date_Added",
+    )
+
+    class Meta:
+        model = OurStartup
+
+
 @admin.register(Objectives,)
 class ObjectivesAdmin(admin.ModelAdmin):
 
@@ -349,120 +460,6 @@ class AboutAdmin(admin.ModelAdmin):
     class Meta:
         model = About
 
-
-
-@admin.register(MassegeAbout,)
-class MassegeAboutAdmin(admin.ModelAdmin):
-    def has_add_permission(self, request):
-        if MassegeAbout.objects.all().count() > 0 :
-            return ("add" in request.path or "change" in request.path)
-        else :
-            #  return ("add" in request.path)
-            return ("add")
-           # This will help you to disable delete functionaliyt
-    def has_delete_permission(self, request, obj=None):
-        return False
-    # def save_model(self, request, obj, form, change):
-    #     obj.created_by = request.user
-    #     if not change:
-    #         obj.created_by = request.user
-    #     else:
-    #         obj.deleted_by = request.user
-    #         obj.deleted_at = datetime.datetime.now()
-    # inlines = [ImagesPortfolioAdmin]
-    list_display = (
-        "id",
-        "title",
-        "image",
-        "Date_Update",
-        "Date_Added",
-
-
-    )
-    list_display_links = (
-        "id",
-        "title",
-        "image",
-        "Date_Update",
-        "Date_Added",
-
-
-    )
-    list_editable = ()
-    list_filter = (
-        "Date_Update",
-        "Date_Added"
-    )
-
-    search_fields = (
-        "id",
-        "title",
-        "detail_ar"
-        "image",
-        "Date_Update",
-        "Date_Added",
-    )
-
-    class Meta:
-        model = MassegeAbout
-
-
-
-
-@admin.register(OurStartup,)
-class OurStartupAdmin(admin.ModelAdmin):
-    def has_add_permission(self, request):
-        if OurStartup.objects.all().count() > 0 :
-            return ("add" in request.path or "change" in request.path)
-        else :
-            #  return ("add" in request.path)
-            return ("add")
-           # This will help you to disable delete functionaliyt
-    def has_delete_permission(self, request, obj=None):
-        return False
-    # def save_model(self, request, obj, form, change):
-    #     obj.created_by = request.user
-    #     if not change:
-    #         obj.created_by = request.user
-    #     else:
-    #         obj.deleted_by = request.user
-    #         obj.deleted_at = datetime.datetime.now()
-    # inlines = [ImagesPortfolioAdmin]
-    list_display = (
-        "id",
-        "title",
-        "image",
-        "Date_Update",
-        "Date_Added",
-
-
-    )
-    list_display_links = (
-        "id",
-        "title",
-        "image",
-        "Date_Update",
-        "Date_Added",
-
-
-    )
-    list_editable = ()
-    list_filter = (
-        "Date_Update",
-        "Date_Added"
-    )
-
-    search_fields = (
-        "id",
-        "title",
-        "detail_ar"
-        "image",
-        "Date_Update",
-        "Date_Added",
-    )
-
-    class Meta:
-        model = OurStartup
 
 # @admin.register(OurMarch,)
 class OurMarchAdmin(admin.ModelAdmin):

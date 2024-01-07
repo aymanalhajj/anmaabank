@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-03 18:55+0300\n"
+"POT-Creation-Date: 2024-01-06 15:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,16 +110,16 @@ msgstr "loan application"
 msgid "طلبات التمويل"
 msgstr "loan applications"
 
-#: .\loan_app\views.py:66
+#: .\loan_app\views.py:72
 msgid "تقديم طلب  تمويل"
 msgstr "send loan application"
 
-#: .\loan_app\views.py:78
+#: .\loan_app\views.py:84
 #, fuzzy
 #| msgid "مدة التمويل بالأشهر"
 msgid "تم ارسال طلب التمويل بنجاح"
 msgstr "loan period by months"
 
-#: .\loan_app\views.py:82
+#: .\loan_app\views.py:88
 msgid "حدث خطأ، نرجو التأكد من البيانات واعادة المحاولة."
 msgstr "error happened, please check the data and try again"

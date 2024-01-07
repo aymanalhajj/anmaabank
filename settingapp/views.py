@@ -166,6 +166,7 @@ static_content= {
         "available_jobs":"وظائف",
         "values":"القيم",
         "products":"المنتجات",
+        "region":"المحافظة",
         "objectives":"الأهداف / الغايات",
         
 
@@ -173,6 +174,7 @@ static_content= {
     ,
     "en":
     {
+        "region":"region",
         "products":"Products",
         "values":"Our Values",
         "objectives":"Our Objectives",

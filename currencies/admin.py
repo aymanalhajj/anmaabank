@@ -3,11 +3,11 @@ from django.contrib import admin
 
 from .models import ExchangeRate
 
+@admin.register(ExchangeRate)
+class CurrencyAdmin(admin.ModelAdmin):
+    list_display = ('region','sale_dolar','buy_dolar','buy_emarat','sale_emarat','buy_ksa','sale_ksa')
+    list_filter = ('region',)
+    search_fields = ('region',)
 
-# class CurrencyAdmin(admin.ModelAdmin):
-#     list_display = ("id", "is_active", "is_base", "is_default", "code", "symbol", "factor")
-#     list_filter = ("is_active", )
-#     search_fields = ("name", "code")
 
-
-admin.site.register(ExchangeRate)
+# admin.site.register(ExchangeRate)
