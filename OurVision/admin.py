@@ -88,15 +88,15 @@ class OurVisionAdmin(admin.ModelAdmin):
 @admin.register(Values)
 class ValuesAdmin(admin.ModelAdmin):
 
-    def has_add_permission(self, request):
-        if Values.objects.all().count() > 0 :
-            return ("add" in request.path or "change" in request.path)
-        else :
-            #  return ("add" in request.path)
-            return ("add")
-           # This will help you to disable delete functionaliyt
-    def has_delete_permission(self, request, obj=None):
-        return False
+    # def has_add_permission(self, request):
+    #     if Values.objects.all().count() > 0 :
+    #         return ("add" in request.path or "change" in request.path)
+    #     else :
+    #         #  return ("add" in request.path)
+    #         return ("add")
+    #        # This will help you to disable delete functionaliyt
+    # def has_delete_permission(self, request, obj=None):
+    #     return False
     def save_model(self, request, obj, form, change):
         obj.created_by = request.user
         if not change:
@@ -325,15 +325,15 @@ class OurStartupAdmin(admin.ModelAdmin):
 @admin.register(Objectives,)
 class ObjectivesAdmin(admin.ModelAdmin):
 
-    def has_add_permission(self, request):
-        if Objectives.objects.all().count() > 0 :
-            return ("add" in request.path or "change" in request.path)
-        else :
-            #  return ("add" in request.path)
-            return ("add")
-           # This will help you to disable delete functionaliyt
-    def has_delete_permission(self, request, obj=None):
-        return False
+    # def has_add_permission(self, request):
+    #     if Objectives.objects.all().count() > 0 :
+    #         return ("add" in request.path or "change" in request.path)
+    #     else :
+    #         #  return ("add" in request.path)
+    #         return ("add")
+    #        # This will help you to disable delete functionaliyt
+    # def has_delete_permission(self, request, obj=None):
+    #     return False
     def save_model(self, request, obj, form, change):
         obj.created_by = request.user
         if not change:
