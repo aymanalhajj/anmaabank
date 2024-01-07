@@ -31,11 +31,11 @@ def OurVisionQuerySet():
 def OurStartupQuerySet():
     queryset = OurStartup.objects.filter(
         is_deleted=False, is_hidden=False,).order_by('Date_Added').first()
-    # try:
-    #     if queryset != None:
-    #         queryset = queryset.latest('Date_Added')
-    # except OurVision.DoesNotExist:
-    #     print(" OurVision DoesNotExist ")
+    return queryset
+
+def AboutUsQuerySet():
+    queryset = AboutUs.objects.filter(
+        is_deleted=False, is_hidden=False,).order_by('Date_Added').first()
     return queryset
 
 def AboutQuerySet():

@@ -164,6 +164,53 @@ class ValuesAdmin(admin.ModelAdmin):
 
 
 
+@admin.register(AboutUs,)
+class AboutUsAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        if AboutUs.objects.all().count() > 0 :
+            return ("add" in request.path or "change" in request.path)
+        else :
+            return ("add")
+    def has_delete_permission(self, request, obj=None):
+        return False
+    list_display = (
+        "id",
+        "title",
+        "image",
+        "Date_Update",
+        "Date_Added",
+
+
+    )
+    list_display_links = (
+        "id",
+        "title",
+        "image",
+        "Date_Update",
+        "Date_Added",
+
+
+    )
+    list_editable = ()
+    list_filter = (
+        "Date_Update",
+        "Date_Added"
+    )
+
+    search_fields = (
+        "id",
+        "title",
+        "detail_ar"
+        "image",
+        "Date_Update",
+        "Date_Added",
+    )
+
+    class Meta:
+        model = AboutUs
+
+
+
 @admin.register(MassegeAbout,)
 class MassegeAboutAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):

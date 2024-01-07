@@ -452,6 +452,7 @@ def about(request,lang="ar"):
     context['objective'] = ObjectivesQuerySet()
     context['ourvision'] = OurVisionQuerySet()
     context['ourstartup'] = OurStartupQuerySet()
+    context['aboutus'] = AboutUsQuerySet()
     context['values'] = ValuesQuerySet()
     print('values......................')
 

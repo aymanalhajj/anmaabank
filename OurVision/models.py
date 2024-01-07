@@ -642,3 +642,105 @@ class MassegeAbout(models.Model):
         managed = True
         verbose_name = _("الرسالة")
         verbose_name_plural = _("الرسالة")
+
+class AboutUs(models.Model):
+    title = models.CharField(
+        max_length=250, verbose_name=_("العنوان"),
+        null=True,
+    )
+    detail_ar =  models.TextField(
+        default=" ", null=True, blank=True, verbose_name=_("التفاصيل بالعربي"))
+    
+    title_en = models.CharField(
+        max_length=250, verbose_name=_("العنوان انجليزي"),
+        null=True,
+    )
+    detail_en = models.TextField(
+        default=" ", null=True, blank=True, verbose_name=_("التفاصيل بالانجليزي"))
+
+    image = models.ImageField(
+        upload_to="Image/About/%Y/%m/%d/",  verbose_name=_(" إختيار صورة"), null=True,
+        # verbose_name=_(" إختيار صورة")
+    )
+    deleted_at = models.DateTimeField(null=True,
+                                      blank=True,
+                                      editable=False,
+                                      verbose_name=_("تاريخ الحذف ")
+                                      )
+    deleted_by = models.ForeignKey(User, blank=True,
+                                   verbose_name=_(" تم الحذف  بواسطة "),
+                                   editable=False,
+                                   related_name='Aboutus_deleted_by',
+                                   null=True,
+                                   on_delete=models.SET_NULL,
+                                   )
+    created_by = models.ForeignKey(User, blank=True, editable=False, related_name='Aboutus_created_by',
+                                   null=True,
+                                   on_delete=models.SET_NULL,
+                                   verbose_name=_("تم الأنشاء بواسطة "))
+    created_at = models.DateTimeField(
+        null=True, editable=False, blank=True, verbose_name=_("تاريخ الأنشاء "))
+    edited_at = models.DateTimeField(null=True,
+                                     editable=False,
+                                     blank=True,
+                                     verbose_name=_("تاريخ اخر تعديل ")
+                                     )
+    edited_by = models.ForeignKey(User,
+                                  blank=True,
+                                  editable=False,
+                                  verbose_name=_(" تم التعديل  بواسطة "),
+                                  related_name='Aboutus_edited_by',
+                                  null=True,
+                                  on_delete=models.SET_NULL,
+                                  )
+    short_note = models.CharField(
+        max_length=1000,
+        null=True,
+        default=" ",
+        blank=True,
+        help_text=_(" اختياري - فقط لأجل ان وجد لديكم اي ملاحظة للعمل عليها مستقبلاً"),
+        verbose_name=_("ملاحظة قصيرة")
+    )
+    Date_Update = models.DateTimeField(
+        auto_now=True, blank=True, verbose_name=_("تاريخ التعديل "))
+    Date_Added = models.DateTimeField(
+        auto_now_add=True, blank=True, verbose_name=_("تاريخ الأضافة "))
+    is_hidden = models.BooleanField(
+        default=False,
+        help_text=" سيتم اخفاء هذا  من العرض بالموقع بحال تم تحديده",
+        verbose_name=_("مخفي")
+    )
+    is_deleted = models.BooleanField(
+        default=False,
+        help_text="سيتم اخفاء هذا الرئي من العرض بالموقع بحال تم تحديده وسيعتبر انه قد تم حذفه  ",
+        verbose_name=_("محذوف ")
+    )
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+    def restore(self):
+        self.is_deleted = False
+        self.save()
+
+    def delete(self):
+        self.is_deleted = True
+        self.deleted_at = timezone.now()
+        self.save()
+
+    def soft_delete(self, deleter):
+        self.deleted_by = deleter
+        self.deleted_at = timezone.now()
+        self.is_deleted = True
+        self.save()
+
+    def __str__(self):
+        return str(self.detail_ar)
+
+    class Meta:
+        managed = True
+        verbose_name = _("عنا")
+        verbose_name_plural = _("عنا")

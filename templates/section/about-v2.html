@@ -25,6 +25,14 @@
                   {{static_content.about}}
                 </span>
               </span>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <span>
                 <img src="/static/assets/img/hor-rect.png" height="20" style="margin-bottom: 3px;" />
@@ -107,6 +115,36 @@
                />
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <div class="description-wrapper" style="color: var(--primary);font-weight: bolder;font-size: 12pt;">
+                {% if aboutus and setting and not setting.is_hidden_about   %}
+                  <span>
+                    <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
+                    <span>
+                      
+                      {% if static_content.lang == "ar" %}
+                          {{aboutus.title}}:
+                        {% else %}
+                          {{aboutus.title_en}}:
+                        {% endif %} 
+                      <!-- عن بنك الإنماء:  -->
+                    </span>
+                  </span>
+                  <p>
+                    
+                    {% if static_content.lang == "ar" %}
+                        {{ aboutus.detail_ar|safe}}
+                    {% else %}
+                        {{ aboutus.detail_en|safe}}
+                    {% endif %}
+                <!--                     
+               يسهم بنك الإنماء  للتمويل الأصغر الإسلامي في التنمية الاقتصادية والاجتماعية لتحسين معيشة الفرد والمجتمع من خلال توفير الخدمات المصرفية والتمويلية التي تتوافق مع التوجيهات الشرعية والأحكام الإسلامية، ويركز البنك بشكل خاص على تقديم الخدمات المالية للأفراد والشركات الصغيرة والمتوسطة ، عبر كادر ذو خبرة طويلة  يضع حلولاً مصرفية شاملة, متوافقة مع أحكام الشريعة الإسلامية.
+               
+               يهتم بنك الإنماء على تنوع خدماتهُ المالية التي تمكن الإقتصاد الوطني  من خلال توفير مجموعة متنوعة من منتجات مالية شاملة ومبتكرة توافق الأحكام الشرعية عبر تقنيات رقمية تواكب تكنلوجية العصر الحديث.
+               يعمل البنك على قدم وساق للتكيّف مع العصر الرقمي والتأقلم مع سلوك العملاء المتغير بسرعة لتلبية احتياجاتهم في بيئة ديناميكية وصعبة لتوفير فرص لإقتصادية لجميع شرائح المجتمع.
+                -->
+                  </p>
+                {% endif %}
+                
+                
                 {% if ourstartup and setting and not setting.is_hidden_about   %}
                   <span>
                     <img src="/static/assets/img/ver-rect.png" height="20" style="margin-bottom: 3px;" />
@@ -126,7 +164,7 @@
                     {% else %}
                         {{ ourstartup.detail_en|safe}}
                     {% endif %}
-<!--                     
+                  <!--                     
                     نشأ بنك الإنماء للتمويل الأصغر عبر شركة مساهمة يمنية مقفلة تأسست وفقاً لأحكام القانون رقم (15) لسنة 2009م،
                     بشأن بنوك التمويل الأصغر <br>وبناءً على قانون الشركات التجارية اليمني رقم (٢٢) لعام ١٩٩٧م بشأن الشركات
                     التجارية وتعديلاته. -->
@@ -218,7 +256,7 @@
                     {% else %}
                         {{Massegeabout.detail_en|safe}}
                     {% endif %}
-<!--                       
+                    <!--                       
                     توفير حلول مالية شاملة ومتوافقة مع الشرعية الإسلامية بأفضل التقنيات الرقمية لتمكين الأفراد والشركات من تحقيق
                     أهدافهم
                     المالية والمساهمة في التنمية المستدامة و خلق فرص عمل لتخفيف نسبة البطالة وصولاً الى الاعتماد على الذات
@@ -314,8 +352,4 @@
       </section>
     </div>
   {% endif %}
-  
-
-        
-
 {% endblock about %}
