@@ -4,7 +4,27 @@
   {% block footeralinma %}
     {% if  setting and not setting.is_hidden_footer %}
       <footer id="footer" class="footer" style="padding: 0px;padding-top: 10px;"  dir="{{static_content.direction}}">
-        <img src="/static/assets/img/yemen-places-arrows.png"  class="footer-bk"
+        <!-- <div 
+          style="left: 0px; 
+            position: absolute;
+            bottom: 40px;
+            width: 500px; 
+            height: 520px;  
+            opacity: 1;  
+            border: 1px green solid;
+            z-index: 0">
+          <img src="/static/assets/img/yemen-places-arrows.png"  
+          class="footer-bk"
+            style="{% if static_content.lang == "ar" %} left: 0px; {% else %} right: 0px;{% endif %}
+          
+              width: 500px; 
+              height: 520px;  
+              opacity: 1;  
+              border: 1px red solid;"
+          />
+        </div> -->
+        <img src="/static/assets/img/yemen-places-arrows.png"  
+        class="footer-bk"
           style="{% if static_content.lang == "ar" %} left: 0px; {% else %} right: 0px;{% endif %}
             position: absolute;
             bottom: 40px;
@@ -12,14 +32,13 @@
             width: 500px; 
             height: 520px;  
             opacity: 1;  
-            z-index: 10;"
-        
+            z-index: 1;"
         />
-        <div class="containers footer-container" >
+        <div class="containers footer-container" style="z-index: 99999;" >
           <div class="logo-footer" style="margin-bottom: 10px; border: 0px red solid;">
               <img alt="alinma logo" class="logo-color" src="{% static 'assets/img/logo-full-width-white.svg' %}?version=1">
           </div>
-          <div class="">
+          <div class="" style="z-index: 9999;">
             {% if FormOurNewsletter and setting and not setting.is_hidden_ournewsletter %}
               <div class="" style="margin-bottom: 40px;">
                 <div class="footer-newsletter" style="border: red 0px solid;padding: 0px;background: none;font-family: HacenTunisiaBoldRegular;">
@@ -67,10 +86,10 @@
               </div>
             {% endif %}
           </div>
-          <div   class="footer-top" style="border: red 0px solid;margin: 0px; padding: 0px;margin-right: 42px;">
-            <div class="containers" style="border: red 0px solid;margin: 0px;">
-              <div class="row gy-3  " style="border: red 0px solid;margin: 0px;">
-                <div class="footer-col footer-links" style="margin: 20px; text-align: start;">
+          <div   class="footer-top" style="border: red 0px solid;margin: 0px; padding: 0px;margin-right: 42px;z-index: 9999;">
+            <div class="containers" style="border: red 0px solid;margin: 0px;z-index: 9999;">
+              <div class="row gy-3  " style="border: red 0px solid;margin: 0px;z-index: 9999;">
+                <div class="footer-col footer-links" style="margin: 20px; text-align: start;z-index: 9999;">
                   <h4 style="font-family: AbdoMaster;font-size: 10pt;">{{static_content.pages}}</h4>
                   <br>
                   <ul style="border: red 0px solid; ">
@@ -90,7 +109,7 @@
                   </ul>
                 </div>
 
-                <div class="footer-col footer-links" style=" margin: 20px;text-align: start;">
+                <div class="footer-col footer-links" style=" margin: 20px;text-align: start; z-index: 9999;">
                   <h4  style="font-family: AbdoMaster;font-size: 10pt;">{{static_content.agencies}}</h4>
                   <br>
 
@@ -113,7 +132,7 @@
                   </ul>
                 </div>
                
-                <div class="footer-col footer-links" style="text-align: start; margin: 20px;">
+                <div class="footer-col footer-links" style="text-align: start; z-index: 9999; margin: 20px;">
                   <h4  style="font-family: AbdoMaster;font-size: 10pt;">{{static_content.reports}}</h4>
                   <br>
 
@@ -135,7 +154,7 @@
                     {% endif %}
                   </ul>
                 </div>
-                <div class="footer-col footer-links" style="border: red 0px solid; margin: 20px;">
+                <div class="footer-col footer-links" style="border: red 0px solid; margin: 20px;z-index: 9999;">
                   <h4 style="font-family: AbdoMaster;font-size: 10pt;">{{static_content.news_center}}</h4>
                   <br>
                   <ul>
@@ -153,7 +172,7 @@
                 {% if  setting and not setting.is_hidden_contact   %}              
                   <div
                       {% if setting.phone_1 or setting.phone_2 or setting.fax or setting.emile or setting.emile or setting.mail_box or setting.facebook or setting.twitter or setting.instagram %}
-                      class="footer-col   contact footer-links" style="text-align: start;margin: 20px;"
+                      class="footer-col   contact footer-links" style="text-align: start; z-index: 9999;margin: 20px;"
                       {% else %}
                         class=""
                       {% endif %}
@@ -324,8 +343,8 @@
               </div>
             </div>
           </div>
-          <div style="border: red 0px solid; margin-bottom: 8px; padding: 0px;" class="list-links-footer">
-            <ul class="links" style="margin:  0px;">
+          <div style="border: red 0px solid; margin-bottom: 8px; padding: 0px;z-index: 9999;" class="list-links-footer">
+            <ul class="links" style="margin:  0px;z-index: 9999;">
               <li><a style="font-family: AbdoMaster;font-size: 10pt;" href="/{{static_content.lang}}/privacy-policy" class="">{{static_content.privacy_policy}}</a></li>
               <li><a style="font-family: AbdoMaster;font-size: 10pt;" href="/{{static_content.lang}}/anti-money-laundering" class="router-link-active router-link-exact-active"
                   aria-current="page">{{static_content.money_washing}}</a></li>

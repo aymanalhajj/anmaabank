@@ -85,7 +85,7 @@
         display: none;
     }
 }
-
+/* 
 .footer-bk{
     position: absolute;
     bottom: -15px;
@@ -94,7 +94,7 @@
     height: 520px;  
     opacity: .9;  
     z-index: 10;
-}
+} */
 
 :root {
     /* --main: var(--primary); */
@@ -9482,16 +9482,6 @@ header.w .top-header .alinma-logo .logo-color {
     margin-bottom: -5px
 }
 
-footer {
-    position: relative;
-    color: var(--color-primary);
-    padding: 48px 0 0;
-    background: var(--primary);
-    background: linear-gradient(0deg, var(--primary) 0%, var(--primary) 100%);
-    border-top-right-radius: 70px;
-    border-top-left-radius: 70px;
-    overflow: hidden
-}
 
 @media (max-width: 991px) {
     footer {
@@ -16224,17 +16214,16 @@ footer-old {
         radial-gradient(at 80% 50%, var(--accent) 0px, transparent 50%);
 }
 
+
 footer {
     position: relative;
     color: var(--color-primary);
     padding: 48px 0 0;
-
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
-    overflow: hidden;
-
-    background-color: var(--primary);
-
+    background: var(--primary);
+    background: linear-gradient(0deg, var(--primary) 0%, var(--primary) 100%);
+    border-top-right-radius: 70px;
+    border-top-left-radius: 70px;
+    overflow: hidden
 }
 
 .footer .footer-newsletter {
