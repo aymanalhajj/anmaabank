@@ -24,15 +24,19 @@
     <div class="w3-center w3-light-grey w3-padding-16 w3-hide-large w3-hide-medium">
         <div class="w3-bar w3-light-grey">
             <center>
-                <a href="/{{static_content.lang}}/jobs/cvedit" class="w3-bar-item w3-button">السيرة الذاتية</a>
-                <a href="/{{static_content.lang}}/jobs/passwordchange" class="w3-bar-item w3-button">تغيير كلمة المرور</a>
-                <a href="/{{static_content.lang}}/jobs/jobsoffered" class="w3-bar-item w3-button">الوظائف المقدم فيها</a>
-                <a class="w3-bar-item w3-button" href="/{{static_content.lang}}/jobs/show_cv">عرض السيرة الذاتية</a>
-                {% if user.is_active and user.is_staff %}
+                    <a href="/{{static_content.lang}}/jobs/cvedit" style="display: inline;height: 50px; background: var(--primary);padding: 10px; text-align: center; border-radius: 5px;color: white;  font-weight: bold; line-height: 25px;margin: 25px;" >
+                        السيرة الذاتية</a>
+                <a href="/{{static_content.lang}}/jobs/passwordchange" style="display: inline;height: 50px; background: var(--primary);padding: 10px; text-align: center; border-radius: 5px;color: white;  font-weight: bold; line-height: 25px;margin: 25px;" >
+                    تغيير كلمة المرور</a>
+                <a href="/{{static_content.lang}}/jobs/jobsoffered" style="display: inline;height: 50px; background: var(--primary);padding: 10px; text-align: center; border-radius: 5px;color: white;  font-weight: bold; line-height: 25px;margin: 25px;" >
+                    الوظائف المقدم فيها</a>
+                <a href="/{{static_content.lang}}/jobs/show_cv" style="display: inline;height: 50px; background: var(--primary);padding: 10px; text-align: center; border-radius: 5px;color: white;  font-weight: bold; line-height: 25px;margin: 25px;" >
+                    عرض السيرة الذاتية</a>
+                <!-- {% if user.is_active and user.is_staff %}
                 <a href="/{{static_content.lang}}/jobs/admin/" class="w3-bar-item w3-button">
                     ادارة المقدمين على الوظائف
                 </a>
-                {% endif %}
+                {% endif %} -->
             </center>
         </div>
     </div>

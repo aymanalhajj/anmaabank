@@ -729,8 +729,8 @@ class oreder_Jobs(models.Model):
 
 
 class Education(models.Model):
-    id = models.IntegerField(
-        auto_created=True, primary_key=True, verbose_name=_("الرقم"))
+    # id = models.IntegerField(
+    #     auto_created=True, primary_key=True, verbose_name=_("الرقم"))
     name_educational_institution = models.CharField(
         max_length=100, verbose_name=_('اسم المؤسسة التعليمية:'))
     country = models.ForeignKey(
@@ -807,7 +807,7 @@ class Education(models.Model):
 
 
 class LanguageSkill(models.Model):
-    id = models.IntegerField(auto_created=True, primary_key=True)
+    # id = models.IntegerField(auto_created=True, primary_key=True)
     name_language = models.CharField(max_length=100,
 
                                      choices=lang,
@@ -975,7 +975,7 @@ class BankKonown(models.Model):
 
 
 class GeneralData(models.Model):
-    id = models.IntegerField(auto_created=True, primary_key=True)
+    # id = models.IntegerField(auto_created=True, primary_key=True)
     work_bank = models.CharField(
         max_length=5, choices=CHECK_ANSER, default='لا', verbose_name=_('هل تعمل في البنك'))
     receive_email = models.CharField(

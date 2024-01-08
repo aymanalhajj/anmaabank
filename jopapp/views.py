@@ -428,7 +428,7 @@ class OrderJobView(View):
                                                                    title="الوظائف المقدمة"))
 
 
-def detail(request, id):
+def detail(request,lang, id):
     djobs = Jobs.objects.get(id=id),
     try:
         user_id = request.session.get('userLoggedUserId')
@@ -701,7 +701,7 @@ class Changepassword(View):
             return redirect('/login/?urlredirect='+getUrl(request))
         else:
 
-            return render(request, 'jop/passwordchange.html')
+            return render(request, 'jop/passwordchange.html',contextDate(request=request,lang=lang))
 
     def post(self, request, lang = "ar"):
         if lang is None or lang not in("ar","en"):
@@ -755,7 +755,7 @@ class FileUploadView(View):
         form = uploadCvForm(request.POST, request.FILES, instance=task)
         if form.is_valid():
             form.save()
-            return redirect('baseinfo')  # Redirect to a success page
+            return redirect('/'+lang+'/jobs/baseinfo')  # Redirect to a success page
         return render(request, 'jop/cv/uploadcv.html', contextDate(lang= lang, url_name="filedupload", request=request, form=form,))
 
 

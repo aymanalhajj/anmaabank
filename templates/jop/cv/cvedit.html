@@ -16,8 +16,15 @@
                         <th>البلد</th>
                         <th>المستوى التعليمي</th>
 
-                        <th><a href="{% url "education" %}"> <button class="btn btn-primary "
-                                    id="btnupdata">اضافة</button></a></th>
+                        <th>تحرير</th>
+
+                        <th>حذف</th>
+
+                        <!-- <th>
+                            <a href="/{{static_content.lang}}/jobs/education"> 
+                                <button class="btn btn-primary " id="btnupdata">اضافة</button>
+                            </a>
+                        </th> -->
 
                     </tr>
 
@@ -30,17 +37,17 @@
                         <td> {{f.name_educational_institution}}</td>
                         <td>{{f.country}}</td>
                         <td>{{f.sducation_level}}</td>
-                        <td><a href='{{f.sducation_level}}'></td>
                         <td>
-
-                            <div class="button-container">
-                                <a href="/education/UpdateEducation/{{f.id}}"> <button
-                                        class="btn btn-info {{disabled}} " id="btnupdata">تحرير</button></a>
-                                <a href="/education/deleteeducation/{{f.id}}"> <button class="btn btn-danger "
-                                        type="submit">حذف</button></a>
-                            </div>
-
+                            <a href="/education/UpdateEducation/{{f.id}}"> 
+                                <button class="btn btn-info {{disabled}} " id="btnupdata">تحرير</button>
+                            </a>
                         </td>
+                        <td>
+                            <a href="/education/deleteeducation/{{f.id}}"> 
+                                <button class="btn btn-danger" type="submit">حذف</button>
+                            </a>
+                        </td>
+                       
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -58,10 +65,14 @@
                         <th>القراءه</th>
                         <th> الكتابة</th>
                         <th>محادثة</th>
+                        
+                        <th>تحرير</th>
+
+                        <th>حذف</th>
 
 
-                        <th><a href="{% url "languagskills" %}"> <button class="btn btn-primary "
-                                    id="btnupdata">اضافة</button></a></th>
+                        <!-- <th><a href="/{{static_content.lang}}/jobs/languagskills"> <button class="btn btn-primary "
+                                    id="btnupdata">اضافة</button></a></th> -->
 
                     </tr>
 
@@ -78,8 +89,18 @@
                         <td>{{f.writing}}</td>
                         <td>{{f.conversation}}</td>
 
-
                         <td>
+                            <a href="/languagskills/UpdateLangskils/{{f.id}}"> 
+                                <button class="btn btn-info" id="btnupdata">تحرير</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/languagskills/DeleteLangskils/{{f.id}}"> 
+                                <button class="btn btn-danger" type="submit">حذف</button>
+                            </a>
+                        </td>
+
+                        <!-- <td>
                             <div class="button-container">
                                 <a href="/languagskills/UpdateLangskils/{{f.id}}"> <button class="btn btn-info "
                                         id="btnupdata">تحرير</button></a>
@@ -87,7 +108,7 @@
                                         type="submit">حذف</button></a>
                             </div>
 
-                        </td>
+                        </td> -->
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -98,7 +119,7 @@
                 <thead>
                     <th>اسم المهارة </th>
                     <th>مستوى المهارة</th>
-                    <th><a href="{% url "computerskills" %}"> <button class="btn btn-primary "
+                    <th><a href="/{{static_content.lang}}/jobs/computerskills"> <button class="btn btn-primary "
                                 id="btnupdata">اضافة</button></a></th>
 
 
@@ -133,7 +154,7 @@
                         <th>الدورة</th>
                         <th> البلد</th>
 
-                        <th><a href="{% url "triningcourses" %}"> <button class="btn btn-primary "
+                        <th><a href="/{{static_content.lang}}/jobs/triningcourses"> <button class="btn btn-primary "
                                     id="btnupdata">اضافة</button></a></th>
 
                     </tr>
@@ -180,7 +201,7 @@
                         {% comment %} <th>الراتب في النهاية </th> {% endcomment %}
                         {% comment %} <th>عدد ساعات العمل </th> {% endcomment %}
 
-                        <th><a href="{% url "experince" %}"> <button class="btn btn-primary "
+                        <th><a href="/{{static_content.lang}}/jobs/experince"> <button class="btn btn-primary "
                                     id="btnupdata">اضافة</button></a></th>
 
                     </tr>
@@ -228,7 +249,7 @@
                         <th>صلة القرابة</th>
                         <th> العنوان</th>
                         <th> العمل</th>
-                        <th><a href="{% url "BankKonown" %}"> <button class="btn btn-primary "
+                        <th><a href="/{{static_content.lang}}/jobs/BankKonown"> <button class="btn btn-primary "
                                     id="btnupdata">اضافة</button></a></th>
 
 

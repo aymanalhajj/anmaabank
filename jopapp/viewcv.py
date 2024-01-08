@@ -286,14 +286,14 @@ def baseinfoshow(request):
                       )
 
 
-def DeleteEducation(request, id):
+def DeleteEducation(request,lang, id):
     education = Education.objects.filter(id=id)
     education.delete()
 
-    return redirect('education')
+    return redirect('/'+lang+'/jobs/education')
 
 
-def UpdateEducation(request, id):
+def UpdateEducation(request,lang, id):
     disabled = "disabled"
     task = get_object_or_404(Education, pk=id)
     formdata = Education.objects.filter(
@@ -303,10 +303,10 @@ def UpdateEducation(request, id):
         form = EducationForm(request.POST, request.FILES, instance=task)
         if form.is_valid():
             form.save()
-            return redirect('education')
+            return redirect('/'+lang+'/jobs/education')
     else:
         form = EducationForm(instance=task)
-    return render(request, 'jop/cv/education.html', {'disabled': disabled, 'formdata': formdata, 'form': form, 'active': 'btn-primary'})
+    return render(request, 'jop/cv/education.html', {"static_content": static_content[lang],'disabled': disabled, 'formdata': formdata, 'form': form, 'active': 'btn-primary'})
 
 
 class educationView(View):
@@ -359,7 +359,8 @@ class educationView(View):
             #     request, 'Congratualtions !! lauguage save Successfully')
             form = EducationForm()
 
-            return redirect('education')
+            # return redirect('education')
+            return redirect('/'+lang+'/jobs/education/')
 
         return render(request, 'jop/cv/education.html', contextDate(lang = lang,url_name="education", request=request, form=form, count=None, jobs=None, djobs=None,
                                                                     job=None, formset=None,
@@ -380,11 +381,11 @@ class educationView(View):
                                                                     ))
 
 
-def DeleteLangskils(request, id):
+def DeleteLangskils(request,lang, id):
     education = LanguageSkill.objects.filter(id=id)
     education.delete()
 
-    return redirect('languagskills')
+    return redirect('/'+lang+'/jobs/languagskills')
 
 
 def UpdateLangskils(request, id, lang = "ar"):
@@ -400,7 +401,7 @@ def UpdateLangskils(request, id, lang = "ar"):
         form = LanguageSkillFrom(request.POST, request.FILES, instance=task)
         if form.is_valid():
             form.save()
-            return redirect('languagskills')
+            return redirect('/'+lang+'/jobs/languagskills')
     else:
         form = LanguageSkillFrom(instance=task)
         return render(request, 'jop/cv/languagskills.html',

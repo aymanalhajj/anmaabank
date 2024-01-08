@@ -26,7 +26,7 @@
 
             {% endfor %}
             {% endif %}
-            <form method="POST" style="padding: 10px" class="p-5" validate action="{% url "baseinfo" %}">
+            <form method="POST" style="padding: 10px" class="p-5" validate action="/{{static_content.lang}}/jobs/baseinfo/{{job.id}}">
                 {% load crispy_forms_tags %}
                 {% csrf_token %}
 
@@ -64,14 +64,14 @@
                         <div class="input-group-prepend with-label">
                             
               {% if static_content.lang == "ar" %}
-              <span class="input-group-text" id="basic-addon1">
-                  {% if field.field.icon %}
-                  <i class="{{field.field.icon}}"></i>
-                  {% else %}
-                  <i class="bi bi-journal-code"></i>
-                  {% endif %}
-              </span>
-          {% endif %}
+                <span class="input-group-text" id="basic-addon1">
+                    {% if field.field.icon %}
+                    <i class="{{field.field.icon}}"></i>
+                    {% else %}
+                    <i class="bi bi-journal-code"></i>
+                    {% endif %}
+                </span>
+                {% endif %}
                         </div>
                         {% endif %}
                         {{field|as_crispy_field}}
@@ -87,14 +87,14 @@
                             <div class="input-group-prepend with-label">
                                
               {% if static_content.lang == "ar" %}
-              <span class="input-group-text" id="basic-addon1">
-                  {% if field.field.icon %}
-                  <i class="{{field.field.icon}}"></i>
-                  {% else %}
-                  <i class="bi bi-journal-code"></i>
-                  {% endif %}
-              </span>
-          {% endif %}
+                <span class="input-group-text" id="basic-addon1">
+                    {% if field.field.icon %}
+                    <i class="{{field.field.icon}}"></i>
+                    {% else %}
+                    <i class="bi bi-journal-code"></i>
+                    {% endif %}
+                </span>
+              {% endif %}
                             </div>
                             {% endif %}
                         </div>
@@ -111,27 +111,25 @@
             
                 </br>
                 
-    <div class="row gx-5">
-        <div class=" col">
-            <button class="btn btn-info btn-primary" name="updateSectorNameBtn" type="submit">{{static_content.save}}</button>
-        </div>
-        <div class=" col">
-            <a type="button" class="btn btn-default next col-lg-2 navbar-left" href="/{{static_content.lang}}/jobs/education"
-            role="button">{{static_content.next}}</a>
-        </div>
-      </div>
+                <div class="row gx-5">
+                    <div class=" col">
+                        <button class="btn btn-info btn-primary" name="updateSectorNameBtn" type="submit">{{static_content.save}}</button>
+                    </div>
+                    <div class=" col">
+                        <a type="button" class="btn btn-default next col-lg-2 navbar-left" href="/{{static_content.lang}}/jobs/education"
+                        role="button">{{static_content.next}}</a>
+                    </div>
+                </div>
 
-            </form>
-            {% if messages %}
-            {% for message in messages %}
-            <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
-            {% endfor %}
-            {% endif %}
-        </div>
-    </div>
-
-
-</div>
+                        </form>
+                        {% if messages %}
+                        {% for message in messages %}
+                        <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
 </div>
 </div>
 
